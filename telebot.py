@@ -72,7 +72,7 @@ def insert(update, context):
 
 
 def ping(update, context):
-    for i in range(20):
+    for i in range(5):
         context.bot.send_message(
             chat_id=update.effective_chat.id, text="@lianzniz hello! ")
 
