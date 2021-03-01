@@ -7,12 +7,12 @@ import pandas as pd
 import numpy as np
 import json
 
-import twitter_credentials
+import auth_token
 
 
 def authenticate():
-    auth = OAuthHandler(twitter_credentials.CONSUMER_KEY, twitter_credentials.CONSUMER_SECRET)
-    auth.set_access_token(twitter_credentials.ACCESS_TOKEN, twitter_credentials.ACCESS_TOKEN_SECRET)
+    auth = OAuthHandler(auth_token.CONSUMER_KEY, auth_token.CONSUMER_SECRET)
+    auth.set_access_token(auth_token.ACCESS_TOKEN, auth_token.ACCESS_TOKEN_SECRET)
     api = API(auth)
     return api
 

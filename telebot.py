@@ -3,6 +3,8 @@ import telegram
 
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
+import auth_token
+
 import mysql.connector
 cnx = mysql.connector.connect(user='root',
                               host='127.0.0.1',
@@ -10,6 +12,12 @@ cnx = mysql.connector.connect(user='root',
 cursor = cnx.cursor()
 
 
+'''
+@insertData(first_name,last_name,course)
+dummy insert statement into local database for student object
+the following insert statement would need to cater to the data that is fetch from the twtitter bot
+
+'''
 def insertData(first_name, last_name, course):
 
     # first_name = input("Please input first name ")
@@ -26,7 +34,9 @@ def insertData(first_name, last_name, course):
     except:
         pass
 
-
+''' 
+@selectAll() function to be changed to select all the data from within the database 
+under the query table '''
 def selectAll():
     query = ("SELECT * FROM test.student")
     cursor.execute(query)
@@ -38,12 +48,13 @@ def selectAll():
 
 '''Updater'''
 updater = Updater(
-    token='1649238841:AAFbq0Npfxq8Hz5WdApE3JBrRILm87tZuD4', use_context=True)
+    token=auth_token.TOFU_CRAWLER_KEY, use_context=True)
 dispatcher = updater.dispatcher
 
 '''start functions'''
 
-
+''' All functions would named with their command name  that is given
+such as start/ fetch/insert commands that is available within telegram'''
 def start(update, context):
     context.bot.send_message(
         chat_id=update.effective_chat.id, text="@lianzniz hello! ")
@@ -71,6 +82,7 @@ def insert(update, context):
     #     chat_id=update.effective_chat.id, text="Data inserted! ")
 
 
+''' ping command allows the bot to ping a specific user within the telegram chat group'''
 def ping(update, context):
     for i in range(5):
         context.bot.send_message(
@@ -85,8 +97,8 @@ dispatcher.add_handler(fetch_handler)
 dispatcher.add_handler(CommandHandler('insert', insert))
 dispatcher.add_handler(CommandHandler('ping', ping))
 
+'''start the bot by calling this command'''
 updater.start_polling()
-
 
 # updater.stop()
 
