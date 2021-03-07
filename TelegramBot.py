@@ -7,9 +7,11 @@ import telegram
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 import auth_token
+import time
 
 import mysql.connector
 from BotAPI import BotAPI
+from TwitterBot import Analyze
 
 
 class Telebot:
@@ -56,6 +58,18 @@ class Telebot:
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text="@lianzniz hello! ")
 
+    def reply(self,update,context):
+        try:
+            getTweets = Analyze(context.args[0]).initTwitter()
+            time.sleep(5)
+            context.bot.send_message(
+                chat_id=update.effective_chat.id,text="tweet output for " + context.args[0]
+            )
+            context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./tweets.json","rb"))
+        except:
+            context.bot.send_message(chat_id=update.effective_chat.id,text="Failed to fetch new file!")
+        
+
     '''Command handlers'''
 
     def injectHandlers(self):
@@ -66,6 +80,7 @@ class Telebot:
         self.dispatcher.add_handler(CommandHandler('fetch', self.fetch))
         self.dispatcher.add_handler(CommandHandler('insert', self.insert))
         self.dispatcher.add_handler(CommandHandler('ping', self.ping))
+        self.dispatcher.add_handler(CommandHandler('reply', self.reply))
 
     '''start the bot by calling this command'''
 

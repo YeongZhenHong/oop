@@ -58,4 +58,3 @@ class Analyze():
         df = self.tweets_to_df(tweetLi)
         # print(dir(tweetLi[0]))
         #print statement for output purposes, will delete after
-
