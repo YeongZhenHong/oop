@@ -1,4 +1,7 @@
-# imports!
+'''
+Coded by Yeong Zhen Hong 2609703Y
+'''
+
 import telegram
 
 from telegram.ext import Updater
@@ -6,7 +9,7 @@ from telegram.ext import CommandHandler
 import auth_token
 
 import mysql.connector
-
+from BotAPI import BotAPI
 
 
 class Telebot:
@@ -14,49 +17,7 @@ class Telebot:
     updater = Updater(
         token=auth_token.TOFU_CRAWLER_KEY, use_context=True)
     dispatcher = updater.dispatcher
-
-    '''
-    Connections to mysql service
-    '''
-
-    cnx = mysql.connector.connect(user=auth_token.MYSQL_DBUSER,
-                                  host=auth_token.MYSQL_HOST,
-                                  database=auth_token.MYSQL_DBNAME)
-
-    '''
-    @insertData(first_name,last_name,course)
-    dummy insert statement into local database for student object
-    the following insert statement would need to cater to the data that is fetch from the twtitter bot
-
-    '''
-
-    def insertData(self, first_name, last_name, course):
-
-        # first_name = input("Please input first name ")
-        # last_name = input("Please input last name ")
-        # course = input("Please input course ")
-        try:
-            add_student = ("INSERT INTO test.student " +
-                           "(first_name, last_name, course) " +
-                           "VALUES ('"+first_name+"', '"+last_name+"','"+course+"')")
-
-            self.cursor.execute(add_student)
-            cnx.commit()
-            return True
-        except:
-            pass
-
-    '''
-    @selectAll() function to be changed to select all the data from within the database
-    under the query table '''
-
-    def selectAll(self):
-        query = ("SELECT * FROM test.student")
-        self.cursor.execute(query)
-        astr = ''
-        for i in self.cursor:
-            astr += str(i)
-        return astr
+    initDB = BotAPI()
 
     '''start functions'''
 
@@ -68,14 +29,15 @@ class Telebot:
             chat_id=update.effective_chat.id, text="@lianzniz hello! ")
 
     def fetch(self, update, context):
-        bstr = self.selectAll()
+        bstr = self.initDB.selectAll()
         context.bot.send_message(
             chat_id=update.effective_chat.id, text=bstr)
 
     def insert(self, update, context):
         # user_text = " ".join(context.args)
         try:
-            insertData(context.args[0], context.args[1], context.args[2])
+            self.initDB.insertData(
+                context.args[0], context.args[1], context.args[2])
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text="Data inserted! ")
         except:
@@ -116,7 +78,8 @@ class Telebot:
     # cursor.close()
     # cnx.close()
 
+if __name__ == "__main__":
+    aBot=Telebot()
+    aBot.startBot()
 
-a = Telebot()
 
-a.startBot()

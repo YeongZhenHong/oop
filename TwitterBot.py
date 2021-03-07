@@ -1,3 +1,6 @@
+'''
+Coded by Austin Sim Wei Jun 2609730S
+'''
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
