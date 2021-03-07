@@ -7,28 +7,28 @@ import auth_token
 
 import mysql.connector
 
+'''
+Connections to mysql service
+'''
+cnx = mysql.connector.connect(user=auth_token.MYSQL_DBUSER,
+                              host=auth_token.MYSQL_HOST,
+                              database=auth_token.MYSQL_DBNAME)
+cursor = cnx.cursor()
 
 
-class Telebot:
+'''
+@insertData(first_name,last_name,course)
+dummy insert statement into local database for student object
+the following insert statement would need to cater to the data that is fetch from the twtitter bot
+
+'''
+
+
+class TelegramBot:
     '''Updater'''
     updater = Updater(
-        token=auth_token.TOFU_CRAWLER_KEY, use_context=True)
+    token=auth_token.TOFU_CRAWLER_KEY, use_context=True)
     dispatcher = updater.dispatcher
-
-    '''
-    Connections to mysql service
-    '''
-
-    cnx = mysql.connector.connect(user=auth_token.MYSQL_DBUSER,
-                                  host=auth_token.MYSQL_HOST,
-                                  database=auth_token.MYSQL_DBNAME)
-
-    '''
-    @insertData(first_name,last_name,course)
-    dummy insert statement into local database for student object
-    the following insert statement would need to cater to the data that is fetch from the twtitter bot
-
-    '''
 
     def insertData(self, first_name, last_name, course):
 
@@ -40,7 +40,7 @@ class Telebot:
                            "(first_name, last_name, course) " +
                            "VALUES ('"+first_name+"', '"+last_name+"','"+course+"')")
 
-            self.cursor.execute(add_student)
+            cursor.execute(add_student)
             cnx.commit()
             return True
         except:
@@ -52,9 +52,9 @@ class Telebot:
 
     def selectAll(self):
         query = ("SELECT * FROM test.student")
-        self.cursor.execute(query)
+        cursor.execute(query)
         astr = ''
-        for i in self.cursor:
+        for i in cursor:
             astr += str(i)
         return astr
 
@@ -97,10 +97,12 @@ class Telebot:
     '''Command handlers'''
 
     def injectHandlers(self):
+       
+
         '''Command Handlers
         used to detect user inputs with their commands        
         '''
-        self.dispatcher.add_handler(CommandHandler('start', self.start))
+        self.dispatcher.add_handler(CommandHandler('start',self.start))
         self.dispatcher.add_handler(CommandHandler('fetch', self.fetch))
         self.dispatcher.add_handler(CommandHandler('insert', self.insert))
         self.dispatcher.add_handler(CommandHandler('ping', self.ping))
@@ -117,6 +119,6 @@ class Telebot:
     # cnx.close()
 
 
-a = Telebot()
+a = TelegramBot()
 
 a.startBot()
