@@ -1,3 +1,6 @@
+'''
+Coded by Brendan Tan Wen Yi 2609720T
+'''
 import re
 import matplotlib.pyplot as plt
 from nltk.tokenize import RegexpTokenizer
