@@ -18,39 +18,53 @@ class BotAPI:
                                   database=auth_token.MYSQL_DBNAME)
     cursor = cnx.cursor()
     '''
-    @insertData(first_name,last_name,course)
+    @insertData(author, content, date, likes, retweets, url)
     dummy insert statement into local database for student object
     the following insert statemetn would need to cater to data that
     is fetched from the twitter bot
     '''
 
-    def insertData(self, first_name, last_name, course):
+    def insertData(self, author, content, date, likes, retweets, url):
 
-        # first_name = input("Please input first name ")
-        # last_name = input("Please input last name ")
-        # course = input("Please input course ")
+        # self.author = author
+        # self.content = content
+        # self.date = date
+        # self.likes = likes
+        # self.retweets = retweets
+        # self.url = url
+
+        # author = input("Please input Author name: ")
+        # content = input("Please input tweet content: ")
+        # date = input("Please input date: ")
+        # likes = input("Please input no. of likes: ")
+        # retweets = input("Please input no. of retweets: ")
+        # url = input("Please input URL: ")
+
         try:
-            add_student = ("INSERT INTO test.student " +
-                           "(first_name, last_name, course) " +
-                           "VALUES ('"+first_name+"', '"+last_name+"','"+course+"')")
+            add_tweets = ("INSERT INTO crawler.tweets " +
+               "(author, content, date, likes, retweets, url)" +
+               "VALUES ('"+author+"', '"+content+"', '"+date+"', '"+likes+"', '"+retweets+"', '"+url+"')")
 
-            self.cursor.execute(add_student)
-            cnx.commit()
-            return True
+            self.cursor.execute(add_tweets)
+            print("insert successfully")
+            self.cnx.commit()
         except:
-            pass
+            print("insert fail")
+
     '''
     @selectAll() function to be changed to select all the data from within the database
     under the query table '''
 
     def selectAll(self):
-        query = ("SELECT * FROM test.student")
+        query = ("SELECT * FROM crawler.tweets")
         self.cursor.execute(query)
         astr = ''
         for i in self.cursor:
             astr += str(i)
         return astr
     
+a = BotAPI()
+a.insertData("hong", "aaaaaaa", "2021-02-03", "666", "4753", "www.pochai.com")
     #cursor.close()
     #cnx.close()
 
