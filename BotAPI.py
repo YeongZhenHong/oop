@@ -5,6 +5,7 @@ Coded by Liani Aslam 2609807A
 import mysql.connector
 import auth_token
 import datetime
+import pandas as pd
 
 class BotAPI:
 
@@ -44,12 +45,12 @@ class BotAPI:
     under the query table '''
 
     def selectAll(self):
-        query = ("SELECT * FROM test.student")
+        query = ("SELECT * FROM crawler.testing")
         self.cursor.execute(query)
-        astr = ''
+        aList = []
         for i in self.cursor:
-            astr += str(i)
-        return astr
+            aList.append(i)
+        return aList
 
     # cursor.close()
     # cnx.close()
@@ -57,7 +58,10 @@ class BotAPI:
     def insertFromTwitter(self, author, content, date, likes, retweets, url):
 
         try:
-            add_tweets = ("INSERT INTO crawler.tweets " +
+            # add_tweets = ("INSERT INTO crawler.tweets " +
+            #               "(author, content, date, likes, retweets, url)" +
+            #               "VALUES ('"+author+"', '"+content+"', '"+date+"', '"+likes+"', '"+retweets+"', '"+url+"')")
+            add_tweets = ("INSERT INTO crawler.testing " +
                           "(author, content, date, likes, retweets, url)" +
                           "VALUES ('"+author+"', '"+content+"', '"+date+"', '"+likes+"', '"+retweets+"', '"+url+"')")
             self.cursor.execute(add_tweets)
@@ -68,4 +72,17 @@ class BotAPI:
     def close(self):
         self.cnx.close()
         self.cursor.close()
+    
+    def readCsv(self):
+        # a = open("tweets.csv","rb")
+        df = pd.read_csv("tweets.csv",usecols=['content','author','date','retweets','likes','url'])
+        # print(df)
+        for index,row in df.iterrows():
+            # print(type(str(row['url'])))
+            self.insertFromTwitter(str(row['author']),str(row['content']),str(row['date']),str(row['likes']),str(row['retweets']),str(row['url']))
+        
+
+# a = BotAPI()
+# a.readCsv()
+# a.insertFromTwitter("hong","what","who")
 
