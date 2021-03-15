@@ -4,10 +4,9 @@ Coded by Liani Aslam 2609807A
 
 import mysql.connector
 import auth_token
-
+import datetime
 
 class BotAPI:
-
 
     '''
     Connections to mysql service
@@ -15,7 +14,8 @@ class BotAPI:
 
     cnx = mysql.connector.connect(user=auth_token.MYSQL_DBUSER,
                                   host=auth_token.MYSQL_HOST,
-                                  database=auth_token.MYSQL_DBNAME)
+                                  database=auth_token.MYSQL_DBNAME,
+                                  password=auth_token.MYSQL_PASSWD)
     cursor = cnx.cursor()
     '''
     @insertData(first_name,last_name,course)
@@ -35,7 +35,7 @@ class BotAPI:
                            "VALUES ('"+first_name+"', '"+last_name+"','"+course+"')")
 
             self.cursor.execute(add_student)
-            cnx.commit()
+            self.cnx.commit()
             return True
         except:
             pass
@@ -50,9 +50,22 @@ class BotAPI:
         for i in self.cursor:
             astr += str(i)
         return astr
-    
-    #cursor.close()
-    #cnx.close()
 
-       
-    
+    # cursor.close()
+    # cnx.close()
+
+    def insertFromTwitter(self, author, content, date, likes, retweets, url):
+
+        try:
+            add_tweets = ("INSERT INTO crawler.tweets " +
+                          "(author, content, date, likes, retweets, url)" +
+                          "VALUES ('"+author+"', '"+content+"', '"+date+"', '"+likes+"', '"+retweets+"', '"+url+"')")
+            self.cursor.execute(add_tweets)
+            self.cnx.commit()
+            print("Insert successful!")
+        except:
+            print("Fail to insert into database!")
+    def close(self):
+        self.cnx.close()
+        self.cursor.close()
+
