@@ -54,21 +54,27 @@ class Telebot:
     ''' ping command allows the bot to ping a specific user within the telegram chat group'''
 
     def ping(self, update, context):
+        astr = ""
         for i in range(5):
-            context.bot.send_message(
-                chat_id=update.effective_chat.id, text="@lianzniz hello! ")
+            astr += "@lianzniz hello! \n"
+        context.bot.send_message(
+            chat_id=update.effective_chat.id, text=astr)
 
-    def reply(self,update,context):
+    def reply(self, update, context):
         try:
             getTweets = Analyze(context.args[0]).initTwitter()
             time.sleep(5)
             context.bot.send_message(
-                chat_id=update.effective_chat.id,text="tweet output for " + context.args[0]
+                chat_id=update.effective_chat.id, text="tweet output for " +
+                context.args[0]
             )
-            context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./tweets.json","rb"))
+            context.bot.sendDocument(
+                chat_id=update.effective_chat.id, document=open("./tweets.csv", "rb"))
+            context.bot.sendDocument(
+                chat_id=update.effective_chat.id, document=open("./sent_anal.png", "rb"))
         except:
-            context.bot.send_message(chat_id=update.effective_chat.id,text="Failed to fetch new file!")
-        
+            context.bot.send_message(
+                chat_id=update.effective_chat.id, text="Failed to fetch new file!")
 
     '''Command handlers'''
 
@@ -93,8 +99,7 @@ class Telebot:
     # cursor.close()
     # cnx.close()
 
+
 if __name__ == "__main__":
-    aBot=Telebot()
+    aBot = Telebot()
     aBot.startBot()
-
-

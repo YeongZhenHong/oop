@@ -41,7 +41,8 @@ class Analyze():
         df['date'] = np.array([tweet.created_at for tweet in tweets])
         df['retweets'] = np.array([tweet.retweet_count for tweet in tweets])
         df['likes'] = np.array([tweet.favorite_count for tweet in tweets])
-        return df.to_json('tweets.json', orient='records', indent=1)
+        # return df.to_json('tweets.json', orient='records', indent=1)
+        return df.to_csv('tweets.csv')
     '''
     @initTwitter function takes calls authenticate() to allow the application
     to access twitter api 
@@ -51,10 +52,11 @@ class Analyze():
         filter_list = self.keyword + " -filter:retweets"
         api = self.authenticate()
         tweets = Cursor(api.search, q=filter_list, lang="en",
-                        result_type="popular").items(10)
+                        result_type="recent").items(100)
         tweetLi = []
         for tweet in tweets:
             tweetLi.append(tweet)
         df = self.tweets_to_df(tweetLi)
         # print(dir(tweetLi[0]))
         #print statement for output purposes, will delete after
+getTweets = Analyze("foodpanda").initTwitter()
