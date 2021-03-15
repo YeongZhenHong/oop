@@ -32,12 +32,11 @@ if __name__ == "__main__":
     keyword = "Austin OR Trump"
     filter_list = keyword + " -filter:retweets"
     api = authenticate()
-    tweets = Cursor(api.search, q=filter_list, lang="en", result_type="popular").items(10)
+    tweets = Cursor(api.search, q=filter_list, lang="en", result_type="recent").items(200)
     tweetLi = []
     for tweet in tweets:
         tweetLi.append(tweet)
     df = tweet_analyzer.tweets_to_df(tweetLi)
-    print(dir(tweetLi[0]))
 
 
 
