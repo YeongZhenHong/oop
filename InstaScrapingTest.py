@@ -7,7 +7,6 @@ import time
 import pandas as pd
 from pandas import DataFrame
 import re #for replace and split
-import base64
 
 '''
 Please dont run multiple times, else account get banned
