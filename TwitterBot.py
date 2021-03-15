@@ -67,4 +67,4 @@ class Analyze():
 
         # print(dir(tweetLi[0]))
         # print statement for output purposes, will delete after
-getTweets = Analyze("food panda").initTwitter()
+# getTweets = Analyze("food panda").initTwitter()
