@@ -32,8 +32,13 @@ class Telebot:
 
     def fetch(self, update, context):
         bstr = self.initDB.selectAll()
-        context.bot.send_message(
-            chat_id=update.effective_chat.id, text=bstr)
+        for item in bstr:
+            
+            context.bot.send_message(
+            chat_id=update.effective_chat.id, text=str(item))
+
+        # print(bstr)
+        
 
     def insert(self, update, context):
         # user_text = " ".join(context.args)
