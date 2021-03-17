@@ -1,0 +1,130 @@
+\hypertarget{class_bot_a_p_i_1_1_bot_a_p_i}{}\doxysection{Bot\+API.\+Bot\+API Class Reference}
+\label{class_bot_a_p_i_1_1_bot_a_p_i}\index{BotAPI.BotAPI@{BotAPI.BotAPI}}
+
+
+\mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i}{Bot\+API}} class Defines a telegram bot object to allow Telegram\+Bot class to interact with the database to insert and retrieve crawled data from the database.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a62e305f056a1a27a955df49f3abf7689}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i}{Bot\+API}} class initializer. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a425133565c3cd57cf68ca393cb536ce5}{open\+Cnx}} (self)
+\begin{DoxyCompactList}\small\item\em Open Connections. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a72a35d127825f333b1b604495091e5a9}{close\+Cnx}} (self)
+\begin{DoxyCompactList}\small\item\em close\+Cnx(self) ~\newline
+ \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}{select\+Tweets}} (self)
+\begin{DoxyCompactList}\small\item\em Select all tweets that is stored in the database. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a3ef5c1ac27470ede353418366e824fff}{insert\+Tweets}} (self, author, content, date, likes, retweets, url)
+\begin{DoxyCompactList}\small\item\em insert tweets \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a869416fc214c5e56d27920b0b4f4d082}\label{class_bot_a_p_i_1_1_bot_a_p_i_a869416fc214c5e56d27920b0b4f4d082}} 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a869416fc214c5e56d27920b0b4f4d082}{read\+Csv}} (self)
+\begin{DoxyCompactList}\small\item\em Inserts generated csv files from crawlers into database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_af25951daf2bf8b279aeb1b819c497e5c}\label{class_bot_a_p_i_1_1_bot_a_p_i_af25951daf2bf8b279aeb1b819c497e5c}} 
+{\bfseries cnx}
+\item 
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a819fffe53230b1205363ecef0c98af74}\label{class_bot_a_p_i_1_1_bot_a_p_i_a819fffe53230b1205363ecef0c98af74}} 
+{\bfseries cursor}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i}{Bot\+API}} class Defines a telegram bot object to allow Telegram\+Bot class to interact with the database to insert and retrieve crawled data from the database. 
+
+Static variables cnx and cursor are used to open and close connections from each time the other classes attempt to make a database connection This is to ensure that the database connection is closed after each time the user is done with their commit 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a62e305f056a1a27a955df49f3abf7689}\label{class_bot_a_p_i_1_1_bot_a_p_i_a62e305f056a1a27a955df49f3abf7689}} 
+\index{BotAPI.BotAPI@{BotAPI.BotAPI}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!BotAPI.BotAPI@{BotAPI.BotAPI}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i}{Bot\+API}} class initializer. 
+
+initalises static variables Bot\+API.\+cnx and Bot\+API.\+cursor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a72a35d127825f333b1b604495091e5a9}\label{class_bot_a_p_i_1_1_bot_a_p_i_a72a35d127825f333b1b604495091e5a9}} 
+\index{BotAPI.BotAPI@{BotAPI.BotAPI}!closeCnx@{closeCnx}}
+\index{closeCnx@{closeCnx}!BotAPI.BotAPI@{BotAPI.BotAPI}}
+\doxysubsubsection{\texorpdfstring{closeCnx()}{closeCnx()}}
+{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+close\+Cnx (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+close\+Cnx(self) ~\newline
+ 
+
+closes the database connection after commit is completed
+
+Ensures that each time user commits to database to release all database resources
+
+cnx.\+close() closes the database connection
+
+cnx.\+cursor.\+close() frees up the cursor resource that is currently used by the application \mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a3ef5c1ac27470ede353418366e824fff}\label{class_bot_a_p_i_1_1_bot_a_p_i_a3ef5c1ac27470ede353418366e824fff}} 
+\index{BotAPI.BotAPI@{BotAPI.BotAPI}!insertTweets@{insertTweets}}
+\index{insertTweets@{insertTweets}!BotAPI.BotAPI@{BotAPI.BotAPI}}
+\doxysubsubsection{\texorpdfstring{insertTweets()}{insertTweets()}}
+{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+insert\+Tweets (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{author,  }\item[{}]{content,  }\item[{}]{date,  }\item[{}]{likes,  }\item[{}]{retweets,  }\item[{}]{url }\end{DoxyParamCaption})}
+
+
+
+insert tweets 
+
+Inserts tweets from csv file that is generated by Twitter\+Bot.\+py 
+\begin{DoxyParams}{Parameters}
+{\em author} & Author of tweet \\
+\hline
+{\em content} & Content of tweet \\
+\hline
+{\em date} & Date tweeted \\
+\hline
+{\em likes} & Number of likes the tweets has \\
+\hline
+{\em retweets} & Number of retweets the tweet has \\
+\hline
+{\em url} & The URL of the tweet \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em self.\+cnx.\+commit()} & failure to commit into database \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a425133565c3cd57cf68ca393cb536ce5}\label{class_bot_a_p_i_1_1_bot_a_p_i_a425133565c3cd57cf68ca393cb536ce5}} 
+\index{BotAPI.BotAPI@{BotAPI.BotAPI}!openCnx@{openCnx}}
+\index{openCnx@{openCnx}!BotAPI.BotAPI@{BotAPI.BotAPI}}
+\doxysubsubsection{\texorpdfstring{openCnx()}{openCnx()}}
+{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+open\+Cnx (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Open Connections. 
+
+open\+Cnx opens a database connection the the local database to the user to select, insert or delete data in the database
+
+cnx contains the database object using python mysql connector
+
+creates a cursor object to allow the program to execute user comamnds \mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}\label{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}} 
+\index{BotAPI.BotAPI@{BotAPI.BotAPI}!selectTweets@{selectTweets}}
+\index{selectTweets@{selectTweets}!BotAPI.BotAPI@{BotAPI.BotAPI}}
+\doxysubsubsection{\texorpdfstring{selectTweets()}{selectTweets()}}
+{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+select\+Tweets (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Select all tweets that is stored in the database. 
+
+Select statement to select all tweets from crawler.\+testing 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_bot_a_p_i_8py}{Bot\+API.\+py}}\end{DoxyCompactItemize}
