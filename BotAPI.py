@@ -7,7 +7,7 @@ Allows the all the classes to interact with the database
 '''
 
 import mysql.connector
-import auth_token
+import Auth_Token
 import datetime
 import pandas as pd
 
@@ -41,10 +41,10 @@ class BotAPI:
         @brief cnx contains the database object using python mysql connector
         @brief creates a cursor object to allow the program to execute user comamnds 
         """
-        self.cnx = mysql.connector.connect(user=auth_token.MYSQL_DBUSER,
-                                           host=auth_token.MYSQL_HOST,
-                                           database=auth_token.MYSQL_DBNAME,
-                                           password=auth_token.MYSQL_PASSWD)
+        self.cnx = mysql.connector.connect(user=Auth_Token.MYSQL_DBUSER,
+                                           host=Auth_Token.MYSQL_HOST,
+                                           database=Auth_Token.MYSQL_DBNAME,
+                                           password=Auth_Token.MYSQL_PASSWD)
         self.cursor = self.cnx.cursor()
 
     def closeCnx(self):

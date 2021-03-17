@@ -11,7 +11,7 @@ import telegram
 
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
-import auth_token
+import Auth_Token
 import time
 
 import mysql.connector
@@ -36,7 +36,7 @@ class TelegramBot:
         @return an instance of TelegramBot class initialized with the parameters
         """
         TelegramBot.updater = Updater(
-            token=auth_token.TOFU_CRAWLER_KEY, use_context=True)
+            token=Auth_Token.TOFU_CRAWLER_KEY, use_context=True)
         TelegramBot.dispatcher = TelegramBot.updater.dispatcher
         self.initDB = BotAPI()
 
