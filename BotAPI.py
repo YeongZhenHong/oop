@@ -99,9 +99,7 @@ class BotAPI:
         """
         df = pd.read_csv("tweets.csv", usecols=[
                          'content', 'author', 'date', 'retweets', 'likes', 'url'])
-        # print(df)
         for index, row in df.iterrows():
-            # print(type(str(row['url'])))
             self.insertTweets(str(row['author']), str(row['content']), str(
                 row['date']), str(row['likes']), str(row['retweets']), str(row['url']))
 
