@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['twitterbot_28',['TwitterBot',['../namespace_twitter_bot.html',1,'']]]
+  ['sentimental_5fanalysis_28',['Sentimental_Analysis',['../namespace_sentimental___analysis.html',1,'']]]
 ];

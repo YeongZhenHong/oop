@@ -1,10 +1,11 @@
-'''! @file BotAPI.py
+"""! 
+@file BotAPI.py
 @author Liani Aslam 2609807A
 @version 1.0
 @brief This file contains the BotAPI class
 @section DESCRIPTION
 Allows the all the classes to interact with the database
-'''
+"""
 
 import mysql.connector
 import Auth_Token
@@ -13,17 +14,14 @@ import pandas as pd
 
 
 class BotAPI:
-    """!BotAPI class
-    Defines a telegram bot object to allow TelegramBot class to interact with the database
-    to insert and retrieve crawled data from the database
-
-    """
     """!
-    @brief Static variables cnx and cursor are used to open and close connections 
+    @section ABOUT
+    Static variables cnx and cursor are used to open and close connections 
     from each time the other classes attempt to make a database connection
     This is to ensure that the database connection is closed after each time 
     the user is done with their commit
-
+    Defines a telegram bot object to allow TelegramBot class to interact with the database
+    to insert and retrieve crawled data from the database
     """
 
     def __init__(self):
@@ -38,8 +36,9 @@ class BotAPI:
         """! Open Connections
         @brief openCnx opens a database connection the the local database
         to the user to select, insert or delete data in the database
-        @brief cnx contains the database object using python mysql connector
-        @brief creates a cursor object to allow the program to execute user comamnds 
+        cnx contains the database object using python mysql connector
+        creates a cursor object to allow the program to execute user comamnds
+        
         """
         self.cnx = mysql.connector.connect(user=Auth_Token.MYSQL_DBUSER,
                                            host=Auth_Token.MYSQL_HOST,
