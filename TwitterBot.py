@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 import json
 
-import auth_token
+import Auth_Token 
 
 
 class Analyze():
@@ -27,10 +27,10 @@ class Analyze():
     '''
 
     def authenticate(self):
-        auth = OAuthHandler(auth_token.CONSUMER_KEY,
-                            auth_token.CONSUMER_SECRET)
-        auth.set_access_token(auth_token.ACCESS_TOKEN,
-                              auth_token.ACCESS_TOKEN_SECRET)
+        auth = OAuthHandler(Auth_Token.CONSUMER_KEY,
+                            Auth_Token.CONSUMER_SECRET)
+        auth.set_access_token(Auth_Token.ACCESS_TOKEN,
+                              Auth_Token.ACCESS_TOKEN_SECRET)
         api = API(auth)
         return api
     '''
