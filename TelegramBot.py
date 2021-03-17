@@ -1,4 +1,4 @@
-"""!
+"""! 
 @file TelegramBot.py
 @author Yeong Zhen Hong 2609703Y
 @brief This file contains the TelegramBot class
@@ -78,22 +78,26 @@ class TelegramBot:
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text=str(item))
         self.initDB.closeCnx()
+
     def startBot(self):
         """! Function
         @brief startsBot() start the bot by injecting handler and begin polling"""
         self.injectHandlers()
         self.updater.start_polling()
-    
+
+    def killBot(self):
+        """! kill bot
+        @brief kills bot using updater.stop()"""
+        self.updater.stop()
 
     def ping(self, update, context):
-        '''! Function
+        '''! Ping
         @brief ping command allows the bot to ping a specific user within the telegram chat group'''
         astr = ""
         for i in range(5):
             astr += context.args[0]+" hello! \n"
         context.bot.send_message(
             chat_id=update.effective_chat.id, text=astr)
-    
 
     def injectHandlers(self):
         """! injectHandlers(self)
@@ -107,10 +111,6 @@ class TelegramBot:
         self.dispatcher.add_handler(CommandHandler(
             'CrawlTwitter', self.crawlTwitter))
 
-    def killBot(self):
-        """! Function
-        @brief kills bot using updater.stop()"""
-        self.updater.stop()
 
 if __name__ == "__main__":
     aBot = TelegramBot()

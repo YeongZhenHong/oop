@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['generateweb_7',['generateWeb',['../classweb_1_1generate_web.html',1,'web']]]
+  ['generateweb_7',['generateWeb',['../class_web_1_1generate_web.html',1,'Web']]]
 ];
