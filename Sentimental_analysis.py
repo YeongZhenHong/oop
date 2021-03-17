@@ -58,6 +58,7 @@ def plot_bar(score):
     ax = fig.add_axes([0, 0, 1, 1])
     sentiment = ['Positive', 'Negative', 'Neutral']
     ax.bar(sentiment, data)
+    plt.savefig('./sent_anal.png')
     plt.show()
 
 
