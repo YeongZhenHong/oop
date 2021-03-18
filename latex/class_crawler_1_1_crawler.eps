@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 108.695656
+%%BoundingBox: 0 0 500 67.567566
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 4.600000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 7.400000 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
 /rows 3 def
-/cols 3 def
+/cols 4 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -175,6 +175,7 @@ boxfont setfont
 1 boundaspect scale
 (Crawler.Crawler) cw
 (ABC) cw
+(InstagramCrawler.InstagramCrawler) cw
 (RedditCrawler.RedditCrawler) cw
 (TwitterCrawler.Twitter) cw
 (YahooCrawler.Yahoo) cw
@@ -189,25 +190,28 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (Crawler.Crawler) 1.000000 1.000000 box
- (ABC) 1.000000 2.000000 box
- (RedditCrawler.RedditCrawler) 0.000000 0.000000 box
- (TwitterCrawler.Twitter) 1.000000 0.000000 box
- (YahooCrawler.Yahoo) 2.000000 0.000000 box
+ (Crawler.Crawler) 1.500000 1.000000 box
+ (ABC) 1.500000 2.000000 box
+ (InstagramCrawler.InstagramCrawler) 0.000000 0.000000 box
+ (RedditCrawler.RedditCrawler) 1.000000 0.000000 box
+ (TwitterCrawler.Twitter) 2.000000 0.000000 box
+ (YahooCrawler.Yahoo) 3.000000 0.000000 box
 
 % ----- relations -----
 
 solid
-0 1.000000 1.000000 out
+0 1.500000 1.000000 out
 solid
-1 1.000000 2.000000 in
+1 1.500000 2.000000 in
 solid
-1 1.000000 0.250000 out
+1 1.500000 0.250000 out
 solid
-0.000000 2.000000 1.000000 conn
+0.000000 3.000000 1.000000 conn
 solid
 0 0.000000 0.750000 in
 solid
 0 1.000000 0.750000 in
 solid
 0 2.000000 0.750000 in
+solid
+0 3.000000 0.750000 in
