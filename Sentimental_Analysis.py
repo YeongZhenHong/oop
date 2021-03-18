@@ -8,10 +8,14 @@ from nltk.corpus import stopwords
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
-
 # removes all punctuations, special symbols, urls and converts to lowercase
 def clean(file):
-    text = open(file).read()
+    """! clean(file)
+    @brief cleans text for accurate analysis
+    @param file cvs 
+    @return a string without: /n, special characters/symbols, digits, and stop words
+    """
+    text = open(file, encoding="utf8").read()
     # lowercase
     text = text.lower()
 
@@ -39,6 +43,11 @@ def clean(file):
 
 
 def sentiment_analyse(text):
+    """! sentiment analyse(text)
+    @brief takes in string and passes it through nltk VADER analyser
+    @param string
+    @return a list indicating overall positive, negative and neutral score of the given string
+    """
     value = SentimentIntensityAnalyzer().polarity_scores(text)
     neg = value['neg']
     pos = value['pos']
@@ -52,16 +61,22 @@ def sentiment_analyse(text):
     return value
 
 
-def plot_bar(score):
+def plot_pie(score):
+    """! plot_pie(score)
+    @brief plots a pir chart with a given set of scores
+    @param score of float type
+    """
+    highlight = (0.1, 0, 0)
     data = [score['pos'], score['neg'], score['neu']]
     fig = plt.figure()
     ax = fig.add_axes([0, 0, 1, 1])
     sentiment = ['Positive', 'Negative', 'Neutral']
-    ax.bar(sentiment, data)
+    ax.pie(data, explode=highlight, labels=sentiment, autopct='%1.1f%%',
+           shadow=True, startangle=90)
     plt.savefig('./sent_anal.png')
     plt.show()
 
 
 if __name__ == "__main__":
-    score = sentiment_analyse(clean('tweets.json'))
-    plot_bar(score)
+    score = sentiment_analyse(clean('tweets.csv'))
+    plot_pie(score)
