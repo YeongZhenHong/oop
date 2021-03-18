@@ -101,5 +101,6 @@ class BotAPI:
         for index, row in df.iterrows():
             self.insertTweets(str(row['author']), str(row['content']), str(
                 row['date']), str(row['likes']), str(row['retweets']), str(row['url']))
-
+    
+    
 
