@@ -61,7 +61,7 @@ class TelegramBot:
                 chat_id=update.effective_chat.id, document=open("./sent_anal.png", "rb"))
         except:
             context.bot.send_message(
-                chat_id=update.effective_chat.id, text="Failed to fetch new file!")
+                chat_id=update.effective_chat.id, text="Failed to crawl twitter!!")
 
     def fetchTweets(self, update, context):
         """! fetchTweets(self,update,context)
@@ -71,19 +71,30 @@ class TelegramBot:
         @param context Fetches all the tweets from the database
         @param tweetsArray contains all the tweets that is called from the database
         """
-        self.initDB.openCnx()
-        tweetsArray = self.initDB.selectTweets()
-        for item in tweetsArray:
+        try:
+            self.initDB.openCnx()
+            tweetsArray = self.initDB.selectTweets()
+            for item in tweetsArray:
 
+                context.bot.send_message(
+                    chat_id=update.effective_chat.id, text=str(item))
+            self.initDB.closeCnx()
+            return True
+        except:
             context.bot.send_message(
-                chat_id=update.effective_chat.id, text=str(item))
-        self.initDB.closeCnx()
+                chat_id=update.effective_chat.id, text="Failed to fetch tweets from database!")
+            return False
 
     def startBot(self):
         """! Function
         @brief startsBot() start the bot by injecting handler and begin polling"""
-        self.injectHandlers()
-        self.updater.start_polling()
+        try:
+            self.injectHandlers()
+            self.updater.start_polling()
+            return True
+        except:
+            print("Failed to start telegram bot! ")
+            return False
 
     def killBot(self):
         """! kill bot
@@ -105,11 +116,16 @@ class TelegramBot:
         add handlers into dispatcher to allow the bot to capture user input
         which would trigger function calls from within TelegramBot class
         """
-        self.dispatcher.add_handler(
-            CommandHandler('FetchTweets', self.fetchTweets))
-        self.dispatcher.add_handler(CommandHandler('ping', self.ping))
-        self.dispatcher.add_handler(CommandHandler(
-            'CrawlTwitter', self.crawlTwitter))
+        try:
+            self.dispatcher.add_handler(
+                CommandHandler('FetchTweets', self.fetchTweets))
+            self.dispatcher.add_handler(CommandHandler('ping', self.ping))
+            self.dispatcher.add_handler(CommandHandler(
+                'CrawlTwitter', self.crawlTwitter))
+            return True
+        except:
+            print("Failed to inject handlers!")
+            return False
 
 
 if __name__ == "__main__":

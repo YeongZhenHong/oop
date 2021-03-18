@@ -75,14 +75,19 @@ class Twitter(Crawler):
         the entered keyword.
         and calls tweets_to_df() function to generate a csv file.
         """
-        filter_list = self.get_searchString() + " -filter:retweets"
-        api = self.authenticate()
-        tweets = Cursor(api.search, q=filter_list, lang="en",
+        try:
+            filter_list = self.get_searchString() + " -filter:retweets"
+            api = self.authenticate()
+            tweets = Cursor(api.search, q=filter_list, lang="en",
                         result_type="mixed").items(self.limit)
-        tweetLi = []
-        for tweet in tweets:
-            tweetLi.append(tweet)
-        df = self.tweets_to_df(tweetLi)
+            tweetLi = []
+            for tweet in tweets:
+                tweetLi.append(tweet)
+            df = self.tweets_to_df(tweetLi)
+            return True
+        except:
+            print("cannot crawl")
+            return False
 
         # print(dir(tweetLi[0]))
         # print statement for output purposes, will delete after
