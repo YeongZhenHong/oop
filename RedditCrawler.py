@@ -17,7 +17,7 @@ class RedditCrawler(Crawler):
     """! The reddit crawler sub class
     Defines a Reddit Crawler subclass to crawl reddit dataset.
     
-    Inherits from crawler based class
+    Inherits from crawler based class test
     """
 
     def __init__(self, limit=10):
