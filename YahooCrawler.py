@@ -17,7 +17,7 @@ headers = {
 }
 
 
-"""! Yahoo class
+"""! Yahoo class inheriting Crawler class.
 @brief Allows an instance of the Yahoo class to be created, taking in user-input for search objective.
 @brief Contains get_article function, to retrieve required informational fields from an article.
 @brief Contains get_news function, to conduct searching of keyword and output of a csv file of all the articles.
@@ -25,18 +25,22 @@ headers = {
 class Yahoo(Crawler):
 
     """! Yahoo initializer
-    @brief takes in user-input keyword and initializes an instance of the Yahoo class.
+    @brief Creates an instance of class Yahoo to conduct crawling of news articles.
     """
 
     def __init__(self):
         super().__init__()
         self.news_articles = []
 
+    """! set_Settings function
+    @brief Sets a keyword to search for.
+    """
     def set_Settings(self, searchString):
         super().set_searchString(searchString)
 
     """! Get article function
-    @brief 
+    @param An article
+    @brief Pulls out required information from the article and returns a tuple with the fields.
     """
     def get_article(self, stuff):
         title = stuff.find('h4', 's-title').text
@@ -51,7 +55,10 @@ class Yahoo(Crawler):
         article = (title, source, date, desc, cleaned_link)
         return article
 
-
+    """! crawl function
+    @brief Html request into yahoo news + search word, finds all news article divisions and
+    writes a output csv file from news_article array.
+    """
     def crawl(self):
         template = 'https://sg.news.search.yahoo.com/search?p={}'
         url = template.format(self.get_searchString())
@@ -80,8 +87,4 @@ class Yahoo(Crawler):
             writer.writerow(['Title', 'Source', 'Date', 'Description', 'Link'])
             writer.writerows(self.news_articles)
         return self.news_articles
-
-y = Yahoo()
-y.set_searchString('foodpanda')
-y.crawl()
 
