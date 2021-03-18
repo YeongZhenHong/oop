@@ -1,6 +1,6 @@
 """! 
 @file RedditCrawler.py
-@author 
+@author Kendrick Ang 2609737A
 @brief This file contains the Reddit Crawler sub class
 @version 1.0
 @section DESCRIPTION
