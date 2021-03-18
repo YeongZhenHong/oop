@@ -51,7 +51,7 @@ class InstagramCrawler(Crawler):
         self.chrome_options.add_argument("--ignore-certificate-errors")
         self.driver = webdriver.Chrome(options=self.chrome_options)
         self.driver.get("https://instagram.com")
-        time.sleep(2)
+        time.sleep(2)""
 
     def login(self, _username, _password):
         """! 
