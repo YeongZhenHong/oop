@@ -11,7 +11,7 @@ import praw
 import csv
 from Crawler import Crawler
 from datetime import datetime
-import auth_token
+import Auth_Token
 
 class RedditCrawler(Crawler):
     """! The reddit crawler sub class
@@ -29,7 +29,7 @@ class RedditCrawler(Crawler):
         #store a list of objects
         self.posts = []
         self.limit = limit
-        self.authenticate(auth_token.REDDIT_CLIENT,auth_token.REDDIT_SECRET, auth_token.REDDIT_AGENT)
+        self.authenticate(Auth_Token.REDDIT_CLIENT,Auth_Token.REDDIT_SECRET, Auth_Token.REDDIT_AGENT)
     
     def authenticate(self, clientid, clientsecret, user):
         """! authenticates the usage of scraping data from reddit and creates an instance of reddit
@@ -66,8 +66,9 @@ class RedditCrawler(Crawler):
             try:
                 for comment in post.comments.list():
                     date = str(datetime.fromtimestamp(comment.created_utc))
-                    datesplit = date.split(" ")
-                    p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
+                    # datesplit = date.split(" ")
+                    p = (comment.body, date)
+                    # p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
                     self.posts.append(p)
             except: pass
         
@@ -79,7 +80,8 @@ class RedditCrawler(Crawler):
         """
         with open(super().get_searchString() + '_' + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
+            writer.writerow(['Comment', 'Datetime'])
+            # writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
             writer.writerows(self.posts)
 
 r = RedditCrawler()
