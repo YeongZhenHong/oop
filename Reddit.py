@@ -1,9 +1,9 @@
 import praw
 import csv
-import auth_token
+import Auth_Token
 
 def reddit_obj():
-    reddit = praw.Reddit(client_id=auth_token.REDDIT_CLIENT, client_secret=auth_token.REDDIT_SECRET, user_agent=auth_token.REDDIT_AGENT, username=auth_token.REDDIT_USERNAME, password=auth_token.REDDIT_PASSWORD)
+    reddit = praw.Reddit(client_id=Auth_Token.REDDIT_CLIENT, client_secret=Auth_Token.REDDIT_SECRET, user_agent=Auth_Token.REDDIT_AGENT, username=Auth_Token.REDDIT_USERNAME, password=Auth_Token.REDDIT_PASSWORD)
     return reddit
 
 

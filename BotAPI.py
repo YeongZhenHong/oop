@@ -1,49 +1,27 @@
-'''! @file BotAPI.py
+"""! 
+@file BotAPI.py
 @author Liani Aslam 2609807A
 @version 1.0
 @brief This file contains the BotAPI class
 @section DESCRIPTION
 Allows the all the classes to interact with the database
-'''
+"""
 
 import mysql.connector
-import auth_token
+import Auth_Token
 import datetime
 import pandas as pd
 
 
 class BotAPI:
-    """!BotAPI class
-    Defines a telegram bot object to allow TelegramBot class to interact with the database
-    to insert and retrieve crawled data from the database
-
-    """
     """!
-    @brief Static variables cnx and cursor are used to open and close connections 
+    @section ABOUT
+    Static variables cnx and cursor are used to open and close connections 
     from each time the other classes attempt to make a database connection
     This is to ensure that the database connection is closed after each time 
     the user is done with their commit
-
-<<<<<<< HEAD
-    cnx = mysql.connector.connect(user=auth_token.MYSQL_DBUSER,
-                                  host=auth_token.MYSQL_HOST,
-                                  database=auth_token.MYSQL_DBNAME,
-                                  password=auth_token.MYSQL_PASSWD)
-    cursor = cnx.cursor()
-    '''
-    @insertData(author, content, date, likes, retweets, url)
-    dummy insert statement into local database for student object
-    the following insert statemetn would need to cater to data that
-    is fetched from the twitter bot
-    '''
-
-    '''
-    @selectAll() function to be changed to select all the data from within the database
-    under the query table '''
-
-    def selectAll(self):
-        query = ("SELECT author, content FROM crawler.testing")
-=======
+    Defines a telegram bot object to allow TelegramBot class to interact with the database
+    to insert and retrieve crawled data from the database
     """
 
     def __init__(self):
@@ -58,13 +36,14 @@ class BotAPI:
         """! Open Connections
         @brief openCnx opens a database connection the the local database
         to the user to select, insert or delete data in the database
-        @brief cnx contains the database object using python mysql connector
-        @brief creates a cursor object to allow the program to execute user comamnds 
+        cnx contains the database object using python mysql connector
+        creates a cursor object to allow the program to execute user comamnds
+        
         """
-        self.cnx = mysql.connector.connect(user=auth_token.MYSQL_DBUSER,
-                                           host=auth_token.MYSQL_HOST,
-                                           database=auth_token.MYSQL_DBNAME,
-                                           password=auth_token.MYSQL_PASSWD)
+        self.cnx = mysql.connector.connect(user=Auth_Token.MYSQL_DBUSER,
+                                           host=Auth_Token.MYSQL_HOST,
+                                           database=Auth_Token.MYSQL_DBNAME,
+                                           password=Auth_Token.MYSQL_PASSWD)
         self.cursor = self.cnx.cursor()
 
     def closeCnx(self):
@@ -84,7 +63,6 @@ class BotAPI:
         @brief Select statement to select all tweets from crawler.testing
         """
         query = ("SELECT * FROM crawler.testing")
->>>>>>> 7439d5035797f90777e61799f2a375848a97674a
         self.cursor.execute(query)
         aList = []
         for i in self.cursor:
@@ -120,10 +98,9 @@ class BotAPI:
         """
         df = pd.read_csv("tweets.csv", usecols=[
                          'content', 'author', 'date', 'retweets', 'likes', 'url'])
-        # print(df)
         for index, row in df.iterrows():
-            # print(type(str(row['url'])))
             self.insertTweets(str(row['author']), str(row['content']), str(
                 row['date']), str(row['likes']), str(row['retweets']), str(row['url']))
-
+    
+    
 

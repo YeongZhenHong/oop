@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['selecttweets_41',['selectTweets',['../class_bot_a_p_i_1_1_bot_a_p_i.html#a17b83600512c738baa3b64dae85e6b59',1,'BotAPI::BotAPI']]],
-  ['startbot_42',['startBot',['../class_telegram_bot_1_1_telegram_bot.html#a14199dd66f04834102cbc18cce46be42',1,'TelegramBot::TelegramBot']]]
+  ['ping_67',['ping',['../class_telegram_bot_1_1_telegram_bot.html#a0d8782f44ccdd286b4a8b98a04f589d5',1,'TelegramBot::TelegramBot']]],
+  ['plot_5fpie_68',['plot_pie',['../namespace_sentimental___analysis.html#ae6176dba0d11dc6ba5b84c7d912f2c7f',1,'Sentimental_Analysis']]]
 ];

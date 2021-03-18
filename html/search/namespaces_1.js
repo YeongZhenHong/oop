@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['twitterbot_28',['TwitterBot',['../namespace_twitter_bot.html',1,'']]]
+  ['redditcrawler_47',['RedditCrawler',['../namespace_reddit_crawler.html',1,'']]]
 ];

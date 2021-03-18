@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>BotAPI</b></li><li class="navelem"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html">BotAPI</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_bot_a_p_i.html">BotAPI</a></li><li class="navelem"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html">BotAPI</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,14 +73,11 @@ $(function() {
 <div class="title">BotAPI.BotAPI Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html" title="BotAPI class Defines a telegram bot object to allow TelegramBot class to interact with the database t...">BotAPI</a> class Defines a telegram bot object to allow TelegramBot class to interact with the database to insert and retrieve crawled data from the database.  
- <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a62e305f056a1a27a955df49f3abf7689"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html#a62e305f056a1a27a955df49f3abf7689">__init__</a> (self)</td></tr>
-<tr class="memdesc:a62e305f056a1a27a955df49f3abf7689"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html" title="BotAPI class Defines a telegram bot object to allow TelegramBot class to interact with the database t...">BotAPI</a> class initializer.  <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#a62e305f056a1a27a955df49f3abf7689">More...</a><br /></td></tr>
+<tr class="memdesc:a62e305f056a1a27a955df49f3abf7689"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html">BotAPI</a> class initializer.  <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#a62e305f056a1a27a955df49f3abf7689">More...</a><br /></td></tr>
 <tr class="separator:a62e305f056a1a27a955df49f3abf7689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a425133565c3cd57cf68ca393cb536ce5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html#a425133565c3cd57cf68ca393cb536ce5">openCnx</a> (self)</td></tr>
 <tr class="memdesc:a425133565c3cd57cf68ca393cb536ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open Connections.  <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#a425133565c3cd57cf68ca393cb536ce5">More...</a><br /></td></tr>
@@ -110,8 +107,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a819fffe53230b1205363ecef0c98af74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html" title="BotAPI class Defines a telegram bot object to allow TelegramBot class to interact with the database t...">BotAPI</a> class Defines a telegram bot object to allow TelegramBot class to interact with the database to insert and retrieve crawled data from the database. </p>
-<p>Static variables cnx and cursor are used to open and close connections from each time the other classes attempt to make a database connection This is to ensure that the database connection is closed after each time the user is done with their commit </p>
+<div class="textblock"><h1><a class="anchor" id="ABOUT"></a>
+ABOUT</h1>
+<p>Static variables cnx and cursor are used to open and close connections from each time the other classes attempt to make a database connection This is to ensure that the database connection is closed after each time the user is done with their commit Defines a telegram bot object to allow <a class="el" href="namespace_telegram_bot.html">TelegramBot</a> class to interact with the database to insert and retrieve crawled data from the database </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a62e305f056a1a27a955df49f3abf7689"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62e305f056a1a27a955df49f3abf7689">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -129,7 +127,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html" title="BotAPI class Defines a telegram bot object to allow TelegramBot class to interact with the database t...">BotAPI</a> class initializer. </p>
+<p><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html">BotAPI</a> class initializer. </p>
 <p>initalises static variables BotAPI.cnx and BotAPI.cursor </p>
 
 </div>
@@ -254,9 +252,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Open Connections. </p>
-<p>openCnx opens a database connection the the local database to the user to select, insert or delete data in the database</p>
-<p>cnx contains the database object using python mysql connector</p>
-<p>creates a cursor object to allow the program to execute user comamnds </p>
+<p>openCnx opens a database connection the the local database to the user to select, insert or delete data in the database cnx contains the database object using python mysql connector creates a cursor object to allow the program to execute user comamnds </p>
 
 </div>
 </div>

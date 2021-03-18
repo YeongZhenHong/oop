@@ -16,12 +16,12 @@ def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_ad72afddfa3de031f91b5f6
 \begin{DoxyCompactList}\small\item\em fetch\+Tweets(self,update,context) \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a14199dd66f04834102cbc18cce46be42}{start\+Bot}} (self)
 \begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a0d8782f44ccdd286b4a8b98a04f589d5}{ping}} (self, update, context)
-\begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a8084c880a2832c73ac7714ff30ff9704}{inject\+Handlers}} (self)
-\begin{DoxyCompactList}\small\item\em inject\+Handlers(self) \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a6f49373fa9ecd48bd62bc64ef210c5f1}{kill\+Bot}} (self)
-\begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em kill bot \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a0d8782f44ccdd286b4a8b98a04f589d5}{ping}} (self, update, context)
+\begin{DoxyCompactList}\small\item\em Ping. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a8084c880a2832c73ac7714ff30ff9704}{inject\+Handlers}} (self)
+\begin{DoxyCompactList}\small\item\em inject\+Handlers(self) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,16 +44,11 @@ def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a6f49373fa9ecd48bd62bc6
 
 \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot}{Telegram\+Bot}} class initializer. 
 
+updater takes in Telegram\textquotesingle{}s API key to be used for getting the bot to send a receive updates from Telegram servers
 
-\begin{DoxyParams}{Parameters}
-{\em updater} & takes in Telegram\textquotesingle{}s API key to be used for getting the bot to send a receive updates from Telegram servers \\
-\hline
-{\em dispatcher} & dispatches all the updates to its registered handlers \\
-\hline
-{\em init\+DB} & creates an instances of BOTAPI() to allow the bot to perform API calls to interact with the databases \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+dispatcher dispatches all the updates to its registered handlers
+
+init\+DB creates an instances of BOTAPI() to allow the bot to perform API calls to interact with the databases \begin{DoxyReturn}{Returns}
 an instance of \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot}{Telegram\+Bot}} class initialized with the parameters 
 \end{DoxyReturn}
 
@@ -122,7 +117,7 @@ Inject Command handlers add handlers into dispatcher to allow the bot to capture
 
 
 
-Function. 
+kill bot 
 
 kills bot using updater.\+stop() \mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a0d8782f44ccdd286b4a8b98a04f589d5}\label{class_telegram_bot_1_1_telegram_bot_a0d8782f44ccdd286b4a8b98a04f589d5}} 
 \index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!ping@{ping}}
@@ -132,7 +127,7 @@ kills bot using updater.\+stop() \mbox{\Hypertarget{class_telegram_bot_1_1_teleg
 
 
 
-Function. 
+Ping. 
 
 ping command allows the bot to ping a specific user within the telegram chat group \mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a14199dd66f04834102cbc18cce46be42}\label{class_telegram_bot_1_1_telegram_bot_a14199dd66f04834102cbc18cce46be42}} 
 \index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!startBot@{startBot}}

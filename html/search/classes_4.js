@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['telegrambot_26',['TelegramBot',['../class_telegram_bot_1_1_telegram_bot.html',1,'TelegramBot']]]
+  ['redditcrawler_42',['RedditCrawler',['../class_reddit_crawler_1_1_reddit_crawler.html',1,'RedditCrawler']]]
 ];

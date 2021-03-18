@@ -1,0 +1,100 @@
+\hypertarget{class_twitter_crawler_1_1_twitter}{}\doxysection{Twitter\+Crawler.\+Twitter Class Reference}
+\label{class_twitter_crawler_1_1_twitter}\index{TwitterCrawler.Twitter@{TwitterCrawler.Twitter}}
+
+
+\mbox{\hyperlink{class_twitter_crawler_1_1_twitter}{Twitter}} class extends Crawler class.  
+
+
+Inheritance diagram for Twitter\+Crawler.\+Twitter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_twitter_crawler_1_1_twitter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_twitter_crawler_1_1_twitter_a8895472218b76e3291f975a8210b1bfc}\label{class_twitter_crawler_1_1_twitter_a8895472218b76e3291f975a8210b1bfc}} 
+def \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_a8895472218b76e3291f975a8210b1bfc}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em The Crawler based class initializer. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_aa9fd247aa34fced729e1c57e3a30af43}{authenticate}} (self)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_aa9fd247aa34fced729e1c57e3a30af43}{authenticate()}} function \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_ad8046f55632fd3c5a0424e23efa7d611}{set\+\_\+\+Settings}} (self, search\+String, limit)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_ad8046f55632fd3c5a0424e23efa7d611}{set\+\_\+\+Settings()}} function \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_a9bf6f4a17c152333356eca2a44f0bb9a}{tweets\+\_\+to\+\_\+df}} (self, tweets)
+\begin{DoxyCompactList}\small\item\em tweets\+\_\+to\+\_\+df function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_ae84a3b7cf8808dc5eea5ee0174bf4695}{crawl}} (self)
+\begin{DoxyCompactList}\small\item\em crawl function inherited from Crawler class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_twitter_crawler_1_1_twitter_ab86a814cf68b1d550281e78b54f79108}\label{class_twitter_crawler_1_1_twitter_ab86a814cf68b1d550281e78b54f79108}} 
+{\bfseries Tweet\+List}
+\item 
+\mbox{\Hypertarget{class_twitter_crawler_1_1_twitter_a74a1e20e440994299ec129c8a5c395be}\label{class_twitter_crawler_1_1_twitter_a74a1e20e440994299ec129c8a5c395be}} 
+{\bfseries limit}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_twitter_crawler_1_1_twitter}{Twitter}} class extends Crawler class. 
+
+Defining a tweet crawler object to crawl tweets.
+
+Inputs include a search word and a search count. Contains initializer, authentication, crawling function and data processing. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_twitter_crawler_1_1_twitter_aa9fd247aa34fced729e1c57e3a30af43}\label{class_twitter_crawler_1_1_twitter_aa9fd247aa34fced729e1c57e3a30af43}} 
+\index{TwitterCrawler.Twitter@{TwitterCrawler.Twitter}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!TwitterCrawler.Twitter@{TwitterCrawler.Twitter}}
+\doxysubsubsection{\texorpdfstring{authenticate()}{authenticate()}}
+{\footnotesize\ttfamily def Twitter\+Crawler.\+Twitter.\+authenticate (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_twitter_crawler_1_1_twitter_aa9fd247aa34fced729e1c57e3a30af43}{authenticate()}} function 
+
+returns API authentication for \mbox{\hyperlink{class_twitter_crawler_1_1_twitter}{Twitter}} API, from the Auth\+\_\+\+Token file. \mbox{\Hypertarget{class_twitter_crawler_1_1_twitter_ae84a3b7cf8808dc5eea5ee0174bf4695}\label{class_twitter_crawler_1_1_twitter_ae84a3b7cf8808dc5eea5ee0174bf4695}} 
+\index{TwitterCrawler.Twitter@{TwitterCrawler.Twitter}!crawl@{crawl}}
+\index{crawl@{crawl}!TwitterCrawler.Twitter@{TwitterCrawler.Twitter}}
+\doxysubsubsection{\texorpdfstring{crawl()}{crawl()}}
+{\footnotesize\ttfamily def Twitter\+Crawler.\+Twitter.\+crawl (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+crawl function inherited from Crawler class. 
+
+takes calls \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_aa9fd247aa34fced729e1c57e3a30af43}{authenticate()}} to allow the application to access twitter api, uses the Cursor function to search for a number of popular and recent tweets, based on the entered keyword. and calls \mbox{\hyperlink{class_twitter_crawler_1_1_twitter_a9bf6f4a17c152333356eca2a44f0bb9a}{tweets\+\_\+to\+\_\+df()}} function to generate a csv file. 
+
+Reimplemented from \mbox{\hyperlink{class_crawler_1_1_crawler_a6f0c39fe04b514d93a7a0402deb81e32}{Crawler.\+Crawler}}.
+
+\mbox{\Hypertarget{class_twitter_crawler_1_1_twitter_ad8046f55632fd3c5a0424e23efa7d611}\label{class_twitter_crawler_1_1_twitter_ad8046f55632fd3c5a0424e23efa7d611}} 
+\index{TwitterCrawler.Twitter@{TwitterCrawler.Twitter}!set\_Settings@{set\_Settings}}
+\index{set\_Settings@{set\_Settings}!TwitterCrawler.Twitter@{TwitterCrawler.Twitter}}
+\doxysubsubsection{\texorpdfstring{set\_Settings()}{set\_Settings()}}
+{\footnotesize\ttfamily def Twitter\+Crawler.\+Twitter.\+set\+\_\+\+Settings (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{search\+String,  }\item[{}]{limit }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_twitter_crawler_1_1_twitter_ad8046f55632fd3c5a0424e23efa7d611}{set\+\_\+\+Settings()}} function 
+
+Sets a keyword to search for and the number of tweets to search for \mbox{\Hypertarget{class_twitter_crawler_1_1_twitter_a9bf6f4a17c152333356eca2a44f0bb9a}\label{class_twitter_crawler_1_1_twitter_a9bf6f4a17c152333356eca2a44f0bb9a}} 
+\index{TwitterCrawler.Twitter@{TwitterCrawler.Twitter}!tweets\_to\_df@{tweets\_to\_df}}
+\index{tweets\_to\_df@{tweets\_to\_df}!TwitterCrawler.Twitter@{TwitterCrawler.Twitter}}
+\doxysubsubsection{\texorpdfstring{tweets\_to\_df()}{tweets\_to\_df()}}
+{\footnotesize\ttfamily def Twitter\+Crawler.\+Twitter.\+tweets\+\_\+to\+\_\+df (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{tweets }\end{DoxyParamCaption})}
+
+
+
+tweets\+\_\+to\+\_\+df function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tweets,an} & array of tweets to convert into a data frame format.\\
+\hline
+\end{DoxyParams}
+tweets\+\_\+to\+\_\+df(tweets) takes in a python list and converts it into a data frame, before returning a csv/json file 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_twitter_crawler_8py}{Twitter\+Crawler.\+py}}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
-"""!
+"""! 
 @file TelegramBot.py
 @author Yeong Zhen Hong 2609703Y
 @brief This file contains the TelegramBot class
@@ -11,12 +11,12 @@ import telegram
 
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
-import auth_token
+import Auth_Token
 import time
 
 import mysql.connector
 from BotAPI import BotAPI
-from TwitterBot import Analyze
+from TwitterCrawler import Twitter
 
 
 class TelegramBot:
@@ -36,7 +36,7 @@ class TelegramBot:
         @return an instance of TelegramBot class initialized with the parameters
         """
         TelegramBot.updater = Updater(
-            token=auth_token.TOFU_CRAWLER_KEY, use_context=True)
+            token=Auth_Token.TOFU_CRAWLER_KEY, use_context=True)
         TelegramBot.dispatcher = TelegramBot.updater.dispatcher
         self.initDB = BotAPI()
 
@@ -49,7 +49,7 @@ class TelegramBot:
         @exception context.bot.send_message Fail to reply user with output
         """
         try:
-            getTweets = Analyze(context.args[0]).initTwitter()
+            getTweets = Twitter(context.args[0]).crawl()
             time.sleep(5)
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text="tweet output for " +
@@ -61,7 +61,7 @@ class TelegramBot:
                 chat_id=update.effective_chat.id, document=open("./sent_anal.png", "rb"))
         except:
             context.bot.send_message(
-                chat_id=update.effective_chat.id, text="Failed to fetch new file!")
+                chat_id=update.effective_chat.id, text="Failed to crawl twitter!!")
 
     def fetchTweets(self, update, context):
         """! fetchTweets(self,update,context)
@@ -71,29 +71,44 @@ class TelegramBot:
         @param context Fetches all the tweets from the database
         @param tweetsArray contains all the tweets that is called from the database
         """
-        self.initDB.openCnx()
-        tweetsArray = self.initDB.selectTweets()
-        for item in tweetsArray:
+        try:
+            self.initDB.openCnx()
+            tweetsArray = self.initDB.selectTweets()
+            for item in tweetsArray:
 
+                context.bot.send_message(
+                    chat_id=update.effective_chat.id, text=str(item))
+            self.initDB.closeCnx()
+            return True
+        except:
             context.bot.send_message(
-                chat_id=update.effective_chat.id, text=str(item))
-        self.initDB.closeCnx()
+                chat_id=update.effective_chat.id, text="Failed to fetch tweets from database!")
+            return False
+
     def startBot(self):
         """! Function
         @brief startsBot() start the bot by injecting handler and begin polling"""
-        self.injectHandlers()
-        self.updater.start_polling()
-    
+        try:
+            self.injectHandlers()
+            self.updater.start_polling()
+            return True
+        except:
+            print("Failed to start telegram bot! ")
+            return False
+
+    def killBot(self):
+        """! kill bot
+        @brief kills bot using updater.stop()"""
+        self.updater.stop()
 
     def ping(self, update, context):
-        '''! Function
+        '''! Ping
         @brief ping command allows the bot to ping a specific user within the telegram chat group'''
         astr = ""
         for i in range(5):
             astr += context.args[0]+" hello! \n"
         context.bot.send_message(
             chat_id=update.effective_chat.id, text=astr)
-    
 
     def injectHandlers(self):
         """! injectHandlers(self)
@@ -101,16 +116,17 @@ class TelegramBot:
         add handlers into dispatcher to allow the bot to capture user input
         which would trigger function calls from within TelegramBot class
         """
-        self.dispatcher.add_handler(
-            CommandHandler('FetchTweets', self.fetchTweets))
-        self.dispatcher.add_handler(CommandHandler('ping', self.ping))
-        self.dispatcher.add_handler(CommandHandler(
-            'CrawlTwitter', self.crawlTwitter))
+        try:
+            self.dispatcher.add_handler(
+                CommandHandler('FetchTweets', self.fetchTweets))
+            self.dispatcher.add_handler(CommandHandler('ping', self.ping))
+            self.dispatcher.add_handler(CommandHandler(
+                'CrawlTwitter', self.crawlTwitter))
+            return True
+        except:
+            print("Failed to inject handlers!")
+            return False
 
-    def killBot(self):
-        """! Function
-        @brief kills bot using updater.stop()"""
-        self.updater.stop()
 
 if __name__ == "__main__":
     aBot = TelegramBot()
