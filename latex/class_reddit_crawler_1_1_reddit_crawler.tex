@@ -1,0 +1,141 @@
+\hypertarget{class_reddit_crawler_1_1_reddit_crawler}{}\doxysection{Reddit\+Crawler.\+Reddit\+Crawler Class Reference}
+\label{class_reddit_crawler_1_1_reddit_crawler}\index{RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}}
+
+
+The reddit crawler sub class Defines a Reddit Crawler subclass to crawl reddit dataset.  
+
+
+Inheritance diagram for Reddit\+Crawler.\+Reddit\+Crawler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_reddit_crawler_1_1_reddit_crawler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_reddit_crawler_1_1_reddit_crawler_ab3b379fd480f37bba7731a218a92eda1}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, limit=10)
+\begin{DoxyCompactList}\small\item\em The reddit crawler class initializer. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_reddit_crawler_1_1_reddit_crawler_a446c977060a9521b393568a40b371b66}{authenticate}} (self, clientid, clientsecret, user)
+\begin{DoxyCompactList}\small\item\em authenticates the usage of scraping data from reddit and creates an instance of reddit \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_reddit_crawler_1_1_reddit_crawler_a3ae8ff372fb15adf41512d0cebbb94e3}{set\+Settings}} (self, search\+String, limit)
+\begin{DoxyCompactList}\small\item\em sets the search string and limit \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_reddit_crawler_1_1_reddit_crawler_ac99f1b0fe043c9db0c4d8e6eb88b9358}{set\+Limit}} (self, limit)
+\begin{DoxyCompactList}\small\item\em sets the limit to amount of posts that can be crawled \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_ab9302228bbd5ef8772d606adef8e7907}\label{class_reddit_crawler_1_1_reddit_crawler_ab9302228bbd5ef8772d606adef8e7907}} 
+def \mbox{\hyperlink{class_reddit_crawler_1_1_reddit_crawler_ab9302228bbd5ef8772d606adef8e7907}{crawl}} (self)
+\begin{DoxyCompactList}\small\item\em main function to start crawling data and export it to .csv file \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_reddit_crawler_1_1_reddit_crawler_a795eb7284de51588d2a1dd2b0c0b2f4f}{output\+To\+File}} (self, filename=\char`\"{}reddit\char`\"{})
+\begin{DoxyCompactList}\small\item\em export data to .csv file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_a9d4f38cf4fb4cd82d75785ed5688baa0}\label{class_reddit_crawler_1_1_reddit_crawler_a9d4f38cf4fb4cd82d75785ed5688baa0}} 
+{\bfseries posts}
+\item 
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_a0ce903742195e9cf87416d7f7a5cf897}\label{class_reddit_crawler_1_1_reddit_crawler_a0ce903742195e9cf87416d7f7a5cf897}} 
+{\bfseries limit}
+\item 
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_aa1f1c0b8bc16223363e3910a1c764dad}\label{class_reddit_crawler_1_1_reddit_crawler_aa1f1c0b8bc16223363e3910a1c764dad}} 
+{\bfseries reddit}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The reddit crawler sub class Defines a Reddit Crawler subclass to crawl reddit dataset. 
+
+Inherits from crawler based class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_ab3b379fd480f37bba7731a218a92eda1}\label{class_reddit_crawler_1_1_reddit_crawler_ab3b379fd480f37bba7731a218a92eda1}} 
+\index{RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Reddit\+Crawler.\+Reddit\+Crawler.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{limit = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+
+
+The reddit crawler class initializer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The amount of posts that can be crawled (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An instance of reddit crawler class initialized with specified limit and authenticates 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_a446c977060a9521b393568a40b371b66}\label{class_reddit_crawler_1_1_reddit_crawler_a446c977060a9521b393568a40b371b66}} 
+\index{RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}}
+\doxysubsubsection{\texorpdfstring{authenticate()}{authenticate()}}
+{\footnotesize\ttfamily def Reddit\+Crawler.\+Reddit\+Crawler.\+authenticate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{clientid,  }\item[{}]{clientsecret,  }\item[{}]{user }\end{DoxyParamCaption})}
+
+
+
+authenticates the usage of scraping data from reddit and creates an instance of reddit 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clientid} & input client\+\_\+id from reddit \\
+\hline
+{\em clientsecret} & input secret key from reddit \\
+\hline
+{\em user} & input user\+\_\+agent(name) from reddit \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_a795eb7284de51588d2a1dd2b0c0b2f4f}\label{class_reddit_crawler_1_1_reddit_crawler_a795eb7284de51588d2a1dd2b0c0b2f4f}} 
+\index{RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}!outputToFile@{outputToFile}}
+\index{outputToFile@{outputToFile}!RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}}
+\doxysubsubsection{\texorpdfstring{outputToFile()}{outputToFile()}}
+{\footnotesize\ttfamily def Reddit\+Crawler.\+Reddit\+Crawler.\+output\+To\+File (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename = {\ttfamily \char`\"{}reddit\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+export data to .csv file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & amend the export filename (optional) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_ac99f1b0fe043c9db0c4d8e6eb88b9358}\label{class_reddit_crawler_1_1_reddit_crawler_ac99f1b0fe043c9db0c4d8e6eb88b9358}} 
+\index{RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}!setLimit@{setLimit}}
+\index{setLimit@{setLimit}!RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}}
+\doxysubsubsection{\texorpdfstring{setLimit()}{setLimit()}}
+{\footnotesize\ttfamily def Reddit\+Crawler.\+Reddit\+Crawler.\+set\+Limit (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{limit }\end{DoxyParamCaption})}
+
+
+
+sets the limit to amount of posts that can be crawled 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & the amount of posts that can be crawled \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_reddit_crawler_1_1_reddit_crawler_a3ae8ff372fb15adf41512d0cebbb94e3}\label{class_reddit_crawler_1_1_reddit_crawler_a3ae8ff372fb15adf41512d0cebbb94e3}} 
+\index{RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}!setSettings@{setSettings}}
+\index{setSettings@{setSettings}!RedditCrawler.RedditCrawler@{RedditCrawler.RedditCrawler}}
+\doxysubsubsection{\texorpdfstring{setSettings()}{setSettings()}}
+{\footnotesize\ttfamily def Reddit\+Crawler.\+Reddit\+Crawler.\+set\+Settings (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{search\+String,  }\item[{}]{limit }\end{DoxyParamCaption})}
+
+
+
+sets the search string and limit 
+
+
+\begin{DoxyParams}{Parameters}
+{\em search\+String} & the search string data we want to crawl \\
+\hline
+{\em limit} & the amount of posts that can be crawled \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_reddit_crawler_8py}{Reddit\+Crawler.\+py}}\end{DoxyCompactItemize}
