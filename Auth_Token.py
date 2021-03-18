@@ -9,9 +9,6 @@ MYSQL_DBNAME="crawler"
 MYSQL_DBUSER="root"
 MYSQL_PASSWD="ForSchool!"
 
-
 REDDIT_CLIENT="SO--Wv0Ey3tvKA"
 REDDIT_SECRET="NswvAZW_UE_UxBjLtQj4FTdiSJ5gaw"
 REDDIT_AGENT="redditcrawl"
-REDDIT_USERNAME="orhstin"
-REDDIT_PASSWORD="redditcrawl123"

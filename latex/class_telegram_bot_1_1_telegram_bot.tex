@@ -1,0 +1,146 @@
+\hypertarget{class_telegram_bot_1_1_telegram_bot}{}\doxysection{Telegram\+Bot.\+Telegram\+Bot Class Reference}
+\label{class_telegram_bot_1_1_telegram_bot}\index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}}
+
+
+\mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot}{Telegram\+Bot}} class Defines a Telegram bot object to capture user input for Tofu\+Crawler\+Bot to allow users to get the bot to crawl information to them before replying with the crawled data.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a4f58ce6094d395d77a9252905ba8bd44}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot}{Telegram\+Bot}} class initializer. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a1770ba41812aa92b9912f9c1c82a6816}{crawl\+Twitter}} (self, update, context)
+\begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_ad72afddfa3de031f91b5f65c096cd8e8}{fetch\+Tweets}} (self, update, context)
+\begin{DoxyCompactList}\small\item\em fetch\+Tweets(self,update,context) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a14199dd66f04834102cbc18cce46be42}{start\+Bot}} (self)
+\begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a0d8782f44ccdd286b4a8b98a04f589d5}{ping}} (self, update, context)
+\begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a8084c880a2832c73ac7714ff30ff9704}{inject\+Handlers}} (self)
+\begin{DoxyCompactList}\small\item\em inject\+Handlers(self) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot_a6f49373fa9ecd48bd62bc64ef210c5f1}{kill\+Bot}} (self)
+\begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a4ebf4309bb263b4cc5446a15c566ad1a}\label{class_telegram_bot_1_1_telegram_bot_a4ebf4309bb263b4cc5446a15c566ad1a}} 
+{\bfseries init\+DB}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot}{Telegram\+Bot}} class Defines a Telegram bot object to capture user input for Tofu\+Crawler\+Bot to allow users to get the bot to crawl information to them before replying with the crawled data. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a4f58ce6094d395d77a9252905ba8bd44}\label{class_telegram_bot_1_1_telegram_bot_a4f58ce6094d395d77a9252905ba8bd44}} 
+\index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!TelegramBot.TelegramBot@{TelegramBot.TelegramBot}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Telegram\+Bot.\+Telegram\+Bot.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot}{Telegram\+Bot}} class initializer. 
+
+updater takes in Telegram\textquotesingle{}s API key to be used for getting the bot to send a receive updates from Telegram servers
+
+dispatcher dispatches all the updates to its registered handlers
+
+init\+DB creates an instances of BOTAPI() to allow the bot to perform API calls to interact with the databases \begin{DoxyReturn}{Returns}
+an instance of \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot}{Telegram\+Bot}} class initialized with the parameters 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a1770ba41812aa92b9912f9c1c82a6816}\label{class_telegram_bot_1_1_telegram_bot_a1770ba41812aa92b9912f9c1c82a6816}} 
+\index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!crawlTwitter@{crawlTwitter}}
+\index{crawlTwitter@{crawlTwitter}!TelegramBot.TelegramBot@{TelegramBot.TelegramBot}}
+\doxysubsubsection{\texorpdfstring{crawlTwitter()}{crawlTwitter()}}
+{\footnotesize\ttfamily def Telegram\+Bot.\+Telegram\+Bot.\+crawl\+Twitter (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{update,  }\item[{}]{context }\end{DoxyParamCaption})}
+
+
+
+Function. 
+
+get\+Tweets gets an instance of Twitter Crawler to fetch tweets from Twitter\textquotesingle{}s API 
+\begin{DoxyParams}{Parameters}
+{\em self} & aaa \\
+\hline
+{\em update} & aaa \\
+\hline
+{\em context} & aaaaa \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em context.\+bot.\+send\+\_\+message} & Fail to reply user with output \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_ad72afddfa3de031f91b5f65c096cd8e8}\label{class_telegram_bot_1_1_telegram_bot_ad72afddfa3de031f91b5f65c096cd8e8}} 
+\index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!fetchTweets@{fetchTweets}}
+\index{fetchTweets@{fetchTweets}!TelegramBot.TelegramBot@{TelegramBot.TelegramBot}}
+\doxysubsubsection{\texorpdfstring{fetchTweets()}{fetchTweets()}}
+{\footnotesize\ttfamily def Telegram\+Bot.\+Telegram\+Bot.\+fetch\+Tweets (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{update,  }\item[{}]{context }\end{DoxyParamCaption})}
+
+
+
+fetch\+Tweets(self,update,context) 
+
+fetches tweets from Twitter\+Bot.\+py 
+\begin{DoxyParams}{Parameters}
+{\em self} & \\
+\hline
+{\em update} & \\
+\hline
+{\em context} & Fetches all the tweets from the database \\
+\hline
+{\em tweets\+Array} & contains all the tweets that is called from the database \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a8084c880a2832c73ac7714ff30ff9704}\label{class_telegram_bot_1_1_telegram_bot_a8084c880a2832c73ac7714ff30ff9704}} 
+\index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!injectHandlers@{injectHandlers}}
+\index{injectHandlers@{injectHandlers}!TelegramBot.TelegramBot@{TelegramBot.TelegramBot}}
+\doxysubsubsection{\texorpdfstring{injectHandlers()}{injectHandlers()}}
+{\footnotesize\ttfamily def Telegram\+Bot.\+Telegram\+Bot.\+inject\+Handlers (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+inject\+Handlers(self) 
+
+Inject Command handlers add handlers into dispatcher to allow the bot to capture user input which would trigger function calls from within \mbox{\hyperlink{class_telegram_bot_1_1_telegram_bot}{Telegram\+Bot}} class \mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a6f49373fa9ecd48bd62bc64ef210c5f1}\label{class_telegram_bot_1_1_telegram_bot_a6f49373fa9ecd48bd62bc64ef210c5f1}} 
+\index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!killBot@{killBot}}
+\index{killBot@{killBot}!TelegramBot.TelegramBot@{TelegramBot.TelegramBot}}
+\doxysubsubsection{\texorpdfstring{killBot()}{killBot()}}
+{\footnotesize\ttfamily def Telegram\+Bot.\+Telegram\+Bot.\+kill\+Bot (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Function. 
+
+kills bot using updater.\+stop() \mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a0d8782f44ccdd286b4a8b98a04f589d5}\label{class_telegram_bot_1_1_telegram_bot_a0d8782f44ccdd286b4a8b98a04f589d5}} 
+\index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!ping@{ping}}
+\index{ping@{ping}!TelegramBot.TelegramBot@{TelegramBot.TelegramBot}}
+\doxysubsubsection{\texorpdfstring{ping()}{ping()}}
+{\footnotesize\ttfamily def Telegram\+Bot.\+Telegram\+Bot.\+ping (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{update,  }\item[{}]{context }\end{DoxyParamCaption})}
+
+
+
+Function. 
+
+ping command allows the bot to ping a specific user within the telegram chat group \mbox{\Hypertarget{class_telegram_bot_1_1_telegram_bot_a14199dd66f04834102cbc18cce46be42}\label{class_telegram_bot_1_1_telegram_bot_a14199dd66f04834102cbc18cce46be42}} 
+\index{TelegramBot.TelegramBot@{TelegramBot.TelegramBot}!startBot@{startBot}}
+\index{startBot@{startBot}!TelegramBot.TelegramBot@{TelegramBot.TelegramBot}}
+\doxysubsubsection{\texorpdfstring{startBot()}{startBot()}}
+{\footnotesize\ttfamily def Telegram\+Bot.\+Telegram\+Bot.\+start\+Bot (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Function. 
+
+starts\+Bot() start the bot by injecting handler and begin polling 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_telegram_bot_8py}{Telegram\+Bot.\+py}}\end{DoxyCompactItemize}
