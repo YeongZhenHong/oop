@@ -16,7 +16,7 @@ import time
 
 import mysql.connector
 from BotAPI import BotAPI
-from TwitterBot import Analyze
+from TwitterCrawler import Twitter
 
 
 class TelegramBot:
@@ -49,7 +49,7 @@ class TelegramBot:
         @exception context.bot.send_message Fail to reply user with output
         """
         try:
-            getTweets = Analyze(context.args[0]).initTwitter()
+            getTweets = Twitter(context.args[0]).crawl()
             time.sleep(5)
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text="tweet output for " +
