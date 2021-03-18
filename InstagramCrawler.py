@@ -32,7 +32,7 @@ class InstagramCrawler(Crawler):
     def __init__(self, hashtag):
         """! The Instragram Crawler class initializer
         @param 
-        @return An instance of Instagram Crawler class initialized with specified sdsd
+        @return An instance of Instagram Crawler class initialized with specified sdsdasdasd
         """
         self.post = 3
         super().set_searchString(hashtag)
