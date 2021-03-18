@@ -1,10 +1,13 @@
 """! 
 @file InstagramCrawler.py
-@author Kendrick Ang
+@author Kendrick Ang 2609737A
 @brief This file contains the Instagram Crawler sub class
 @version 1.0
 @section DESCRIPTION
 Runs instagram crawler to crawl data
+@section usage_main Usage
+e.g instagram = InstagramCrawler('foodpandasg')
+    insta.crawl()
 """
 
 from selenium import webdriver
@@ -26,37 +29,38 @@ class InstagramCrawler(Crawler):
     Inherits from Crawler based class
     """
 
+    #user & post list to store their respective data
     users_list = []
     posts_list = []
     
-    def __init__(self, hashtag):
+    def __init__(self, hashtag, post=10):
         """! The Instragram Crawler class initializer
-        @param 
-        @return An instance of Instagram Crawler class initialized with specified sdsdasdasd
+        @param hashtag the search tag we want to crawl
+        @param post the amount of posts to be crawled
+        @return An instance of Instagram Crawler class initialized with specified hashtag and post
         """
-        self.post = 3
+        super().__init__()
         super().set_searchString(hashtag)
+        self.post = post
         self.setup()
         self.login("CSC10071007@gmail.com", "P@ssw0rd1007")
         self.navigateViaHashTag()
         #self.scroll_down()
 
     def setup(self):
-        """! 
-        
+        """! Setup the selenium webdriver with certain options and navigates to instagram page
         """
         self.chrome_options = webdriver.ChromeOptions()
-        #self.chrome_options.add_argument("--incognito")
-        #self.chrome_options.add_argument("--headless")
+        self.chrome_options.add_argument("--incognito")
+        self.chrome_options.add_argument("--headless")
         self.chrome_options.add_argument("--ignore-certificate-errors")
         self.driver = webdriver.Chrome(options=self.chrome_options)
         self.driver.get("https://instagram.com")
-        time.sleep(2)""
+        time.sleep(2)
 
     def login(self, _username, _password):
-        """! 
+        """! logins into instagram using username and password 
         """
-        print('\nlogin...\n')
         username_input = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='username']")))
         username_input.clear()
         username_input.send_keys(_username)
@@ -69,7 +73,8 @@ class InstagramCrawler(Crawler):
         time.sleep(4)
 
     def scroll_down(self, timer=5):
-        #dont have to scroll because we are using arrow keys
+        """! scrolls instagram page down indefinitely as it loads dynamically
+        """
         prev_height = self.driver.execute_script("return document.body.scrollHeight")
         html = self.driver.find_element_by_tag_name('html')
         
@@ -83,7 +88,8 @@ class InstagramCrawler(Crawler):
             prev_height = new_height
 
     def loadAllComments(self):
-        """!
+        """! load entire comments from a single post by clicking the (+) button continuously
+        till all comments are loaded
         """
         loadMore = True
         while loadMore:
@@ -95,7 +101,7 @@ class InstagramCrawler(Crawler):
                 loadMore = False
 
     def loadAllReplies(self):
-        """! 
+        """! load entire replies from a single post by expanding all the 'view replies' 
         """
         viewReplies = self.driver.find_elements_by_class_name("EizgU")
         try:
@@ -111,8 +117,12 @@ class InstagramCrawler(Crawler):
 
     def crawl(self):
         """! main function to start crawling data and export it to .csv file
+        @brief clicks the first post, then loops through the posts by selecting the right arrow key
+        to extract data and then output the data to a .csv file
         """
-        profile = self.driver.find_element_by_class_name("v1Nh3").click() #click first post
+
+        #click first initial post in the page
+        profile = self.driver.find_element_by_class_name("v1Nh3").click() 
         time.sleep(5)
 
         for i in range(self.post):
@@ -131,7 +141,7 @@ class InstagramCrawler(Crawler):
         self.outputToFile()
 
     def extractData(self):
-        """! 
+        """! extract data from the posts (e.g username and posts)
         """
         users = self.driver.find_elements_by_class_name('_6lAjh')
         post = self.driver.find_elements_by_xpath("//div[@class='C4VMK']/span")
@@ -142,18 +152,15 @@ class InstagramCrawler(Crawler):
         for p in post:
              self.posts_list.append(p.text.replace('\r', '').replace('\n',''))
 
-    def outputToFile(self):
-        """! 
+    def outputToFile(self,filename="instagram"):
+        """! export data to .csv file
+        @param filename amend the export filename (optional)
         """
-
         data = {
             "user" : self.users_list,
             "posts": self.posts_list 
         }
 
         df = pd.DataFrame(data=data)
-        df.to_csv("instagram.csv")
+        df.to_csv(super().get_searchString() + '_' + filename + ".csv")
         #df.to_json('insta.json', orient='records', indent=1)
-
-insta = InstagramCrawler('foodpandasg')
-insta.crawl()
