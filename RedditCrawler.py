@@ -66,8 +66,9 @@ class RedditCrawler(Crawler):
             try:
                 for comment in post.comments.list():
                     date = str(datetime.fromtimestamp(comment.created_utc))
-                    datesplit = date.split(" ")
-                    p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
+                    # datesplit = date.split(" ")
+                    p = (comment.body, date)
+                    # p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
                     self.posts.append(p)
             except: pass
         
@@ -79,7 +80,8 @@ class RedditCrawler(Crawler):
         """
         with open(super().get_searchString() + '_' + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
+            writer.writerow(['Comment', 'Datetime'])
+            # writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
             writer.writerows(self.posts)
 
 r = RedditCrawler()
