@@ -1,7 +1,11 @@
-'''
-Coded by Austin Sim Wei Jun 2609730S
-'''
-
+"""!
+@file TwitterCrawler.py
+@author Sim Wei Jun Austin 2609730S
+@brief This file contains the TwitterCrawler class.
+@version 1.0
+@section DESCRIPTION
+Runs the crawling function to get tweet content, likes and retweets.
+"""
 from tweepy import OAuthHandler
 from tweepy import API
 from tweepy import Cursor
@@ -14,9 +18,9 @@ import Auth_Token
 
 
 class Twitter(Crawler):
-    """! Analyze class
-    Defining a tweet analyzer object to capture keyword input for the crawling of tweets.
-    Outputs a csv file for processing in database.
+    """! Twitter class extends Crawler class.
+    @brief Defining a tweet crawler object to crawl tweets.
+    @brief Inputs include a search word and a search count.
     Contains initializer, authentication, crawling function and data processing.
     """
 
@@ -35,7 +39,10 @@ class Twitter(Crawler):
                               Auth_Token.ACCESS_TOKEN_SECRET)
         api = API(auth)
         return api
-    
+
+    """! set_Settings() function
+    @brief Sets a keyword to search for and the number of tweets to search for
+    """
     def set_Settings(self, searchString, limit):
         super().set_searchString(searchString)
         self.limit = limit
@@ -59,7 +66,7 @@ class Twitter(Crawler):
         return df.to_csv('tweets.csv')
 
 
-    """! initTwitter function
+    """! crawl function inherited from Crawler class.
     @brief takes calls authenticate() to allow the application
     to access twitter api,
     uses the Cursor function to search for a number of popular and recent tweets, based on
