@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['telegrambot_49',['TelegramBot',['../namespace_telegram_bot.html',1,'']]]
+  ['sentimental_5fanalysis_60',['Sentimental_Analysis',['../namespace_sentimental___analysis.html',1,'']]]
 ];

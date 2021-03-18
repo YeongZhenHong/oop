@@ -82,7 +82,7 @@ class Yahoo(Crawler):
             except AttributeError:
                 break
 
-        with open('results.csv', 'w', newline='', encoding='utf-8') as f:
+        with open('yahoo.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['Title', 'Source', 'Date', 'Description', 'Link'])
             writer.writerows(self.news_articles)

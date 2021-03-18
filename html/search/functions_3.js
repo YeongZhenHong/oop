@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fetchtweets_60',['fetchTweets',['../class_telegram_bot_1_1_telegram_bot.html#ad72afddfa3de031f91b5f65c096cd8e8',1,'TelegramBot::TelegramBot']]]
+  ['extractdata_73',['extractData',['../class_instagram_crawler_1_1_instagram_crawler.html#af03b9c8c6c62cb1a63df07e25e9cbe36',1,'InstagramCrawler::InstagramCrawler']]]
 ];
