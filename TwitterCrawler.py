@@ -1,30 +1,32 @@
 '''
 Coded by Austin Sim Wei Jun 2609730S
 '''
-from tweepy.streaming import StreamListener
+
 from tweepy import OAuthHandler
-from tweepy import Stream
 from tweepy import API
 from tweepy import Cursor
 import pandas as pd
 import numpy as np
 import json
+from Crawler import Crawler
 
 import Auth_Token 
 
 
-class Analyze():
-    '''
-    Analyze takes in user input as keyword, and generates tweets.json file
-    '''
+class Twitter(Crawler):
+    """! Analyze class
+    Defining a tweet analyzer object to capture keyword input for the crawling of tweets.
+    Outputs a csv file for processing in database.
+    Contains initializer, authentication, crawling function and data processing.
+    """
 
-    def __init__(self, keyword):
+    def __init__(self):
         super().__init__()
-        self.keyword = keyword
-    '''
-    @authenticate() takes in twitterAPI keys to grant the application access
-    to twitter API
-    '''
+        self.TweetList = []
+    
+    """! authenticate() function
+    @brief returns API authentication for Twitter API, from the Auth_Token file.
+    """
 
     def authenticate(self):
         auth = OAuthHandler(Auth_Token.CONSUMER_KEY,
@@ -33,9 +35,16 @@ class Analyze():
                               Auth_Token.ACCESS_TOKEN_SECRET)
         api = API(auth)
         return api
-    '''
-    @tweets_to_df(tweets) takes in a python list and generates a json file  
-    '''
+    
+    def set_Settings(self, searchString, limit):
+        super().set_searchString(searchString)
+        self.limit = limit
+        
+    """! tweets_to_df function.
+    @param Tweets, an array of tweets to convert into a data frame format.
+    @brief tweets_to_df(tweets) takes in a python list and converts it into a data frame,
+    before returning a csv/json file
+    """
 
     def tweets_to_df(self, tweets):
         # df = pd.DataFrame(data=[tweet.text for tweet in tweets])
@@ -48,17 +57,21 @@ class Analyze():
         df['url'] = np.array([tweet.id for tweet in tweets])
         # return df.to_json('tweets.json', orient='records', indent=1)
         return df.to_csv('tweets.csv')
-    '''
-    @initTwitter function takes calls authenticate() to allow the application
-    to access twitter api 
-    and calls tweets_to_df() function to generate a json file
-    '''
 
-    def initTwitter(self):
-        filter_list = self.keyword + " -filter:retweets"
+
+    """! initTwitter function
+    @brief takes calls authenticate() to allow the application
+    to access twitter api,
+    uses the Cursor function to search for a number of popular and recent tweets, based on
+    the entered keyword.
+    and calls tweets_to_df() function to generate a csv file.
+    """
+
+    def crawl(self):
+        filter_list = self.get_searchString() + " -filter:retweets"
         api = self.authenticate()
         tweets = Cursor(api.search, q=filter_list, lang="en",
-                        result_type="mixed").items(100)
+                        result_type="mixed").items(self.limit)
         tweetLi = []
         for tweet in tweets:
             tweetLi.append(tweet)
@@ -67,4 +80,3 @@ class Analyze():
 
         # print(dir(tweetLi[0]))
         # print statement for output purposes, will delete after
-
