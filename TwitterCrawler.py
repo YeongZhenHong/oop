@@ -14,7 +14,7 @@ import numpy as np
 import json
 from Crawler import Crawler
 
-import Auth_Token 
+import Auth_Token
 
 
 class Twitter(Crawler):
@@ -27,12 +27,11 @@ class Twitter(Crawler):
     def __init__(self):
         super().__init__()
         self.TweetList = []
-    
-    """! authenticate() function
-    @brief returns API authentication for Twitter API, from the Auth_Token file.
-    """
 
     def authenticate(self):
+        """! authenticate() function
+        @brief returns API authentication for Twitter API, from the Auth_Token file.
+        """
         auth = OAuthHandler(Auth_Token.CONSUMER_KEY,
                             Auth_Token.CONSUMER_SECRET)
         auth.set_access_token(Auth_Token.ACCESS_TOKEN,
@@ -40,20 +39,21 @@ class Twitter(Crawler):
         api = API(auth)
         return api
 
-    """! set_Settings() function
-    @brief Sets a keyword to search for and the number of tweets to search for
-    """
     def set_Settings(self, searchString, limit):
+        """! set_Settings() function
+        @brief Sets a keyword to search for and the number of tweets to search for
+        """
         super().set_searchString(searchString)
         self.limit = limit
-        
-    """! tweets_to_df function.
-    @param Tweets, an array of tweets to convert into a data frame format.
-    @brief tweets_to_df(tweets) takes in a python list and converts it into a data frame,
-    before returning a csv/json file
-    """
+
+    
 
     def tweets_to_df(self, tweets):
+        """! tweets_to_df function.
+        @param Tweets, an array of tweets to convert into a data frame format.
+        @brief tweets_to_df(tweets) takes in a python list and converts it into a data frame,
+        before returning a csv/json file
+        """
         # df = pd.DataFrame(data=[tweet.text for tweet in tweets])
         df = pd.DataFrame()
         df['content'] = np.array([tweet.text for tweet in tweets])
@@ -65,16 +65,16 @@ class Twitter(Crawler):
         # return df.to_json('tweets.json', orient='records', indent=1)
         return df.to_csv('tweets.csv')
 
-
-    """! crawl function inherited from Crawler class.
-    @brief takes calls authenticate() to allow the application
-    to access twitter api,
-    uses the Cursor function to search for a number of popular and recent tweets, based on
-    the entered keyword.
-    and calls tweets_to_df() function to generate a csv file.
-    """
+    
 
     def crawl(self):
+        """! crawl function inherited from Crawler class.
+        @brief takes calls authenticate() to allow the application
+        to access twitter api,
+        uses the Cursor function to search for a number of popular and recent tweets, based on
+        the entered keyword.
+        and calls tweets_to_df() function to generate a csv file.
+        """
         filter_list = self.get_searchString() + " -filter:retweets"
         api = self.authenticate()
         tweets = Cursor(api.search, q=filter_list, lang="en",
@@ -83,7 +83,6 @@ class Twitter(Crawler):
         for tweet in tweets:
             tweetLi.append(tweet)
         df = self.tweets_to_df(tweetLi)
-
 
         # print(dir(tweetLi[0]))
         # print statement for output purposes, will delete after

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['analyze_22',['Analyze',['../class_twitter_bot_1_1_analyze.html',1,'TwitterBot']]]
+  ['botapi_38',['BotAPI',['../class_bot_a_p_i_1_1_bot_a_p_i.html',1,'BotAPI']]]
 ];

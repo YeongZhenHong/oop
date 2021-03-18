@@ -71,25 +71,106 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2b49d4b360248d38f560d40929621100"><td class="memItemLeft" align="right" valign="top"><a id="a2b49d4b360248d38f560d40929621100"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>clean</b> (file)</td></tr>
+<tr class="memitem:a2b49d4b360248d38f560d40929621100"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_sentimental___analysis.html#a2b49d4b360248d38f560d40929621100">clean</a> (file)</td></tr>
+<tr class="memdesc:a2b49d4b360248d38f560d40929621100"><td class="mdescLeft">&#160;</td><td class="mdescRight">clean(file)  <a href="namespace_sentimental___analysis.html#a2b49d4b360248d38f560d40929621100">More...</a><br /></td></tr>
 <tr class="separator:a2b49d4b360248d38f560d40929621100"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a227dc15f8ce409b03c54798fc62f4bb1"><td class="memItemLeft" align="right" valign="top"><a id="a227dc15f8ce409b03c54798fc62f4bb1"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>sentiment_analyse</b> (text)</td></tr>
+<tr class="memitem:a227dc15f8ce409b03c54798fc62f4bb1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_sentimental___analysis.html#a227dc15f8ce409b03c54798fc62f4bb1">sentiment_analyse</a> (text)</td></tr>
+<tr class="memdesc:a227dc15f8ce409b03c54798fc62f4bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">sentiment analyse(text)  <a href="namespace_sentimental___analysis.html#a227dc15f8ce409b03c54798fc62f4bb1">More...</a><br /></td></tr>
 <tr class="separator:a227dc15f8ce409b03c54798fc62f4bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41325e64f2e46602504807ca3b0f4546"><td class="memItemLeft" align="right" valign="top"><a id="a41325e64f2e46602504807ca3b0f4546"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>plot_bar</b> (score)</td></tr>
-<tr class="separator:a41325e64f2e46602504807ca3b0f4546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6176dba0d11dc6ba5b84c7d912f2c7f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_sentimental___analysis.html#ae6176dba0d11dc6ba5b84c7d912f2c7f">plot_pie</a> (score)</td></tr>
+<tr class="memdesc:ae6176dba0d11dc6ba5b84c7d912f2c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot_pie(score)  <a href="namespace_sentimental___analysis.html#ae6176dba0d11dc6ba5b84c7d912f2c7f">More...</a><br /></td></tr>
+<tr class="separator:ae6176dba0d11dc6ba5b84c7d912f2c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a361a1e68e1951020648e18b8844963cd"><td class="memItemLeft" align="right" valign="top"><a id="a361a1e68e1951020648e18b8844963cd"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>score</b> = sentiment_analyse(clean('tweets.json'))</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>score</b> = <a class="el" href="namespace_sentimental___analysis.html#a227dc15f8ce409b03c54798fc62f4bb1">sentiment_analyse</a>(<a class="el" href="namespace_sentimental___analysis.html#a2b49d4b360248d38f560d40929621100">clean</a>('tweets.csv'))</td></tr>
 <tr class="separator:a361a1e68e1951020648e18b8844963cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">Coded by Brendan Tan Wen Yi 2609720T
-</pre> </div></div><!-- contents -->
+</pre> </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2b49d4b360248d38f560d40929621100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b49d4b360248d38f560d40929621100">&#9670;&nbsp;</a></span>clean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Sentimental_Analysis.clean </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>clean(file) </p>
+<p>cleans text for accurate analysis </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>cvs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a string without: /n, special characters/symbols, digits, and stop words </dd></dl>
+
+</div>
+</div>
+<a id="ae6176dba0d11dc6ba5b84c7d912f2c7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6176dba0d11dc6ba5b84c7d912f2c7f">&#9670;&nbsp;</a></span>plot_pie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Sentimental_Analysis.plot_pie </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>score</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>plot_pie(score) </p>
+<p>plots a pir chart with a given set of scores </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">score</td><td>of float type </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a227dc15f8ce409b03c54798fc62f4bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a227dc15f8ce409b03c54798fc62f4bb1">&#9670;&nbsp;</a></span>sentiment_analyse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Sentimental_Analysis.sentiment_analyse </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sentiment analyse(text) </p>
+<p>takes in string and passes it through nltk VADER analyser </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a list indicating overall positive, negative and neutral score of the given string </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

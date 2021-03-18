@@ -3,20 +3,17 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{namespace_sentimental___analysis_a2b49d4b360248d38f560d40929621100}\label{namespace_sentimental___analysis_a2b49d4b360248d38f560d40929621100}} 
-def {\bfseries clean} (file)
-\item 
-\mbox{\Hypertarget{namespace_sentimental___analysis_a227dc15f8ce409b03c54798fc62f4bb1}\label{namespace_sentimental___analysis_a227dc15f8ce409b03c54798fc62f4bb1}} 
-def {\bfseries sentiment\+\_\+analyse} (text)
-\item 
-\mbox{\Hypertarget{namespace_sentimental___analysis_a41325e64f2e46602504807ca3b0f4546}\label{namespace_sentimental___analysis_a41325e64f2e46602504807ca3b0f4546}} 
-def {\bfseries plot\+\_\+bar} (score)
-\end{DoxyCompactItemize}
+def \mbox{\hyperlink{namespace_sentimental___analysis_a2b49d4b360248d38f560d40929621100}{clean}} (file)
+\begin{DoxyCompactList}\small\item\em clean(file) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_sentimental___analysis_a227dc15f8ce409b03c54798fc62f4bb1}{sentiment\+\_\+analyse}} (text)
+\begin{DoxyCompactList}\small\item\em sentiment analyse(text) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespace_sentimental___analysis_ae6176dba0d11dc6ba5b84c7d912f2c7f}{plot\+\_\+pie}} (score)
+\begin{DoxyCompactList}\small\item\em plot\+\_\+pie(score) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{namespace_sentimental___analysis_a361a1e68e1951020648e18b8844963cd}\label{namespace_sentimental___analysis_a361a1e68e1951020648e18b8844963cd}} 
-def {\bfseries score} = sentiment\+\_\+analyse(clean(\textquotesingle{}tweets.\+json\textquotesingle{}))
+def {\bfseries score} = \mbox{\hyperlink{namespace_sentimental___analysis_a227dc15f8ce409b03c54798fc62f4bb1}{sentiment\+\_\+analyse}}(\mbox{\hyperlink{namespace_sentimental___analysis_a2b49d4b360248d38f560d40929621100}{clean}}(\textquotesingle{}tweets.\+csv\textquotesingle{}))
 \end{DoxyCompactItemize}
 
 
@@ -24,3 +21,56 @@ def {\bfseries score} = sentiment\+\_\+analyse(clean(\textquotesingle{}tweets.\+
 \begin{DoxyVerb}Coded by Brendan Tan Wen Yi 2609720T
 \end{DoxyVerb}
  
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_sentimental___analysis_a2b49d4b360248d38f560d40929621100}\label{namespace_sentimental___analysis_a2b49d4b360248d38f560d40929621100}} 
+\index{Sentimental\_Analysis@{Sentimental\_Analysis}!clean@{clean}}
+\index{clean@{clean}!Sentimental\_Analysis@{Sentimental\_Analysis}}
+\doxysubsubsection{\texorpdfstring{clean()}{clean()}}
+{\footnotesize\ttfamily def Sentimental\+\_\+\+Analysis.\+clean (\begin{DoxyParamCaption}\item[{}]{file }\end{DoxyParamCaption})}
+
+
+
+clean(file) 
+
+cleans text for accurate analysis 
+\begin{DoxyParams}{Parameters}
+{\em file} & cvs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string without\+: /n, special characters/symbols, digits, and stop words 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_sentimental___analysis_ae6176dba0d11dc6ba5b84c7d912f2c7f}\label{namespace_sentimental___analysis_ae6176dba0d11dc6ba5b84c7d912f2c7f}} 
+\index{Sentimental\_Analysis@{Sentimental\_Analysis}!plot\_pie@{plot\_pie}}
+\index{plot\_pie@{plot\_pie}!Sentimental\_Analysis@{Sentimental\_Analysis}}
+\doxysubsubsection{\texorpdfstring{plot\_pie()}{plot\_pie()}}
+{\footnotesize\ttfamily def Sentimental\+\_\+\+Analysis.\+plot\+\_\+pie (\begin{DoxyParamCaption}\item[{}]{score }\end{DoxyParamCaption})}
+
+
+
+plot\+\_\+pie(score) 
+
+plots a pir chart with a given set of scores 
+\begin{DoxyParams}{Parameters}
+{\em score} & of float type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_sentimental___analysis_a227dc15f8ce409b03c54798fc62f4bb1}\label{namespace_sentimental___analysis_a227dc15f8ce409b03c54798fc62f4bb1}} 
+\index{Sentimental\_Analysis@{Sentimental\_Analysis}!sentiment\_analyse@{sentiment\_analyse}}
+\index{sentiment\_analyse@{sentiment\_analyse}!Sentimental\_Analysis@{Sentimental\_Analysis}}
+\doxysubsubsection{\texorpdfstring{sentiment\_analyse()}{sentiment\_analyse()}}
+{\footnotesize\ttfamily def Sentimental\+\_\+\+Analysis.\+sentiment\+\_\+analyse (\begin{DoxyParamCaption}\item[{}]{text }\end{DoxyParamCaption})}
+
+
+
+sentiment analyse(text) 
+
+takes in string and passes it through nltk VADER analyser 
+\begin{DoxyParams}{Parameters}
+{\em string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list indicating overall positive, negative and neutral score of the given string 
+\end{DoxyReturn}
