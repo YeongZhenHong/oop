@@ -5,6 +5,10 @@
 @version 1.0
 @section DESCRIPTION
 Runs reddit crawler to crawl data
+@section usage_main Usage
+e.g redditC = RedditCrawler()
+    redditC.setSettings("grabfood", 10)
+    redditcC.crawl()
 """
 
 import praw
@@ -17,7 +21,7 @@ class RedditCrawler(Crawler):
     """! The reddit crawler sub class
     Defines a Reddit Crawler subclass to crawl reddit dataset.
     
-    Inherits from crawler based class
+    Inherits from crawler based class test
     """
 
     def __init__(self, limit=10):
@@ -83,9 +87,5 @@ class RedditCrawler(Crawler):
             writer.writerow(['Comment', 'Datetime'])
             # writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
             writer.writerows(self.posts)
-
-r = RedditCrawler()
-r.setSettings("grabfood", 10)
-r.crawl()
 
 
