@@ -10,9 +10,6 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 class Sentimental_Analysis:
 
-    def __init__(self):
-        pass
-
     # removes all punctuations, special symbols, urls and converts to lowercase
     def clean(file):
         """! clean(file)
@@ -20,7 +17,12 @@ class Sentimental_Analysis:
         @param file cvs 
         @return a string without: /n, special characters/symbols, digits, and stop words
         """
-        text = open(file, encoding="utf8").read()
+        try:
+            # open file and read content
+            with open(file, encoding="utf8") as f:
+                text = f.read()
+        except:
+            raise FileNotFoundError('File cannot be opened!')
         # lowercase
         text = text.lower()
 
@@ -47,7 +49,7 @@ class Sentimental_Analysis:
         # convert filtered_words into string(VADER cannot take in a List)
         return " ".join(filtered_words)
 
-    def sentiment_analyse(text):
+    def Analyse(text):
         """! sentiment analyse(text)
         @brief takes in string and passes it through nltk VADER analyser
         @param string
@@ -57,13 +59,12 @@ class Sentimental_Analysis:
         neg = value['neg']
         pos = value['pos']
         if neg > pos:
-            print("Negative  Sentiment")
+            sentiment = 'Negative Sentiment'
         elif pos > neg:
-            print("Positive Sentiment")
+            sentiment = 'Positive Sentiment'
         else:
-            print("Neutral Sentiment")
-        print(value)
-        return value
+            sentiment = 'Neutral Sentiment'
+        return value, sentiment
 
     def plot_pie(score):
         """! plot_pie(score)
@@ -78,9 +79,7 @@ class Sentimental_Analysis:
         ax.pie(data, explode=highlight, labels=sentiment, autopct='%1.1f%%',
                shadow=True, startangle=90)
         plt.savefig('./sent_anal.png')
-        plt.show()
+        # plt.show()
 
 
-if __name__ == "__main__":
-    score = sentiment_analyse(clean('tweets.csv'))
-    plot_pie(score)
+# if __name__ == "__main__":
