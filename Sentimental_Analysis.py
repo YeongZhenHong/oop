@@ -14,7 +14,7 @@ class Sentimental_Analysis:
     def clean(file):
         """! clean(file)
         @brief cleans text for accurate analysis
-        @param file cvs 
+        @param name of the file
         @return a string without: /n, special characters/symbols, digits, and stop words
         """
         try:
