@@ -7,15 +7,31 @@ class Test_Sentimental_Analysis(unittest.TestCase):
     # indicate Sentimental Analysis Class is being tested
     @classmethod
     def setUpClass(cls):
+        """! setUpClass(cls)
+        @brief indicate Sentimental Analysis Class is being tested
+        @param Sentimental_Analysis Class 
+        """
         print('Setting up Sentimental Analysis Class\n')
 
     # indicate Sentimental Analysis Class finished testing
     @classmethod
     def tearDownClass(cls):
+        """! tearDownClass(cls)
+        @brief indicate Sentimental Analysis Class finished testing
+        @param Sentimental_Analysis Class 
+        """
         print('\nClass test completed')
+    # Setup sequence where base cases are generated for comparison
 
     def setUp(self):
-        # Setup sequence where base cases are generated for comparison
+        """! setup(self)
+        @brief Setup sequence where base cases are generated for comparison
+        @brief everything.cvs contains punctuations, links, numbers, new lines, symbols, stop words and capital letters
+        @brief negative and positive are strings that produce negative and postitive sentiments respectively
+        @brief negative_result and postive_result are the expected return values when the strings are passed into the Analysis func
+        @brief test_neg and test_pos are negative and postive scores to be passed into plot_pie func
+        @brief test_neg_img and test_pos_img are the expected .png created when the base cases are executed 
+        """
         print('Setting up')
         self.everything = Sentimental_Analysis.clean(
             'test_clean_everything.csv')
@@ -40,9 +56,17 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         self.test_neg_img = cv2.imread('./test_neg.png')
 
     def tearDown(self):
+        """! tearDown(self)
+        @brief indicate a func is finished testing
+        @param Sentimental_Analysis Class 
+        """
         print('Test Completed\n')
 
     def test_clean(self):
+        """! test_clean(self)
+        @brief tests clean(file) function against base cases
+        @brief also checks if correct error is raised when an invalid file is given
+        """
         print('test_clean')
         # cleaned string == base cleanned string returns True
         self.assertEqual(self.everything, self.everything_result)
@@ -51,6 +75,9 @@ class Test_Sentimental_Analysis(unittest.TestCase):
                           Sentimental_Analysis.clean, 'non-existent file.csv')
 
     def test_Analyse(self):
+        """! test_Analyse(self)
+        @brief tests Analyse(text) function against base cases
+        """
         print('test_analyse')
         # negative score == base negative score returns True
         self.assertEqual(self.negative, self.negative_result)
@@ -58,6 +85,10 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         self.assertEqual(self.positive, self.positive_result)
 
     def test_plotpie(self):
+        """! plot_pit(score)
+        @brief tests plot_pie(score) function against base cases
+        @brief checks if generated images are identical with base images
+        """
         print('test_plotpie')
         # Generate a positive image and compare against base test_pos_img
         Sentimental_Analysis.plot_pie(self.test_pos)
