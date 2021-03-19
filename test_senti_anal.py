@@ -46,7 +46,6 @@ class Test_Sentimental_Analysis(unittest.TestCase):
             'I really enjoyed CSC1009 because professor Harry is conducting the module. Harry is a very handsome man')
         self.positive_result = (
             {'neg': 0.0, 'neu': 0.647, 'pos': 0.353, 'compound': 0.7956}, 'Positive Sentiment')
-        self.neutral = Sentimental_Analysis.Analyse('')
 
         self.test_pos = {'neg': 0.0, 'neu': 0.647,
                          'pos': 0.353, 'compound': 0.7956}
