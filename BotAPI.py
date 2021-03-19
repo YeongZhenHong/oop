@@ -72,6 +72,7 @@ class BotAPI:
         except:
             print("No tweets selected")
             return tweetList
+
     def selectReddit(self):
         """! Select all reddit comments that is stored in the database
         @brief Select statement to select all tweets from crawler.Reddit
@@ -129,6 +130,23 @@ class BotAPI:
             print("Fail to insert Reddit comments!")
             return False
 
+    def insertInstagram(self, user, posts):
+        """! Insert Instagram
+        @brief Insert the crawled instagram comments from csv that is generated from InstagramCrawler.py
+        @param user Username of the user that has posted the comment
+        @param posts Comments that the user has made on the post
+        """
+        try:
+            add_instagram = ("INSERT INTO crawler.Instagram" +
+                             "(user,posts) VALUES('"+user+"','"+posts+"')")
+            self.cursor.execute(add_instagram)
+            self.cnx.commit()
+            print("Insert Instagram posts successfully!")
+            return True
+        except:
+            print("Fail to insert Instagram posts!")
+            return False
+
     def readCsv(self, fileType):
         """! Inserts generated csv files from crawlers into database
         @param fileType A String value of either Twitter,Reddit or Yahoo to insert into different db
@@ -150,8 +168,24 @@ class BotAPI:
                 df = pd.read_csv("grabfood_reddit.csv", usecols=[
                     'Comment', 'Datetime'])
                 for index, row in df.iterrows():
-                    self.insertReddit(str(row['Comment']), str(row['Datetime']))
+                    self.insertReddit(
+                        str(row['Comment']), str(row['Datetime']))
                 return True
             except:
-                print("fail to read Reddit CSV")
+                print("Fail to read Reddit CSV")
                 return False
+        elif(fileType == "Instagram"):
+            try:
+                df = pd.read_csv("instagram.csv", usecols=['user', 'posts'])
+                for index, row in df.iterrows():
+                    self.insertInstagram(str(row['user']), str(row['posts']))
+                return True
+            except:
+                print("Fail to read Instagram csv")
+                return False
+
+
+a = BotAPI()
+a.openCnx()
+a.readCsv("Instagram")
+a.closeCnx()
