@@ -1,10 +1,14 @@
 """! 
 @file RedditCrawler.py
-@author 
+@author Kendrick Ang 2609737A
 @brief This file contains the Reddit Crawler sub class
 @version 1.0
 @section DESCRIPTION
 Runs reddit crawler to crawl data
+@section usage_main Usage
+e.g redditC = RedditCrawler()
+    redditC.setSettings("foodpanda", 10)
+    redditC.crawl()
 """
 
 import praw
@@ -17,7 +21,7 @@ class RedditCrawler(Crawler):
     """! The reddit crawler sub class
     Defines a Reddit Crawler subclass to crawl reddit dataset.
     
-    Inherits from crawler based class
+    Inherits from crawler based class test
     """
 
     def __init__(self, limit=10):
@@ -29,6 +33,7 @@ class RedditCrawler(Crawler):
         #store a list of objects
         self.posts = []
         self.limit = limit
+    
         self.authenticate(Auth_Token.REDDIT_CLIENT,Auth_Token.REDDIT_SECRET, Auth_Token.REDDIT_AGENT)
     
     def authenticate(self, clientid, clientsecret, user):
@@ -38,7 +43,7 @@ class RedditCrawler(Crawler):
         @param user         input user_agent(name) from reddit
         """
         self.reddit = praw.Reddit(client_id=clientid, client_secret=clientsecret, user_agent=user)
-    
+
     def setSettings(self, searchString, limit):
         """! sets the search string and limit
         @param searchString  the search string data we want to crawl 
@@ -78,14 +83,11 @@ class RedditCrawler(Crawler):
         """! export data to .csv file
         @param filename amend the export filename (optional)
         """
-        with open(super().get_searchString() + '_' + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerow(['Comment', 'Datetime'])
-            # writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
-            writer.writerows(self.posts)
-
-r = RedditCrawler()
-r.setSettings("grabfood", 10)
-r.crawl()
-
-
+        try:
+            with open(super().get_searchString() + '_' + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerow(['Comment', 'Datetime'])
+                # writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
+                writer.writerows(self.posts)
+        except:
+            raise FileNotFoundError('File cannot be opened!')
