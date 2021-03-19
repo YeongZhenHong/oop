@@ -12,6 +12,8 @@ def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a72a35d127825f333b1b604495091
  \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}{select\+Tweets}} (self)
 \begin{DoxyCompactList}\small\item\em Select all tweets that is stored in the database. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_ad5ab5d170a0af893c7eaba857cad61cb}{select\+Reddit}} (self)
+\begin{DoxyCompactList}\small\item\em Select all reddit comments that is stored in the database. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a3ef5c1ac27470ede353418366e824fff}{insert\+Tweets}} (self, author, content, date, likes, retweets, url)
 \begin{DoxyCompactList}\small\item\em insert tweets \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a7bef8f32076b6bc5802a74d5c9484651}{insert\+Reddit}} (self, comment, datetime)
@@ -143,10 +145,20 @@ Inserts generated csv files from crawlers into database.
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em to} & read csv file \\
+{\em fail} & to read csv files \\
 \hline
 \end{DoxyExceptions}
-\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}\label{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}} 
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_ad5ab5d170a0af893c7eaba857cad61cb}\label{class_bot_a_p_i_1_1_bot_a_p_i_ad5ab5d170a0af893c7eaba857cad61cb}} 
+\index{BotAPI.BotAPI@{BotAPI.BotAPI}!selectReddit@{selectReddit}}
+\index{selectReddit@{selectReddit}!BotAPI.BotAPI@{BotAPI.BotAPI}}
+\doxysubsubsection{\texorpdfstring{selectReddit()}{selectReddit()}}
+{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+select\+Reddit (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Select all reddit comments that is stored in the database. 
+
+Select statement to select all tweets from crawler.\+Reddit \mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}\label{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}} 
 \index{BotAPI.BotAPI@{BotAPI.BotAPI}!selectTweets@{selectTweets}}
 \index{selectTweets@{selectTweets}!BotAPI.BotAPI@{BotAPI.BotAPI}}
 \doxysubsubsection{\texorpdfstring{selectTweets()}{selectTweets()}}
