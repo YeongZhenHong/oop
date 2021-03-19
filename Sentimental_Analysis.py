@@ -6,9 +6,21 @@ import matplotlib.pyplot as plt
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import pandas as pd
+from math import pi
+import numpy as np
 
 
 class Sentimental_Analysis:
+
+    def __init__(self):
+        self.twitter = np.array([len(pd.read_csv('foodpanda_tweets.csv').index), len(
+            pd.read_csv('deliveroo_tweets.csv').index)])
+        self.reddit = np.array([len(pd.read_csv(
+            'foodpanda_reddit.csv').index), len(pd.read_csv(
+                'deliveroo_reddit.csv').index)])
+        # self.grabfood = [len(pd.read_csv('grabfood_tweets.csv').index), len(pd.read_csv(
+        # 'grabfood_reddit.csv').index), len(pd.read_csv('grabfood_yahoo.csv').index)]
 
     # removes all punctuations, special symbols, urls and converts to lowercase
     def clean(file):
@@ -81,5 +93,50 @@ class Sentimental_Analysis:
         plt.savefig('./sent_anal.png')
         # plt.show()
 
+    def plot_radar(self):
+        df = pd.DataFrame({
+            'Food': ['Foodpanda', 'Deliveroo'],
+            'Twitter': self.twitter,
+            'Reddit': self.reddit,
+        })
+        # get number of food delivery
+        delivery_services = list(df)[:1]
+        count = len(delivery_services)
 
-# if __name__ == "__main__":
+        # get ange of axis
+        angle = [n / float(count) * 2 * pi for n in range(count)]
+        angle += angle[:1]
+
+        # initialise plot
+        ax = plt.subplot(111, polar=True)
+
+        # Draw one axe per variable + add labels
+        plt.xticks(angle[:-1], delivery_services)
+
+        # get xlabels
+        ax.set_rlabel_position(0)
+        plt.yticks([10, 20, 30], ["10", "20", "30"], color="grey", size=7)
+        plt.ylim(0, 40)
+
+        values = df.loc[0].drop('Food').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angle, values, linewidth=1,
+                linestyle='solid', label="Foodpanda")
+        ax.fill(angle, values, 'b', alpha=0.1)
+
+        values = df.loc[1].drop('Food').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angle, values, linewidth=1,
+                linestyle='solid', label="Deliveroo")
+        ax.fill(angle, values, 'r', alpha=0.1)
+
+        # Add legend
+        plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
+
+        # Show the graph
+        plt.show()
+
+
+if __name__ == "__main__":
+    hello = Sentimental_Analysis()
+    hello.plot_radar()
