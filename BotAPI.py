@@ -185,7 +185,4 @@ class BotAPI:
                 return False
 
 
-a = BotAPI()
-a.openCnx()
-a.readCsv("Instagram")
-a.closeCnx()
+
