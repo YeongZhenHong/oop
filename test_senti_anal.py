@@ -92,7 +92,7 @@ class Test_Sentimental_Analysis(unittest.TestCase):
             self.assertFalse(True)
 
         # same procedure but this time use previously generated test_neg image and compare against base test_pos_img
-        # and return True if they are not the same
+        # return True if they are not the same
         if self.test_pos_img.shape == cv2.imread('./sent_anal.png').shape:
             difference = cv2.subtract(
                 self.test_pos_img, cv2.imread('./sent_anal.png'))
