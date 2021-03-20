@@ -9,28 +9,33 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 from math import pi
 import numpy as np
-import datetime
+import scipy
 
 
 class Sentimental_Analysis:
 
     def __init__(self):
-        self.fp_tweets = pd.read_csv('./CSV/foodpanda_tweets.csv')
-        self.d_tweets = pd.read_csv('./CSV/deliveroo_tweets.csv')
-        self.g_tweets = pd.read_csv('./CSV/grabfood_tweets.csv')
+        self.fp_tweets = pd.read_csv('./CSV/FoodPanda_Twitter.csv')
+        self.d_tweets = pd.read_csv('./CSV/Deliveroo_Twitter.csv')
+        self.g_tweets = pd.read_csv('./CSV/GrabFood_Twitter.csv')
 
-        self.fp_reddit = pd.read_csv('./CSV/foodpanda_reddit.csv')
-        self.d_reddit = pd.read_csv('./CSV/deliveroo_reddit.csv')
-        self.g_reddit = pd.read_csv('./CSV/grabfood_reddit.csv')
+        self.fp_reddit = pd.read_csv('./CSV/Foodpanda_Reddit.csv')
+        self.d_reddit = pd.read_csv('./CSV/Deliveroo_Reddit.csv')
+        self.g_reddit = pd.read_csv('./CSV/GrabFood_Reddit.csv')
 
-        self.fp_insta = pd.read_csv('./CSV/foodpanda_instagram.csv')
-        self.d_insta = pd.read_csv('./CSV/deliveroo_instagram.csv')
-        self.g_insta = pd.read_csv('./CSV/grabfood_instagram.csv')
+        self.fp_insta = pd.read_csv('./CSV/FoodPanda_Instagram.csv')
+        self.d_insta = pd.read_csv('./CSV/Deliveroo_Instagram.csv')
+        self.g_insta = pd.read_csv('./CSV/GrabFood_Instagram.csv')
+
+        self.fp_yahoo = pd.read_csv('./CSV/Foodpanda_Yahoo.csv')
+        self.d_yahoo = pd.read_csv('./CSV/Deliveroo_Yahoo.csv')
+        self.g_yahoo = pd.read_csv('./CSV/GrabFood_Yahoo.csv')
 
         self.dt = pd.DataFrame({'Food': ['foodpanda', 'deliveroo', 'grabfood'],
                                 'Twitter': [len(self.fp_tweets.index), len(self.d_tweets.index), len(self.g_tweets.index)],
                                 'Reddit': [len(self.fp_reddit.index), len(self.d_reddit.index), len(self.g_reddit.index)],
-                                'Instagram': [len(self.fp_insta.index), len(self.d_insta.index), len(self.g_insta.index)]
+                                'Instagram': [len(self.fp_insta.index), len(self.d_insta.index), len(self.g_insta.index)],
+                                "Yahoo": [len(self.fp_yahoo.index), len(self.d_yahoo.index), len(self.g_yahoo.index)]
                                 })
 
     # removes all punctuations, special symbols, urls and converts to lowercase
@@ -130,8 +135,9 @@ class Sentimental_Analysis:
 
         # draw axis for each social media
         plt.xticks(angles[:-1], social)
-        ax.get_xaxis().majorTicks[2].label1.set_horizontalalignment('right')
         ax.get_xaxis().majorTicks[1].label1.set_horizontalalignment('left')
+        ax.get_xaxis().majorTicks[3].label1.set_horizontalalignment('right')
+        # ax.get_xaxis().majorTicks[1].label1.set_horizontalalignment('left')
 
         # Draw ylabels
         ax.set_rlabel_position(0)
@@ -163,17 +169,50 @@ class Sentimental_Analysis:
 
         # show graph
         # plt.show()
-        plt.savefig('name')
+        plt.savefig(name, dpi=100)
 
-    # def plot_line(self):
+    def plot_line(self, name="sent_anal_line"):
+        """! plot_line(score)
+        @brief plots a line chart; frequency over datetime 
+        @param optional nam
+        """
+        # foodpanda
+        fig, ax = plt.subplots()
+        fp_timestamp = [self.fp_tweets,
+                        self.fp_reddit]
+        fp_combined = pd.concat(fp_timestamp)
+        df = fp_combined['date' and 'Date'].str.split(
+        ).str[0].value_counts().sort_index().reset_index()
+        df.columns = ['Date', 'Freq']
+        df['Date'] = pd.to_datetime(df['Date'])
+        ax.plot(df['Date'], df['Freq'], color='#D80765', label='FoodPanda')
 
-    #     for date in self.fp_tweets['date']:
+        # deliveroo
+        d_timestamp = [self.d_tweets,
+                       self.d_reddit]
+        d_combined = pd.concat(d_timestamp)
+        df = d_combined['date' and 'Date'].str.split(
+        ).str[0].value_counts().sort_index().reset_index()
+        df.columns = ['Date', 'Freq']
+        df['Date'] = pd.to_datetime(df['Date'])
+        ax.plot(df['Date'], df['Freq'], color='#02CCC0', label='Deliveroo')
+
+        # GrabFood
+        g_timestamp = [self.g_tweets,
+                       self.g_reddit]
+        g_combined = pd.concat(g_timestamp)
+        df = g_combined['date' and 'Date'].str.split(
+        ).str[0].value_counts().sort_index().reset_index()
+        df.columns = ['Date', 'Freq']
+        df['Date'] = pd.to_datetime(df['Date'])
+        ax.plot(df['Date'], df['Freq'], color='#029837', label='GrabFood')
+
+        plt.legend(loc='upper left')
+        plt.savefig(name)
+        # plt.show()
 
 
 if __name__ == "__main__":
     fp = Sentimental_Analysis()
-    fp.plot_radar(dat=pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
-                                    'var1': [5000, 1000, 2000],
-                                    'var2': [3500, 1500, 500],
-                                    'var3': [90, 9000, 6900]
-                                    }))
+    # fp.plot_radar()
+    fp.plot_line()
