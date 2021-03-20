@@ -1,6 +1,6 @@
 """! 
 @file RedditCrawler.py
-@author Kendrick Ang 2609737A / Sim Wei Jun Austin  2609730S
+@author Kendrick Ang 2609737A / Sim Wei Jun Austin 2609730S
 @brief This file contains the Reddit Crawler sub class
 @version 1.0
 @section DESCRIPTION
@@ -23,15 +23,16 @@ class RedditCrawler(Crawler):
     """! The reddit crawler sub class
     Defines a Reddit Crawler subclass to crawl reddit dataset.
     
-    Inherits from crawler based class test
+    Inherits from crawler based class
     """
-    def __init__(self, limit=10):
+    def __init__(self):
         """! The reddit crawler class initializer
         @param limit The amount of posts that can be crawled (optional)
         @return An instance of reddit crawler class initialized with specified limit and authenticates
         """
         #initialize super class
         super().__init__()
+
         #store a list of objects
         self.posts = []
         self.subreddit1 = None
@@ -60,10 +61,11 @@ class RedditCrawler(Crawler):
     def crawl(self):
         """! main function to start crawling data and export it to .csv file
         """
+        #raise an Value error exception if the search limit is not a positive number
         if super().get_searchLimit() <= 0: 
             raise ValueError("Error, that is not a positive number!") 
-        #navigates to subreddit "singapore", sets the search string and limits the posts
         try:
+            #navigates to subreddit "singapore", sets the search string and limits the posts
             self.subreddit1 = self.reddit.subreddit("singapore")
             self.submission = self.subreddit1.search(super().get_searchString(), limit=super().get_searchLimit())
            
