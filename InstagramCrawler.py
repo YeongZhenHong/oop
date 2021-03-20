@@ -152,7 +152,7 @@ class InstagramCrawler(Crawler):
         for p in post:
              self.posts_list.append(p.text.replace('\r', '').replace('\n',''))
 
-    def outputToFile(self,filename="instagram"):
+    def outputToFile(self,filename="Instagram"):
         """! export data to .csv file
         @param filename amend the export filename (optional)
         """
@@ -162,5 +162,5 @@ class InstagramCrawler(Crawler):
         }
 
         df = pd.DataFrame(data=data)
-        df.to_csv(super().get_searchString() + '_' + filename + ".csv")
+        df.to_csv("./CSV/"+super().get_searchString() + '_' + filename + ".csv")
         #df.to_json('insta.json', orient='records', indent=1)
