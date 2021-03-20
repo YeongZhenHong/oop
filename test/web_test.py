@@ -1,4 +1,3 @@
-
 import sys
 from BotAPI import BotAPI
 
@@ -6,7 +5,7 @@ from BotAPI import BotAPI
 class generateWeb:
     def __init__(self):
         super().__init__()
-        self.f = open("helloWorld.html", "w")
+        self.f = open("helloWorld.html", "w", encoding="utf-8")
         self.initDB = BotAPI()
         self.initDB.openCnx()
 
@@ -121,7 +120,7 @@ class generateWeb:
       <div class="w3-row-padding w3-margin-bottom">
         <div class="w3-quarter">
           <div class="w3-container w3-pink w3-padding-16">
-            <div class="w3-left"><img class="panda" src=".\img\foodpanda_icon.png" width="48" height="48"></i></div>
+            <div class="w3-left"><img class="panda" src=".\img\koodpanda_icon.png" width="48" height="48"></i></div>
             <div class="w3-right">
               <h3>insert total post crawled</h3>
             </div>
@@ -150,8 +149,6 @@ class generateWeb:
             <h4>Grab Food</h4>
           </div>
         </div>
-
-
         <div class="w3-panel">
           <div class="w3-row-padding" style="margin:0 -16px">
             <div class="w3-third">
@@ -162,12 +159,12 @@ class generateWeb:
               <h5>Feeds</h5>
               <table class="w3-table w3-striped w3-white">
                 <tr>
-                  <td><img class="reddit" src=".\img\reddit_icon.png" width="30" height="30"></i></td>
+                  <td><img class="reddit" src=".\img\eddit_icon.png" width="30" height="30"></i></td>
                   <td>Reddit</td>
                   <td><i>insert reddit post crawl count</i></td>
                 </tr>
                 <tr>
-                  <td><img class="twitter" src=".\img\twitter_icon.png" width="30" height="30"></i></td>
+                  <td><img class="twitter" src=".\img\witter_icon.png" width="30" height="30"></i></td>
                   <td>Twitter.</td>
                   <td><i>insert reddit post crawl count</i></td>
                 </tr>
@@ -199,91 +196,37 @@ class generateWeb:
           </div>
         </div>
         <hr>
-        <h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>
+        """
+        self.f.write(message)
+
+    def maketable(self):
+        bstr = self.initDB.selectTweets()
+        message = """<h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>
         <table id="dtfoodpanda" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th class="th-sm">Social Media
-
-              </th>
-              <th class="th-sm">Content
-
-              </th>
-              <th class="th-sm">Author
-
-              </th>
-              <th class="th-sm">Date posted
-
-              </th>
-              <th class="th-sm">Likes/Shares
-
-              </th>
-              <th class="th-sm">Link
-
-              </th>
+              <th class="th-sm">Content</th>
+              <th class="th-sm">Author</th>
+              <th class="th-sm">Date</th>
+              <th class="th-sm">Retweets</th>
+              <th class="th-sm">Likes</th>
+              <th class="th-sm">Url</th>
             </tr>
           </thead>
           <tbody>
-          
-          </tbody>
+          """
+        for item in bstr:
+            message += "<tr>"
+            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[1])+"</td>"
+            message += "<td>"+str(item[3])+"</td>"
+            message += "<td>"+str(item[4])+"</td>"
+            message += "<td>"+str(item[5])+"</td>"
+            message += "<td>"+str(item[6])+"</td>"
+            message += "</tr>\n"
+        message += """
+          </tfoot>
         </table>
-        <h1 id="deliveroopost" style="color:#02CCC0"><strong>Deliveroo Posts</strong></h1>
-        <table id="dtdeliveroo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-          <thead>
-            <tr>
-              <th class="th-sm">Social Media
-
-              </th>
-              <th class="th-sm">Content
-
-              </th>
-              <th class="th-sm">Author
-
-              </th>
-              <th class="th-sm">Date posted
-
-              </th>
-              <th class="th-sm">Likes/Shares
-
-              </th>
-              <th class="th-sm">Link
-
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>  
-        <h1 id="grabfoodpost" style="color:#029837"><strong>Grab Food Posts</strong></h1>
-        <table id="dtgrabfood" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-          <thead>
-            <tr>
-              <th class="th-sm">Social Media
-
-              </th>
-              <th class="th-sm">Content
-
-              </th>
-              <th class="th-sm">Author
-
-              </th>
-              <th class="th-sm">Date posted
-
-              </th>
-              <th class="th-sm">Likes/Shares
-
-              </th>
-              <th class="th-sm">Link
-
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>
-
         <hr>
         <div class="w3-container">
           <h5>Recent Users</h5>
@@ -360,108 +303,75 @@ class generateWeb:
         </footer>
 
 
-        <!-- End page content -->
-      </div>
+          <!-- End page content -->
+        </div>
 
-      <script>
-        // Get the Sidebar
-        var mySidebar = document.getElementById("mySidebar");
+        <script>
+          // Get the Sidebar
+          var mySidebar = document.getElementById("mySidebar");
 
-        // Get the DIV with overlay effect
-        var overlayBg = document.getElementById("myOverlay");
+          // Get the DIV with overlay effect
+          var overlayBg = document.getElementById("myOverlay");
 
-        // Toggle between showing and hiding the sidebar, and add overlay effect
-        function w3_open() {
-          if (mySidebar.style.display === 'block') {
-            mySidebar.style.display = 'none';
-            overlayBg.style.display = "none";
-          } else {
-            mySidebar.style.display = 'block';
-            overlayBg.style.display = "block";
+          // Toggle between showing and hiding the sidebar, and add overlay effect
+          function w3_open() {
+            if (mySidebar.style.display === 'block') {
+              mySidebar.style.display = 'none';
+              overlayBg.style.display = "none";
+            } else {
+              mySidebar.style.display = 'block';
+              overlayBg.style.display = "block";
+            }
           }
-        }
 
-        // Close the sidebar with the close button
-        function w3_close() {
-          mySidebar.style.display = "none";
-          overlayBg.style.display = "none";
-        }
+          // Close the sidebar with the close button
+          function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+          }
 
-      </script>
+        </script>
 
 
+    </body>
+
+    </html>
+    <!-- jQuery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="js/addons/datatables.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript">
+      var a = document.getElementById('disc-50');
+      a.onclick = function () {
+        Clipboard_CopyTo("T9TTVSQB");
+        var div = document.getElementById('code-success');
+        div.style.display = 'block';
+        setTimeout(function () {
+          document.getElementById('code-success').style.display = 'none';
+        }, 900);
+      };
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#dtfoodpanda').DataTable();
+        $('#dtdeliveroo').DataTable();
+        $('#dtgrabfood').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+      });
+    </script>
   </body>
 
   </html>
-  <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- MDBootstrap Datatables  -->
-  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
-  <!-- Your custom scripts (optional) -->
-  <script type="text/javascript">
-    var a = document.getElementById('disc-50');
-    a.onclick = function () {
-      Clipboard_CopyTo("T9TTVSQB");
-      var div = document.getElementById('code-success');
-      div.style.display = 'block';
-      setTimeout(function () {
-        document.getElementById('code-success').style.display = 'none';
-      }, 900);
-    };
-  </script>
-
-  <script>
-    $(document).ready(function () {
-      $('#dtfoodpanda').DataTable();
-      $('#dtdeliveroo').DataTable();
-      $('#dtgrabfood').DataTable();
-      $('.dataTables_length').addClass('bs-select');
-    });
-  </script>
-</body>
-
-</html>
-
-
-
         """
-
         self.f.write(message)
-    # def makeHTML(self):
-    #     bstr = self.initDB.selectAll()
-    #     message = """<html>
-    #     <head></head>
-    #     <table class="table">
-    #         <thead>
-    #             <tr>
-    #                 <th>Content</th>
-    #                 <th>Author</th>
-    #                 <th>Date</th>
-    #                 <th>Retweets</th>
-    #                 <th>Likes</th>
-    #                 <th>Url</th>
-    #             </tr>
-    #         </thead>
-    #     <tbody>
-    #     """
-    #     for item in bstr:
-    #         message += "<tr>"
-    #         message += "<td>"+str(item[2])+"</td>"
-    #         message += "<td>"+str(item[1])+"</td>"
-    #         message+="</tr>"
-    #     message += """
-    #      </tbody>
-    #      </table>
-    #     """
-    #     message+="<img src=\'sent_anal.png\'> "
-    #     message+="</html>"
-    #     self.f.write(message)
 
     def close(self):
         self.f.close()
@@ -470,4 +380,5 @@ class generateWeb:
 
 a = generateWeb()
 a.makeHTML()
+a.maketable()
 a.close()
