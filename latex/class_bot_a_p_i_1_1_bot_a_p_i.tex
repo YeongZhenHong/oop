@@ -10,10 +10,11 @@ def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a425133565c3cd57cf68ca393cb53
 def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a72a35d127825f333b1b604495091e5a9}{close\+Cnx}} (self)
 \begin{DoxyCompactList}\small\item\em close\+Cnx(self) ~\newline
  \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}{select\+Tweets}} (self)
-\begin{DoxyCompactList}\small\item\em Select all tweets that is stored in the database. \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_ad5ab5d170a0af893c7eaba857cad61cb}{select\+Reddit}} (self)
-\begin{DoxyCompactList}\small\item\em Select all reddit comments that is stored in the database. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a71aa6dc7354cb3d4f0f777b1acb7f3ac}{select\+DB}} (self, platform)
+\begin{DoxyCompactList}\small\item\em Select all comments that is stored in the database. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_af89388823d3b6b1ac37daf24ae2e83f1}\label{class_bot_a_p_i_1_1_bot_a_p_i_af89388823d3b6b1ac37daf24ae2e83f1}} 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_af89388823d3b6b1ac37daf24ae2e83f1}{count\+DB}} (self, platform)
+\begin{DoxyCompactList}\small\item\em Count all the rows that is stored in DB table. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a3ef5c1ac27470ede353418366e824fff}{insert\+Tweets}} (self, author, content, date, likes, retweets, url)
 \begin{DoxyCompactList}\small\item\em insert tweets \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a7bef8f32076b6bc5802a74d5c9484651}{insert\+Reddit}} (self, comment, datetime)
@@ -167,27 +168,20 @@ Inserts generated csv files from crawlers into database.
 {\em fail} & to read csv files \\
 \hline
 \end{DoxyExceptions}
-\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_ad5ab5d170a0af893c7eaba857cad61cb}\label{class_bot_a_p_i_1_1_bot_a_p_i_ad5ab5d170a0af893c7eaba857cad61cb}} 
-\index{BotAPI.BotAPI@{BotAPI.BotAPI}!selectReddit@{selectReddit}}
-\index{selectReddit@{selectReddit}!BotAPI.BotAPI@{BotAPI.BotAPI}}
-\doxysubsubsection{\texorpdfstring{selectReddit()}{selectReddit()}}
-{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+select\+Reddit (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a71aa6dc7354cb3d4f0f777b1acb7f3ac}\label{class_bot_a_p_i_1_1_bot_a_p_i_a71aa6dc7354cb3d4f0f777b1acb7f3ac}} 
+\index{BotAPI.BotAPI@{BotAPI.BotAPI}!selectDB@{selectDB}}
+\index{selectDB@{selectDB}!BotAPI.BotAPI@{BotAPI.BotAPI}}
+\doxysubsubsection{\texorpdfstring{selectDB()}{selectDB()}}
+{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+select\+DB (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{platform }\end{DoxyParamCaption})}
 
 
 
-Select all reddit comments that is stored in the database. 
+Select all comments that is stored in the database. 
 
-Select statement to select all tweets from crawler.\+Reddit \mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}\label{class_bot_a_p_i_1_1_bot_a_p_i_a17b83600512c738baa3b64dae85e6b59}} 
-\index{BotAPI.BotAPI@{BotAPI.BotAPI}!selectTweets@{selectTweets}}
-\index{selectTweets@{selectTweets}!BotAPI.BotAPI@{BotAPI.BotAPI}}
-\doxysubsubsection{\texorpdfstring{selectTweets()}{selectTweets()}}
-{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+select\+Tweets (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+Select statement to select all tweets \begin{DoxyReturn}{Returns}
+tuple(data\+List,len(datalist)) returns tuple 
+\end{DoxyReturn}
 
-
-
-Select all tweets that is stored in the database. 
-
-Select statement to select all tweets from crawler.\+testing 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
