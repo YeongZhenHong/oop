@@ -63,6 +63,7 @@ class Twitter(Crawler):
         df['likes'] = np.array([tweet.favorite_count for tweet in tweets])
         df['url'] = np.array([tweet.id for tweet in tweets])
         # return df.to_json('tweets.json', orient='records', indent=1)
+        
         return df.to_csv('tweets.csv')
 
     

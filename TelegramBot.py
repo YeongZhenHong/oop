@@ -8,8 +8,8 @@ Runs the Telegram to allow user to interact with the bot
 """
 
 import telegram
-from telegram.ext import Updater
-from telegram.ext import CommandHandler
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Updater, CommandHandler
 import Auth_Token
 import time
 
@@ -39,7 +39,50 @@ class TelegramBot:
         TelegramBot.dispatcher = TelegramBot.updater.dispatcher
         self.initDB = BotAPI()
 
+    def start(self, update, context):
+        """! Start Function
+        @brief replies a brief explaination on how to use the bot
+        """
+        message = """
+        TofuCrawler Bot!\n
+        I can perform data crawling from Twitter,Reddit,Yahoo and Instagram\n
+        /Crawl [platform] [data name] - Crawl data from a specific platform\n
+        /Crawlall [data name] - Crawl data from all 4 platforms\n
+        /CrawTwitter [data name] [number of tweets] - Crawl a specific number of tweets from twitter\n
+        /ping @username - pings a user 5 times in the chat
+        """
+        # keyboard = [[
+        #     InlineKeyboardButton("Crawl data", callback_data=self.crawl),
+        #     InlineKeyboardButton("Ping someone", callback_data=self.ping),
+        # ],
+        #     [InlineKeyboardButton("Kill Bot", callback_data=self.killBot())], ]
+        # reply_markup = InlineKeyboardMarkup(keyboard)
+        context.bot.send_message(
+            chat_id=update.effective_chat.id, text=message)
+        # update.message.reply_text('Please choose:', reply_markup=reply_markup)
+
     def crawlTwitter(self, update, context):
+        """! Function
+        @brief getTweets gets an instance of Twitter Crawler to fetch tweets from Twitter's API
+        @exception context.bot.send_message Fail to reply user with output
+        """
+        try:
+            getTweets = Twitter().set_Settings(context.args[0],context.args[1])
+            # getTweets = Twitter(context.args[0]).crawl()
+            time.sleep(10)
+            context.bot.send_message(
+                chat_id=update.effective_chat.id, text="tweet output for " +
+                context.args[0]
+            )
+            context.bot.sendDocument(
+                chat_id=update.effective_chat.id, document=open("./tweets.csv", "rb"))
+            context.bot.sendDocument(
+                chat_id=update.effective_chat.id, document=open("./sent_anal.png", "rb"))
+        except:
+            context.bot.send_message(
+                chat_id=update.effective_chat.id, text="Failed to crawl twitter!!")
+
+    def crawl(self, update, context):
         """! Function
         @brief getTweets gets an instance of Twitter Crawler to fetch tweets from Twitter's API
         @param self aaa
@@ -47,6 +90,8 @@ class TelegramBot:
         @param context aaaaa
         @exception context.bot.send_message Fail to reply user with output
         """
+        platform = context.args[0]
+        
         try:
             getTweets = Twitter(context.args[0]).crawl()
             time.sleep(5)
@@ -91,7 +136,7 @@ class TelegramBot:
             self.injectHandlers()
             self.updater.start_polling()
             return True
-        except: 
+        except:
             print("Failed to start telegram bot! ")
             return False
 
@@ -122,7 +167,9 @@ class TelegramBot:
         try:
             self.dispatcher.add_handler(
                 CommandHandler('FetchTweets', self.fetchTweets))
+            self.dispatcher.add_handler(CommandHandler('start', self.start))
             self.dispatcher.add_handler(CommandHandler('ping', self.ping))
+            self.dispatcher.add_handler(CommandHandler('Crawl', self.crawl))
             self.dispatcher.add_handler(CommandHandler(
                 'CrawlTwitter', self.crawlTwitter))
             return True

@@ -6,7 +6,7 @@
 
 import unittest
 from TelegramBot import TelegramBot 
-
+from telegram.ext import CommandHandler
 
 class TelegramTest(unittest.TestCase):
     """! TelegramTest class
@@ -16,6 +16,7 @@ class TelegramTest(unittest.TestCase):
     the following are the functions that can actually be written in a test case
     """
     initTeleBot = TelegramBot()
+    
     
     def testSartBot(self):
         """! Test Start Bot Function
