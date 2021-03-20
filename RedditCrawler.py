@@ -17,10 +17,11 @@ from Crawler import Crawler
 from datetime import datetime
 import Auth_Token
 
+
 class RedditCrawler(Crawler):
     """! The reddit crawler sub class
     Defines a Reddit Crawler subclass to crawl reddit dataset.
-    
+
     Inherits from crawler based class test
     """
 
@@ -30,17 +31,19 @@ class RedditCrawler(Crawler):
         @return An instance of reddit crawler class initialized with specified limit and authenticates
         """
         super().__init__()
-        #store a list of objects
+        # store a list of objects
         self.posts = []
-        self.authenticate(Auth_Token.REDDIT_CLIENT,Auth_Token.REDDIT_SECRET, Auth_Token.REDDIT_AGENT)
-    
+        self.authenticate(Auth_Token.REDDIT_CLIENT,
+                          Auth_Token.REDDIT_SECRET, Auth_Token.REDDIT_AGENT)
+
     def authenticate(self, clientid, clientsecret, user):
         """! authenticates the usage of scraping data from reddit and creates an instance of reddit
         @param clientid     input client_id from reddit
         @param clientsecret input secret key from reddit
         @param user         input user_agent(name) from reddit
         """
-        self.reddit = praw.Reddit(client_id=clientid, client_secret=clientsecret, user_agent=user)
+        self.reddit = praw.Reddit(
+            client_id=clientid, client_secret=clientsecret, user_agent=user)
 
     def set_Settings(self, searchString, limit):
         """! sets the search string and limit
@@ -54,7 +57,8 @@ class RedditCrawler(Crawler):
         """! main function to start crawling data and export it to .csv file
         """
         subreddit = self.reddit.subreddit("singapore")
-        submission = subreddit.search(super().get_searchString(), limit=self.get_searchLimit())
+        submission = subreddit.search(
+            super().get_searchString(), limit=self.get_searchLimit())
 
         for post in submission:
             title = post.title
@@ -67,16 +71,16 @@ class RedditCrawler(Crawler):
                     p = (comment.body, date)
                     # p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
                     self.posts.append(p)
-            except: pass
-        
+            except:
+                pass
         self.outputToFile()
 
-    def outputToFile(self,filename="reddit"):
+    def outputToFile(self, filename="_Reddit"):
         """! export data to .csv file
         @param filename amend the export filename (optional)
-        """
+        """ 
         try:
-            with open(filename + '.csv', 'w', newline='', encoding='utf-8') as f:
+            with open("./CSV/"+self.get_searchString()+filename + '.csv', 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
                 writer.writerow(['Comment', 'Datetime'])
                 # writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])

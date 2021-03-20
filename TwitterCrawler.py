@@ -59,7 +59,7 @@ class Twitter(Crawler):
         df['likes'] = np.array([tweet.favorite_count for tweet in tweets])
         df['url'] = np.array([tweet.id for tweet in tweets])
         # return df.to_json('tweets.json', orient='records', indent=1)
-        return df.to_csv('grabfood_tweets.csv')
+        return df.to_csv('./CSV/'+self.get_searchString()+'_Twitter.csv')
 
     def crawl(self):
         """! crawl function inherited from Crawler class.
@@ -73,7 +73,7 @@ class Twitter(Crawler):
             filter_list = self.get_searchString() + " -filter:retweets"
             api = self.authenticate()
             tweets = Cursor(api.search, q=filter_list, lang="en",
-                        result_type="mixed").items(self.get_searchLimit())
+                            result_type="mixed").items(self.get_searchLimit())
             tweetLi = []
             for tweet in tweets:
                 tweetLi.append(tweet)
@@ -82,7 +82,3 @@ class Twitter(Crawler):
         except:
             print("cannot crawl")
             return False
-
-# a = Twitter()
-# a.set_Settings("grabfood", 35)
-# a.crawl()
