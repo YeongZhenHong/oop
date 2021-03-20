@@ -1,0 +1,73 @@
+\hypertarget{class_sentimental___analysis_1_1_sentimental___analysis}{}\doxysection{Sentimental\+\_\+\+Analysis.\+Sentimental\+\_\+\+Analysis Class Reference}
+\label{class_sentimental___analysis_1_1_sentimental___analysis}\index{Sentimental\_Analysis.Sentimental\_Analysis@{Sentimental\_Analysis.Sentimental\_Analysis}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_sentimental___analysis_1_1_sentimental___analysis_ad76cf210635868d1b19979e9825e8b21}\label{class_sentimental___analysis_1_1_sentimental___analysis_ad76cf210635868d1b19979e9825e8b21}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \mbox{\hyperlink{class_sentimental___analysis_1_1_sentimental___analysis_aef0f049ad6a2ae38cd9149f5c7c95c5d}{clean}} (file)
+\begin{DoxyCompactList}\small\item\em clean(file) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_sentimental___analysis_1_1_sentimental___analysis_ada7f08964472231df84558137ec6d7f1}{sentiment\+\_\+analyse}} (text)
+\begin{DoxyCompactList}\small\item\em sentiment analyse(text) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_sentimental___analysis_1_1_sentimental___analysis_a9a981d3a137ef3c042b2bdb8a1b33ca9}{plot\+\_\+pie}} (score)
+\begin{DoxyCompactList}\small\item\em plot\+\_\+pie(score) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sentimental___analysis_1_1_sentimental___analysis_aef0f049ad6a2ae38cd9149f5c7c95c5d}\label{class_sentimental___analysis_1_1_sentimental___analysis_aef0f049ad6a2ae38cd9149f5c7c95c5d}} 
+\index{Sentimental\_Analysis.Sentimental\_Analysis@{Sentimental\_Analysis.Sentimental\_Analysis}!clean@{clean}}
+\index{clean@{clean}!Sentimental\_Analysis.Sentimental\_Analysis@{Sentimental\_Analysis.Sentimental\_Analysis}}
+\doxysubsubsection{\texorpdfstring{clean()}{clean()}}
+{\footnotesize\ttfamily def Sentimental\+\_\+\+Analysis.\+Sentimental\+\_\+\+Analysis.\+clean (\begin{DoxyParamCaption}\item[{}]{file }\end{DoxyParamCaption})}
+
+
+
+clean(file) 
+
+cleans text for accurate analysis 
+\begin{DoxyParams}{Parameters}
+{\em file} & cvs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a string without\+: /n, special characters/symbols, digits, and stop words 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_sentimental___analysis_1_1_sentimental___analysis_a9a981d3a137ef3c042b2bdb8a1b33ca9}\label{class_sentimental___analysis_1_1_sentimental___analysis_a9a981d3a137ef3c042b2bdb8a1b33ca9}} 
+\index{Sentimental\_Analysis.Sentimental\_Analysis@{Sentimental\_Analysis.Sentimental\_Analysis}!plot\_pie@{plot\_pie}}
+\index{plot\_pie@{plot\_pie}!Sentimental\_Analysis.Sentimental\_Analysis@{Sentimental\_Analysis.Sentimental\_Analysis}}
+\doxysubsubsection{\texorpdfstring{plot\_pie()}{plot\_pie()}}
+{\footnotesize\ttfamily def Sentimental\+\_\+\+Analysis.\+Sentimental\+\_\+\+Analysis.\+plot\+\_\+pie (\begin{DoxyParamCaption}\item[{}]{score }\end{DoxyParamCaption})}
+
+
+
+plot\+\_\+pie(score) 
+
+plots a pir chart with a given set of scores 
+\begin{DoxyParams}{Parameters}
+{\em score} & of float type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_sentimental___analysis_1_1_sentimental___analysis_ada7f08964472231df84558137ec6d7f1}\label{class_sentimental___analysis_1_1_sentimental___analysis_ada7f08964472231df84558137ec6d7f1}} 
+\index{Sentimental\_Analysis.Sentimental\_Analysis@{Sentimental\_Analysis.Sentimental\_Analysis}!sentiment\_analyse@{sentiment\_analyse}}
+\index{sentiment\_analyse@{sentiment\_analyse}!Sentimental\_Analysis.Sentimental\_Analysis@{Sentimental\_Analysis.Sentimental\_Analysis}}
+\doxysubsubsection{\texorpdfstring{sentiment\_analyse()}{sentiment\_analyse()}}
+{\footnotesize\ttfamily def Sentimental\+\_\+\+Analysis.\+Sentimental\+\_\+\+Analysis.\+sentiment\+\_\+analyse (\begin{DoxyParamCaption}\item[{}]{text }\end{DoxyParamCaption})}
+
+
+
+sentiment analyse(text) 
+
+takes in string and passes it through nltk VADER analyser 
+\begin{DoxyParams}{Parameters}
+{\em string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list indicating overall positive, negative and neutral score of the given string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Sentimental\+\_\+\+Analysis.\+py\end{DoxyCompactItemize}

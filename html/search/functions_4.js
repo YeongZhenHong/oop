@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5fsearchstring_61',['get_searchString',['../class_crawler_1_1_crawler.html#ae2ed806ccb39ba1a64771fdb76aab4bf',1,'Crawler::Crawler']]]
+  ['fetchtweets_82',['fetchTweets',['../class_telegram_bot_1_1_telegram_bot.html#ad72afddfa3de031f91b5f65c096cd8e8',1,'TelegramBot::TelegramBot']]]
 ];

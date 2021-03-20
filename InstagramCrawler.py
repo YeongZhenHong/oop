@@ -7,7 +7,7 @@
 Runs instagram crawler to crawl data
 @section usage_main Usage
 e.g instagram = InstagramCrawler('foodpandasg')
-    insta.crawl()
+    instagram.crawl()
 """
 
 from selenium import webdriver
@@ -52,7 +52,7 @@ class InstagramCrawler(Crawler):
         """
         self.chrome_options = webdriver.ChromeOptions()
         self.chrome_options.add_argument("--incognito")
-        self.chrome_options.add_argument("--headless")
+        #self.chrome_options.add_argument("--headless")
         self.chrome_options.add_argument("--ignore-certificate-errors")
         self.driver = webdriver.Chrome(options=self.chrome_options)
         self.driver.get("https://instagram.com")

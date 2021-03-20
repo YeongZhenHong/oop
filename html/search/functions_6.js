@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['killbot_64',['killBot',['../class_telegram_bot_1_1_telegram_bot.html#a6f49373fa9ecd48bd62bc64ef210c5f1',1,'TelegramBot::TelegramBot']]]
+  ['injecthandlers_84',['injectHandlers',['../class_telegram_bot_1_1_telegram_bot.html#a8084c880a2832c73ac7714ff30ff9704',1,'TelegramBot::TelegramBot']]],
+  ['insertreddit_85',['insertReddit',['../class_bot_a_p_i_1_1_bot_a_p_i.html#a7bef8f32076b6bc5802a74d5c9484651',1,'BotAPI::BotAPI']]],
+  ['inserttweets_86',['insertTweets',['../class_bot_a_p_i_1_1_bot_a_p_i.html#a3ef5c1ac27470ede353418366e824fff',1,'BotAPI::BotAPI']]]
 ];

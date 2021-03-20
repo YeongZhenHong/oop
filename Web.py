@@ -8,9 +8,10 @@ class generateWeb:
         super().__init__()
         self.f = open("helloWorld.html", "w")
         self.initDB = BotAPI()
+        self.initDB.openCnx()
 
     def makeHTML(self):
-        # bstr = self.initDB.selectAll()
+        bstr = self.initDB.selectTweets()
         message = """
      <!DOCTYPE html>
 <html>
@@ -121,7 +122,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
         <h5>Regions</h5>
-        <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
+        <img src=".\sent_anal.png" style="width:100%" alt="Google Regional Map">
       </div>
       <div class="w3-twothird">
         <h5>Feeds</h5>
@@ -356,6 +357,7 @@ function w3_close() {
 
     def close(self):
         self.f.close()
+        self.initDB.closeCnx()
 
 
 a = generateWeb()
