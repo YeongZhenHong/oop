@@ -6,35 +6,34 @@ from BotAPI import BotAPI
 class generateWeb:
     def __init__(self):
         super().__init__()
-        self.f = open("helloWorld.html", "w")
+        self.f = open("test2.html", "w")
         self.initDB = BotAPI()
         self.initDB.openCnx()
 
     def makeHTML(self):
-        bstr = self.initDB.selectTweets()
+        tweets = self.initDB.selectDB("Twitter")
+        reddit = self.initDB.selectDB("Reddit")
+        instagram = self.initDB.selectDB("Instagram")
         message = """
-     <!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Material Design for Bootstrap</title>
-  <!-- MDB icon -->
-  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <title>Tofu Crawler</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="css/mdb.min.css">
-  <!-- Your custom styles (optional) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css">
   <!-- MDBootstrap Datatables  -->
-  <link href="css/addons/datatables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -57,6 +56,9 @@ class generateWeb:
     h5 {
       font-family: "Raleway", sans-serif
     }
+    .fa {
+      font-size: 30px;
+    }
   </style>
 
   <body class="w3-light-grey">
@@ -64,43 +66,28 @@ class generateWeb:
     <!-- Top container -->
     <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
       <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
-          class="fa fa-bars"></i> �Menu</button>
+          class="fa fa-bars"></i>Menu</button>
       <span class="w3-bar-item w3-right">Logo</span>
     </div>
 
     <!-- Sidebar/menu -->
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-      <div class="w3-container w3-row">
-        <div class="w3-col s4">
-          <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
-        </div>
-        <div class="w3-col s8 w3-bar">
-          <span>Welcome, <strong>Mike</strong></span><br>
-          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
-        </div>
-      </div>
-      <hr>
+
       <div class="w3-container">
         <h5>Dashboard</h5>
       </div>
       <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
-          onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>� Close Menu</a>
-        <a href="#overview" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>�
+          onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
+        <a href="#overview" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>
           Overview</a>
-        <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>� Food
+        <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Food
           Panda</a>
-        <a href="#deliveroopost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>�
+        <a href="#deliveroopost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>
           Deliveroo</a>
-        <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>� Grab
+        <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Grab
           Food</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>� Orders</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>� News</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>� General</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>� History</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>� Settings</a><br><br>
+
       </div>
     </nav>
 
@@ -121,9 +108,12 @@ class generateWeb:
       <div class="w3-row-padding w3-margin-bottom">
         <div class="w3-quarter">
           <div class="w3-container w3-pink w3-padding-16">
-            <div class="w3-left"><img class="panda" src=".\img\foodpanda_icon.png" width="48" height="48"></i></div>
+            <div class="w3-left"><img class="panda" src=".\img\koodpanda_icon.png" width="48" height="48"></i></div>
             <div class="w3-right">
-              <h3>insert total post crawled</h3>
+              <h3>
+                       """
+        message += str(tweets[1])
+        message += """ Tweets Crawled</h3>
             </div>
             <div class="w3-clear"></div>
             <h4>Food Panda</h4>
@@ -134,7 +124,10 @@ class generateWeb:
             <div class="w3-left"><img class="deliveroo" src=".\img\deliveroo_icon.jpg" width="48" height="48"></i>
             </div>
             <div class="w3-right">
-              <h3>insert total post crawled</h3>
+              <h3>
+                       """
+        message += str(reddit[1])
+        message += """ Reddit Crawled</h3>
             </div>
             <div class="w3-clear"></div>
             <h4>Deliveroo</h4>
@@ -144,30 +137,31 @@ class generateWeb:
           <div class="w3-container w3-flat-nephritis w3-padding-16">
             <div class="w3-left"><img class="grab" src=".\img\grabfood_icon.jpg" width="48" height="48"></i></div>
             <div class="w3-right">
-              <h3>insert total post crawled</h3>
+              <h3>
+                       """
+        message += str(instagram[1])
+        message += """ Instagram Crawled</h3>
             </div>
             <div class="w3-clear"></div>
             <h4>Grab Food</h4>
           </div>
         </div>
-
-
         <div class="w3-panel">
           <div class="w3-row-padding" style="margin:0 -16px">
             <div class="w3-third">
               <h5>Post Count Spider Chart</h5>
-              <img src="..\sent_anal_spider.png" style="width:100%" alt="spider chart">
+              <img src=".\sent_anal_spider.png" style="width:100%" alt="spider chart">
             </div>
             <div class="w3-twothird">
               <h5>Feeds</h5>
               <table class="w3-table w3-striped w3-white">
                 <tr>
-                  <td><img class="reddit" src=".\img\reddit_icon.png" width="30" height="30"></i></td>
+                  <td><img class="reddit" src=".\img\eddit_icon.png" width="30" height="30"></i></td>
                   <td>Reddit</td>
                   <td><i>insert reddit post crawl count</i></td>
                 </tr>
                 <tr>
-                  <td><img class="twitter" src=".\img\twitter_icon.png" width="30" height="30"></i></td>
+                  <td><img class="twitter" src=".\img\witter_icon.png" width="30" height="30"></i></td>
                   <td>Twitter.</td>
                   <td><i>insert reddit post crawl count</i></td>
                 </tr>
@@ -198,35 +192,33 @@ class generateWeb:
             <div class="w3-container w3-center w3-padding w3-pink" style="width:75%">insert number</div>
           </div>
         </div>
-        <hr>
+              <hr>
         <h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>
         <table id="dtfoodpanda" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th class="th-sm">Social Media
-
-              </th>
-              <th class="th-sm">Content
-
-              </th>
-              <th class="th-sm">Author
-
-              </th>
-              <th class="th-sm">Date posted
-
-              </th>
-              <th class="th-sm">Likes/Shares
-
-              </th>
-              <th class="th-sm">Link
-
-              </th>
+              <th class="th-sm">Content</th>
+              <th class="th-sm">Author</th>
+              <th class="th-sm">Date</th>
+              <th class="th-sm">Retweets</th>
+              <th class="th-sm">Likes</th>
+              <th class="th-sm">Url</th>
             </tr>
           </thead>
           <tbody>
-          
+                  """
+        for item in tweets[0]:
+            message += "<tr>"
+            message += "<td></td>"
+            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[1])+"</td>"
+            message += "<td>"+str(item[3])+"</td>"
+            message += "<td>"+str(item[4])+"</td>"
+            message += "<td></td>"
+            message += "</tr>"
+        message += """
           </tbody>
-        </table>
+        </table> 
         <h1 id="deliveroopost" style="color:#02CCC0"><strong>Deliveroo Posts</strong></h1>
         <table id="dtdeliveroo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
@@ -252,12 +244,23 @@ class generateWeb:
             </tr>
           </thead>
           <tbody>
-
+"""
+        for item in reddit[0]:
+            message += "<tr>"
+            message += "<td></td>"
+            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[1])+"</td>"
+            message += "<td></td>"
+            message += "<td></td>"
+            message += "<td></td>"
+            message += "</tr>"
+        message += """
           </tbody>
         </table>  
         <h1 id="grabfoodpost" style="color:#029837"><strong>Grab Food Posts</strong></h1>
         <table id="dtgrabfood" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
+
             <tr>
               <th class="th-sm">Social Media
 
@@ -278,85 +281,28 @@ class generateWeb:
 
               </th>
             </tr>
+
           </thead>
           <tbody>
-
+"""
+        for item in instagram[0]:
+            message += "<tr>"
+            message += "<td></td>"
+            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[1])+"</td>"
+            message += "<td></td>"
+            message += "<td></td>"
+            message += "<td></td>"
+            message += "</tr>"
+        message += """
           </tbody>
+          
         </table>
-
-        <hr>
-        <div class="w3-container">
-          <h5>Recent Users</h5>
-          <ul class="w3-ul w3-card-4 w3-white">
-            <li class="w3-padding-16">
-              <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-              <span class="w3-xlarge">Mike</span><br>
-            </li>
-            <li class="w3-padding-16">
-              <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-              <span class="w3-xlarge">Jill</span><br>
-            </li>
-            <li class="w3-padding-16">
-              <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-              <span class="w3-xlarge">Jane</span><br>
-            </li>
-          </ul>
-        </div>
-        <hr>
-
-        <div class="w3-container">
-          <h5>Recent Comments</h5>
-          <div class="w3-row">
-            <div class="w3-col m2 text-center">
-              <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
-            </div>
-            <div class="w3-col m10 w3-container">
-              <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
-              <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-            </div>
-          </div>
-
-          <div class="w3-row">
-            <div class="w3-col m2 text-center">
-              <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
-            </div>
-            <div class="w3-col m10 w3-container">
-              <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
-              <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="w3-container w3-dark-grey w3-padding-32">
-          <div class="w3-row">
-            <div class="w3-container w3-third">
-              <h5 class="w3-bottombar w3-border-green">Demographic</h5>
-              <p>Language</p>
-              <p>Country</p>
-              <p>City</p>
-            </div>
-            <div class="w3-container w3-third">
-              <h5 class="w3-bottombar w3-border-red">System</h5>
-              <p>Browser</p>
-              <p>OS</p>
-              <p>More</p>
-            </div>
-            <div class="w3-container w3-third">
-              <h5 class="w3-bottombar w3-border-orange">Target</h5>
-              <p>Users</p>
-              <p>Active</p>
-              <p>Geo</p>
-              <p>Interests</p>
-            </div>
-          </div>
-        </div>
+      
 
         <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-light-grey">
-          <h4>FOOTER</h4>
-          <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+          
         </footer>
 
 
@@ -394,27 +340,22 @@ class generateWeb:
 
   </html>
   <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
+   
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
   <!-- MDBootstrap Datatables  -->
-  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+   <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
   <!-- Your custom scripts (optional) -->
-  <script type="text/javascript">
-    var a = document.getElementById('disc-50');
-    a.onclick = function () {
-      Clipboard_CopyTo("T9TTVSQB");
-      var div = document.getElementById('code-success');
-      div.style.display = 'block';
-      setTimeout(function () {
-        document.getElementById('code-success').style.display = 'none';
-      }, 900);
-    };
-  </script>
+
 
   <script>
     $(document).ready(function () {
@@ -433,35 +374,6 @@ class generateWeb:
         """
 
         self.f.write(message)
-    # def makeHTML(self):
-    #     bstr = self.initDB.selectAll()
-    #     message = """<html>
-    #     <head></head>
-    #     <table class="table">
-    #         <thead>
-    #             <tr>
-    #                 <th>Content</th>
-    #                 <th>Author</th>
-    #                 <th>Date</th>
-    #                 <th>Retweets</th>
-    #                 <th>Likes</th>
-    #                 <th>Url</th>
-    #             </tr>
-    #         </thead>
-    #     <tbody>
-    #     """
-    #     for item in bstr:
-    #         message += "<tr>"
-    #         message += "<td>"+str(item[2])+"</td>"
-    #         message += "<td>"+str(item[1])+"</td>"
-    #         message+="</tr>"
-    #     message += """
-    #      </tbody>
-    #      </table>
-    #     """
-    #     message+="<img src=\'sent_anal.png\'> "
-    #     message+="</html>"
-    #     self.f.write(message)
 
     def close(self):
         self.f.close()
