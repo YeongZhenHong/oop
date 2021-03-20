@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['redditcrawler_83',['RedditCrawler',['../namespace_reddit_crawler.html',1,'']]]
+  ['redditcrawler_86',['RedditCrawler',['../namespace_reddit_crawler.html',1,'']]]
 ];
