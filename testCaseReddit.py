@@ -26,8 +26,8 @@ class TestReddit(unittest.TestCase):
         """! Setup class to initialise an instance of RedditCrawler class to start testing
         """
         #this code will run before every single test
-        self.reddit = RedditCrawler()
-        #self.DUMMYSETTINGS = {x:'dummy' for x in ['client_id', 'client_secret', 'user_agent']}
+        self.reddit = RedditCrawler(1)
+        self.message = "error"
         print("setting up Reddit Crawler...")
 
     def tearDown(self):
@@ -42,50 +42,49 @@ class TestReddit(unittest.TestCase):
         """
         self.reddit.setSettings("testCase", 6)
         self.assertEqual(self.reddit.get_searchString(), "testCase")
-        self.assertEqual(self.reddit.limit, 6)
+        self.assertEqual(self.reddit.get_searchLimit(), 6)
         self.assertNotEqual(self.reddit.get_searchString(), "food")
-        self.assertNotEqual(self.reddit.limit, 9)
-
-    def test_setLimit(self):
-        """! Test case for set limit.
-        Checks if the limit variable is assigned accordingly.
-        """
-        self.reddit.setLimit(7)
-        self.assertEqual(self.reddit.limit, 7)
-        self.assertNotEqual(self.reddit.limit, 6)
+        self.assertNotEqual(self.reddit.get_searchLimit(), 9)
    
     def test_authenticate(self):
         """! Test case to check authentication
         Checks if the reddit creates an instance of praw.Reddit class.
         Also check if the passed in values for the praw.Reddit class are assigned accordingly.
         """
+        #input Dummy data in the authenticate method
         self.reddit.authenticate("Dummy1", "Dummy2", "Dummy3")
-        #self.reddit.reddit = Mock()
-        #mock_test = Mock(spec=praw.Reddit)
-        #print(mock_test.mock_calls)
 
+        #checks whether the respective value are equal when passed-in
         self.assertEqual(self.reddit.reddit.config.client_id, "Dummy1")
         self.assertEqual(self.reddit.reddit.config.client_secret, "Dummy2")
         self.assertEqual(self.reddit.reddit.config.user_agent, "Dummy3")
         
         #check if reddit instance is called and created
-        message = "error"
-        self.assertIsInstance(self.reddit.reddit, praw.Reddit, message)
-        #self.reddit.reddit.assert_called_once_with({"d","d","d"})
+        self.assertIsInstance(self.reddit.reddit, praw.Reddit, self.message)
 
-    def test_crawl(self):
-        """!
+    @patch.object(RedditCrawler, 'outputToFile', return_value=None)
+    def test_crawl(self, mock_output):
+        """! 
+        Invalid the outputToFile function by patching it as a mock object
+        as we do not want to export data to a file
         """
-        pass
-    
-    #@mock.patch('csv.writer'), csv_writer_mock in param
+        #check if ValueError is raised when given negative number
+        with self.assertRaises(Exception) as context:
+            self.reddit.setSettings("test", -1)
+            self.reddit.crawl()
+             #compares if the subreddit instance is called and created
+            self.assertIsInstance(self.reddit.subreddit1, type(self.reddit.reddit.subreddit("singapore")), self.message)
+        
+        #check if it indeed raise an exception error message when input a negative/zero number
+        self.assertTrue("Error, that is not a positive number!" in str(context.exception))
+
     def test_outputToFile(self):
         """! Test case to check output of data to .csv file.
         Compares the dummy data to the .csv file 
         """
+        #create fake dummy data
         self.reddit.posts = [("test1", "test2","test3","test4")]
         self.reddit.outputToFile("test")
-
         testArr = ["test1", "test2","test3","test4"]
 
         try:
@@ -103,20 +102,6 @@ class TestReddit(unittest.TestCase):
         finally:
             r.close()
             os.remove("_test.csv")
- 
-        #print(csv_writer_mock.mock_calls)
-       # csv_writer_mock.assert_called_with([mock.call(['Comment', 'Upvotes', 'Date', 'Time'])])
-       # self.assertEqual(csv_writer_mock.call_count, 1)
-        #csv_writer_mock.writerow.assert_called_with([mock.call(['Comment', 'Upvotes', 'Date', 'Time'])])
-        #csv_writer_mock.assert_any_call([mock.call(['Comment', 'Upvotes', 'Date', 'Time'])])
-       # print(csv_writer_mock.writerow.assert_called_with())
-        # csv_writer_mock.writerow.assert_has_calls('Comment', 'Upvotes', 'Date', 'Time')
-    
-"""
-  def test_example(self):
-        mock_twitter = Mock()
-        short_tweeter.tweet(mock_twitter, "message")
-        mock_twitter.PostUpdate.assert_called_with("message")
-"""
+
 if __name__ == '__main__':
     unittest.main()
