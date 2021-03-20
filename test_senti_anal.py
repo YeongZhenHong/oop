@@ -1,5 +1,6 @@
 import unittest
 import cv2
+import pandas as pd
 from Sentimental_Analysis import Sentimental_Analysis
 
 
@@ -9,7 +10,7 @@ class Test_Sentimental_Analysis(unittest.TestCase):
     def setUpClass(cls):
         """! setUpClass(cls)
         @brief indicate Sentimental Analysis Class is being tested
-        @param Sentimental_Analysis Class 
+        @param Sentimental_Analysis Class
         """
         print('Setting up Sentimental Analysis Class\n')
 
@@ -18,7 +19,7 @@ class Test_Sentimental_Analysis(unittest.TestCase):
     def tearDownClass(cls):
         """! tearDownClass(cls)
         @brief indicate Sentimental Analysis Class finished testing
-        @param Sentimental_Analysis Class 
+        @param Sentimental_Analysis Class
         """
         print('\nClass test completed')
     # Setup sequence where base cases are generated for comparison
@@ -30,7 +31,7 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         @brief negative and positive are strings that produce negative and postitive sentiments respectively
         @brief negative_result and postive_result are the expected return values when the strings are passed into the Analysis func
         @brief test_neg and test_pos are negative and postive scores to be passed into plot_pie func
-        @brief test_neg_img and test_pos_img are the expected .png created when the base cases are executed 
+        @brief test_neg_img and test_pos_img are the expected .png created when the base cases are executed
         """
         print('Setting up')
         self.everything = Sentimental_Analysis.clean(
@@ -54,10 +55,16 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         self.test_pos_img = cv2.imread('./test_pos.png')
         self.test_neg_img = cv2.imread('./test_neg.png')
 
+        self.test_spider_dat = pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
+                                             'var1': [5000, 1000, 2000],
+                                             'var2': [3500, 1500, 500],
+                                             'var3': [90, 9000, 6900]})
+        self.test_spider_img = cv2.imread('./sent_anal_spider.png')
+
     def tearDown(self):
         """! tearDown(self)
         @brief indicate a func is finished testing
-        @param Sentimental_Analysis Class 
+        @param Sentimental_Analysis Class
         """
         print('Test Completed\n')
 
@@ -84,7 +91,7 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         self.assertEqual(self.positive, self.positive_result)
 
     def test_plotpie(self):
-        """! plot_pit(score)
+        """! test_plotpie(self)
         @brief tests plot_pie(score) function against base cases
         @brief checks if generated images are identical with base images
         """
@@ -128,6 +135,25 @@ class Test_Sentimental_Analysis(unittest.TestCase):
                 self.test_pos_img, cv2.imread('./sent_anal.png'))
             r, g, b = cv2.split(difference)
             if cv2.countNonZero(r) != 0 and cv2.countNonZero(g) != 0 and cv2.countNonZero(b) != 0:
+                self.assertTrue(True)
+            else:
+                self.assertFalse(True)
+        else:
+            self.assertFalse(True)
+
+    def test_plotradar(self):
+        """! test_plotradar(self)
+        @brief tests plot_radar(dat) function against base cases
+        @brief checks if generated images are identical with base images
+        @brief test code is similar to test_plotpie
+        """
+        print('test_plotradar')
+        Sentimental_Analysis.plot_radar(self, dat=self.test_spider_dat)
+        if self.test_spider_img.shape == cv2.imread('./test_sent_anal_spider.png').shape:
+            difference = cv2.subtract(
+                self.test_spider_img, cv2.imread('./test_sent_anal_spider.png'))
+            r, g, b = cv2.split(difference)
+            if cv2.countNonZero(r) == 0 and cv2.countNonZero(g) == 0 and cv2.countNonZero(b) == 0:
                 self.assertTrue(True)
             else:
                 self.assertFalse(True)
