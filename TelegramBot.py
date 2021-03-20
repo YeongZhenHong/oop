@@ -75,7 +75,7 @@ class TelegramBot:
                 context.args[0]
             )
             context.bot.sendDocument(
-                chat_id=update.effective_chat.id, document=open("./tweets.csv", "rb"))
+                chat_id=update.effective_chat.id, document=open("./pagination/testhome.html", "rb"))
             context.bot.sendDocument(
                 chat_id=update.effective_chat.id, document=open("./sent_anal.png", "rb"))
         except:
@@ -100,7 +100,7 @@ class TelegramBot:
                 context.args[0]
             )
             context.bot.sendDocument(
-                chat_id=update.effective_chat.id, document=open("./tweets.csv", "rb"))
+                chat_id=update.effective_chat.id, document=open("./pagination/test2.html", "rb"))
             context.bot.sendDocument(
                 chat_id=update.effective_chat.id, document=open("./sent_anal.png", "rb"))
         except:
