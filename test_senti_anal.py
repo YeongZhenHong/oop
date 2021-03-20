@@ -35,7 +35,7 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         """
         print('Setting up')
         self.everything = Sentimental_Analysis.clean(
-            'test_clean_everything.csv')
+            './senti_test_files/test_clean_everything.csv')
         self.everything_result = 'file used testing clean function contains symbols like new lines numbers also contains links words also included end function return string characters lowercase'
 
         self.negative = Sentimental_Analysis.Analyse(
@@ -52,14 +52,16 @@ class Test_Sentimental_Analysis(unittest.TestCase):
                          'pos': 0.353, 'compound': 0.7956}
         self.test_neg = {'neg': 0.253, 'neu': 0.747,
                          'pos': 0.0, 'compound': -0.7976}
-        self.test_pos_img = cv2.imread('./test_pos.png')
-        self.test_neg_img = cv2.imread('./test_neg.png')
+        self.test_pos_img = cv2.imread('./senti_test_files/test_pos.png')
+        self.test_neg_img = cv2.imread('./senti_test_files/test_neg.png')
 
         self.test_spider_dat = pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
                                              'var1': [5000, 1000, 2000],
                                              'var2': [3500, 1500, 500],
-                                             'var3': [90, 9000, 6900]})
-        self.test_spider_img = cv2.imread('./sent_anal_spider.png')
+                                             'var3': [90, 9000, 6900],
+                                             'var4': [777, 777, 777]})
+        self.test_spider_img = cv2.imread(
+            './senti_test_files/sent_anal_spider.png')
 
     def tearDown(self):
         """! tearDown(self)
@@ -149,9 +151,9 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         """
         print('test_plotradar')
         Sentimental_Analysis.plot_radar(self, dat=self.test_spider_dat)
-        if self.test_spider_img.shape == cv2.imread('./test_sent_anal_spider.png').shape:
+        if self.test_spider_img.shape == cv2.imread('./senti_test_files/test_sent_anal_spider.png').shape:
             difference = cv2.subtract(
-                self.test_spider_img, cv2.imread('./test_sent_anal_spider.png'))
+                self.test_spider_img, cv2.imread('./senti_test_files/test_sent_anal_spider.png'))
             r, g, b = cv2.split(difference)
             if cv2.countNonZero(r) == 0 and cv2.countNonZero(g) == 0 and cv2.countNonZero(b) == 0:
                 self.assertTrue(True)
