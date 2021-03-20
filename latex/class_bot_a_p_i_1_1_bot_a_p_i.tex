@@ -18,6 +18,8 @@ def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a3ef5c1ac27470ede353418366e82
 \begin{DoxyCompactList}\small\item\em insert tweets \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a7bef8f32076b6bc5802a74d5c9484651}{insert\+Reddit}} (self, comment, datetime)
 \begin{DoxyCompactList}\small\item\em Insert Reddit. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a43941d653de784e50f88d840cc6228a3}{insert\+Instagram}} (self, user, posts)
+\begin{DoxyCompactList}\small\item\em Insert Instagram. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{class_bot_a_p_i_1_1_bot_a_p_i_a1add8bd0319a2b1816cb7e48a1f6fbfa}{read\+Csv}} (self, file\+Type)
 \begin{DoxyCompactList}\small\item\em Inserts generated csv files from crawlers into database. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
@@ -66,7 +68,24 @@ Ensures that each time user commits to database to release all database resource
 
 cnx.\+close() closes the database connection
 
-cnx.\+cursor.\+close() frees up the cursor resource that is currently used by the application \mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a7bef8f32076b6bc5802a74d5c9484651}\label{class_bot_a_p_i_1_1_bot_a_p_i_a7bef8f32076b6bc5802a74d5c9484651}} 
+cnx.\+cursor.\+close() frees up the cursor resource that is currently used by the application \mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a43941d653de784e50f88d840cc6228a3}\label{class_bot_a_p_i_1_1_bot_a_p_i_a43941d653de784e50f88d840cc6228a3}} 
+\index{BotAPI.BotAPI@{BotAPI.BotAPI}!insertInstagram@{insertInstagram}}
+\index{insertInstagram@{insertInstagram}!BotAPI.BotAPI@{BotAPI.BotAPI}}
+\doxysubsubsection{\texorpdfstring{insertInstagram()}{insertInstagram()}}
+{\footnotesize\ttfamily def Bot\+API.\+Bot\+API.\+insert\+Instagram (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{user,  }\item[{}]{posts }\end{DoxyParamCaption})}
+
+
+
+Insert Instagram. 
+
+Insert the crawled instagram comments from csv that is generated from \mbox{\hyperlink{_instagram_crawler_8py}{Instagram\+Crawler.\+py}} 
+\begin{DoxyParams}{Parameters}
+{\em user} & Username of the user that has posted the comment \\
+\hline
+{\em posts} & Comments that the user has made on the post \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_bot_a_p_i_1_1_bot_a_p_i_a7bef8f32076b6bc5802a74d5c9484651}\label{class_bot_a_p_i_1_1_bot_a_p_i_a7bef8f32076b6bc5802a74d5c9484651}} 
 \index{BotAPI.BotAPI@{BotAPI.BotAPI}!insertReddit@{insertReddit}}
 \index{insertReddit@{insertReddit}!BotAPI.BotAPI@{BotAPI.BotAPI}}
 \doxysubsubsection{\texorpdfstring{insertReddit()}{insertReddit()}}

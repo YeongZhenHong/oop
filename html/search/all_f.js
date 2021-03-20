@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['yahoo_52',['Yahoo',['../class_yahoo_crawler_1_1_yahoo.html',1,'YahooCrawler']]]
+  ['yahoo_65',['Yahoo',['../class_yahoo_crawler_1_1_yahoo.html',1,'YahooCrawler']]]
 ];

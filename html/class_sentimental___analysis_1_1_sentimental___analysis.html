@@ -75,20 +75,47 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad76cf210635868d1b19979e9825e8b21"><td class="memItemLeft" align="right" valign="top"><a id="ad76cf210635868d1b19979e9825e8b21"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self)</td></tr>
-<tr class="separator:ad76cf210635868d1b19979e9825e8b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef0f049ad6a2ae38cd9149f5c7c95c5d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sentimental___analysis_1_1_sentimental___analysis.html#aef0f049ad6a2ae38cd9149f5c7c95c5d">clean</a> (file)</td></tr>
 <tr class="memdesc:aef0f049ad6a2ae38cd9149f5c7c95c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">clean(file)  <a href="class_sentimental___analysis_1_1_sentimental___analysis.html#aef0f049ad6a2ae38cd9149f5c7c95c5d">More...</a><br /></td></tr>
 <tr class="separator:aef0f049ad6a2ae38cd9149f5c7c95c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada7f08964472231df84558137ec6d7f1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sentimental___analysis_1_1_sentimental___analysis.html#ada7f08964472231df84558137ec6d7f1">sentiment_analyse</a> (text)</td></tr>
-<tr class="memdesc:ada7f08964472231df84558137ec6d7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">sentiment analyse(text)  <a href="class_sentimental___analysis_1_1_sentimental___analysis.html#ada7f08964472231df84558137ec6d7f1">More...</a><br /></td></tr>
-<tr class="separator:ada7f08964472231df84558137ec6d7f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af74fe33f4e9d4e924db52ab50d9889b9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sentimental___analysis_1_1_sentimental___analysis.html#af74fe33f4e9d4e924db52ab50d9889b9">Analyse</a> (text)</td></tr>
+<tr class="memdesc:af74fe33f4e9d4e924db52ab50d9889b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">sentiment analyse(text)  <a href="class_sentimental___analysis_1_1_sentimental___analysis.html#af74fe33f4e9d4e924db52ab50d9889b9">More...</a><br /></td></tr>
+<tr class="separator:af74fe33f4e9d4e924db52ab50d9889b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a981d3a137ef3c042b2bdb8a1b33ca9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sentimental___analysis_1_1_sentimental___analysis.html#a9a981d3a137ef3c042b2bdb8a1b33ca9">plot_pie</a> (score)</td></tr>
 <tr class="memdesc:a9a981d3a137ef3c042b2bdb8a1b33ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">plot_pie(score)  <a href="class_sentimental___analysis_1_1_sentimental___analysis.html#a9a981d3a137ef3c042b2bdb8a1b33ca9">More...</a><br /></td></tr>
 <tr class="separator:a9a981d3a137ef3c042b2bdb8a1b33ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac68052e64f4af564b2bb87ed679c19c4"><td class="memItemLeft" align="right" valign="top"><a id="ac68052e64f4af564b2bb87ed679c19c4"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>plot_radar</b> (self)</td></tr>
+<tr class="separator:ac68052e64f4af564b2bb87ed679c19c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af74fe33f4e9d4e924db52ab50d9889b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af74fe33f4e9d4e924db52ab50d9889b9">&#9670;&nbsp;</a></span>Analyse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Sentimental_Analysis.Sentimental_Analysis.Analyse </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sentiment analyse(text) </p>
+<p>takes in string and passes it through nltk VADER analyser </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a list indicating overall positive, negative and neutral score of the given string </dd></dl>
+
+</div>
+</div>
 <a id="aef0f049ad6a2ae38cd9149f5c7c95c5d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aef0f049ad6a2ae38cd9149f5c7c95c5d">&#9670;&nbsp;</a></span>clean()</h2>
 
@@ -108,7 +135,7 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self)</t
 <p>clean(file) </p>
 <p>cleans text for accurate analysis </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">file</td><td>cvs </td></tr>
+    <tr><td class="paramname">name</td><td>of the file </td></tr>
   </table>
   </dd>
 </dl>
@@ -139,33 +166,6 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self)</t
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ada7f08964472231df84558137ec6d7f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada7f08964472231df84558137ec6d7f1">&#9670;&nbsp;</a></span>sentiment_analyse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">def Sentimental_Analysis.Sentimental_Analysis.sentiment_analyse </td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>sentiment analyse(text) </p>
-<p>takes in string and passes it through nltk VADER analyser </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">string</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>a list indicating overall positive, negative and neutral score of the given string </dd></dl>
 
 </div>
 </div>
