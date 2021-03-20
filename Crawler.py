@@ -18,6 +18,7 @@ class Crawler(ABC):
         """! The Crawler based class initializer
         """
         self._searchString = ""
+        self._searchLimit = 0
 
     def get_searchString(self):
         """! Retrieves the search string value
@@ -30,7 +31,17 @@ class Crawler(ABC):
         @param searchString the search string data we want to crawl 
         """
         self._searchString = searchString
+    
+    def set_searchLimit(self, limit):
+        self._searchLimit = limit
 
+    def get_searchLimit(self):
+        return self._searchLimit
+
+    def set_Settings(self, searchString, limit):
+        self.set_searchString(searchString)
+        self.set_Limit(limit)
+        
     @abstractmethod
     def crawl(self):  
         """! Abstract class method
