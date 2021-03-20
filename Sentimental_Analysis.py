@@ -165,14 +165,15 @@ class Sentimental_Analysis:
         # plt.show()
         plt.savefig('name')
 
-    def plot_line(self):
+    # def plot_line(self):
 
-        for date in self.fp_tweets['date']:
+    #     for date in self.fp_tweets['date']:
 
-            # if __name__ == "__main__":
-            #     fp = Sentimental_Analysis()
-            #     fp.plot_radar(dat=pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
-            #                                     'var1': [5000, 1000, 2000],
-            #                                     'var2': [3500, 1500, 500],
-            #                                     'var3': [90, 9000, 6900]
-            #                                     }))
+
+if __name__ == "__main__":
+    fp = Sentimental_Analysis()
+    fp.plot_radar(dat=pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
+                                    'var1': [5000, 1000, 2000],
+                                    'var2': [3500, 1500, 500],
+                                    'var3': [90, 9000, 6900]
+                                    }))
