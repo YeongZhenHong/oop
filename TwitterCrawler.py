@@ -42,7 +42,7 @@ class Twitter(Crawler):
         @brief Sets a keyword to search for and the number of tweets to search for
         """
         super().set_searchString(searchString)
-        self.limit = limit
+        super().set_searchLimit(limit)
 
     def tweets_to_df(self, tweets):
         """! tweets_to_df function.
@@ -73,7 +73,7 @@ class Twitter(Crawler):
             filter_list = self.get_searchString() + " -filter:retweets"
             api = self.authenticate()
             tweets = Cursor(api.search, q=filter_list, lang="en",
-                            result_type="mixed").items(self.limit)
+                        result_type="mixed").items(self.get_searchLimit())
             tweetLi = []
             for tweet in tweets:
                 tweetLi.append(tweet)
