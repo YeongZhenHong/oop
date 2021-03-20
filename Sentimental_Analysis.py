@@ -9,11 +9,32 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 from math import pi
 import numpy as np
+import datetime
 
 
 class Sentimental_Analysis:
 
+    def __init__(self):
+        self.fp_tweets = pd.read_csv('./CSV/foodpanda_tweets.csv')
+        self.d_tweets = pd.read_csv('./CSV/deliveroo_tweets.csv')
+        self.g_tweets = pd.read_csv('./CSV/grabfood_tweets.csv')
+
+        self.fp_reddit = pd.read_csv('./CSV/foodpanda_reddit.csv')
+        self.d_reddit = pd.read_csv('./CSV/deliveroo_reddit.csv')
+        self.g_reddit = pd.read_csv('./CSV/grabfood_reddit.csv')
+
+        self.fp_insta = pd.read_csv('./CSV/foodpanda_instagram.csv')
+        self.d_insta = pd.read_csv('./CSV/deliveroo_instagram.csv')
+        self.g_insta = pd.read_csv('./CSV/grabfood_instagram.csv')
+
+        self.dt = pd.DataFrame({'Food': ['foodpanda', 'deliveroo', 'grabfood'],
+                                'Twitter': [len(self.fp_tweets.index), len(self.d_tweets.index), len(self.g_tweets.index)],
+                                'Reddit': [len(self.fp_reddit.index), len(self.d_reddit.index), len(self.g_reddit.index)],
+                                'Instagram': [len(self.fp_insta.index), len(self.d_insta.index), len(self.g_insta.index)]
+                                })
+
     # removes all punctuations, special symbols, urls and converts to lowercase
+
     def clean(file):
         """! clean(file)
         @brief cleans text for accurate analysis
@@ -69,9 +90,9 @@ class Sentimental_Analysis:
             sentiment = 'Neutral Sentiment'
         return value, sentiment
 
-    def plot_pie(score):
+    def plot_pie(score, name='sent_anal'):
         """! plot_pie(score)
-        @brief plots a pir chart with a given set of scores
+        @brief plots a pie chart with a given set of scores
         @param score of float type
         """
         highlight = (0.1, 0, 0)
@@ -81,38 +102,77 @@ class Sentimental_Analysis:
         sentiment = ['Positive', 'Negative', 'Neutral']
         ax.pie(data, explode=highlight, labels=sentiment, autopct='%1.1f%%',
                shadow=True, startangle=90)
-        plt.savefig('./sent_anal.png')
+        plt.savefig(name)
         # plt.show()
 
-    def plot_radar(self):
-        df = pd.DataFrame({'Social media': ['Reddit', 'Instagram', 'Twitter'],
-                           'Col F': [len(pd.read_csv('./foodpanda_reddit.csv').index), len(pd.read_csv('./foodpandasg_instagram.csv').index), len(pd.read_csv('./foodpanda_tweets.csv').index)],
-                           'Col D': [len(pd.read_csv('./deliveroo_reddit.csv').index), len(pd.read_csv('./deliveroo_instagram.csv').index), len(pd.read_csv('./deliveroo_tweets.csv').index)],
-                           'Col G': [len(pd.read_csv('./grabfood_reddit.csv').index), len(pd.read_csv('./grabfood_instagram.csv').index), len(pd.read_csv('./grabfood_tweets.csv').index)]})
-        fig = plt.figure()
-        ax = fig.add_subplot(111, projection="polar")
+    def plot_radar(self, dat=None, name="sent_anal_spider"):
+        """! plot_radar(score)
+        @brief plots a radar chart with a given set of scores
+        @param score of float type
+        """
+        if dat is None:
+            dat = self.dt
 
-        # theta has 5 different angles, and the first one repeated
-        theta = np.arange(len(df) + 1) / float(len(df)) * 2 * np.pi
-        # values has the 5 values from 'Col B', with the first element repeated
-        values = df['Col B'].values
-        values = np.append(values, values[0])
+        # number social media crawled
+        social = list(dat)[1:]
+        N = len(social)
 
-        # draw the polygon and the mark the points for each angle/value combination
-        ax.plot(theta, values, color="#D70465",
-                marker="o", label="Name of Col F")
-        plt.xticks(theta[:-1], df['Social media'], color='grey', size=12)
-        # to increase the distance of the labels to the plot
-        ax.tick_params(pad=10)
-        # fill the area of the polygon with green and some transparency
-        ax.fill(theta, values, '#D70465', alpha=0.1)
+        # find angles of axis
+        angles = [n / float(N) * 2 * pi for n in range(N)]
+        angles += angles[:1]
 
-        # plt.legend() # shows the legend, using the label of the line plot (useful when there is more than 1 polygon)
-        plt.title("Post count for each social media of each delivery service")
-        plt.savefig('./spider_sent_anal.png')
+        # initialise spider plot
+        ax = plt.subplot(111, polar=True)
+
+        # set axis vertical
+        ax.set_theta_offset(pi / 2)
+        ax.set_theta_direction(-1)
+
+        # draw axis for each social media
+        plt.xticks(angles[:-1], social)
+        ax.get_xaxis().majorTicks[2].label1.set_horizontalalignment('right')
+        ax.get_xaxis().majorTicks[1].label1.set_horizontalalignment('left')
+
+        # Draw ylabels
+        ax.set_rlabel_position(0)
+        plt.yticks(color="grey", size=7)
+
+        # foodpanda
+        values = dat.loc[0].drop('Food').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, color='#D80765', linewidth=1,
+                linestyle='solid', label="Foodpanda")
+        ax.fill(angles, values, '#D80765', alpha=0.1)
+
+        # deliveroo
+        values = dat.loc[1].drop('Food').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, color='#02CCC0', linewidth=1,
+                linestyle='solid', label="Deliveroo")
+        ax.fill(angles, values, '#02CCC0', alpha=0.1)
+
+        # grabfood
+        values = dat.loc[2].drop('Food').values.flatten().tolist()
+        values += values[:1]
+        ax.plot(angles, values, color='#029837', linewidth=1,
+                linestyle='solid', label="GrabFood")
+        ax.fill(angles, values, '#029837', alpha=0.1)
+
+        # legend
+        plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
+
+        # show graph
         # plt.show()
+        plt.savefig('name')
 
+    def plot_line(self):
 
-if __name__ == "__main__":
-    fp = Sentimental_Analysis()
-    fp.plot_radar()
+        for date in self.fp_tweets['date']:
+
+            # if __name__ == "__main__":
+            #     fp = Sentimental_Analysis()
+            #     fp.plot_radar(dat=pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
+            #                                     'var1': [5000, 1000, 2000],
+            #                                     'var2': [3500, 1500, 500],
+            #                                     'var3': [90, 9000, 6900]
+            #                                     }))
