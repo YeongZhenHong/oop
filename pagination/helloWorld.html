@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- MDBootstrap Datatables  -->
+  <link href="css/addons/datatables.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+  <style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Raleway", sans-serif
+    }
+  </style>
+
+  <body class="w3-light-grey">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+      <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
+          class="fa fa-bars"></i> �Menu</button>
+      <span class="w3-bar-item w3-right">Logo</span>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+      <div class="w3-container w3-row">
+        <div class="w3-col s4">
+          <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+        </div>
+        <div class="w3-col s8 w3-bar">
+          <span>Welcome, <strong>Mike</strong></span><br>
+          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+          <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+        </div>
+      </div>
+      <hr>
+      <div class="w3-container">
+        <h5>Dashboard</h5>
+      </div>
+      <div class="w3-bar-block">
+        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+          onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>� Close Menu</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>� Overview</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>� Views</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>� Traffic</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>� Geo</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>� Orders</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>� News</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>� General</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>� History</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>� Settings</a><br><br>
+      </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+      title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+      <!-- Header -->
+      <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> Food Delivery</b></h5>
+
+      </header>
+
+      <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-quarter">
+          <div class="w3-container w3-pink w3-padding-16">
+            <div class="w3-left"><img class="panda" src=".\pics\panda_icon.jpeg" width="48" height="48"></i></div>
+            <div class="w3-right">
+              <h3>insert total post crawled</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Food Panda</h4>
+          </div>
+        </div>
+        <div class="w3-quarter">
+          <div class="w3-container w3-flat-turquoise w3-padding-16">
+            <div class="w3-left"><img class="deliveroo" src=".\pics\deliveroo_icon.jpg" width="48" height="48"></i>
+            </div>
+            <div class="w3-right">
+              <h3>insert total post crawled</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Deliveroo</h4>
+          </div>
+        </div>
+        <div class="w3-quarter">
+          <div class="w3-container w3-flat-nephritis w3-padding-16">
+            <div class="w3-left"><img class="grab" src=".\pics\grab_icon.svg" width="48" height="48"></i></div>
+            <div class="w3-right">
+              <h3>insert total post crawled</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Grab Food</h4>
+          </div>
+        </div>
+
+
+        <div class="w3-panel">
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-third">
+              <h5>Popularity PieChart</h5>
+              <img src=".\sent_anal.png" style="width:100%" alt="Google Regional Map">
+            </div>
+            <div class="w3-twothird">
+              <h5>Feeds</h5>
+              <table class="w3-table w3-striped w3-white">
+                <tr>
+                  <td><img class="reddit" src=".\pics\reddit_icon.png" width="30" height="30"></i></td>
+                  <td>Reddit</td>
+                  <td><i>insert reddit post crawl count</i></td>
+                </tr>
+                <tr>
+                  <td><img class="twitter" src=".\pics\twitter_icon.png" width="30" height="30"></i></td>
+                  <td>Twitter.</td>
+                  <td><i>insert reddit post crawl count</i></td>
+                </tr>
+                <tr>
+                  <td><img class="yahoo" src=".\pics\yahoo_icon.png" width="30" height="30"></i></td>
+                  <td>Yahoo News</td>
+                  <td><i>insert yahoo post crawl count</i></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="w3-container">
+          <h5>Avervage Likes or Shares per Post</h5>
+          <p>Grab</p>
+          <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style="width:25%">insert number</div>
+          </div>
+
+          <p>Deliveroo</p>
+          <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style="width:50%">insert number</div>
+          </div>
+
+          <p>Food Panda</p>
+          <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-pink" style="width:75%">insert number</div>
+          </div>
+        </div>
+        <hr>
+
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th class="th-sm">Name
+
+              </th>
+              <th class="th-sm">Position
+
+              </th>
+              <th class="th-sm">Office
+
+              </th>
+              <th class="th-sm">Age
+
+              </th>
+              <th class="th-sm">Start date
+
+              </th>
+              <th class="th-sm">Salary
+
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tiger Nixon</td>
+              <td>System Architect</td>
+              <td>Edinburgh</td>
+              <td>61</td>
+              <td>2011/04/25</td>
+              <td>$320,800</td>
+            </tr>
+            <tr>
+              <td>Garrett Winters</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>63</td>
+              <td>2011/07/25</td>
+              <td>$170,750</td>
+            </tr>
+            <tr>
+              <td>Ashton Cox</td>
+              <td>Junior Technical Author</td>
+              <td>San Francisco</td>
+              <td>66</td>
+              <td>2009/01/12</td>
+              <td>$86,000</td>
+            </tr>
+            <tr>
+              <td>Cedric Kelly</td>
+              <td>Senior Javascript Developer</td>
+              <td>Edinburgh</td>
+              <td>22</td>
+              <td>2012/03/29</td>
+              <td>$433,060</td>
+            </tr>
+            <tr>
+              <td>Airi Satou</td>
+              <td>Accountant</td>
+              <td>Tokyo</td>
+              <td>33</td>
+              <td>2008/11/28</td>
+              <td>$162,700</td>
+            </tr>
+            <tr>
+              <td>Brielle Williamson</td>
+              <td>Integration Specialist</td>
+              <td>New York</td>
+              <td>61</td>
+              <td>2012/12/02</td>
+              <td>$372,000</td>
+            </tr>
+            <tr>
+              <td>Herrod Chandler</td>
+              <td>Sales Assistant</td>
+              <td>San Francisco</td>
+              <td>59</td>
+              <td>2012/08/06</td>
+              <td>$137,500</td>
+            </tr>
+            <tr>
+              <td>Rhona Davidson</td>
+              <td>Integration Specialist</td>
+              <td>Tokyo</td>
+              <td>55</td>
+              <td>2010/10/14</td>
+              <td>$327,900</td>
+            </tr>
+            <tr>
+              <td>Colleen Hurst</td>
+              <td>Javascript Developer</td>
+              <td>San Francisco</td>
+              <td>39</td>
+              <td>2009/09/15</td>
+              <td>$205,500</td>
+            </tr>
+            <tr>
+              <td>Sonya Frost</td>
+              <td>Software Engineer</td>
+              <td>Edinburgh</td>
+              <td>23</td>
+              <td>2008/12/13</td>
+              <td>$103,600</td>
+            </tr>
+            <tr>
+              <td>Jena Gaines</td>
+              <td>Office Manager</td>
+              <td>London</td>
+              <td>30</td>
+              <td>2008/12/19</td>
+              <td>$90,560</td>
+            </tr>
+            <tr>
+              <td>Quinn Flynn</td>
+              <td>Support Lead</td>
+              <td>Edinburgh</td>
+              <td>22</td>
+              <td>2013/03/03</td>
+              <td>$342,000</td>
+            </tr>
+            <tr>
+              <td>Charde Marshall</td>
+              <td>Regional Director</td>
+              <td>San Francisco</td>
+              <td>36</td>
+              <td>2008/10/16</td>
+              <td>$470,600</td>
+            </tr>
+            <tr>
+              <td>Haley Kennedy</td>
+              <td>Senior Marketing Designer</td>
+              <td>London</td>
+              <td>43</td>
+              <td>2012/12/18</td>
+              <td>$313,500</td>
+            </tr>
+            <tr>
+              <td>Tatyana Fitzpatrick</td>
+              <td>Regional Director</td>
+              <td>London</td>
+              <td>19</td>
+              <td>2010/03/17</td>
+              <td>$385,750</td>
+            </tr>
+            <tr>
+              <td>Michael Silva</td>
+              <td>Marketing Designer</td>
+              <td>London</td>
+              <td>66</td>
+              <td>2012/11/27</td>
+              <td>$198,500</td>
+            </tr>
+            <tr>
+              <td>Paul Byrd</td>
+              <td>Chief Financial Officer (CFO)</td>
+              <td>New York</td>
+              <td>64</td>
+              <td>2010/06/09</td>
+              <td>$725,000</td>
+            </tr>
+            <tr>
+              <td>Gloria Little</td>
+              <td>Systems Administrator</td>
+              <td>New York</td>
+              <td>59</td>
+              <td>2009/04/10</td>
+              <td>$237,500</td>
+            </tr>
+            <tr>
+              <td>Bradley Greer</td>
+              <td>Software Engineer</td>
+              <td>London</td>
+              <td>41</td>
+              <td>2012/10/13</td>
+              <td>$132,000</td>
+            </tr>
+            <tr>
+              <td>Dai Rios</td>
+              <td>Personnel Lead</td>
+              <td>Edinburgh</td>
+              <td>35</td>
+              <td>2012/09/26</td>
+              <td>$217,500</td>
+            </tr>
+            <tr>
+              <td>Jenette Caldwell</td>
+              <td>Development Lead</td>
+              <td>New York</td>
+              <td>30</td>
+              <td>2011/09/03</td>
+              <td>$345,000</td>
+            </tr>
+            <tr>
+              <td>Yuri Berry</td>
+              <td>Chief Marketing Officer (CMO)</td>
+              <td>New York</td>
+              <td>40</td>
+              <td>2009/06/25</td>
+              <td>$675,000</td>
+            </tr>
+            <tr>
+              <td>Caesar Vance</td>
+              <td>Pre-Sales Support</td>
+              <td>New York</td>
+              <td>21</td>
+              <td>2011/12/12</td>
+              <td>$106,450</td>
+            </tr>
+            <tr>
+              <td>Doris Wilder</td>
+              <td>Sales Assistant</td>
+              <td>Sidney</td>
+              <td>23</td>
+              <td>2010/09/20</td>
+              <td>$85,600</td>
+            </tr>
+            <tr>
+              <td>Angelica Ramos</td>
+              <td>Chief Executive Officer (CEO)</td>
+              <td>London</td>
+              <td>47</td>
+              <td>2009/10/09</td>
+              <td>$1,200,000</td>
+            </tr>
+            <tr>
+              <td>Gavin Joyce</td>
+              <td>Developer</td>
+              <td>Edinburgh</td>
+              <td>42</td>
+              <td>2010/12/22</td>
+              <td>$92,575</td>
+            </tr>
+            <tr>
+              <td>Jennifer Chang</td>
+              <td>Regional Director</td>
+              <td>Singapore</td>
+              <td>28</td>
+              <td>2010/11/14</td>
+              <td>$357,650</td>
+            </tr>
+            <tr>
+              <td>Brenden Wagner</td>
+              <td>Software Engineer</td>
+              <td>San Francisco</td>
+              <td>28</td>
+              <td>2011/06/07</td>
+              <td>$206,850</td>
+            </tr>
+            <tr>
+              <td>Fiona Green</td>
+              <td>Chief Operating Officer (COO)</td>
+              <td>San Francisco</td>
+              <td>48</td>
+              <td>2010/03/11</td>
+              <td>$850,000</td>
+            </tr>
+            <tr>
+              <td>Shou Itou</td>
+              <td>Regional Marketing</td>
+              <td>Tokyo</td>
+              <td>20</td>
+              <td>2011/08/14</td>
+              <td>$163,000</td>
+            </tr>
+            <tr>
+              <td>Michelle House</td>
+              <td>Integration Specialist</td>
+              <td>Sidney</td>
+              <td>37</td>
+              <td>2011/06/02</td>
+              <td>$95,400</td>
+            </tr>
+            <tr>
+              <td>Suki Burks</td>
+              <td>Developer</td>
+              <td>London</td>
+              <td>53</td>
+              <td>2009/10/22</td>
+              <td>$114,500</td>
+            </tr>
+            <tr>
+              <td>Prescott Bartlett</td>
+              <td>Technical Author</td>
+              <td>London</td>
+              <td>27</td>
+              <td>2011/05/07</td>
+              <td>$145,000</td>
+            </tr>
+            <tr>
+              <td>Gavin Cortez</td>
+              <td>Team Leader</td>
+              <td>San Francisco</td>
+              <td>22</td>
+              <td>2008/10/26</td>
+              <td>$235,500</td>
+            </tr>
+            <tr>
+              <td>Martena Mccray</td>
+              <td>Post-Sales support</td>
+              <td>Edinburgh</td>
+              <td>46</td>
+              <td>2011/03/09</td>
+              <td>$324,050</td>
+            </tr>
+            <tr>
+              <td>Unity Butler</td>
+              <td>Marketing Designer</td>
+              <td>San Francisco</td>
+              <td>47</td>
+              <td>2009/12/09</td>
+              <td>$85,675</td>
+            </tr>
+            <tr>
+              <td>Howard Hatfield</td>
+              <td>Office Manager</td>
+              <td>San Francisco</td>
+              <td>51</td>
+              <td>2008/12/16</td>
+              <td>$164,500</td>
+            </tr>
+            <tr>
+              <td>Hope Fuentes</td>
+              <td>Secretary</td>
+              <td>San Francisco</td>
+              <td>41</td>
+              <td>2010/02/12</td>
+              <td>$109,850</td>
+            </tr>
+            <tr>
+              <td>Vivian Harrell</td>
+              <td>Financial Controller</td>
+              <td>San Francisco</td>
+              <td>62</td>
+              <td>2009/02/14</td>
+              <td>$452,500</td>
+            </tr>
+            <tr>
+              <td>Timothy Mooney</td>
+              <td>Office Manager</td>
+              <td>London</td>
+              <td>37</td>
+              <td>2008/12/11</td>
+              <td>$136,200</td>
+            </tr>
+            <tr>
+              <td>Jackson Bradshaw</td>
+              <td>Director</td>
+              <td>New York</td>
+              <td>65</td>
+              <td>2008/09/26</td>
+              <td>$645,750</td>
+            </tr>
+            <tr>
+              <td>Olivia Liang</td>
+              <td>Support Engineer</td>
+              <td>Singapore</td>
+              <td>64</td>
+              <td>2011/02/03</td>
+              <td>$234,500</td>
+            </tr>
+            <tr>
+              <td>Bruno Nash</td>
+              <td>Software Engineer</td>
+              <td>London</td>
+              <td>38</td>
+              <td>2011/05/03</td>
+              <td>$163,500</td>
+            </tr>
+            <tr>
+              <td>Sakura Yamamoto</td>
+              <td>Support Engineer</td>
+              <td>Tokyo</td>
+              <td>37</td>
+              <td>2009/08/19</td>
+              <td>$139,575</td>
+            </tr>
+            <tr>
+              <td>Thor Walton</td>
+              <td>Developer</td>
+              <td>New York</td>
+              <td>61</td>
+              <td>2013/08/11</td>
+              <td>$98,540</td>
+            </tr>
+            <tr>
+              <td>Finn Camacho</td>
+              <td>Support Engineer</td>
+              <td>San Francisco</td>
+              <td>47</td>
+              <td>2009/07/07</td>
+              <td>$87,500</td>
+            </tr>
+            <tr>
+              <td>Serge Baldwin</td>
+              <td>Data Coordinator</td>
+              <td>Singapore</td>
+              <td>64</td>
+              <td>2012/04/09</td>
+              <td>$138,575</td>
+            </tr>
+            <tr>
+              <td>Zenaida Frank</td>
+              <td>Software Engineer</td>
+              <td>New York</td>
+              <td>63</td>
+              <td>2010/01/04</td>
+              <td>$125,250</td>
+            </tr>
+            <tr>
+              <td>Zorita Serrano</td>
+              <td>Software Engineer</td>
+              <td>San Francisco</td>
+              <td>56</td>
+              <td>2012/06/01</td>
+              <td>$115,000</td>
+            </tr>
+            <tr>
+              <td>Jennifer Acosta</td>
+              <td>Junior Javascript Developer</td>
+              <td>Edinburgh</td>
+              <td>43</td>
+              <td>2013/02/01</td>
+              <td>$75,650</td>
+            </tr>
+            <tr>
+              <td>Cara Stevens</td>
+              <td>Sales Assistant</td>
+              <td>New York</td>
+              <td>46</td>
+              <td>2011/12/06</td>
+              <td>$145,600</td>
+            </tr>
+            <tr>
+              <td>Hermione Butler</td>
+              <td>Regional Director</td>
+              <td>London</td>
+              <td>47</td>
+              <td>2011/03/21</td>
+              <td>$356,250</td>
+            </tr>
+            <tr>
+              <td>Lael Greer</td>
+              <td>Systems Administrator</td>
+              <td>London</td>
+              <td>21</td>
+              <td>2009/02/27</td>
+              <td>$103,500</td>
+            </tr>
+            <tr>
+              <td>Jonas Alexander</td>
+              <td>Developer</td>
+              <td>San Francisco</td>
+              <td>30</td>
+              <td>2010/07/14</td>
+              <td>$86,500</td>
+            </tr>
+            <tr>
+              <td>Shad Decker</td>
+              <td>Regional Director</td>
+              <td>Edinburgh</td>
+              <td>51</td>
+              <td>2008/11/13</td>
+              <td>$183,000</td>
+            </tr>
+            <tr>
+              <td>Michael Bruce</td>
+              <td>Javascript Developer</td>
+              <td>Singapore</td>
+              <td>29</td>
+              <td>2011/06/27</td>
+              <td>$183,000</td>
+            </tr>
+            <tr>
+              <td>Donna Snider</td>
+              <td>Customer Support</td>
+              <td>New York</td>
+              <td>27</td>
+              <td>2011/01/25</td>
+              <td>$112,000</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Name
+              </th>
+              <th>Position
+              </th>
+              <th>Office
+              </th>
+              <th>Age
+              </th>
+              <th>Start date
+              </th>
+              <th>Salary
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+        <hr>
+        <div class="w3-container">
+          <h5>Recent Users</h5>
+          <ul class="w3-ul w3-card-4 w3-white">
+            <li class="w3-padding-16">
+              <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+              <span class="w3-xlarge">Mike</span><br>
+            </li>
+            <li class="w3-padding-16">
+              <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+              <span class="w3-xlarge">Jill</span><br>
+            </li>
+            <li class="w3-padding-16">
+              <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
+              <span class="w3-xlarge">Jane</span><br>
+            </li>
+          </ul>
+        </div>
+        <hr>
+
+        <div class="w3-container">
+          <h5>Recent Comments</h5>
+          <div class="w3-row">
+            <div class="w3-col m2 text-center">
+              <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
+            </div>
+            <div class="w3-col m10 w3-container">
+              <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+              <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+            </div>
+          </div>
+
+          <div class="w3-row">
+            <div class="w3-col m2 text-center">
+              <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
+            </div>
+            <div class="w3-col m10 w3-container">
+              <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+              <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="w3-container w3-dark-grey w3-padding-32">
+          <div class="w3-row">
+            <div class="w3-container w3-third">
+              <h5 class="w3-bottombar w3-border-green">Demographic</h5>
+              <p>Language</p>
+              <p>Country</p>
+              <p>City</p>
+            </div>
+            <div class="w3-container w3-third">
+              <h5 class="w3-bottombar w3-border-red">System</h5>
+              <p>Browser</p>
+              <p>OS</p>
+              <p>More</p>
+            </div>
+            <div class="w3-container w3-third">
+              <h5 class="w3-bottombar w3-border-orange">Target</h5>
+              <p>Users</p>
+              <p>Active</p>
+              <p>Geo</p>
+              <p>Interests</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-16 w3-light-grey">
+          <h4>FOOTER</h4>
+          <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+        </footer>
+
+
+        <!-- End page content -->
+      </div>
+
+      <script>
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+          if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+            overlayBg.style.display = "none";
+          } else {
+            mySidebar.style.display = 'block';
+            overlayBg.style.display = "block";
+          }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+          mySidebar.style.display = "none";
+          overlayBg.style.display = "none";
+        }
+
+      </script>
+
+
+  </body>
+
+  </html>
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- MDBootstrap Datatables  -->
+  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript">
+    var a = document.getElementById('disc-50');
+    a.onclick = function () {
+      Clipboard_CopyTo("T9TTVSQB");
+      var div = document.getElementById('code-success');
+      div.style.display = 'block';
+      setTimeout(function () {
+        document.getElementById('code-success').style.display = 'none';
+      }, 900);
+    };
+
+    function Clipboard_CopyTo(value) {
+      var tempInput = document.createElement("input");
+      tempInput.value = value;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+    }
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $('#dtBasicExample').DataTable();
+      $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
+</body>
+
+</html>

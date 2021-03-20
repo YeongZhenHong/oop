@@ -8,7 +8,6 @@ Runs the Telegram to allow user to interact with the bot
 """
 
 import telegram
-
 from telegram.ext import Updater
 from telegram.ext import CommandHandler
 import Auth_Token
@@ -92,14 +91,18 @@ class TelegramBot:
             self.injectHandlers()
             self.updater.start_polling()
             return True
-        except:
+        except: 
             print("Failed to start telegram bot! ")
             return False
 
     def killBot(self):
         """! kill bot
         @brief kills bot using updater.stop()"""
-        self.updater.stop()
+        try:
+            self.updater.stop()
+            return True
+        except:
+            return False
 
     def ping(self, update, context):
         '''! Ping

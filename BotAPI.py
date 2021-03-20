@@ -38,7 +38,7 @@ class BotAPI:
         to the user to select, insert or delete data in the database
         cnx contains the database object using python mysql connector
         creates a cursor object to allow the program to execute user comamnds
-        
+
         """
         self.cnx = mysql.connector.connect(user=Auth_Token.MYSQL_DBUSER,
                                            host=Auth_Token.MYSQL_HOST,
@@ -62,12 +62,31 @@ class BotAPI:
         """! Select all tweets that is stored in the database
         @brief Select statement to select all tweets from crawler.testing
         """
-        query = ("SELECT * FROM crawler.testing")
-        self.cursor.execute(query)
-        aList = []
-        for i in self.cursor:
-            aList.append(i)
-        return aList
+        tweetList = []
+        try:
+            query = ("SELECT * FROM crawler.testing")
+            self.cursor.execute(query)
+            for i in self.cursor:
+                tweetList.append(i)
+            return tweetList
+        except:
+            print("No tweets selected")
+            return tweetList
+
+    def selectReddit(self):
+        """! Select all reddit comments that is stored in the database
+        @brief Select statement to select all tweets from crawler.Reddit
+        """
+        redditList = []
+        try:
+            query = ("SELECT * FROM crawler.Reddit")
+            self.cursor.execute(query)
+            for i in self.cursor:
+                redditList.append(i)
+            return redditList
+        except:
+            print("No Reddit comments selected")
+            return redditList
 
     def insertTweets(self, author, content, date, likes, retweets, url):
         """! insert tweets
@@ -78,7 +97,7 @@ class BotAPI:
         @param likes Number of likes the tweets has
         @param retweets Number of retweets the tweet has
         @param url The URL of the tweet
-        @exception self.cnx.commit() failure to commit into database
+        @exception self.cnx.commit() failure to commit tweets into database
         """
         try:
             # add_tweets = ("INSERT INTO crawler.tweets " +
@@ -93,14 +112,77 @@ class BotAPI:
         except:
             print("Fail to insert into database!")
 
-    def readCsv(self):
-        """! Inserts generated csv files from crawlers into database
+    def insertReddit(self, comment, datetime):
+        """! Insert Reddit
+        @brief Insert the crawled reddit comments from csv that is generated from RedditCrawler.py
+        @param comment Crawled comments
+        @param datetime The date and time of crawled comments
+        @exception self.cnx.commit() fail to commit the comments into database
         """
-        df = pd.read_csv("tweets.csv", usecols=[
-                         'content', 'author', 'date', 'retweets', 'likes', 'url'])
-        for index, row in df.iterrows():
-            self.insertTweets(str(row['author']), str(row['content']), str(
-                row['date']), str(row['likes']), str(row['retweets']), str(row['url']))
-    
-    
+        try:
+            add_reddit = ("INSERT INTO crawler.Reddit" +
+                          "(comment,datetime) VALUES('" + comment+"','"+datetime+"')")
+            self.cursor.execute(add_reddit)
+            self.cnx.commit()
+            print("Insert Reddit comments successfully!")
+            return True
+        except:
+            print("Fail to insert Reddit comments!")
+            return False
+
+    def insertInstagram(self, user, posts):
+        """! Insert Instagram
+        @brief Insert the crawled instagram comments from csv that is generated from InstagramCrawler.py
+        @param user Username of the user that has posted the comment
+        @param posts Comments that the user has made on the post
+        """
+        try:
+            add_instagram = ("INSERT INTO crawler.Instagram" +
+                             "(user,posts) VALUES('"+user+"','"+posts+"')")
+            self.cursor.execute(add_instagram)
+            self.cnx.commit()
+            print("Insert Instagram posts successfully!")
+            return True
+        except:
+            print("Fail to insert Instagram posts!")
+            return False
+
+    def readCsv(self, fileType):
+        """! Inserts generated csv files from crawlers into database
+        @param fileType A String value of either Twitter,Reddit or Yahoo to insert into different db
+        @exception fail to read csv files
+        """
+        if(fileType == "Twitter"):
+            try:
+                df = pd.read_csv("tweets.csv", usecols=[
+                    'content', 'author', 'date', 'retweets', 'likes', 'url'])
+                for index, row in df.iterrows():
+                    self.insertTweets(str(row['author']), str(row['content']), str(
+                        row['date']), str(row['likes']), str(row['retweets']), str(row['url']))
+                return True
+            except:
+                print("Fail to read Twitter csv")
+                return False
+        elif(fileType == "Reddit"):
+            try:
+                df = pd.read_csv("grabfood_reddit.csv", usecols=[
+                    'Comment', 'Datetime'])
+                for index, row in df.iterrows():
+                    self.insertReddit(
+                        str(row['Comment']), str(row['Datetime']))
+                return True
+            except:
+                print("Fail to read Reddit CSV")
+                return False
+        elif(fileType == "Instagram"):
+            try:
+                df = pd.read_csv("instagram.csv", usecols=['user', 'posts'])
+                for index, row in df.iterrows():
+                    self.insertInstagram(str(row['user']), str(row['posts']))
+                return True
+            except:
+                print("Fail to read Instagram csv")
+                return False
+
+
 

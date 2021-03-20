@@ -1,0 +1,11 @@
+This is a file used for testing clean function, it contains symbols like; !///@#$%^&*()+}{|, new lines 
+
+
+and numbers;1231248749719; 
+
+it also contains links https://www.youtube.com/watch?v=dQw4w9WgXcQ https://www.youtube.com/watch?v=V1ERjOsSNSY&list=LL&index=10 https://www.reddit.com/r/dota2/
+
+stop words are also included such as: i me you yourself him her 
+
+at the end the function will return a string WITH ALL CHARACTERS IN LOWERCASE
+

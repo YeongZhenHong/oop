@@ -89,13 +89,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a17b83600512c738baa3b64dae85e6b59"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html#a17b83600512c738baa3b64dae85e6b59">selectTweets</a> (self)</td></tr>
 <tr class="memdesc:a17b83600512c738baa3b64dae85e6b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select all tweets that is stored in the database.  <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#a17b83600512c738baa3b64dae85e6b59">More...</a><br /></td></tr>
 <tr class="separator:a17b83600512c738baa3b64dae85e6b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ab5d170a0af893c7eaba857cad61cb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html#ad5ab5d170a0af893c7eaba857cad61cb">selectReddit</a> (self)</td></tr>
+<tr class="memdesc:ad5ab5d170a0af893c7eaba857cad61cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select all reddit comments that is stored in the database.  <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#ad5ab5d170a0af893c7eaba857cad61cb">More...</a><br /></td></tr>
+<tr class="separator:ad5ab5d170a0af893c7eaba857cad61cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ef5c1ac27470ede353418366e824fff"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html#a3ef5c1ac27470ede353418366e824fff">insertTweets</a> (self, author, content, date, likes, retweets, url)</td></tr>
 <tr class="memdesc:a3ef5c1ac27470ede353418366e824fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert tweets  <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#a3ef5c1ac27470ede353418366e824fff">More...</a><br /></td></tr>
 <tr class="separator:a3ef5c1ac27470ede353418366e824fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a869416fc214c5e56d27920b0b4f4d082"><td class="memItemLeft" align="right" valign="top"><a id="a869416fc214c5e56d27920b0b4f4d082"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html#a869416fc214c5e56d27920b0b4f4d082">readCsv</a> (self)</td></tr>
-<tr class="memdesc:a869416fc214c5e56d27920b0b4f4d082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts generated csv files from crawlers into database. <br /></td></tr>
-<tr class="separator:a869416fc214c5e56d27920b0b4f4d082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bef8f32076b6bc5802a74d5c9484651"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html#a7bef8f32076b6bc5802a74d5c9484651">insertReddit</a> (self, comment, datetime)</td></tr>
+<tr class="memdesc:a7bef8f32076b6bc5802a74d5c9484651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert Reddit.  <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#a7bef8f32076b6bc5802a74d5c9484651">More...</a><br /></td></tr>
+<tr class="separator:a7bef8f32076b6bc5802a74d5c9484651"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1add8bd0319a2b1816cb7e48a1f6fbfa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot_a_p_i_1_1_bot_a_p_i.html#a1add8bd0319a2b1816cb7e48a1f6fbfa">readCsv</a> (self, fileType)</td></tr>
+<tr class="memdesc:a1add8bd0319a2b1816cb7e48a1f6fbfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts generated csv files from crawlers into database.  <a href="class_bot_a_p_i_1_1_bot_a_p_i.html#a1add8bd0319a2b1816cb7e48a1f6fbfa">More...</a><br /></td></tr>
+<tr class="separator:a1add8bd0319a2b1816cb7e48a1f6fbfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -155,6 +160,55 @@ ABOUT</h1>
 <p>Ensures that each time user commits to database to release all database resources</p>
 <p>cnx.close() closes the database connection</p>
 <p>cnx.cursor.close() frees up the cursor resource that is currently used by the application </p>
+
+</div>
+</div>
+<a id="a7bef8f32076b6bc5802a74d5c9484651"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bef8f32076b6bc5802a74d5c9484651">&#9670;&nbsp;</a></span>insertReddit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def BotAPI.BotAPI.insertReddit </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>comment</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>datetime</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insert Reddit. </p>
+<p>Insert the crawled reddit comments from csv that is generated from <a class="el" href="_reddit_crawler_8py.html" title="This file contains the Reddit Crawler sub class.">RedditCrawler.py</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">comment</td><td>Crawled comments </td></tr>
+    <tr><td class="paramname">datetime</td><td>The date and time of crawled comments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">self.cnx.commit()</td><td>fail to commit the comments into database </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -228,7 +282,7 @@ ABOUT</h1>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">self.cnx.commit()</td><td>failure to commit into database </td></tr>
+    <tr><td class="paramname">self.cnx.commit()</td><td>failure to commit tweets into database </td></tr>
   </table>
   </dd>
 </dl>
@@ -253,6 +307,69 @@ ABOUT</h1>
 
 <p>Open Connections. </p>
 <p>openCnx opens a database connection the the local database to the user to select, insert or delete data in the database cnx contains the database object using python mysql connector creates a cursor object to allow the program to execute user comamnds </p>
+
+</div>
+</div>
+<a id="a1add8bd0319a2b1816cb7e48a1f6fbfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1add8bd0319a2b1816cb7e48a1f6fbfa">&#9670;&nbsp;</a></span>readCsv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def BotAPI.BotAPI.readCsv </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>fileType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts generated csv files from crawlers into database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileType</td><td>A String value of either Twitter,Reddit or Yahoo to insert into different db </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">fail</td><td>to read csv files </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad5ab5d170a0af893c7eaba857cad61cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ab5d170a0af893c7eaba857cad61cb">&#9670;&nbsp;</a></span>selectReddit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def BotAPI.BotAPI.selectReddit </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Select all reddit comments that is stored in the database. </p>
+<p>Select statement to select all tweets from crawler.Reddit </p>
 
 </div>
 </div>
