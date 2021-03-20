@@ -6,9 +6,7 @@
 @section DESCRIPTION
 Runs the crawling function to get tweet content, likes and retweets.
 """
-from tweepy import OAuthHandler
-from tweepy import API
-from tweepy import Cursor
+from tweepy import OAuthHandler, API, Cursor
 import pandas as pd
 import numpy as np
 import json
@@ -44,9 +42,7 @@ class Twitter(Crawler):
         @brief Sets a keyword to search for and the number of tweets to search for
         """
         super().set_searchString(searchString)
-        self.limit = limit
-
-    
+        super().set_searchLimit(limit)
 
     def tweets_to_df(self, tweets):
         """! tweets_to_df function.
@@ -63,10 +59,7 @@ class Twitter(Crawler):
         df['likes'] = np.array([tweet.favorite_count for tweet in tweets])
         df['url'] = np.array([tweet.id for tweet in tweets])
         # return df.to_json('tweets.json', orient='records', indent=1)
-        
-        return df.to_csv('tweets.csv')
-
-    
+        return df.to_csv('./CSV/'+self.get_searchString()+'_Twitter.csv')
 
     def crawl(self):
         """! crawl function inherited from Crawler class.
@@ -80,7 +73,7 @@ class Twitter(Crawler):
             filter_list = self.get_searchString() + " -filter:retweets"
             api = self.authenticate()
             tweets = Cursor(api.search, q=filter_list, lang="en",
-                        result_type="mixed").items(self.limit)
+                            result_type="mixed").items(self.get_searchLimit())
             tweetLi = []
             for tweet in tweets:
                 tweetLi.append(tweet)
@@ -89,6 +82,3 @@ class Twitter(Crawler):
         except:
             print("cannot crawl")
             return False
-
-        # print(dir(tweetLi[0]))
-        # print statement for output purposes, will delete after
