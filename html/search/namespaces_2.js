@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sentimental_5fanalysis_48',['Sentimental_Analysis',['../namespace_sentimental___analysis.html',1,'']]]
+  ['instagramcrawler_82',['InstagramCrawler',['../namespace_instagram_crawler.html',1,'']]]
 ];

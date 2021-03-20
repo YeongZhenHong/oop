@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['telegrambot_32',['TelegramBot',['../namespace_telegram_bot.html',1,'TelegramBot'],['../class_telegram_bot_1_1_telegram_bot.html',1,'TelegramBot.TelegramBot']]],
-  ['telegrambot_2epy_33',['TelegramBot.py',['../_telegram_bot_8py.html',1,'']]],
-  ['tweets_5fto_5fdf_34',['tweets_to_df',['../class_twitter_crawler_1_1_twitter.html#a9bf6f4a17c152333356eca2a44f0bb9a',1,'TwitterCrawler::Twitter']]],
-  ['twitter_35',['Twitter',['../class_twitter_crawler_1_1_twitter.html',1,'TwitterCrawler']]],
-  ['twittercrawler_2epy_36',['TwitterCrawler.py',['../_twitter_crawler_8py.html',1,'']]]
+  ['readcsv_30',['readCsv',['../class_bot_a_p_i_1_1_bot_a_p_i.html#a1add8bd0319a2b1816cb7e48a1f6fbfa',1,'BotAPI::BotAPI']]],
+  ['redditcrawler_31',['RedditCrawler',['../namespace_reddit_crawler.html',1,'RedditCrawler'],['../class_reddit_crawler_1_1_reddit_crawler.html',1,'RedditCrawler.RedditCrawler']]],
+  ['redditcrawler_2epy_32',['RedditCrawler.py',['../_reddit_crawler_8py.html',1,'']]]
 ];

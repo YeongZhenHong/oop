@@ -1,0 +1,129 @@
+\hypertarget{class_instagram_crawler_1_1_instagram_crawler}{}\doxysection{Instagram\+Crawler.\+Instagram\+Crawler Class Reference}
+\label{class_instagram_crawler_1_1_instagram_crawler}\index{InstagramCrawler.InstagramCrawler@{InstagramCrawler.InstagramCrawler}}
+
+
+The instagram crawler sub class Defines a instgram \mbox{\hyperlink{namespace_crawler}{Crawler}} subclass to crawl instagram dataset.  
+
+
+Inheritance diagram for Instagram\+Crawler.\+Instagram\+Crawler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_instagram_crawler_1_1_instagram_crawler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_af2b9e49bf3a99fd5d6e85ef2a687b1cd}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, hashtag, post=10)
+\begin{DoxyCompactList}\small\item\em The Instragram \mbox{\hyperlink{namespace_crawler}{Crawler}} class initializer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_a56b5a169fbb18be39094f98f1e344700}\label{class_instagram_crawler_1_1_instagram_crawler_a56b5a169fbb18be39094f98f1e344700}} 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_a56b5a169fbb18be39094f98f1e344700}{setup}} (self)
+\begin{DoxyCompactList}\small\item\em Setup the selenium webdriver with certain options and navigates to instagram page. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_a24e02c37b406335e4d3b7d9c0ade24e8}\label{class_instagram_crawler_1_1_instagram_crawler_a24e02c37b406335e4d3b7d9c0ade24e8}} 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_a24e02c37b406335e4d3b7d9c0ade24e8}{login}} (self, \+\_\+username, \+\_\+password)
+\begin{DoxyCompactList}\small\item\em logins into instagram using username and password \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_a23ddb1f4f00b528ab08d23192d6fbac8}\label{class_instagram_crawler_1_1_instagram_crawler_a23ddb1f4f00b528ab08d23192d6fbac8}} 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_a23ddb1f4f00b528ab08d23192d6fbac8}{scroll\+\_\+down}} (self, timer=5)
+\begin{DoxyCompactList}\small\item\em scrolls instagram page down indefinitely as it loads dynamically \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_a8f39800f42e97414ae18094080b40c9e}\label{class_instagram_crawler_1_1_instagram_crawler_a8f39800f42e97414ae18094080b40c9e}} 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_a8f39800f42e97414ae18094080b40c9e}{load\+All\+Comments}} (self)
+\begin{DoxyCompactList}\small\item\em load entire comments from a single post by clicking the (+) button continuously till all comments are loaded \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_ab2d7c4e9b8ed298a6fc7d218a7ca3bad}\label{class_instagram_crawler_1_1_instagram_crawler_ab2d7c4e9b8ed298a6fc7d218a7ca3bad}} 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_ab2d7c4e9b8ed298a6fc7d218a7ca3bad}{load\+All\+Replies}} (self)
+\begin{DoxyCompactList}\small\item\em load entire replies from a single post by expanding all the \textquotesingle{}view replies\textquotesingle{} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_ad65a12aeb2f41775795677248ad1130b}\label{class_instagram_crawler_1_1_instagram_crawler_ad65a12aeb2f41775795677248ad1130b}} 
+def {\bfseries navigate\+Via\+Hash\+Tag} (self)
+\item 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_a510d3c2b9e91672bdab071808b3539b3}{crawl}} (self)
+\begin{DoxyCompactList}\small\item\em main function to start crawling data and export it to .csv file \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_af03b9c8c6c62cb1a63df07e25e9cbe36}\label{class_instagram_crawler_1_1_instagram_crawler_af03b9c8c6c62cb1a63df07e25e9cbe36}} 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_af03b9c8c6c62cb1a63df07e25e9cbe36}{extract\+Data}} (self)
+\begin{DoxyCompactList}\small\item\em extract data from the posts (e.\+g username and posts) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{class_instagram_crawler_1_1_instagram_crawler_a32f9929db0082eb044379273fa096600}{output\+To\+File}} (self, filename=\char`\"{}instagram\char`\"{})
+\begin{DoxyCompactList}\small\item\em export data to .csv file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_a8144b26aaa0d203ee6a945963a89f799}\label{class_instagram_crawler_1_1_instagram_crawler_a8144b26aaa0d203ee6a945963a89f799}} 
+{\bfseries post}
+\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_ae44308ec2cb06e48e8c051579f246a14}\label{class_instagram_crawler_1_1_instagram_crawler_ae44308ec2cb06e48e8c051579f246a14}} 
+{\bfseries chrome\+\_\+options}
+\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_a06f337a46b3e706b8646cb750975864f}\label{class_instagram_crawler_1_1_instagram_crawler_a06f337a46b3e706b8646cb750975864f}} 
+{\bfseries driver}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_aea34d46fac8077fd8786dd3ad147e413}\label{class_instagram_crawler_1_1_instagram_crawler_aea34d46fac8077fd8786dd3ad147e413}} 
+list {\bfseries users\+\_\+list} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_aade50df8394abe9e233914dcc02a8b35}\label{class_instagram_crawler_1_1_instagram_crawler_aade50df8394abe9e233914dcc02a8b35}} 
+list {\bfseries posts\+\_\+list} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The instagram crawler sub class Defines a instgram \mbox{\hyperlink{namespace_crawler}{Crawler}} subclass to crawl instagram dataset. 
+
+Inherits from \mbox{\hyperlink{namespace_crawler}{Crawler}} based class 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_af2b9e49bf3a99fd5d6e85ef2a687b1cd}\label{class_instagram_crawler_1_1_instagram_crawler_af2b9e49bf3a99fd5d6e85ef2a687b1cd}} 
+\index{InstagramCrawler.InstagramCrawler@{InstagramCrawler.InstagramCrawler}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!InstagramCrawler.InstagramCrawler@{InstagramCrawler.InstagramCrawler}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def Instagram\+Crawler.\+Instagram\+Crawler.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{hashtag,  }\item[{}]{post = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+
+
+The Instragram \mbox{\hyperlink{namespace_crawler}{Crawler}} class initializer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashtag} & the search tag we want to crawl \\
+\hline
+{\em post} & the amount of posts to be crawled \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An instance of Instagram \mbox{\hyperlink{namespace_crawler}{Crawler}} class initialized with specified hashtag and post 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_a510d3c2b9e91672bdab071808b3539b3}\label{class_instagram_crawler_1_1_instagram_crawler_a510d3c2b9e91672bdab071808b3539b3}} 
+\index{InstagramCrawler.InstagramCrawler@{InstagramCrawler.InstagramCrawler}!crawl@{crawl}}
+\index{crawl@{crawl}!InstagramCrawler.InstagramCrawler@{InstagramCrawler.InstagramCrawler}}
+\doxysubsubsection{\texorpdfstring{crawl()}{crawl()}}
+{\footnotesize\ttfamily def Instagram\+Crawler.\+Instagram\+Crawler.\+crawl (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+main function to start crawling data and export it to .csv file 
+
+clicks the first post, then loops through the posts by selecting the right arrow key to extract data and then output the data to a .csv file 
+
+Reimplemented from \mbox{\hyperlink{class_crawler_1_1_crawler_a6f0c39fe04b514d93a7a0402deb81e32}{Crawler.\+Crawler}}.
+
+\mbox{\Hypertarget{class_instagram_crawler_1_1_instagram_crawler_a32f9929db0082eb044379273fa096600}\label{class_instagram_crawler_1_1_instagram_crawler_a32f9929db0082eb044379273fa096600}} 
+\index{InstagramCrawler.InstagramCrawler@{InstagramCrawler.InstagramCrawler}!outputToFile@{outputToFile}}
+\index{outputToFile@{outputToFile}!InstagramCrawler.InstagramCrawler@{InstagramCrawler.InstagramCrawler}}
+\doxysubsubsection{\texorpdfstring{outputToFile()}{outputToFile()}}
+{\footnotesize\ttfamily def Instagram\+Crawler.\+Instagram\+Crawler.\+output\+To\+File (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename = {\ttfamily \char`\"{}instagram\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+export data to .csv file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & amend the export filename (optional) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_instagram_crawler_8py}{Instagram\+Crawler.\+py}}\end{DoxyCompactItemize}
