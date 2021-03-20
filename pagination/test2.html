@@ -1,0 +1,517 @@
+
+       <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- MDBootstrap Datatables  -->
+  <link href="css/addons/datatables.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+  <style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Raleway", sans-serif
+    }
+    .fa {
+      font-size: 30px;
+    }
+  </style>
+
+  <body class="w3-light-grey">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+      <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
+          class="fa fa-bars"></i>Menu</button>
+      <span class="w3-bar-item w3-right">Logo</span>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+
+      <div class="w3-container">
+        <h5>Dashboard</h5>
+      </div>
+      <div class="w3-bar-block">
+        <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+          onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
+        <a href="#overview" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>
+          Overview</a>
+        <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Food
+          Panda</a>
+        <a href="#deliveroopost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>
+          Deliveroo</a>
+        <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Grab
+          Food</a>
+
+      </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+      title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+      <!-- Header -->
+      <header id='overview' class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> Food Delivery</b></h5>
+
+      </header>
+
+      <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-quarter">
+          <div class="w3-container w3-pink w3-padding-16">
+            <div class="w3-left"><img class="panda" src=".\img\koodpanda_icon.png" width="48" height="48"></i></div>
+            <div class="w3-right">
+              <h3>
+                       213 Tweets Crawled</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Food Panda</h4>
+          </div>
+        </div>
+        <div class="w3-quarter">
+          <div class="w3-container w3-flat-turquoise w3-padding-16">
+            <div class="w3-left"><img class="deliveroo" src=".\img\deliveroo_icon.jpg" width="48" height="48"></i>
+            </div>
+            <div class="w3-right">
+              <h3>
+                       246 Reddit Crawled</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Deliveroo</h4>
+          </div>
+        </div>
+        <div class="w3-quarter">
+          <div class="w3-container w3-flat-nephritis w3-padding-16">
+            <div class="w3-left"><img class="grab" src=".\img\grabfood_icon.jpg" width="48" height="48"></i></div>
+            <div class="w3-right">
+              <h3>
+                       213 Instagram Crawled</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Grab Food</h4>
+          </div>
+        </div>
+        <div class="w3-panel">
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-third">
+              <h5>Post Count Spider Chart</h5>
+              <img src="..\sent_anal_spider.png" style="width:100%" alt="spider chart">
+            </div>
+            <div class="w3-twothird">
+              <h5>Feeds</h5>
+              <table class="w3-table w3-striped w3-white">
+                <tr>
+                  <td><img class="reddit" src=".\img\eddit_icon.png" width="30" height="30"></i></td>
+                  <td>Reddit</td>
+                  <td><i>insert reddit post crawl count</i></td>
+                </tr>
+                <tr>
+                  <td><img class="twitter" src=".\img\witter_icon.png" width="30" height="30"></i></td>
+                  <td>Twitter.</td>
+                  <td><i>insert reddit post crawl count</i></td>
+                </tr>
+                <tr>
+                  <td><img class="instagram" src=".\img\insta_icon.png" width="30" height="30"></i></td>
+                  <td>Instagram</td>
+                  <td><i>insert yahoo post crawl count</i></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="w3-container">
+          <h5>Positive Sentiment Percentage</h5>
+          <p>Grab</p>
+          <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style="width:25%">insert number</div>
+          </div>
+
+          <p>Deliveroo</p>
+          <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style="width:50%">insert number</div>
+          </div>
+
+          <p>Food Panda</p>
+          <div class="w3-grey">
+            <div class="w3-container w3-center w3-padding w3-pink" style="width:75%">insert number</div>
+          </div>
+        </div>
+              <hr>
+        <h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>
+        <table id="dtfoodpanda" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th class="th-sm">Content</th>
+              <th class="th-sm">Author</th>
+              <th class="th-sm">Date</th>
+              <th class="th-sm">Retweets</th>
+              <th class="th-sm">Likes</th>
+              <th class="th-sm">Url</th>
+            </tr>
+          </thead>
+          <tbody>
+                  <tr><td></td><td>@fortuner26 Ye food povatledhu 🙂</td><td>Panda_girl1214</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Look for us in Food Panda! Check the app‼️ 🛵</td><td>BrownSugarMilk5</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>@glufknwt @gulfkanawut food panda? 🥺</td><td>gvlfie</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Panda Express - Stockton, California - I just want to complain about them - it’s spoiled ! Why they serve spoiled f… https://t.co/xxchfuU8WE</td><td>iwaspoisoned_</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>@jjnghannie i think you can find it on online like food panda? idk😭</td><td>jnghnnn_</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>@cjayanetti @mgerrydoyle I would have already ordered one from Food Panda if I were there. This country is so stupi… https://t.co/xEoNFJNWrO</td><td>YesMissMurphy</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>Wondering if the Food Panda guys have a delivery service for a giant bag of dicks 🤔 I wanna send this fella a care package.</td><td>mute_speaker</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Done with first report on Epidemiology 301. I deserve food panda rn lol. 😋</td><td>jrguanz</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>Panda Express Honey Walnut Shrimp #vodapav #food #vodapavfood #foodie #foods #foodie #foodlove #foodblog https://t.co/dWMuCZ9d7M</td><td>vodapav</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Food panda : 5 mins more
+
+After 10 mins
+
+Food panda : 5 mins more</td><td>dakhshayani</td><td>2021-03-15</td><td>2</td><td></td></tr><tr><td></td><td>Got catcalled by abang food panda ew no manners</td><td>butt33rcup</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>kalau kat Johor ni, with no hesitation i would surely order thru food panda or grab 🤣 rindu nyaaa!!</td><td>annelle_</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>I dislike the limited options of late nite food.... not to mention during a panda</td><td>thechriscarmona</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>In Yangon, Military Terrorists blocked food panda riders and forced kneeling. Terrorists
+also took the foods from t… https://t.co/3glf1Gz748</td><td>MamoliaMay9</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>@Eydzgineer Food panda. Coffee culture sarap</td><td>kraiglouie</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>@syafshukor Wfh ya? If im not mistaken mcm available kat food panda</td><td>IzniAfieraa</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Food Panda
+
+#BUsumbatan @hperalejo</td><td>AngelBigBesh</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>Let’s say you live on a remote island with only McDonald’s and subway. What is the first fast food you get back on… https://t.co/2cXTKGVPwl</td><td>hanbanana15</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Food Panda customer service sucks.</td><td>yeontaeberrykim</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Lettuce &amp; Rise on Food Panda = Salad Atelier.</td><td>adameben</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Down system ba ang grab food at food panda??? 😩</td><td>imjaeric</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>omg may gongcha na sa food panda z!.!:!???/?/ thank u lord barbatos</td><td>4GUEROS</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>Treat your taste buds with our super Yummyyy Honey Malai Paratha ‼
+
+You can also order using Food Panda.
+Call 0300-… https://t.co/q6I9oRRYsx</td><td>DalaanQuetta</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Honey Walnut Shrimp is now available at Panda Express’ Philippine stores.
+Read more https://t.co/TPhUHFb2aR https://t.co/gBRA27GxiW</td><td>MlaStandard</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Me ordering to food panda for 3 consecutive days https://t.co/WubZxxJ7rR</td><td>gunnyskies</td><td>2021-03-15</td><td>6</td><td></td></tr><tr><td></td><td>Fare pia inaeza panda and food prices. You need to worried my guy!! https://t.co/maezDf678E</td><td>Its_JoeKenya</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>Look for us in Food Panda! Check the app‼️ 🛵</td><td>BrownSugarMilk5</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Wow one week nko straight ngaluto. Congrats! Bye Food Panda and Grab 🤣🤣🤣</td><td>OnlyClaudiaaa</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>@MTfakah Food panda cheaper</td><td>BRI4N677</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>I don’t understand how Panda Express has lasted so long when there’s so many other better Chinese food restaurants?????</td><td>alexneverknows</td><td>2021-03-15</td><td>2</td><td></td></tr><tr><td></td><td>@heresmyytea Food panda pe order kr de</td><td>Atiff13179962</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>I want to tap tap auto in vlive showcase but im waiting for abg food panda call to send my lunch... youn u have to… https://t.co/AZc30WqRse</td><td>csywoodz_96</td><td>2021-03-15</td><td>2</td><td></td></tr><tr><td></td><td>grabfood n food panda: 👋</td><td>saylalelilolu_</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>literally no one:
+food marketers: https://t.co/c9R2Z7voMd</td><td>Trash_Panda_App</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>food panda https://t.co/s1jdHUu5F9</td><td>yo_okangmin</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Kids eat free Friday: Wet italian turkey with toll house meek&amp;mild ice red panda. #food #buffet</td><td>SILVERCORRAL</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>@MARKW0N EVERYDAY ORDER SA FOOD PANDA 🤧</td><td>wiltingsprouts</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Food panda 🏄‍♀️ https://t.co/2jMLvWaejS</td><td>wiltingsprouts</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>@Petco @BTS_twt y’all ima stray buying my dogs food in petco lmao</td><td>panda_no_sleep</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>@Yumnahehe It’s an online app ig similar to food panda and ‘jovi’ is a punjabi word meaning ‘jobhi’ to siss jobhi c… https://t.co/49gbRW1Paf</td><td>dhillooon</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Food Panda!!!!</td><td>knsm_idk123456</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>There was a hair in my Panda Express. I plucked it out and ate the food anyway. Ive eaten ass https://t.co/mCHtrSPIWm</td><td>YahBoiSnorlax</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>I also wanna fuck a grab/food panda boy https://t.co/DOPSAhqb51</td><td>kinkygovernorxx</td><td>2021-03-15</td><td>2</td><td></td></tr><tr><td></td><td>TEA HIVE BAGUIO
+⭕Dine in &amp; take-out
+⭕Delivery via Grab Food or Food Panda, put a note #WeLoveMingyuAlways when orde… https://t.co/RndSFY8kvZ</td><td>MINGYUDAYPH</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>@PandaExpress Using old food? Multiple sources have been sick after eating panda express in the last 2 weeks. Going to dig deeper into this.</td><td>garyldavis12</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>Panda Express is my drunk food tonight Panda Express sux drunk or sober</td><td>awesomealexmur1</td><td>2021-03-15</td><td>0</td><td></td></tr><tr><td></td><td>I know we’re still in a panda Express but to eat some bomb ass food and a live band!? I’m sorry y’all. I missed this</td><td>curlyrosee</td><td>2021-03-15</td><td>1</td><td></td></tr><tr><td></td><td>FUN FACTS:
+1. This my first time having Panda Express in like 5 years.
+2. If you try to cut orange chicken with a p… https://t.co/5zWZKsfCkE</td><td>AkaMrJenkins</td><td>2021-03-14</td><td>8</td><td></td></tr><tr><td></td><td>just thinking hygienically: should salt bae really be feeding anyone with the same utensil he prepares the food wit… https://t.co/Yc5bPZelMw</td><td>chattyafro</td><td>2021-03-14</td><td>2</td><td></td></tr><tr><td></td><td>She said the only Japanese food she’s had is Panda Express...it’s chINESE SOMEONE GET HER BACK TO NYC OMG</td><td>ctrlshiftnan</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@Paraylxsis @LordPunkd @Medica7e i had Panda express in Dallas and it mightve been the absolute worst food ive had,… https://t.co/gd5TGJYgY3</td><td>jnmegatron</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@xfinityrise panda is easily top 3 fast food places.</td><td>steaxth</td><td>2021-03-14</td><td>1</td><td></td></tr><tr><td></td><td>More news of internet cutting from Food Panda and Oredoo https://t.co/QVXmZebOhe https://t.co/Pq88wnXYQj</td><td>MaShwunMi</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>i’m high as hell so i ordered panda for the first time since they gave me food poisoning feeling nervous</td><td>itgirlkahei</td><td>2021-03-14</td><td>1</td><td></td></tr><tr><td></td><td>@Delhi_Wala1 @Chonch_Bnd_Rkh Food panda..? But my panda is sleeping right now</td><td>Real__neelam</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>As from today I have no car for 4 weeks due to no MOT and earliest appointment being a month away. So the fitbit wi… https://t.co/8B50MDFoT9</td><td>Ponyo_Panda_</td><td>2021-03-14</td><td>20</td><td></td></tr><tr><td></td><td>Whoever thinks Panda Express is S tier food needs to go to jail</td><td>Medica7e</td><td>2021-03-14</td><td>36</td><td></td></tr><tr><td></td><td>Me scrollin through my grab and food panda app at 4:30am 🙃 
+
+#LightItUpBTS @BTS_twt</td><td>jeonxjaein</td><td>2021-03-14</td><td>1</td><td></td></tr><tr><td></td><td>i have to pretend to be a food critic and write a review for a restaurant in spanish😀 the only thing getting me thr… https://t.co/PFpO4kCm2y</td><td>panda_b4by</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@Itsaisha99 Food panda</td><td>saqaw315</td><td>2021-03-14</td><td>1</td><td></td></tr><tr><td></td><td>@DMisHaram Order from Food Panda, good varieties of pizza will get it</td><td>SaudulHaq1</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>Not only cute, but savvy! I used to have a Siamese, Panda, who ate like this. He would stick his arm down in a box… https://t.co/saKMoWQcE2</td><td>Dragonfliezzz</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>Indian food is always a good choice!! 🫕♥️ Do you want to come and try it with me?♥️ https://t.co/6aDypVwhYr</td><td>Julia87459</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>Panda Express - Cedar City, Utah - Centers of the orange chicken were raw but just warm enough I didn’t know till i… https://t.co/WH2iUE2WKO</td><td>iwaspoisoned_</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>So another app based food delivery service is about to hit Karachi , it is said to be giving food panda a run for i… https://t.co/j9bXmDhRHi</td><td>talkingcurves</td><td>2021-03-14</td><td>1</td><td></td></tr><tr><td></td><td>@TyvonHodge @XerxesEmperor @BlueRiptide_ @KingFunch @DAnteFourPrez @_Jamane @DijonJourney @Double_Oh_Panda… https://t.co/i7NueACigI</td><td>realfooney</td><td>2021-03-14</td><td>13</td><td></td></tr><tr><td></td><td>Tw: food 
+
+so over the last few weeks I have had a really hard time with food in the sense that I don’t really want… https://t.co/mRNC0QgT5T</td><td>RaineWithLuv4JK</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@IvyBGrey Oh I know. It’s an ongoing joke with my family. They pick on me for being so particular about Italian foo… https://t.co/oa6KVZ0VIW</td><td>mikewhelanjr</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@ConspireConspi1 @Double_Oh_Panda @joinedDec2020 @Indikur @wiillums @smoovekriminal_ @stillniggaaa @kamclark No you… https://t.co/HnzBIYs5vL</td><td>DAnteFourPrez</td><td>2021-03-14</td><td>1</td><td></td></tr><tr><td></td><td>Source from food panda company in Myanmar said Internet will be cut off indefinitely from tomorrow!There will be mo… https://t.co/k26Re8X7Ku</td><td>doc_explorer</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@Katekatekatelyn @Pando_The_Panda i didn’t realize thinking about food was a full time job</td><td>itonelovely</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>all food panda does is make the delivery cost more than my whole order and I think its very stupid that I still kee… https://t.co/2PXpwZAATD</td><td>mujhemaardo</td><td>2021-03-14</td><td>18</td><td></td></tr><tr><td></td><td>@weezyeffkenny @Double_Oh_Panda @joinedDec2020 @Indikur @wiillums @smoovekriminal_ @stillniggaaa @kamclark He gave… https://t.co/xykcHO137J</td><td>devansolitty</td><td>2021-03-14</td><td>2</td><td></td></tr><tr><td></td><td>@curiousninj4 @Brawlhalla A few keywords in the last two clues and now this one (has nothing to do with the videos”… https://t.co/PhsKqbmlkx</td><td>Thy65720682</td><td>2021-03-14</td><td>3</td><td></td></tr><tr><td></td><td>@jon_canete @indaysara @bongbongmarcos Now she is targeting Food Panda and Grab riders in Davao by requiring them a… https://t.co/IoDubSfFlj</td><td>manobospy</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@pizzahutmsia pizza chicken delight memang camni ke rupanya?
+Saya order through food panda.. after two hours baru m… https://t.co/94OkPW7B4o</td><td>bellayeppo93</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@23Bano Food panda</td><td>royal09385558</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>my favorite fast food places- chicago pizza, blaze pizza, carl jr, burger king, chipotle, el polo loco, subway, jim… https://t.co/e4r01kihQ4</td><td>allisonhoneaa</td><td>2021-03-14</td><td>1</td><td></td></tr><tr><td></td><td>....Lim Guano Eng Tokong  the State Minister, destroyer if THE WORLD HERITAGE of The ROUTS OF THE BRITISH and MALAY… https://t.co/dRQ0Kd3B1T</td><td>NusratHMoore</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@SalmanNaseer Food panda will do good</td><td>Humming125</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>You know that scene in Kung Fu Panda where Po is tearing apart the storeroom to find food and Sifu tells him where… https://t.co/9zLpTU4cpG</td><td>gwalli</td><td>2021-03-14</td><td>3</td><td></td></tr><tr><td></td><td>@ObscurestRBX is that food panda? 😂</td><td>yuierruu</td><td>2021-03-14</td><td>1</td><td></td></tr><tr><td></td><td>@imasunfloweer for me the food quite ok laaa, tapi we actually came during weekday...so our waiting line time tu around 20-30 minutes only</td><td>Panda_Potatoo</td><td>2021-03-14</td><td>0</td><td></td></tr><tr><td></td><td>@angiegxox Sad that every city has great family run Chinese yet Americans go to Panda Express and pay twice as much… https://t.co/aOTzF4jAq9</td><td>AndyFSports</td><td>2021-03-14</td><td>1</td><td></td></tr>
+          </tbody>
+        </table> 
+        <h1 id="deliveroopost" style="color:#02CCC0"><strong>Deliveroo Posts</strong></h1>
+        <table id="dtdeliveroo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th class="th-sm">Social Media
+
+              </th>
+              <th class="th-sm">Content
+
+              </th>
+              <th class="th-sm">Author
+
+              </th>
+              <th class="th-sm">Date posted
+
+              </th>
+              <th class="th-sm">Likes/Shares
+
+              </th>
+              <th class="th-sm">Link
+
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+<tr><td></td><td>2021-02-28 14:29:42</td><td>A true simple story of helping others!
+Never knew calling for help is a busybody, the “man” probably is just lazy and unsympathetic,  using an uncomprehending excuse not to help. 
+
+Not all busybodies is a Karen!
+
+P.S. I also encountered an unconscious man during lunchtime with my grandmother 3yrs ago, I try waking him up but no response, I’m thinking he fainted so I called ambulance. Didn’t wait for them tho (grandmother getting hungry and complaining he’s just a drunk) but gave the location and my contact number. My grandmother is right, the police called back confirming he’s drunk. Lol!</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 16:55:52</td><td>A few years ago, an elderly man half-fainted while waiting for the MRT. He kind of sat down in the floor. It was like 7pm in the CBD area. Just then, the train came and everyone rushed onto it. I was standing there still deliberating  what to do when a Bangladeshi worker rushed up and started helping the man into a sitting position.
+
+I decided to stay with them and helped translate cos the old man could only speak Mandarin and he wanted to call his son on the phone . I called station on the intercom thing (no staff on the platform). Station manager eventually came w a wheelchair and again, I was glad to help translate with my limited Mandarin.
+
+I was so happy to be able to help the old Chinese uncle tell the Bangladeshi worker that he was very grateful for his help. I was able to reassure the concerned worker that the old man’s son was coming to pick him up.
+
+While we were there waiting for the MRT staff, the worker held onto the uncle tightly, in case he might faint again. He kept speaking to him in a reassuring way too... 
+
+TL;DR Bangladeshi worker didn’t hesitate to help a person as all the SG folk decided it was more important to catch the train 😕😞😒</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 17:10:52</td><td>Have worked as emergency doctor in A&E. 
+
+Can confirm 98% of people who look drunk are drunk. 
+
+But if you wrote off the remaining 2% as drunk and didn’t get medical attention for them, they’ld die a needless death. Diabetic comas (sugar too high / low), bleeding in the brain, head injury, extreme dehydration / infection, brain swelling from various conditions / tumours.
+
+Human compassion got us to where we are today. Abandoning it in favour of sophistication would be truly ironic.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 14:11:15</td><td>Thank goodness there’re still kind souls out there..hope the GrabFood delivery driver is better now.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 14:20:54</td><td>[removed]</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 14:37:09</td><td>If it was your own loved one laying unconscious on the floor, the man would be saying otherwise.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 16:28:36</td><td>Many years back when I was on a crowded lrt train and this guy fell on to the floor due to seizure and the train was suddenly emptied faster than thanos snapped his finger.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 14:52:24</td><td>I believe calling the ambulance or the police is something that one can least do. U do not need to attend to the person physically if u dk how to help them.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 14:19:18</td><td>[deleted]</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 15:19:50</td><td>Not surprised at the actions of some of the bystanders. I passed out before while outside and broke my glasses so my face was bleeding, and I was just sitting there half-conscious with blood on my face and multiple groups of people literally looked at me and walked past.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 20:12:55</td><td>I’m so disappointed in Singaporeans. Why are we so ambivalent and unhelpful generally? 
+
+I recall being at a mall that was directly connected to the MRT station few years ago with my family. We just entered the mall and spotted an uncle struggling to walk - he eventually collapsed against the wall, obviously feeling unwell. My family assumed that he was drunk and told me not to bother, but I kept looking back and eventually asked him if he was ok. He said he was ok, but then fell against the wall. Luckily there was a mall staff nearby and he came over and tended to the uncle, who was not drunk but indeed feeling unwell. All this while, none of the other passers-by cared at all. I was so disappointed.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 15:09:28</td><td>Who are those other selfish assholes? I want to hex them all.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 15:25:10</td><td>Singaporeans are really turning to mindless zombies,  only know how to eat, work and sleep.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 18:43:48</td><td>Diffused responsibility is real. At the same time I wonder if many of us are “paiseh” to help others?</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 00:26:38</td><td>There is still some kindness left among us....some.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 22:15:31</td><td>So, most of Singaporeans who sees as it happens there probably went to Church on Sunday, and hearing sermon about how people should help each other, and yet nobody but this woman help the poor guy reactively, and she is the busy body? That is super odd standards/values, I must say.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 00:58:06</td><td>For those who call the good samaritan "busy body" , If the person lying on the floor is you dying, you would probably not think so.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 08:59:45</td><td>Still don’t understand why we don’t have a Good Samaritan law here:
+
+https://www.todayonline.com/singapore/no-need-good-samaritan-law-here-indranee-rajah
+
+https://www.mlaw.gov.sg/news/parliamentary-speeches/written-answer-by-minister-for-law-k-shanmugam-to-parliamentary-question-on-the-introduction-of-a
+
+https://www.reddit.com/r/singapore/comments/84bwzn/why_doesnt_singapore_have_a_good_samaritan_law/</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 11:52:24</td><td>reminds me of that one incident where the floor it’s still wet since it only stop raining like 1-2 hours ago. I slipped and fell down and broke my foot real badly. There was a family that saw the whole accident and BARELY did anything but stare. The whole time i was on the floor trying to find the strength to push myself to stand up (albeit with only one working leg lol) and yet they don’t even bother calling for help or at least a “are you okay” question. 
+
+after that i finally understand why there’s a “kindness movement” because singaporeans are truly selfish scums lol
+
+edit: forget to mention, kudos to anyone who go out of their way and help such people in need! I wish there are more like you people. Your selfless act will definitely be remembered and hopefully, reciprocate by others!</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 18:52:59</td><td>i rmb last year there was a case at clementi mall where a lady fainted. nobody went forward to check on her, even security guard also tell ppl to stand away. somebody did call 995 + some fella took her temperature. but thats it. makes me angry when i read about it. every second counts.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 22:31:48</td><td>How much one has to pay for 995 and 1777?</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 02:07:46</td><td>The darkest place in hell is reserved for those who remain neutral in times of moral crisis.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 14:46:35</td><td>Lol what is this headline</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 15:48:24</td><td>[deleted]</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 14:33:10</td><td>I hope one day when that bastard who called her busy body needs help, he is left on the ground dying and ignored.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 18:42:34</td><td>Can’t even call ourselves third-world citizens cause they are better than us 😫</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 09:03:21</td><td>I usually get giddyness whenever i take the mrt(especially if it long ride).Do you think i suffer from anything except HBP,High Cholestrol & Diabetes?</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 15:24:51</td><td>We live in a society..</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 16:05:22</td><td>Simple. These men are doing jobs with no dignity and are accorded such</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 18:35:58</td><td>[deleted]</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 17:16:57</td><td>and so what if he had covid 19? If he was unconscious and needed help, would it be right to simply leave him lying there? Even if he had the plague, the answer is NO! You help in whatever way you can!
+
+These people are disgusting!</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 14:40:47</td><td>Most common is dehydration, especially the heatwave recently. 
+
+Keep reminding your daughter to drink water! Spam her WhatsApp with r/hydrohomies meme! Lol</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 00:11:25</td><td>Same here lmao. When I was 15, I vomited on the bus. I still distinctively remember that the bus was packed that day. Instead of helping me out, people actively avoided me like the plague. Then, out of nowhere, this lady from Malaysia came up to ask if I was okay. She helped me off the bus and even got me a hot drink.
+
+There are some things that really cannot be taught in schools and it shows</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 17:46:11</td><td>Thanks good to know, he was already lying on his right side when we saw him. Could be someone already turn him but unsure why nobody else was there. 
+
+Some details: he was lying on a sheltered pathway between 2 HDB at 2-3pm. As my granny suspected by looking how he was dressed, possibly a migrant worker who went on bender in the early morning hrs.
+
+Called 995, but police called me back to check how I found him. They were suspecting a drunken fight, but I’m no drunken fighter.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 18:00:05</td><td>Yeah man, many factors for someone lying motionless in the middle of the day but was surprised given the place and time, nobody noticed. Actually more shocking to know I was the only one who called when the police called back asking more questions which most I can’t answer, should’ve stayed to wait for them to arrive. 
+
+Thanks, knowing what I know now, will probably do better.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 06:44:48</td><td>I hope when that day comes people help him anyway, so the cycle of hatred and suffering can be broken</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 01:42:53</td><td>it’s more than that... SGers seem disconnected from reality, just staring at their phones. The Bangladeshi man was just doing what’s normal. There’s the bystander effect but here it’s more like “i don’t wanna step forward let someone else do it”.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 15:35:21</td><td>Where honour is a distant memory</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 22:40:58</td><td>As a non-Singaporean, thanks</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 16:05:05</td><td>Isn’t that right.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 17:02:06</td><td>**Honor is not dead so long as he lives in the hearts of men!**</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-01 16:38:23</td><td>From the dictionary:  
+
+
+***greed***: intense and selfish desire for something, especially wealth, power, or food.  
+
+
+***ambition***: *a strong desire to do or achieve something. Eg.:"her ambition was to become a pilot"*</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-28 17:11:11</td><td>Batman bin Suparman</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 22:23:56</td><td>I know this plot</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 23:39:23</td><td>$10 for an hour... lmao.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 23:36:20</td><td>who even submitted this story to mothership</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 23:47:20</td><td>*Stuck in chair*
+
+*What are you doing step-Grabber?*</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 22:24:16</td><td>Knn. Mala really invading everything in SG sia.  
+
+First it was Mala stalls, then came Mala-fusion food, Mala-flavoured snacks...now OLs also got Mala?  
+
+Mala is really taking over everything!</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 23:42:09</td><td>“We have a Xiao chair inside. You can help screw properly?”</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 01:31:41</td><td>Step rider, I need help</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 01:37:06</td><td>Kudos to e rider, I dunno what interior, exterior, ulterior motive he might or might not have, in e purest perspective he performed a kind act.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 22:24:42</td><td>Maybe he had a similar chair at home</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 10:32:33</td><td>Ever heard the story where a group of females could not assemble a chair, but one man could? Extreme feminists please take note.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 18:52:26</td><td>And they still didn’t tip him.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 10:45:10</td><td>Lol the gutter mind hive mind here</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 00:17:55</td><td>My chair is stuck grabrider</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 23:10:32</td><td>So i heard your chair needs some fixing ? *wink*</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 08:36:32</td><td>$10 is like 1-2 deliveries (depending on location). On average you do 3 deliveries/hr.
+
+Bless his heart 🥺</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 23:53:28</td><td>Kachang Puteh</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 22:53:49</td><td>( ͡° ͜ʖ ͡°)</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 23:54:13</td><td>Some OLs are actually hot haha 😆</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 22:57:48</td><td>NCMP Leong. Is this your account?</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 00:04:08</td><td>Not all heroes wear capes</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 10:37:33</td><td>Step-rider*</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-05 23:22:16</td><td>Ok bend uh I mean move over I got this.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 21:44:18</td><td>Ya, I know. He rugi for sure. Feel sian for him...</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-03-06 10:02:10</td><td>Inb4 50 year old secretary</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 14:35:24</td><td>Why did her glasses shatter? Prescription lenses are designed to be shatterproof because of this exact reason</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 15:17:33</td><td>Man, totally recalled how it felt to have my glasses shattered onto my face. I was in shocked right after that and my vision on the affected area was white and blur. Because the blood was going into my eye, it make me felt that i was permanently blinded. Thank god my eye was unaffected but i have cuts along my eyelid, which the scars still could be seen every time I look myself at the mirror.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 13:58:02</td><td>do people really still wear glass glasses?</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 13:50:28</td><td>Time to ban bicycles
+/s just in case</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-20 01:49:29</td><td>We need to ban all pmd from the footpath, period. It’s causing unnecessary distress to the young and old. And also ban all these cyclists from the roads as well.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 20:57:29</td><td>People risking their lives just to deliver someone lunch is just a stupid concept</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 21:26:39</td><td>> The cyclist was apologetic
+>The GrabFood rider has been suspended. If convicted of causing grievous hurt by performing a negligent act, he could be jailed for up to two years and fined up to S$5,000.
+
+... Like that, run away also no big different.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 15:53:03</td><td>i beg to differ. many cyclists violate traffic light rules and i myself have been ( almost) a victim of injury. they are racing for time and sometmes they dont rlly care the pedestrians ard them</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 18:47:00</td><td>Holy shit you people are pedantic.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 14:18:04</td><td>Maybe glasses was used as a synonym for spectacles, and not to mean glass spectacle lenses.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-20 07:17:34</td><td>Old joke, next please.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-20 19:47:00</td><td>Ban on cycling on footpath, ban on road, then cycle on where? Air ah?</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 21:37:13</td><td>People gotta eat, both the one ordering and the delivery guy.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 22:35:28</td><td>Running away would give the prosecution the excuse to give a more severe punishment</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 15:41:49</td><td>High degrees require actual glass lenses as plastic would be too thick and heavy to fit on a frame. Degrees from 800 above will likely be made of glass</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-21 11:35:12</td><td>Cycle at designated cycling lanes, such as the park.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-20 22:43:21</td><td>our roads  and pathways arent design for such services. Many accidents since food delivery became so popular</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 16:00:24</td><td>In the US they have bike/skate paths. Maybe this should be used here too.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 13:04:13</td><td>“70% voted for this”</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 21:19:32</td><td>what about double aspheric 1.74 index?
+
+for mineral glasses, 1.8 is preferred over 1.9 as the latter is too brittle</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 16:49:58</td><td>To put the speed into perspective, a speed of 10kph for a 2.4km run is 14.4mins. Which is a fail above a certain age.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 14:39:37</td><td>Excuse me, the rider has been arrested, not convicted.
+
+They can be investigated for their role in the accident but conclusions must not be drawn in lieu of the conviction.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 13:09:02</td><td>61%*</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-22 10:20:17</td><td>We have world class transport - trains, buses, cars (private or personal). We aren’t Europe that have dedicated cycling lanes, so stop trying to be them. Until we have the right infrastructure to accommodate cyclists on roads, it’s best to stay off.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 16:05:37</td><td>That poster is not a court, just an individual expressing their opinion based on the available facts.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-20 00:37:47</td><td>langgar, not buang.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 16:09:30</td><td>Too bad that the available facts does not include a speed camera reading and certainly puts pre-emptive legal burden on the rider.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-20 13:57:58</td><td>The worst part is when there are shared paths(the red path for bicycles and concrete path for humans) pedestrians still chose to walk on the bike path amd worse of all phone zombies😩</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 16:12:05</td><td>You can agree or disagree with the view the other poster has formed. I am simply pointing out that there is nothing wrong with individuals expressing their views on the legal merits of a case before it goes to trial, unless it is an attempt to influence the outcome.</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-01-19 16:31:09</td><td>Where did I use the term “lawsuit”? It’s probably acceptable to use it to describe a criminal case, but I didn’t even use the word—you did.
+
+Anyway, what’s your point?</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-14 21:44:12</td><td>HAHA AYEE THATS ME</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-14 17:59:39</td><td>This guy is dedicated lol, got video and song some more
+
+[https://www.instagram.com/p/CLLjAi5HshG/](https://www.instagram.com/p/CLLjAi5HshG/)</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-14 18:59:06</td><td>Lol super la</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-15 01:27:14</td><td>Come up with a Superhero outfit for Grabfood rider. They deserve the recognition!</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-14 22:55:50</td><td>Bro, you genius. Bravo.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 16:22:51</td><td>Full list of 24 hour outlets
+
+**EAST** 
+
+Operating Hours: Sun - Thurs: 0600 - 0200, Fri & Sat: 24hrs
+
+1. Bedok Reservoir
+2. Bedok North
+3. Elias CC
+4. Pasir Ris Complex
+5. Tampines Mart
+6. Tampines West CC
+7. Kallang
+8. Geylang East Central
+
+**NORTH** 
+
+Operating Hours: Sun - Thurs: 0600 - 0200, Fri & Sat: 24hrs
+
+1. Ang Mo Kio
+2. Ang Mo Kio Ave 10
+3. Ang Mo Kio Ave 4
+4. Serangoon Ave 3
+5. Seng Kang Rivervale
+6. Rivervale Mall
+7. Sengkang Sport Complex
+8. Woodgrove
+9. NorthPoint
+10. Ang Mo Kio Park
+11. Toa Payoh Centre
+12. Toa Payoh Lorong 1
+13. Hougang
+14. Waterway Point
+15. Punggol Safra
+16. Yishun
+17. Causeway Point
+18. Woodland Mart
+19. Sunplaza
+20. Khatib
+21. Hougang Ave 8
+22. Yishun Safra
+23. Yishun Ring Road 
+
+**SOUTH** 
+
+Operating Hours: Mon - Fri: 0700 - 0200, Sat/Sun/PH Eve: 24hrs
+
+1. Queensway Shopping Centre
+2. Great World City
+3. Queensway
+4. Bendemeer
+5. Regal
+6. Scapepark (Mon - Fri: 0800 - 2300, Sat/Sun/PH Eve: 24hrs) 
+
+**WEST** 
+
+Operating Hours: Sun - Thurs: 0600 - 0200, Fri & Sat: 24hrs
+
+1. Bukit Batok
+2. Bukit Batok Gombak
+3. West Coast Park
+4. Jurong East 24
+5. Choa Chu Kang 62
+6. Keat Hong
+7. Beauty World
+8. Clementi Mall
+9. Keat Hong
+10. Beauty World
+11. Farrer Road
+12. Lequest
+13. Jurong Bowl
+14. Jurong Green CC
+15. Pioneer Mall</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 15:44:12</td><td>Able to share the full list of outlets?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 20:19:57</td><td>U oll ever eat mekdonel? 
+
+Mekdonel..</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 18:58:39</td><td>Who wants a *Double McSpicy EVM with Upsized Ice Milo* at 3 in the morning?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 16:12:38</td><td>What about FoodPanda?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-04 00:23:01</td><td>Praise Jebus!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 21:58:58</td><td>Is this a first giant step towards phase 3?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 19:06:26</td><td>Fuck yes!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 15:07:12</td><td>Hurray for higher obesity and diabetes!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 15:49:58</td><td>This is testing my willpower</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 20:32:53</td><td>No Bukit Panjang? Fuck.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 14:47:40</td><td>No surprise if they were pre-empted on phase 3. Macdonald is one of our largest fastfood accounts</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 15:22:29</td><td>Probably got enough manpower to do..so</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 17:01:56</td><td>Who buys McDonald’s after midnight when there’s nowhere to get drunk? The only time I’ll eat the stuff is if I’m pissed.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 16:03:06</td><td>Second this.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 16:29:38</td><td>https://www.reddit.com/r/singapore/comments/k5rqfn/received_a_notification_from_grabfood_that_some/gegw92h/</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 23:10:25</td><td>I don’t think I’ve ever seen foodpanda deliver McDonald’s. Might be a partnership thing</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 23:06:26</td><td>[removed]</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 15:29:22</td><td>I think manpower was never as much of an issue as safety. Demand for deliveries after 2am is probably too low to risk exposing their riders. Or thats what I thought before this announcement was made</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-04 09:40:17</td><td>Truth. Not sure why you are downvoted. I’ll have Maccas anytime but not after 10pm sober.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 16:29:42</td><td>https://www.reddit.com/r/singapore/comments/k5rqfn/received_a_notification_from_grabfood_that_some/gegw92h/</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 23:15:16</td><td>Wah seh. Even out of camp I need RM for McD.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 16:01:05</td><td>Eh you are confusing 2 things. Grab riders they are grab people. I am talking about mcd employees. Quite a number are the daily people who come from JB</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-04 11:19:59</td><td>Nah recently FP started taking McD orders too.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-12-03 16:13:02</td><td>Mcd stop operating 24hrs after they shut down when some staff kana COVID-19</td><td></td><td></td><td></td></tr><tr><td></td><td>2021-02-01 17:24:35</td><td>Nope</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 12:34:29</td><td>That’s me when my food comes late.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 14:13:17</td><td>I feel for the grab driver that has to report food being taken by a wild boar</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 12:40:24</td><td>Sorry I will feed your mama on time next time</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 15:54:00</td><td>Delivery guy -> first Grab told me to deliver to Seletar island. Got no boat is my fault...
+
+Now Ubin got boat, got wild boar is my fault...
+
+Xianz...</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 12:57:12</td><td>Poor thing. Not the babi, the grab bag with food.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 14:47:36</td><td>The video cut off at wrong time. Am curious if that dude approaching the boar got attacked.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 18:08:01</td><td>Don’t see the problem here. He’s just following the instructions on the bag.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 14:31:47</td><td>Looks like meat’s back on the menu, boys!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 13:22:19</td><td>Uploaded to TikTok?..</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 22:16:27</td><td>The dog ate my homework. 🤷‍♂️</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 23:10:16</td><td>Wild boar ripped off my field pack and ran off with my apple during outfield</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 13:53:03</td><td>Go Boar! Down with capitalism wooooooooooOooOoOOOo!!!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 15:16:07</td><td>Where can i get one 4 hooved monkey?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 18:31:33</td><td>Looks like pork is back on the menu, boys</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 18:59:40</td><td>Would that food still be halal? Assuming it was.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-28 10:02:56</td><td>When the wild boar took “grab” food too literally</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-28 11:41:14</td><td>Need to start culling boars</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 15:59:22</td><td>Wa he really like GrabFood, must recommend him Foodpanda next time</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 13:33:10</td><td>years of evolution and we are still helpless against a pig</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 14:24:25</td><td>tian peng yuan shuai</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 13:09:25</td><td>2 stars, packaging was quite hard to open with my mouth.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-28 00:24:04</td><td>"Sorry your dim sum went sum dim wong"</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 16:49:12</td><td>People bring insulated food bags into the jungle all the time, difference here is these guys didnt know the dangers of leaving one unattended and unguarded. Education is the key to prevent incidents like these.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 21:26:11</td><td>Boars are common on the mainland. I once saw a family of 17 Wild Boars (a lot of them were kids) at Punggol. From afar, of course.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 15:04:31</td><td>Snorted my coffee out at this comment.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 19:37:04</td><td>BSLC & ASLC ex-trainee reporting. This is true.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 16:51:21</td><td>Nah they just rob and run. People only get hurt if they put up a fight.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 22:04:44</td><td>Upvoted does LOTR reference.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 13:40:16</td><td>Anything to get validation from internet strangers</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 17:30:05</td><td>Next thing you know, feeding wild boars with tide pods.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 19:20:18</td><td>Include the Deliveroo!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 13:35:56</td><td>Not helpless. If we are allowed to beat or kill them,things will be different. In the animal kingdom it is the survival of the fittest. Killed or be killed.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 21:18:39</td><td>Just make it legal to hunt the boars and it will prevent such incidents. Yummy.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-28 00:50:11</td><td>Can see them in the west too</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 17:29:41</td><td>Also, to add on, habituated animals are even more danger to themselves because they now equate human presence with food; so they become more "malas" to find their own food, just like [that deer of Nara during CoVID-19](https://9gag.com/gag/aD4Qood).</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-28 12:29:09</td><td>Well we can respect nature without a dumb clickbait title</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 21:38:37</td><td>With the cute puppy dog filter</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-28 00:32:36</td><td>Idk why this guy is downvoted, boars are literally considered pests in other countries.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 22:29:31</td><td>You guys should have seen the SAF live firing areas. They are everywhere man.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-27 20:06:06</td><td>Why am I downvoted lol. Boars are superpowerful. Source: age or empires 2.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-11-28 03:19:49</td><td>Keywords: other countries</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 19:59:06</td><td>Same person?! https://www.reddit.com/r/singapore/comments/jiy88y/your_friendly_neighborhood_grab_rider/</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 21:06:32</td><td>A person that is not afraid to show his liking in an unusual way. Kudos to him</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 21:25:17</td><td>His future very bright</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 19:46:50</td><td>Is he selling the Pikachus?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 19:48:09</td><td>Pikachu! I choose food~ 
+
+Cute! There’s a lady one near my area that has panda plushies but nothing that illuminating.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 19:54:48</td><td>Pika Pika kawaii desu ne... :)</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 04:35:37</td><td>U confirm won’t see him on rainy days.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 00:33:28</td><td>How do you suppose those lights get powered on anyway?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 10:45:26</td><td>His bike reminds me of those bikes in meleka (apologies if I spelt it wrong)</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 11:48:45</td><td>I  passed by him and thought he was selling pikachus</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 10:01:18</td><td>I have seen him around several times too. This put a smile on my face - it just cheered me up. Perhaps it was the funky deco, or perhaps it was the music he was playing which somewhat lifted my mood during this trying time (esp before CB phase 2).</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 21:22:57</td><td>He rocks 🎸</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 23:56:35</td><td>Too cute 🥰</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 21:24:54</td><td>Respect.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 23:35:53</td><td>respect</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 11:08:45</td><td>I live ~5 mins from Clem MRT.
+
+Can confirm; I always see hin around.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 20:00:08</td><td>Haha 100%%%%</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 03:20:54</td><td>He has a bright road ahead of him *</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 19:47:43</td><td>I did not asked him.He was otp and he was pissed off about something haha</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 21:03:33</td><td>Pikachu and his 2 love 
+
+Tomato Ketchup and Ash Ketchum</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-28 13:07:48</td><td>Mala ka?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 21:02:17</td><td>> otp
+
+One true Pikachu?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 21:02:53</td><td>On the phone</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-27 21:04:20</td><td>(ﾉ*0*)ﾉ another meaning for otp</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-29 08:36:53</td><td>One time password</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-29 12:01:20</td><td>One true pairing</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 21:56:40</td><td>From the first pic, thought u use helicopter to deliver food. Lol</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 21:40:30</td><td>Is this between Kembangan and Bedok stations? 
+
+I always like to see MRT passing by and you really take it a good timing and view of it!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 23:05:41</td><td>U use helicopter to deliver ah. Why so nice one.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 09:48:51</td><td>Man! This could be a digital diary! “Gradfood Views”</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 13:41:16</td><td>One of the best things about delivery is the different views you see of Singapore. 
+
+Or I’d say the tips. If I ever been tipped.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 20:54:43</td><td>Well looks like u don’t have to go grab no more... take a few courses and maybe do photography full time?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 20:53:38</td><td>Nice. I sometimes go up to random blks to take photos of the views too.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 10:39:14</td><td>why did i think you took shots like at a bar HAHA</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 17:55:21</td><td>Orange looks a bit saturated</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 04:01:09</td><td>Nice pics and thanks for your hard work! I used GrabFood  a lot during NS. Those food deliveries kept me going.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 06:33:08</td><td>I miss it...</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 09:55:42</td><td>So from grabfood to grabphotos 😂</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 10:23:52</td><td>I love it. Keep on the good work my dude!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 13:57:36</td><td>Singapore looks great!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-19 09:37:26</td><td>Looks good, do keep on snapping. Your best camera is the one you have with you. Play with the shadows and try not to do too much highlight recovery, tempting as it can be :)</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 03:39:10</td><td>Tuned saturation and constrast up too much dude</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 18:59:33</td><td>Jobs for FTs, Grab for sinkies...xD</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 18:59:40</td><td>OK so?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 18:16:01</td><td>Ditto!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 22:17:07</td><td>Yeap this is the exit of the tunnel on the bedok side. I was just taking pictures of the scene without the train then I realised a train being there would make the pic better, so waited for the next 2 trains and took burst shots of them and chose this pic as the trains position on the track felt just nice</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 23:48:16</td><td>Needa use helicopter nowadays alr, the demand for food delivery too damn high eh</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 19:15:16</td><td>Hope you have a great day my man</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-17 23:50:21</td><td>Just wondering, why did they choose a tunnel? Seems like the train could go over the hill without needing a tunnel from this perspective.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 00:11:47</td><td>Good leh.. can take nice pictures. Thank you for your service !</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 00:34:53</td><td>Yeah! Use these deliveries as practise!</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 12:11:13</td><td>I do say, photos that looks nice without edits are worthy on Reddit.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 11:11:46</td><td>relax ya</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-10-18 11:12:31</td><td>Woop</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 19:29:41</td><td>[deleted]</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 18:19:54</td><td>> In one of the incidents on Mar 8, Tan ordered food from a restaurant in  Gangsa Road via the Foodpanda app, under the fake name "Sammy Leong". 
+
+Too much bike forum :X</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 20:28:35</td><td>Now he gets free food in jail.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 18:27:26</td><td>High level gian png</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 02:58:24</td><td>What a stupid plan, did he really think he was gonna get away with it?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 03:07:22</td><td>Why so bad one.. kacau neighbour, delivery riders and even the restaurant from my territory..</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 00:25:43</td><td>Question: What makes this a criminal and not a civil case? In many situations, ordering something and not paying up would be a contractual issue not subject to criminal law.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 04:44:27</td><td>Ah long la..</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 18:37:17</td><td>Jail for stealing $700 worth of food, but detain three foreign workers in a room for 40 days and you only get a fine?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 01:51:01</td><td>And won’t be late too, but menu choice will not be fantastic</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 09:22:11</td><td>This is clear-cut cheating. Section 415 penal code</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 08:32:42</td><td>Maybe the monetary amount of losses?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 19:03:39</td><td>Erm every case is unique. Comparing it like this is just plain ignorant and stupid. 
+
+In this case, the defendant clearly purposefully, maliciously and knowingly took advantage of the system to cheat money. In the other case, the defendant wrongfully confine the workers because they were causing trouble to another worker and had a history of causing trouble and cases with the police.
+
+Using even basic human judgment, you can tell the punishments handled down are fair and in accordance to the intent of the crimes.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 21:04:11</td><td>The article said he used different phone numbers so not much can be done in that case.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 21:55:33</td><td>I’m sure it costs more money to try spot and catch every single person who tries to game the system VS just letting some of them get away with it. Most customers will follow the rules.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 23:26:23</td><td>Stated in article he ordered $91. So he probably had approx 7 big transactions. 
+
+But I don’t understand why the riders can be so gullible to leave the food behind without getting paid on the spot especially for such a high value. I personally wouldn’t.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 21:10:55</td><td>Ah ok, thanks for reading it in more detail. I skimmed through the article too quickly</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 00:54:05</td><td>They have other deliveries to make than wait for him to pay up</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 19:13:41</td><td>Go read up intent in law. The employer at no time deprived the workers of food, water and even had their mobile phones with them. 
+
+Did the employer took the laws upon on his own hands? Yes. Did the employer did it base on malice and ill-will? Clearly, basic judgement and the judge didn’t think so because the employer had evidence supporting why he did what he did.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 01:06:18</td><td>That’s dumb. For perspective, $90 is probably what some might earn doing delivery the whole day. 
+
+一手交钱一手交货。so yea, sometimes you deliver to hotels....you waste quite some time.
+I’d call CS to intervene but getting to them is another problem at times.
+
+I’ve previous experienced delivering some $40 worth of food to a unit which when I arrived claimed there was no such person. Called CS and in the end had to “dispose” off the food and got my full compensation.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 11:48:13</td><td>So failure to pay for medical services or business services would also not be under the purview of the Penal Code?</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-17 19:48:02</td><td>> your employer is entitled to lock you up for 40 days with only fear of a fine
+
+In your world of logic probably, no one ever argued that he was entitled to do that. The proposition the whole time was that the punishment handled down based on the evidence and circumstances presented was fair and in accordance to the intent of each crime.   As an employer, he should have known better otherwise. But did he did out of ill-will and malice? Clearly not. Else the judge would have handed down a jail sentence.</td><td></td><td></td><td></td></tr><tr><td></td><td>2020-09-18 14:32:10</td><td>Yeah, I gathered that the weight of the evidence, especially on his intent, was probably what made it worth prosecuting.</td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>  
+        <h1 id="grabfoodpost" style="color:#029837"><strong>Grab Food Posts</strong></h1>
+        <table id="dtgrabfood" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+          <thead>
+
+            <tr>
+              <th class="th-sm">Social Media
+
+              </th>
+              <th class="th-sm">Content
+
+              </th>
+              <th class="th-sm">Author
+
+              </th>
+              <th class="th-sm">Date posted
+
+              </th>
+              <th class="th-sm">Likes/Shares
+
+              </th>
+              <th class="th-sm">Link
+
+              </th>
+            </tr>
+
+          </thead>
+          <tbody>
+<tr><td></td><td>It’s been a while since I had yogurt beverages, and just tried @heyyogurtsg Chinese New Year series comprising Mango Pomelo 🥭, Mandarin Orange 🍊, Dragonfruit Lychee 💜 and Avocado Brown Sugar 🥑.They are offering FREE Delivery with min spend of $25 via @foodpandasg till end of Jan, or you can go to any nearest Hey Yogurt store to try the Niu drinks, available from now till 28 Feb 2021.</td><td>alainlicious</td><td></td><td></td><td></td></tr><tr><td></td><td>......#foursquare #foursquarefind #stayathome #eatathome #takeaway #foodpandasg #delivery #supportlocal #supportlocalbiz #chinesenewyear #cny2021 #sweettooth #desserts #yogurt #yogurtdrink #yogurtsmoothie #heyyogurt #heyyogurtsg</td><td>alainlicious</td><td></td><td></td><td></td></tr><tr><td></td><td>Yummm! ❤️</td><td>thornyflavours</td><td></td><td></td><td></td></tr><tr><td></td><td>Stay strong and ride safe bro.</td><td>naem_rohman</td><td></td><td></td><td></td></tr><tr><td></td><td>“my most astounding record was to polish up 26 regular sized mooncakes in three weeks. It got to a point that I didn’t bother cutting them up.”.“Assuming that a regular-sized yolk mooncake contains 800kcal, I had consumed a total of 20,800kcal in addition to my regular meals in a span of three weeks.”.This mooncake monster is none other than Lean Bento’s owner and founder Charles Ng. 😈.Find out more about the clean and lean mid-autumn treat he has in store for all fellow health foodies at charleswanmushi.com. 😍______Enter promo code LEANCORE at the checkout. Promo valid until 30 September 2020. *Applies to Islandwide and same-day deliveries.*Except Seasonal Specials and Multiple Location Delivery Bundles.Go to leanbento.com/order.Call 67504504 or order@leanbento.com for humanised assistance. 💁🏻‍♀️💁🏻‍♂️______Islandwide delivery 🚚🍱💨#leanbento #bungkussg #startasterdelivery #foodpandasg #grabfoodsg #deliveroosg #sgfood #vegetariansg #lazadasg #halalcertified #halalsg #sgsme #stayhomemakansg #hawkersunited2020 #sgmakan #sgbrand #sgbrands #enterprisesg #asmesg #supportlocal #sgunited #mooncakesg #sgmidautumnfestival #halalmooncake</td><td>leanbento</td><td></td><td></td><td></td></tr><tr><td></td><td>Keep it coming! Have you thought about going green and using reusable face mask? ♻️😷</td><td>maskon__sg</td><td></td><td></td><td></td></tr><tr><td></td><td>U selling those mooncake?</td><td>himari_jasmine</td><td></td><td></td><td></td></tr><tr><td></td><td>Hi @himari_jasmine , yes we would be. More details about our protein moon bites are our boss’ blog post at charleswanmushi.com :)</td><td>leanbento</td><td></td><td></td><td></td></tr><tr><td></td><td>Hi @himari_jasmine it’s out!https://www.instagram.com/p/CE1SdlcgS70/?igshid=1beso3xq2579b</td><td>leanbento</td><td></td><td></td><td></td></tr><tr><td></td><td>😍</td><td>iamhnhm</td><td></td><td></td><td></td></tr><tr><td></td><td>😱</td><td>weijian.wj</td><td></td><td></td><td></td></tr><tr><td></td><td>Yumssss</td><td>rusly.tjohnardi</td><td></td><td></td><td></td></tr><tr><td></td><td>👏👏👏👏</td><td>elim03</td><td></td><td></td><td></td></tr><tr><td></td><td>#corgi #corgicommunity #dog #cutepet #cutedog #puppy #pembrokewelshcorgi #cutecorgi #prettycorgi #corgination #corgi_ig #myfavcorgi #sgdog #sgpet #sgcorgi #corgismile #corgilife</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>No off day ah?? How to date u out 😂</td><td>yoshi_corgi_yoshi</td><td></td><td></td><td></td></tr><tr><td></td><td>@kira.lim.corgi 好滴😉别欺骗我的肚子哦😂</td><td>yoshi_corgi_yoshi</td><td></td><td></td><td></td></tr><tr><td></td><td>@yoshi_corgi_yoshi 不会啦。我哪敢拿你肚子开玩笑😄</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>Waaa...very hardworking 👏👏👏</td><td>lil_pumpkin_ho</td><td></td><td></td><td></td></tr><tr><td></td><td>@lil_pumpkin_ho Money is my biggest motivation 💪🏻</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>@kira.lim.corgi 😂😅Jiayou !! For me , treats is my best motivation</td><td>lil_pumpkin_ho</td><td></td><td></td><td></td></tr><tr><td></td><td>I order 20 🍗 liao. What time u deliver? @kira.lim.corgi 😂</td><td>wolfy_brownie_maya</td><td></td><td></td><td></td></tr><tr><td></td><td>@wolfy_brownie_maya Oops just now I rang your doorbell but you never open door. So I eat on your behalf. Your 20🍗in my tummy liao (burp)</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>So cute❣</td><td>yukaparis.sg</td><td></td><td></td><td></td></tr><tr><td></td><td>You deliver to Sengkang?</td><td>thestumpylegs</td><td></td><td></td><td></td></tr><tr><td></td><td>@thestumpylegs You want me to deliver what to your heart?</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>@kira.lim.corgi Deliver yourself to my heart 💋</td><td>thestumpylegs</td><td></td><td></td><td></td></tr><tr><td></td><td>@thestumpylegs sorry uncle. 我不卖身. I only deliver food food 😋</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>Work hard! 💪🏻</td><td>moca_hachi</td><td></td><td></td><td></td></tr><tr><td></td><td>Wha hardworking wor! Everyday work!</td><td>dogshopcw</td><td></td><td></td><td></td></tr><tr><td></td><td>@dogshopcw bo bian. I need money to buy alot of food for myself 😂</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>@kira.lim.corgi buy or steal? ☺️☺️☺️</td><td>dogshopcw</td><td></td><td></td><td></td></tr><tr><td></td><td>@dogshopcw buy and steal some😉🤣</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>💯💯💯Kira is our best employee idol 💓💓💓</td><td>cocothemoodycorgi</td><td></td><td></td><td></td></tr><tr><td></td><td>@kira.lim.corgi I will halp to let foodpanda company about your achiebment yeah 😍😍👍🏻👍🏻 don’t forget to share some 20% commission once award is received 🤪😍🤭🤣🤝♥️♥️</td><td>cocothemoodycorgi</td><td></td><td></td><td></td></tr><tr><td></td><td>@cocothemoodycorgi No problem 😉</td><td>kira.lim.corgi</td><td></td><td></td><td></td></tr><tr><td></td><td>@kira.lim.corgi 😘♥️♥️♥️</td><td>cocothemoodycorgi</td><td></td><td></td><td></td></tr><tr><td></td><td>Yummy food at your convenience!Whipped up a quick and simple meal with these Ready to cook meals from @foodpandasg pandamart!@foodpandasg pandamart is really convenient and easy to use! You can basically find almost anything you need on there!From now till 20th Dec, enjoy $4 off your pandamart purchases (min $20) when you use [HOHOHO]</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Excellent setting 👌👌</td><td>insta_travel_shotz</td><td></td><td></td><td></td></tr><tr><td></td><td>Your flatlay 💯</td><td>estherksz</td><td></td><td></td><td></td></tr><tr><td></td><td>@estherksz ❤️❤️ thanks dear</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Oooooo, I want to eat ALL of the pasta!</td><td>jessmetez</td><td></td><td></td><td></td></tr><tr><td></td><td>This spread 🤩🤩 looks so delicious</td><td>lindaminjukim</td><td></td><td></td><td></td></tr><tr><td></td><td>Pasta looks amazing</td><td>defeatingdarkness2</td><td></td><td></td><td></td></tr><tr><td></td><td>This looks soo good!!</td><td>goanniewhere</td><td></td><td></td><td></td></tr><tr><td></td><td>Everything looks so delicious 😋</td><td>kristythebee</td><td></td><td></td><td></td></tr><tr><td></td><td>That looks so incredibly delicious 😍</td><td>jetlagjules</td><td></td><td></td><td></td></tr><tr><td></td><td>You’ve made me crave for pasta! Perhaps, I should order one for myself this weekend 😂</td><td>alexisjetsets</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks delish!</td><td>samanthahansen</td><td></td><td></td><td></td></tr><tr><td></td><td>Yum! Love the way you set this up 😍</td><td>thecarryonchronicles</td><td></td><td></td><td></td></tr><tr><td></td><td>@thecarryonchronicles thank you dear ❤️</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Delicious ✨✨</td><td>jenni_life886</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks so good omg😍❤️</td><td>xncnadia</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks yummy</td><td>arthurthechubbyboy</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks so yummy and beautiful photo as always!😍 I love to use foodpanda too!</td><td>jan_twentii</td><td></td><td></td><td></td></tr><tr><td></td><td>😍😍</td><td>efolium_global</td><td></td><td></td><td></td></tr><tr><td></td><td>@winnie.loves Looks sooo delicious! 🤤👍🏻 loving your flatlay! 😍</td><td>appleohhh</td><td></td><td></td><td></td></tr><tr><td></td><td>This looks like an ideal meal!</td><td>adamba12</td><td></td><td></td><td></td></tr><tr><td></td><td>Okay this looks really delish 😍</td><td>florithewanderingsoul</td><td></td><td></td><td></td></tr><tr><td></td><td>Hey dear, please check your inbox ~~~</td><td>irenebaby88</td><td></td><td></td><td></td></tr><tr><td></td><td>Mmmm it looks absolutely delicious ♥️</td><td>meligatorr</td><td></td><td></td><td></td></tr><tr><td></td><td>Wow this looks so yummy. 🍝</td><td>tamarkask</td><td></td><td></td><td></td></tr><tr><td></td><td>Omg you seem like a great cook! It looks so good 😍😍😍</td><td>eileensneko</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks delicious 💖</td><td>xchubbykitty</td><td></td><td></td><td></td></tr><tr><td></td><td>Look so attractive 😍😍😋😋</td><td>applelaikwan</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks so yummy babe 😍 gimme!</td><td>mintfuljourney</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks yummy 🤤</td><td>wanderlustchix</td><td></td><td></td><td></td></tr><tr><td></td><td>@wanderlustchix thank you dear ❤️</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Omg so yummy 😋</td><td>lingweiix</td><td></td><td></td><td></td></tr><tr><td></td><td>@lingweiix yess bb❤️</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Yummy😍😍😍😍</td><td>peggy.eyes</td><td></td><td></td><td></td></tr><tr><td></td><td>ready to cook meals are definitely essential to have at home✨😋</td><td>thefancyfluff</td><td></td><td></td><td></td></tr><tr><td></td><td>@thefancyfluff yes definitely</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>#sgmummyblogger #sgmummy #sgfoodies #sgfoodtrend #sgfood #sgfoodstagram</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>@winnie.loves #foodflatlay #flatlayfood #flatlay #flatlaystyle #flatlaysquad #flatlayphotography #flatlaylove</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>@winnie.loves #sgfoodiary</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Ooo I love a bit of pasta! 😋</td><td>itsjustanotherwanderer</td><td></td><td></td><td></td></tr><tr><td></td><td>Wow 😍🙌</td><td>clicked_by_riya</td><td></td><td></td><td></td></tr><tr><td></td><td>Your photos are all so beautiful 😍</td><td>katiesaway</td><td></td><td></td><td></td></tr><tr><td></td><td>@katiesaway thank you ❤️</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>#clozette #winnielovesflatlay</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>#foodpanda #foodpandasg</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>I want some please❤️</td><td>doitforicecream</td><td></td><td></td><td></td></tr><tr><td></td><td>@doitforicecream sure dear❤️</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks so yummy 👍</td><td>chervonkhoo</td><td></td><td></td><td></td></tr><tr><td></td><td>@chervonkhoo thank you ❤️</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Can I have some pasta please? 😋💖</td><td>michellechun_</td><td></td><td></td><td></td></tr><tr><td></td><td>@michellechun_ hhaha yes bb❤️</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Wow this looks really good ! Would love to have some</td><td>mymypitta</td><td></td><td></td><td></td></tr><tr><td></td><td>@mymypitta yay sure ❤️</td><td>winnie.loves</td><td></td><td></td><td></td></tr><tr><td></td><td>Wow looks yummy! 😍</td><td>wafflenessa</td><td></td><td></td><td></td></tr><tr><td></td><td>Looks so yummy! 😋😋</td><td>_carmenyong_</td><td></td><td></td><td></td></tr><tr><td></td><td>Menya Kanae Shio RamenEnjoyed refreshing light but deep taste of Shio and Tonkotsu soup with Nanae original noodle(^u^)menyakanae.com#singaporefood #sgfood #sgfoodies #foodpornsg #igsgfood #sggourmet #singaporeramen #100am #misoramen #shioramen#sgfoodie #singaporefoodie #foodstagram #sgfoodporn #menyakanae #ramensg #ramensingapore #mazesoba #singaporerestaurant #singaporeramen #sgramen #ramenheadssg #ramenmaniasg #takeawaysg #deliverysg #grabfoodsg #foodpandasg #deliveroosg #tonkotsuramen #tonkotsuramensg</td><td>akihiko_koga</td><td></td><td></td><td></td></tr><tr><td></td><td>Happy International Fried Chicken Day!•Here’s a throwback pic of me indulging in @arnoldsfriedchicken, one of my favourite fried chicken brands in Singapore!•📷: @victorl0...#foodporn #sgfoodporn #foodgasm #foodphotography #sgfoodphotography #foodstagram #sgfoodstagram #instafood_sg #sgigfood #sgfood #singaporefoodie #sgfoodie #sgfoodies #foodie #foodiegram #eatingfortheinsta #sgeats #sgmakan #sgmakandiary #foodinsing #tslmakan #singaporeinsiders #exploresingaporeeats #singaporeeats #burpple #burpplesg #friedchickenday #internationalfriedchickenday #friedchicken #foodpandasg</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Yo #worldtrustedfoodie! 😎 don throw(back) ur pics away bring all to the gram!!! 😎😎</td><td>mysweetlittletooth</td><td></td><td></td><td></td></tr><tr><td></td><td>Fried chicken errday 😍</td><td>thefatfam_</td><td></td><td></td><td></td></tr><tr><td></td><td>@thefatfam_ All Day Err day!</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>@sweetsncrackers high 5! 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Wa! Eat chicken wing also so cool bro!</td><td>makanwarrior</td><td></td><td></td><td></td></tr><tr><td></td><td>@makanwarrior 😂😂 thanks bro</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Wah fried chicken too have a day for it!</td><td>xavvylicious</td><td></td><td></td><td></td></tr><tr><td></td><td>Chicken feast! 😍</td><td>carrienotkerry</td><td></td><td></td><td></td></tr><tr><td></td><td>I had fried chicken too! 🍗😊</td><td>jessluvzs</td><td></td><td></td><td></td></tr><tr><td></td><td>@jessluvzs nice one! 👍🏻</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Fried chicken any day 😍</td><td>natfatdiaries</td><td></td><td></td><td></td></tr><tr><td></td><td>@natfatdiaries all day err day! 👌</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Arnold’s my fav too!</td><td>lilian_sg</td><td></td><td></td><td></td></tr><tr><td></td><td>@lilian_sg high 5 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Jonathan l though you can let me have some of that too 😂😂🤣🤣</td><td>zephngai</td><td></td><td></td><td></td></tr><tr><td></td><td>Nice shot bro! Makes me wanna go buy plenty of chicken wings to eat!</td><td>qingxiangsqx</td><td></td><td></td><td></td></tr><tr><td></td><td>@qingxiangsqx haha thanks bro 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>NICE SHOT!</td><td>janiqueel</td><td></td><td></td><td></td></tr><tr><td></td><td>@janiqueel thanks sis 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>@jonnyboyeats pleasure treasure x</td><td>janiqueel</td><td></td><td></td><td></td></tr><tr><td></td><td>Wa that’s a lot of yummy fried chicken to eat!! 🤤</td><td>whatoeatagain</td><td></td><td></td><td></td></tr><tr><td></td><td>You always eat fried chicken one bro 😆</td><td>_boyz86</td><td></td><td></td><td></td></tr><tr><td></td><td>@_boyz86 haha ya my fav comfort food!</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Shiok man! 😋</td><td>baking_taitai</td><td></td><td></td><td></td></tr><tr><td></td><td>@baking_taitai yeah really shiok! 👌</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>OMG I ate so much fried chicken too 😂😂😂</td><td>dingsleepy</td><td></td><td></td><td></td></tr><tr><td></td><td>@dingsleepy Glutton alert! 😂</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>I had it the other day for the first time and I like it! Mash and gravy good</td><td>onlychildsyndrome.gg</td><td></td><td></td><td></td></tr><tr><td></td><td>@onlychildsyndrome.gg good to hear that sis! 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>This is an amazing photo</td><td>nycmouth</td><td></td><td></td><td></td></tr><tr><td></td><td>@nycmouth thanks! 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Wah shiok ah I love their food too ❤️</td><td>tylomere</td><td></td><td></td><td></td></tr><tr><td></td><td>@tylomere high 5 bro 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>So many food</td><td>dorisgoz</td><td></td><td></td><td></td></tr><tr><td></td><td>@dorisgoz yeah sis, had a feast!</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Haha love this photo 👌🏽</td><td>yothatssobomb</td><td></td><td></td><td></td></tr><tr><td></td><td>Eat fried chicken need to close eyes ah 😂</td><td>melmeleats</td><td></td><td></td><td></td></tr><tr><td></td><td>We had fried chicken too!</td><td>belandbray</td><td></td><td></td><td></td></tr><tr><td></td><td>@belandbray nice! Haha</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Haha shiok bro 😆</td><td>karhingc</td><td></td><td></td><td></td></tr><tr><td></td><td>looks like you’re totally enjoying it</td><td>cassakating</td><td></td><td></td><td></td></tr><tr><td></td><td>wa wa wa chicky</td><td>sugarylink</td><td></td><td></td><td></td></tr><tr><td></td><td>😍😍😍🙌 🙌</td><td>arnoldsfriedchicken</td><td></td><td></td><td></td></tr><tr><td></td><td>Wah yummy</td><td>dressacake</td><td></td><td></td><td></td></tr><tr><td></td><td>Share please! 🤤</td><td>lisarosetea</td><td></td><td></td><td></td></tr><tr><td></td><td>Arnold!! I likeeeee 😫</td><td>bisousteph</td><td></td><td></td><td></td></tr><tr><td></td><td>@stephaurea.k high 5! 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Haha one of the rare moment u show your face! I love Arnold’s too!</td><td>ck.chai</td><td></td><td></td><td></td></tr><tr><td></td><td>@ck.chai high 5 sis! 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Your expression speaks of your failure to resist the temptation of fried chicken 🤣🤣</td><td>thefussyfoodie_</td><td></td><td></td><td></td></tr><tr><td></td><td>@thefussyfoodie_ irresistible!</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Good day everyone don’t throw away your old money (coin or note) bring all to me and make a huge amount of money from your old items Malaysia 🇲🇾,Brunei , Singapore 🇸🇬 Jordan 🇯🇴 China 🇨🇳 with ALMIGHTY ALLAH everything is possible 💯💯💯</td><td>world_trusted_collector12345</td><td></td><td></td><td></td></tr><tr><td></td><td>@world_trusted_collector12345 hello plz fuck off!! Bukima!</td><td>shewyn_fantasia</td><td></td><td></td><td></td></tr><tr><td></td><td>Good day everyone don’t throw away your old money (coin or note) bring all to me and make a huge amount of money from your old items Malaysia 🇲🇾,Brunei , Singapore 🇸🇬 Jordan 🇯🇴 China 🇨🇳 with ALMIGHTY ALLAH everything is possible 💯💯💯</td><td>world_trusted_collector12345</td><td></td><td></td><td></td></tr><tr><td></td><td>@world_trusted_collector12345 uncle... Sell ur nasi lemak! We dun wan</td><td>shewyn_fantasia</td><td></td><td></td><td></td></tr><tr><td></td><td>Wah SHIOK so much fried chicken! Need backup? 😬😬😬</td><td>foodiejerm</td><td></td><td></td><td></td></tr><tr><td></td><td>Shiokkkkk 🤤🤤🤤🔥</td><td>thecontentedbelly</td><td></td><td></td><td></td></tr><tr><td></td><td>Omg one of our favourite fried chickens too!! 🤤</td><td>tastebudstoday</td><td></td><td></td><td></td></tr><tr><td></td><td>@tastebudstoday good to know 👍🏻👍🏻</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Nice!!! Enjoy</td><td>sherbakes</td><td></td><td></td><td></td></tr><tr><td></td><td>Does it spark joy?😆</td><td>vegkitchensg</td><td></td><td></td><td></td></tr><tr><td></td><td>@vegkitchensg definitely 😊</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Wow looks so good</td><td>victoriainstadiary</td><td></td><td></td><td></td></tr><tr><td></td><td>@etr_eattravelrelax Super shiok! 😋</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Wahh enjoy bro 😍👍</td><td>jtkm93</td><td></td><td></td><td></td></tr><tr><td></td><td>@jtkm93 thanks bro! 😂</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>So much food!</td><td>sgnomster</td><td></td><td></td><td></td></tr><tr><td></td><td>Enjoy yr fried chicken bouquet earlier on 😋</td><td>thehungertrack</td><td></td><td></td><td></td></tr><tr><td></td><td>@thehungertrack hehe thanks Gervaise! 🙏</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Superb yummy fried chicken 😍👍</td><td>vincentfoodstagram</td><td></td><td></td><td></td></tr><tr><td></td><td>Niceyummy😁😁😁😃👍😃😁</td><td>naromnait</td><td></td><td></td><td></td></tr><tr><td></td><td>I can imagine that kind of expression on my bed.. 😂</td><td>bol_iao</td><td></td><td></td><td></td></tr><tr><td></td><td>Arnold’s! Love it!</td><td>helloshaunsim</td><td></td><td></td><td></td></tr><tr><td></td><td>@helloshaunsim good taste bro! 👍🏻</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>Enjoy</td><td>darr3n0ng</td><td></td><td></td><td></td></tr><tr><td></td><td>@darr3n0ng thanks bro 👌</td><td>jonnyboyeats</td><td></td><td></td><td></td></tr><tr><td></td><td>McDonald’s has officially launched islandwide on @foodpandasg ! 🥤Enjoy free delivery on McDonald’s with a minimum purchase of $25 from now till 31 January 2021 🍟🍔#foodpandasg</td><td>g.ella__</td><td></td><td></td><td></td></tr><tr><td></td><td>•</td><td>g.ella__</td><td></td><td></td><td></td></tr><tr><td></td><td>@g.ella__ AWWWWWWWWESOME SHOOT WITH MCDONALD MEAL 🌌✨💎💎🌸🌸🌼🌼🌺🌺 I always love MCDONALD... FILLET OH FISH is my favourite fish burger 😇 Have a HAPPY MONDAY & HAPPY JANUARY 2021 FOR YOU, GRACE 🌌✨💎💎🌸🌸🌼🌼🌺🌺</td><td>khai_1996</td><td></td><td></td><td></td></tr><tr><td></td><td>•••#sgfood #foodsg #sgfoodies #sgfoodie #onthetable #sgpromo #sgpromotion #sgpromos #styleoftheday #styleinspired #styleiswhat #styleblogger #fashionnova #novababe #asiangirls #sgig #igsg #sgbabes #sggirls #singaporegirl #clozette #clozetteco #gellaxadv #sp</td><td>g.ella__</td><td></td><td></td><td></td></tr><tr><td></td><td>Yum yum in my tum tum</td><td>spiked_rosesxx</td><td></td><td></td><td></td></tr><tr><td></td><td>How convenient now!</td><td>aliciacho</td><td></td><td></td><td></td></tr><tr><td></td><td>Thanks for sharing yums !!</td><td>_shixuanxuan</td><td></td><td></td><td></td></tr><tr><td></td><td>Ohh yay another platform to order macdonald 😍</td><td>ivianathui</td><td></td><td></td><td></td></tr><tr><td></td><td>😍😍😍😍</td><td>schar.rs</td><td></td><td></td><td></td></tr><tr><td></td><td>My favourite fast food 😋</td><td>graceyuki</td><td></td><td></td><td></td></tr><tr><td></td><td>Yayyyyy</td><td>james.ek</td><td></td><td></td><td></td></tr><tr><td></td><td>Gurl I’ve never seen someone make mcdonalds look so good! 😍</td><td>_jxxi</td><td></td><td></td><td></td></tr><tr><td></td><td>Beautiful ❤️❤️</td><td>bagofbeautiful</td><td></td><td></td><td></td></tr><tr><td></td><td>Looking so happy here, very nice</td><td>tickypose</td><td></td><td></td><td></td></tr><tr><td></td><td>Love it!😍</td><td>mylinlovebellydance</td><td></td><td></td><td></td></tr><tr><td></td><td>Thank you for sharing ❤️</td><td>butterflysingapore</td><td></td><td></td><td></td></tr><tr><td></td><td>👏</td><td>chefairways</td><td></td><td></td><td></td></tr><tr><td></td><td>You are so pretty</td><td>yuhao_tan</td><td></td><td></td><td></td></tr><tr><td></td><td>Nice😃😃</td><td>peggy.eyes</td><td></td><td></td><td></td></tr><tr><td></td><td>Send me your pictures for promotion ❣️❣️</td><td>girlz_fit_forever</td><td></td><td></td><td></td></tr><tr><td></td><td>“DDU-DU DDU-DU... 🎶” No.. that is not just the sound of me gulping down a bottle of refreshing Pepsi, but it’s also one of the many pop anthems from BLACKPINK. 😅🖤💖.And now I can have the best of both worlds with these limited edition Pepsi x BLACKPINK drinks from 7 Eleven. They are exclusively available on @foodpandasg - where I ordered mine from. 😍👍🏻.From now until Feb 28, 2021, use code <CNY18> when you order through @foodpandasg to enjoy 18% off on snacks and drinks, with a minimum order of $18. Hurry...!!! Grab your own collection of these exclusive bottles today. 🎉✨@foodpandasg #foodpandasg</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>Nice picture ~ 😉👍</td><td>paul_0619</td><td></td><td></td><td></td></tr><tr><td></td><td>@paul_0619 thanks 🙏🏻</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>Blackpink in your area</td><td>pruris</td><td></td><td></td><td></td></tr><tr><td></td><td>@pruris 🎶🎼🎵🎧😂</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>Oh wow! A collection</td><td>jasondgreat</td><td></td><td></td><td></td></tr><tr><td></td><td>@jasondgreat Go get yours too 😎💪🏻💪🏻</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>Give me LISA! Hehe</td><td>jojjojoko</td><td></td><td></td><td></td></tr><tr><td></td><td>@jojjojoko go get your Lisa Pepsi bottle 😝😝😝🎶🎶💯🕺</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>@nitchtwitch had two already, make me fat!!</td><td>jojjojoko</td><td></td><td></td><td></td></tr><tr><td></td><td>@jojjojoko 😂😂👏🏻👏🏻💪🏻💪🏻</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>Nice 😉</td><td>thaintran0312</td><td></td><td></td><td></td></tr><tr><td></td><td>@thaintran0312 thanks 🙏🏻 start collecting now 💯</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>@nitchtwitch 🤗😘😉</td><td>thaintran0312</td><td></td><td></td><td></td></tr><tr><td></td><td>🔥🔥🔥</td><td>__s.t.a.n.l.e.y__</td><td></td><td></td><td></td></tr><tr><td></td><td>@__s.t.a.n.l.e.y__ 🙌🏻🙌🏻🙌🏻🙌🏻🥳🎉🎉</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>u not singing baby shark meh?</td><td>ozt88</td><td></td><td></td><td></td></tr><tr><td></td><td>@ozt88 I sing Duu-du Duu-du now 👯‍♂️🕺🙌🏻🎉</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>👏👏👏👏❤️</td><td>danylokarlo</td><td></td><td></td><td></td></tr><tr><td></td><td>Handsome</td><td>andres_loh</td><td></td><td></td><td></td></tr><tr><td></td><td>❤️❤️</td><td>phamhoangtruongson</td><td></td><td></td><td></td></tr><tr><td></td><td>@nitchtwitch 🥤😋👍</td><td>zephngai</td><td></td><td></td><td></td></tr><tr><td></td><td>@zephngai nomnomnom 😎</td><td>nitchtwitch</td><td></td><td></td><td></td></tr><tr><td></td><td>Easter Special. Our Honey Butter Series back by popular demand. Available now. Try it today!#HoneybutterSeries #honeybutterburger #honeybuttertenders #honeybutterwings #PotatoLab #burgers #wings #tenders #grabfoodsg #foodpandasg #deliveroosg #sgmakan #potatolab #fries #potato #lab #TGIF #Fridayvibes #weekendvibes #limited</td><td>potatolab.sg</td><td></td><td></td><td></td></tr>
+          </tbody>
+          
+        </table>
+      
+
+        <!-- Footer -->
+        <footer class="w3-container w3-padding-16 w3-light-grey">
+          
+        </footer>
+
+
+        <!-- End page content -->
+      </div>
+
+      <script>
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+          if (mySidebar.style.display === 'block') {
+            mySidebar.style.display = 'none';
+            overlayBg.style.display = "none";
+          } else {
+            mySidebar.style.display = 'block';
+            overlayBg.style.display = "block";
+          }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+          mySidebar.style.display = "none";
+          overlayBg.style.display = "none";
+        }
+
+      </script>
+
+
+  </body>
+
+  </html>
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- MDBootstrap Datatables  -->
+  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+
+
+  <script>
+    $(document).ready(function () {
+      $('#dtfoodpanda').DataTable();
+      $('#dtdeliveroo').DataTable();
+      $('#dtgrabfood').DataTable();
+      $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+        
