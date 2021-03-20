@@ -13,15 +13,6 @@ import numpy as np
 
 class Sentimental_Analysis:
 
-    def __init__(self):
-        self.twitter = np.array([len(pd.read_csv('foodpanda_tweets.csv').index), len(
-            pd.read_csv('deliveroo_tweets.csv').index)])
-        self.reddit = np.array([len(pd.read_csv(
-            'foodpanda_reddit.csv').index), len(pd.read_csv(
-                'deliveroo_reddit.csv').index)])
-        # self.grabfood = [len(pd.read_csv('grabfood_tweets.csv').index), len(pd.read_csv(
-        # 'grabfood_reddit.csv').index), len(pd.read_csv('grabfood_yahoo.csv').index)]
-
     # removes all punctuations, special symbols, urls and converts to lowercase
     def clean(file):
         """! clean(file)
@@ -94,49 +85,34 @@ class Sentimental_Analysis:
         # plt.show()
 
     def plot_radar(self):
-        df = pd.DataFrame({
-            'Food': ['Foodpanda', 'Deliveroo'],
-            'Twitter': self.twitter,
-            'Reddit': self.reddit,
-        })
-        # get number of food delivery
-        delivery_services = list(df)[:1]
-        count = len(delivery_services)
+        df = pd.DataFrame({'Social media': ['Reddit', 'Instagram', 'Twitter'],
+                           'Col F': [len(pd.read_csv('./foodpanda_reddit.csv').index), len(pd.read_csv('./foodpandasg_instagram.csv').index), len(pd.read_csv('./foodpanda_tweets.csv').index)],
+                           'Col D': [len(pd.read_csv('./deliveroo_reddit.csv').index), len(pd.read_csv('./deliveroo_instagram.csv').index), len(pd.read_csv('./deliveroo_tweets.csv').index)],
+                           'Col G': [len(pd.read_csv('./grabfood_reddit.csv').index), len(pd.read_csv('./grabfood_instagram.csv').index), len(pd.read_csv('./grabfood_tweets.csv').index)]})
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection="polar")
 
-        # get ange of axis
-        angle = [n / float(count) * 2 * pi for n in range(count)]
-        angle += angle[:1]
+        # theta has 5 different angles, and the first one repeated
+        theta = np.arange(len(df) + 1) / float(len(df)) * 2 * np.pi
+        # values has the 5 values from 'Col B', with the first element repeated
+        values = df['Col B'].values
+        values = np.append(values, values[0])
 
-        # initialise plot
-        ax = plt.subplot(111, polar=True)
+        # draw the polygon and the mark the points for each angle/value combination
+        ax.plot(theta, values, color="#D70465",
+                marker="o", label="Name of Col F")
+        plt.xticks(theta[:-1], df['Social media'], color='grey', size=12)
+        # to increase the distance of the labels to the plot
+        ax.tick_params(pad=10)
+        # fill the area of the polygon with green and some transparency
+        ax.fill(theta, values, '#D70465', alpha=0.1)
 
-        # Draw one axe per variable + add labels
-        plt.xticks(angle[:-1], delivery_services)
-
-        # get xlabels
-        ax.set_rlabel_position(0)
-        plt.yticks([10, 20, 30], ["10", "20", "30"], color="grey", size=7)
-        plt.ylim(0, 40)
-
-        values = df.loc[0].drop('Food').values.flatten().tolist()
-        values += values[:1]
-        ax.plot(angle, values, linewidth=1,
-                linestyle='solid', label="Foodpanda")
-        ax.fill(angle, values, 'b', alpha=0.1)
-
-        values = df.loc[1].drop('Food').values.flatten().tolist()
-        values += values[:1]
-        ax.plot(angle, values, linewidth=1,
-                linestyle='solid', label="Deliveroo")
-        ax.fill(angle, values, 'r', alpha=0.1)
-
-        # Add legend
-        plt.legend(loc='upper right', bbox_to_anchor=(0.1, 0.1))
-
-        # Show the graph
-        plt.show()
+        # plt.legend() # shows the legend, using the label of the line plot (useful when there is more than 1 polygon)
+        plt.title("Post count for each social media of each delivery service")
+        plt.savefig('./spider_sent_anal.png')
+        # plt.show()
 
 
 if __name__ == "__main__":
-    hello = Sentimental_Analysis()
-    hello.plot_radar()
+    fp = Sentimental_Analysis()
+    fp.plot_radar()
