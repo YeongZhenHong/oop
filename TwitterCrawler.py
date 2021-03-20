@@ -10,7 +10,7 @@ import numpy as np
 import json
 from Crawler import Crawler
 
-import Auth_Token 
+import Auth_Token
 
 
 class Twitter(Crawler):
@@ -23,7 +23,7 @@ class Twitter(Crawler):
     def __init__(self):
         super().__init__()
         self.TweetList = []
-    
+
     """! authenticate() function
     @brief returns API authentication for Twitter API, from the Auth_Token file.
     """
@@ -35,11 +35,11 @@ class Twitter(Crawler):
                               Auth_Token.ACCESS_TOKEN_SECRET)
         api = API(auth)
         return api
-    
+
     def set_Settings(self, searchString, limit):
         super().set_searchString(searchString)
         self.limit = limit
-        
+
     """! tweets_to_df function.
     @param Tweets, an array of tweets to convert into a data frame format.
     @brief tweets_to_df(tweets) takes in a python list and converts it into a data frame,
@@ -56,8 +56,7 @@ class Twitter(Crawler):
         df['likes'] = np.array([tweet.favorite_count for tweet in tweets])
         df['url'] = np.array([tweet.id for tweet in tweets])
         # return df.to_json('tweets.json', orient='records', indent=1)
-        return df.to_csv('tweets.csv')
-
+        return df.to_csv('grabfood_tweets.csv')
 
     """! initTwitter function
     @brief takes calls authenticate() to allow the application
@@ -78,5 +77,6 @@ class Twitter(Crawler):
         df = self.tweets_to_df(tweetLi)
 
 
-        # print(dir(tweetLi[0]))
-        # print statement for output purposes, will delete after
+a = Twitter()
+a.set_Settings("grabfood", 35)
+a.crawl()
