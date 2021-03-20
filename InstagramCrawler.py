@@ -21,10 +21,9 @@ from pandas import DataFrame
 import re #for replace and split
 from Crawler import Crawler
 
-
 class InstagramCrawler(Crawler):
     """! The instagram crawler sub class
-    Defines a instgram Crawler subclass to crawl instagram dataset.
+    Defines a instagram Crawler subclass to crawl instagram dataset.
     
     Inherits from Crawler based class
     """
@@ -164,3 +163,7 @@ class InstagramCrawler(Crawler):
         df = pd.DataFrame(data=data)
         df.to_csv(super().get_searchString() + '_' + filename + ".csv")
         #df.to_json('insta.json', orient='records', indent=1)
+
+
+instagram = InstagramCrawler('grabfoodsg',50)
+instagram.crawl()
