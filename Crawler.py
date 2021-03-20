@@ -1,3 +1,12 @@
+"""! 
+@file RedditCrawler.py
+@author Kendrick Ang 2609737A
+@brief This file contains the Crawler Abstract Based class
+@version 1.0
+@section DESCRIPTION
+An abstract based class
+"""
+
 from abc import ABC, abstractmethod
 
 class Crawler(ABC):
