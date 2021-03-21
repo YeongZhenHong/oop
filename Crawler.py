@@ -9,10 +9,12 @@ An abstract based class for all crawlers.
 
 from abc import ABC, abstractmethod
 
+
 class Crawler(ABC):
     """! The Abstract Based Class for crawlers.
     @brief Defines the base class utilized by all crawlers.
     """
+
     def __init__(self):
         """! The Crawler based class initializer.
         """
@@ -30,19 +32,16 @@ class Crawler(ABC):
         @param searchString The search string data we want to crawl.
         """
         self._searchString = searchString
-    
-    def set_searchLimit(self, limit):
-        self._searchLimit = limit
 
-    def set_searchLimit(self, limit):
+    def set_searchLimit(self, searchLimit):
         """! Sets the searchLimit value.
         @param searchLimit The amount of posts that can be crawl.
         """
-        self._searchLimit = limit
+        self._searchLimit = searchLimit
 
     def get_searchLimit(self):
         """! Retrieves the searchLimit value.
-        @return The searchLimit value.
+        @return The searchLimit value
         """
         return self._searchLimit
 
@@ -55,7 +54,7 @@ class Crawler(ABC):
         self.set_searchLimit(searchLimit)
 
     @abstractmethod
-    def crawl(self):  
+    def crawl(self):
         """! Abstract class method.
         """
         pass
