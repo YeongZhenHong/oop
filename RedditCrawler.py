@@ -42,17 +42,17 @@ class RedditCrawler(Crawler):
 
     def authenticate(self, clientid, clientsecret, user):
         """! Authenticates the usage of scraping data from reddit and creates an instance of reddit.
-        @param clientid     input client_id from reddit
-        @param clientsecret input secret key from reddit
-        @param user         input user_agent(name) from reddit
+        @param clientid     Input client_id from reddit
+        @param clientsecret Input secret key from reddit
+        @param user         Input user_agent(name) from reddit
         """
         #creates an instance of reddit with the specific information 
         self.reddit = praw.Reddit(client_id=clientid, client_secret=clientsecret, user_agent=user)
  
     def setSettings(self, searchString, searchLimit):
         """! Sets the search string and limit.
-        @param searchString  the search string data we want to crawl 
-        @param limit         the amount of posts that can be crawled
+        @param searchString  The search string data we want to crawl 
+        @param searchLimit   The amount of posts that can be crawled
         """
         #sets the searchString and searchLimit values in the super class
         super().set_Settings(searchString, searchLimit)

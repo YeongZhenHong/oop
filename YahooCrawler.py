@@ -44,12 +44,14 @@ class Yahoo(Crawler):
         super().__init__()
         self.news_articles = []
 
-    def set_Settings(self, searchString, limit):
+    def set_Settings(self, searchString, searchLimit):
         """! set_Settings function
         @brief Sets a keyword to search for.
+        @param searchString  The search string data we want to crawl 
+        @param searchLimit   The amount of posts that can be crawled
         """
         super().set_searchString(searchString)
-        super().set_searchLimit(limit)
+        super().set_searchLimit(searchLimit)
 
 
     def get_article(self, thing):
