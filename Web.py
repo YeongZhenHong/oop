@@ -90,6 +90,7 @@ class generateWeb:
         <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\grab_menu_icon.png"
             width="40px" height="40px"></i>Grab
           Food</a>
+        <a href="./doxygen//index.html" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\doxygen.png"width="40px" height="40px"></i>Documentation</a>
 
       </div>
     </nav>
@@ -199,19 +200,29 @@ class generateWeb:
         <table id="dtfoodpanda" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th class="th-sm">Content</th>
-              <th class="th-sm">Author</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">Retweets</th>
-              <th class="th-sm">Likes</th>
-              <th class="th-sm">Url</th>
+              <th class="th-sm"></th>
+              <th class="th-sm">Content
+
+              </th>
+              <th class="th-sm">Author
+
+              </th>
+              <th class="th-sm">Date posted
+
+              </th>
+              <th class="th-sm">Likes/Shares
+
+              </th>
+              <th class="th-sm">Link
+
+              </th>
             </tr>
           </thead>
           <tbody>
                   """
         for item in foodPanda[0]:
             message += "<tr>"
-            message += "<td>"+str(item[0])+"</td>"
+            message += "<td></td>"
             message += "<td>"+str(item[1])+"</td>"
             message += "<td>"+str(item[2])+"</td>"
             message += "<td>"+str(item[3])+"</td>"
@@ -225,9 +236,7 @@ class generateWeb:
         <table id="dtdeliveroo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th class="th-sm">Social Media
-
-              </th>
+              <th class="th-sm"></th>
               <th class="th-sm">Content
 
               </th>
@@ -249,7 +258,7 @@ class generateWeb:
 """
         for item in deliveroo[0]:
             message += "<tr>"
-            message += "<td>"+str(item[0])+"</td>"
+            message += "<td></td>"
             message += "<td>"+str(item[1])+"</td>"
             message += "<td>"+str(item[2])+"</td>"
             message += "<td>"+str(item[3])+"</td>"
@@ -264,9 +273,7 @@ class generateWeb:
           <thead>
 
             <tr>
-              <th class="th-sm">Social Media
-
-              </th>
+              <th class="th-sm"></th>
               <th class="th-sm">Content
 
               </th>
@@ -289,7 +296,7 @@ class generateWeb:
 """
         for item in grabFood[0]:
             message += "<tr>"
-            message += "<td>"+str(item[0])+"</td>"
+            message += "<td></td>"
             message += "<td>"+str(item[1])+"</td>"
             message += "<td>"+str(item[2])+"</td>"
             message += "<td>"+str(item[3])+"</td>"
