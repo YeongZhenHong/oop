@@ -78,31 +78,36 @@ class Yahoo(Crawler):
         url = template.format(self.get_searchString())
         links = set()
         limit = self.get_searchLimit()
+ 
+        if limit <= 0: 
+            raise ValueError("Error, that is not a positive number!") 
         while True:
-            response = requests.get(url, headers=headers)
-            soup = BeautifulSoup(response.text, 'html.parser')
-            things = soup.find_all('div', 'NewsArticle')
+            try:
+                response = requests.get(url, headers=headers)
+                soup = BeautifulSoup(response.text, 'html.parser')
+                things = soup.find_all('div', 'NewsArticle')
 
-            for thing in things:
-                article = self.get_article(thing)
-                link = article[-1]
-                if link not in links:
-                    links.add(link)
-                    self.news_articles.append(article)
-            if(limit > 0):
-
-                limit -= 10
-                try:
-                    url = soup.find('a', 'next').get('href')
-                    sleep(1)
-                except AttributeError:
+                for thing in things:
+                    article = self.get_article(thing)
+                    link = article[-1]
+                    if link not in links:
+                        links.add(link)
+                        self.news_articles.append(article)
+                if(limit > 0):
+                    limit -= 10
+                    try:
+                        url = soup.find('a', 'next').get('href')
+                        sleep(1)
+                    except AttributeError:
+                        break
+                else:
                     break
-            else:
+            except Exception as err:
+                print(err)
                 break
 
-        with open('./CSV/'+self.get_searchString()+'_Yahoo.csv', 'w', newline='', encoding='utf-8') as f:
+        with open('./CSV/'+super.get_searchString()+'Yahoo.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['Title', 'Source', 'Date', 'Description', 'Link'])
             writer.writerows(self.news_articles)
         return self.news_articles
-
