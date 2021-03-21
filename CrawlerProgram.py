@@ -32,17 +32,17 @@ class CrawlerMain:
             foodPanda = Twitter()
             foodPanda.set_Settings("FoodPanda", limit)
             foodPanda.crawl()
-            print(" foodPanda Twitter crawl complete - tweets.csv created!")
+            print("FoodPanda Twitter crawl complete - tweets.csv created!")
 
             grabFood = Twitter()
             grabFood.set_Settings("GrabFood", limit)
             grabFood.crawl()
-            print("grabFood Twitter crawl complete - tweets.csv created!")
+            print("GrabFood Twitter crawl complete - tweets.csv created!")
 
             deliveroo = Twitter()
             deliveroo.set_Settings("Deliveroo", limit)
             deliveroo.crawl()
-            print("deliveroo Twitter crawl complete - tweets.csv created!")
+            print("Deliveroo Twitter crawl complete - tweets.csv created!")
             return True, "Twitter crawl for all 3 delivery platform complete!"
         except:
             return False, "Twitter Crawling failed"
@@ -52,17 +52,17 @@ class CrawlerMain:
             foodPanda = Yahoo()
             foodPanda.set_Settings("FoodPanda", limit)
             foodPanda.crawl()
-            print("foodPanda Yahoo news crawl complete -  yahoo.csv created!")
+            print("FoodPanda Yahoo news crawl complete -  yahoo.csv created!")
 
             grabFood = Yahoo()
             grabFood.set_Settings("GrabFood", limit)
             grabFood.crawl()
-            print("grabFood Yahoo news crawl complete -  yahoo.csv created!")
+            print("GrabFood Yahoo news crawl complete -  yahoo.csv created!")
 
             deliveroo = Yahoo()
             deliveroo.set_Settings("Deliveroo", limit)
             deliveroo.crawl()
-            print("deliveroo Yahoo news crawl complete -  yahoo.csv created!")
+            print("Deliveroo Yahoo news crawl complete -  yahoo.csv created!")
             return True, "Yahoo crawl for all 3 delivery platform complete!"
         except:
             return False, "Yahoo Crawling Failed"
@@ -72,17 +72,17 @@ class CrawlerMain:
             foodPanda = RedditCrawler()
             foodPanda.set_Settings("FoodPanda", limit)
             foodPanda.crawl()
-            print("foodPanda reddit crawl complete -  reddit.csv created!")
+            print("FoodPanda reddit crawl complete -  reddit.csv created!")
 
             grabFood = RedditCrawler()
             grabFood.set_Settings("GrabFood", limit)
             grabFood.crawl()
-            print("foodPanda reddit crawl complete -  reddit.csv created!")
+            print("GrabFood reddit crawl complete -  reddit.csv created!")
 
             deliveroo = RedditCrawler()
             deliveroo.set_Settings("Deliveroo", limit)
             deliveroo.crawl()
-            print("foodPanda reddit crawl complete -  reddit.csv created!")
+            print("Deliveroo reddit crawl complete -  reddit.csv created!")
             return True, "Reddit crawl for all 3 delivery platform complete!"
 
         except:
