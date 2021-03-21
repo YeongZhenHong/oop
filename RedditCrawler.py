@@ -11,7 +11,6 @@ e.g redditC = RedditCrawler()
     redditC.crawl()
 """
 
-
 from logging import raiseExceptions
 import praw
 from prawcore import PrawcoreException
@@ -80,8 +79,7 @@ class RedditCrawler(Crawler):
                 for comment in post.comments.list():
                     date = str(datetime.fromtimestamp(comment.created_utc))
                     datesplit = date.split(" ")
-                    #p = (comment.body, date)
-                    p = (comment.body, comment.score, datesplit[0], datesplit[1])
+                    p = (comment.body, comment.author,datesplit[0], datesplit[1], comment.score)
                     #p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
                     self.posts.append(p)
         except Exception as err:
@@ -95,11 +93,14 @@ class RedditCrawler(Crawler):
         @param filename Amend the export filename (optional)
         """
         try:
-            with open("./CSV/"+super().get_searchString() + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
+            with open(super().get_searchString() + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
-                writer.writerow(['Comment', 'Upvotes', 'Date', 'Time'])
-                #writer.writerow(['Comment', 'Datetime',])
+                writer.writerow(['Comment', 'Author', 'Date', 'Time', 'Upvotes'])
                 #writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
                 writer.writerows(self.posts)
         except Exception as e:
             print(e)
+
+redditC = RedditCrawler()
+redditC.setSettings("foodpanda", 2)
+redditC.crawl()
