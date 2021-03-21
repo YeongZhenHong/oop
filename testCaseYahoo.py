@@ -16,7 +16,7 @@ class TestYahoo(unittest.TestCase):
     @brief Defines a test Yahoo class to test yahooCrawler functions.
     """
     def setUp(self):
-        """! Setup class to initialise an instance of Yahoo class to start testing.
+        """! Setup function to initialise an instance of Yahoo class to start testing.
         """
         self.yahoo = Yahoo()
         print("Setting up Yahoo Crawler...")
@@ -30,11 +30,15 @@ class TestYahoo(unittest.TestCase):
         """! Test case for set settings.
         @brief Checks if the respective variables are assigned accordingly when passing it into the function.
         """
+        print("Testing set_Settings")
         self.yahoo.set_Settings("food", 5)
+        print("set_Settings called!")
         self.assertEqual(self.yahoo.get_searchString(), "food")
         self.assertNotEqual(self.yahoo.get_searchString(), "food2")
+        print("get_searchString valid!")
         self.assertEqual(self.yahoo.get_searchLimit(), 5)
         self.assertNotEqual(self.yahoo.get_searchLimit(), 1)
+        print("get_searchLimit valid!")
     
     @patch.object(Yahoo, 'get_article', return_value=None)
     def test_get_article(self, mock_method):
@@ -44,7 +48,7 @@ class TestYahoo(unittest.TestCase):
         """
         self.yahoo.get_article("random")
         mock_method.assert_called_with("random")
-        print("test_get_article done")
+        print("test_get_article valid!")
 
     @patch('builtins.open')
     def test_crawl(self,mock_open):
@@ -61,6 +65,7 @@ class TestYahoo(unittest.TestCase):
         self.assertTrue("Error, that is not a positive number!" in str(context.exception))
         self.yahoo.set_Settings("foodpanda", 1)
         self.yahoo.crawl()
+        print("Yahoo test_crawl valid!")
 
 if __name__ == '__main__':
     unittest.main()
