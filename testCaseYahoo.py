@@ -31,19 +31,25 @@ class TestYahoo(unittest.TestCase):
         """! Test case for set settings.
         @brief Checks if the respective variable is assigned accordingly when passed in the function.
         """
+        print("Testing set_Settings")
         self.yahoo.set_Settings("food", 5)
+        print("set_Settings called!")
         self.assertEqual(self.yahoo.get_searchString(), "food")
         self.assertNotEqual(self.yahoo.get_searchString(), "food2")
+        print("get_searchString valid!")
         self.assertEqual(self.yahoo.get_searchLimit(), 5)
         self.assertNotEqual(self.yahoo.get_searchLimit(), 1)
-    
+        print("get_searchLimit valid!")
+
     @patch.object(Yahoo, 'get_article', return_value=None)
     def test_get_article(self, mock_method):
         """! Test case for get article function.
+        @brief using patch.object to patch it as a mock method. 
         @brief Checks if get article function is called with the correct parameter.
         """
         self.yahoo.get_article("random")
         mock_method.assert_called_with("random")
+        print("test_get_article valid!")
 
     @patch('builtins.open')
     def test_crawl(self,mock_open):
@@ -61,6 +67,7 @@ class TestYahoo(unittest.TestCase):
         
         self.yahoo.set_Settings("foodpanda", 1)
         self.yahoo.crawl()
+        print("Yahoo test_crawl valid!")
 
 if __name__ == '__main__':
     unittest.main()

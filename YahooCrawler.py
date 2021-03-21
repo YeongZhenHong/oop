@@ -32,7 +32,6 @@ class Yahoo(Crawler):
     """! Yahoo class inheriting Crawler class.
     @brief Allows an instance of the Yahoo class to be created, taking in user-input for search objective.
     @brief Contains get_article function, to retrieve required informational fields from an article.
-    @brief Inherits 
     @brief Contains crawl, to conduct searching of keyword and output of a csv file of all the articles.
     """
 
@@ -40,7 +39,6 @@ class Yahoo(Crawler):
         """! Yahoo initializer
         @brief Creates an instance of class Yahoo to conduct crawling of news articles.
         """
-
         super().__init__()
         self.news_articles = []
 
@@ -109,7 +107,7 @@ class Yahoo(Crawler):
                 print(err)
                 break
 
-        with open('yahoo.csv', 'w', newline='', encoding='utf-8') as f:
+        with open('./CSV/'+self.get_searchString()+'_Yahoo.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['Title', 'Source', 'Date', 'Description', 'Link'])
             writer.writerows(self.news_articles)

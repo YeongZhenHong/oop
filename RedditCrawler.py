@@ -11,6 +11,7 @@ e.g redditC = RedditCrawler()
     redditC.crawl()
 """
 
+
 from logging import raiseExceptions
 import praw
 from prawcore import PrawcoreException
@@ -89,12 +90,12 @@ class RedditCrawler(Crawler):
         #output data to a .csv file
         self.outputToFile()
 
-    def outputToFile(self,filename="reddit"):
+    def outputToFile(self,filename="_Reddit"):
         """! Export data to .csv file.
         @param filename Amend the export filename (optional)
         """
         try:
-            with open(super().get_searchString() + '_' + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
+            with open("./CSV/"+super().get_searchString() + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
                 writer.writerow(['Comment', 'Upvotes', 'Date', 'Time'])
                 #writer.writerow(['Comment', 'Datetime',])
