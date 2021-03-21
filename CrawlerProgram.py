@@ -136,10 +136,6 @@ class CrawlerMain:
             os.system("git add -A")
             os.system('git commit -m "Build Github Pages"')
             os.system("git push origin Build-1.0")
-            return True
+            return('https://yeongzhenhong.github.io/oop/')
         except:
             return False
-
-
-a = CrawlerMain()
-a.dingding()
