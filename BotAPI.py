@@ -4,7 +4,7 @@
 @version 1.0
 @brief This file contains the BotAPI class
 @section DESCRIPTION
-Allows the all the classes to interact with the database
+Allows all classes to interact with the database
 """
 
 import mysql.connector
