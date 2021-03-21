@@ -51,7 +51,7 @@ class TestYahoo(unittest.TestCase):
         @brief Invalid the open module by patching it as a mock object
         as we do not want to export data to a file for the test.
         """
-        #check if ValueError is raised when passed in a negative/zero number
+        #check if Exception is raised when passed in a negative/zero number or empty string
         with self.assertRaises(Exception) as context:
             self.yahoo.set_Settings("", 1)
             self.yahoo.crawl()
