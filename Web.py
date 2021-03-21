@@ -192,10 +192,10 @@ class generateWeb:
         <table id="dtfoodpanda" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
+              <th class="th-sm"></th>
               <th class="th-sm">Content</th>
               <th class="th-sm">Author</th>
               <th class="th-sm">Date</th>
-              <th class="th-sm">Retweets</th>
               <th class="th-sm">Likes</th>
               <th class="th-sm">Url</th>
             </tr>
@@ -218,24 +218,12 @@ class generateWeb:
         <table id="dtdeliveroo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th class="th-sm">Social Media
-
-              </th>
-              <th class="th-sm">Content
-
-              </th>
-              <th class="th-sm">Author
-
-              </th>
-              <th class="th-sm">Date posted
-
-              </th>
-              <th class="th-sm">Likes/Shares
-
-              </th>
-              <th class="th-sm">Link
-
-              </th>
+              <th class="th-sm"></th>
+              <th class="th-sm">Content</th>
+              <th class="th-sm">Author</th>
+              <th class="th-sm">Date</th>
+              <th class="th-sm">Likes</th>
+              <th class="th-sm">Url</th>
             </tr>
           </thead>
           <tbody>
@@ -257,24 +245,12 @@ class generateWeb:
           <thead>
 
             <tr>
-              <th class="th-sm">Social Media
-
-              </th>
-              <th class="th-sm">Content
-
-              </th>
-              <th class="th-sm">Author
-
-              </th>
-              <th class="th-sm">Date posted
-
-              </th>
-              <th class="th-sm">Likes/Shares
-
-              </th>
-              <th class="th-sm">Link
-
-              </th>
+              <th class="th-sm"></th>
+              <th class="th-sm">Content</th>
+              <th class="th-sm">Author</th>
+              <th class="th-sm">Date</th>
+              <th class="th-sm">Likes</th>
+              <th class="th-sm">Url</th>
             </tr>
 
           </thead>
