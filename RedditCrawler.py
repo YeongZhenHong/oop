@@ -87,3 +87,4 @@ class RedditCrawler(Crawler):
                 writer.writerows(self.posts)
         except:
             raise FileNotFoundError('File cannot be opened!')
+
