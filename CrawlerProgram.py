@@ -1,23 +1,84 @@
 from TwitterCrawler import Twitter
 from RedditCrawler import RedditCrawler
 from YahooCrawler import Yahoo
+from BotAPI import BotAPI
 
-def main_crawl(searchString, limit):
-    t = Twitter()
-    t.set_Settings(searchString, limit)
-    t.crawl()
-    print("Twitter crawl complete - tweets.csv created!")
+class CrawlerMain:
+    
+    def main_crawl(self,searchString, limit):
+        t = Twitter()
+        t.set_Settings(searchString, limit)
+        t.crawl()
+        print("Twitter crawl complete - tweets.csv created!")
 
-    y = Yahoo()
-    y.set_Settings(searchString, limit)
-    y.crawl()
-    print("Yahoo news crawl complete -  yahoo.csv created!")
+        y = Yahoo()
+        y.set_Settings(searchString, limit)
+        y.crawl()
+        print("Yahoo news crawl complete -  yahoo.csv created!")
 
-    r = RedditCrawler()
-    r.set_Settings(searchString, limit)
-    r.crawl()
-    print("Reddit crawl complete -  reddit.csv created!")
-    return None
+        r = RedditCrawler()
+        r.set_Settings(searchString, limit)
+        r.crawl()
+        print("Reddit crawl complete -  reddit.csv created!")
+        return None
 
+    def crawl_Twitter(self,limit):
+        try:
 
-main_crawl('tesla', 5)
+            foodPanda = Twitter()
+            foodPanda.set_Settings("FoodPanda", limit)
+            foodPanda.crawl()
+            print(" foodPanda Twitter crawl complete - tweets.csv created!")
+
+            grabFood = Twitter()
+            grabFood.set_Settings("GrabFood", limit)
+            grabFood.crawl()
+            print("grabFood Twitter crawl complete - tweets.csv created!")
+
+            deliveroo = Twitter()
+            deliveroo.set_Settings("Deliveroo", limit)
+            deliveroo.crawl()
+            print("deliveroo Twitter crawl complete - tweets.csv created!")
+            return True,"Twitter crawl for all 3 delivery platform complete!"
+        except:
+            return False,"Twitter Crawling failed"
+    def crawl_Yahoo(self,limit):
+        try:
+            foodPanda = Yahoo()
+            foodPanda.set_Settings("FoodPanda", limit)
+            foodPanda.crawl()
+            print("foodPanda Yahoo news crawl complete -  yahoo.csv created!")
+
+            grabFood = Yahoo()
+            grabFood.set_Settings("GrabFood", limit)
+            grabFood.crawl()
+            print("grabFood Yahoo news crawl complete -  yahoo.csv created!")
+
+            deliveroo = Yahoo()
+            deliveroo.set_Settings("Deliveroo", limit)
+            deliveroo.crawl()
+            print("deliveroo Yahoo news crawl complete -  yahoo.csv created!")
+            return True,"Yahoo crawl for all 3 delivery platform complete!"
+        except:
+            return False,"Yahoo Crawling Failed"
+
+    def crawl_Reddit(self,limit):
+        try:
+            foodPanda = RedditCrawler()
+            foodPanda.set_Settings("FoodPanda", limit)
+            foodPanda.crawl()
+            print("foodPanda reddit crawl complete -  reddit.csv created!")
+
+            grabFood = RedditCrawler()
+            grabFood.set_Settings("GrabFood", limit)
+            grabFood.crawl()
+            print("foodPanda reddit crawl complete -  reddit.csv created!")
+
+            deliveroo = RedditCrawler()
+            deliveroo.set_Settings("Deliveroo", limit)
+            deliveroo.crawl()
+            print("foodPanda reddit crawl complete -  reddit.csv created!")
+            return True,"Reddit crawl for all 3 delivery platform complete!"
+
+        except:
+            return False,"Reddit Crawling Failed"

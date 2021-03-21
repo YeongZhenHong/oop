@@ -16,6 +16,7 @@ import time
 import mysql.connector
 from BotAPI import BotAPI
 from TwitterCrawler import Twitter
+from CrawlerProgram import CrawlerMain
 
 
 class TelegramBot:
@@ -38,6 +39,8 @@ class TelegramBot:
             token=Auth_Token.TOFU_CRAWLER_KEY, use_context=True)
         TelegramBot.dispatcher = TelegramBot.updater.dispatcher
         self.initDB = BotAPI()
+        self.crawlerMain = CrawlerMain()
+        
 
     def start(self, update, context):
         """! Start Function
@@ -67,7 +70,8 @@ class TelegramBot:
         @exception context.bot.send_message Fail to reply user with output
         """
         try:
-            getTweets = Twitter().set_Settings(context.args[0],context.args[1])
+            getTweets = Twitter().set_Settings(
+                context.args[0], context.args[1])
             # getTweets = Twitter(context.args[0]).crawl()
             time.sleep(10)
             context.bot.send_message(
@@ -90,19 +94,19 @@ class TelegramBot:
         @param context aaaaa
         @exception context.bot.send_message Fail to reply user with output
         """
-        platform = context.args[0]
-        
+        limit = 10
+        # limit = int(context.args[0])
+
         try:
-            getTweets = Twitter(context.args[0]).crawl()
-            time.sleep(5)
-            context.bot.send_message(
-                chat_id=update.effective_chat.id, text="tweet output for " +
-                context.args[0]
-            )
-            context.bot.sendDocument(
-                chat_id=update.effective_chat.id, document=open("./pagination/test2.html", "rb"))
-            context.bot.sendDocument(
-                chat_id=update.effective_chat.id, document=open("./sent_anal.png", "rb"))
+            
+            context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Twitter(limit)[1])
+            context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Yahoo(limit)[1])
+            context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Reddit(limit)[1])
+            time.sleep(15)
+            # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/FoodPanda_Twitter.csv", "rb"))
+            # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/Deliveroo_Twitter.csv", "rb"))
+            # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/GrabFood_Twitter.csv", "rb"))
+            # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./sent_anal_spider.png", "rb"))
         except:
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text="Failed to crawl twitter!!")
