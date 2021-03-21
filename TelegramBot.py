@@ -49,10 +49,7 @@ class TelegramBot:
         message = """
         TofuCrawler Bot!\n
         I can perform data crawling from Twitter,Reddit,Yahoo and Instagram\n
-        /Crawl [platform] [data name] - Crawl data from a specific platform\n
-        /Crawlall [data name] - Crawl data from all 4 platforms\n
-        /CrawTwitter [data name] [number of tweets] - Crawl a specific number of tweets from twitter\n
-        /ping @username - pings a user 5 times in the chat
+        /Crawl- Crawl data from a all platforms\n
         """
         # keyboard = [[
         #     InlineKeyboardButton("Crawl data", callback_data=self.crawl),
@@ -88,9 +85,10 @@ class TelegramBot:
                 chat_id=update.effective_chat.id, text=self.crawlerMain.readcsv())
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text='Crawl Complete!')
-
             context.bot.send_message(
-                chat_id=update.effective_chat.id, text=self.crawlerMain.sent_anal())
+                chat_id=update.effective_chat.id, text='Analyzing Data....')
+            context.bot.send_message(
+                chat_id=update.effective_chat.id, text=self.crawlerMain.sent_anal()[1])
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text='Generating WebPage. Please Wait.....')
             context.bot.send_message(
