@@ -18,7 +18,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 import pandas as pd
 from pandas import DataFrame
-import re #for replace and split
+import re
 from Crawler import Crawler
 
 class InstagramCrawler(Crawler):
@@ -72,7 +72,7 @@ class InstagramCrawler(Crawler):
 
     def scroll_down(self, timer=5):
         """! Scrolls instagram page down indefinitely as it loads dynamically, 
-        not used in here as we keep clicking right.
+        not used in here as we use the arrow keys to navigate through the posts.
         """
         prev_height = self.driver.execute_script("return document.body.scrollHeight")
         html = self.driver.find_element_by_tag_name('html')
@@ -111,6 +111,8 @@ class InstagramCrawler(Crawler):
             pass
 
     def navigateViaHashTag(self):
+        """! Navigate to pages via the url + tags 
+        """
         self.driver.get('https://www.instagram.com/explore/tags/' + super().get_searchString() + '/')
         time.sleep(4)
 
@@ -124,6 +126,7 @@ class InstagramCrawler(Crawler):
         profile = self.driver.find_element_by_class_name("v1Nh3").click() 
         time.sleep(5)
 
+        #keep repeating the steps loadComment->loadReplies->ExtractData till the limit
         for i in range(super().get_searchLimit()):
             try:
                 self.loadAllComments()
@@ -142,12 +145,15 @@ class InstagramCrawler(Crawler):
     def extractData(self):
         """! Extract data from the posts (e.g username and posts)
         """
+        #find the list of users and post
         users = self.driver.find_elements_by_class_name('_6lAjh')
         post = self.driver.find_elements_by_xpath("//div[@class='C4VMK']/span")
 
+        #loop through the user list and extact the text
         for user in users: 
             self.users_list.append(user.text)
 
+        #loop through the post list and extact the text
         for p in post:
              self.posts_list.append(p.text.replace('\r', '').replace('\n',''))
 
