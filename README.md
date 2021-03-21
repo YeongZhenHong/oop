@@ -3,7 +3,8 @@
 > The aim of this project is to allow users to crawl data from various social media platforms 📱
 > 
 > Our main topic to scrape will be regarding food delivery reviews 🍔🍕🍝🍵
- 
+> 
+
 ## ✏️ Table of contents
 * [Files](#files)
 * [Tools used](#tools-used)
