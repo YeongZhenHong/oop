@@ -1,6 +1,10 @@
 """! 
 @file RedditCrawler.py
+<<<<<<< HEAD
 @author Kendrick Ang 2609737A / Sim Wei Jun Austin  2609730S
+=======
+@author Kendrick Ang 2609737A / Sim Wei Jun Austin 2609730S
+>>>>>>> 0ee61202d83359f436c38dc7a8e35fe478f6d96d
 @brief This file contains the Reddit Crawler sub class
 @version 1.0
 @section DESCRIPTION
@@ -11,7 +15,9 @@ e.g redditC = RedditCrawler()
     redditC.crawl()
 """
 
+from logging import raiseExceptions
 import praw
+from prawcore import PrawcoreException
 import csv
 from Crawler import Crawler
 from datetime import datetime
@@ -19,72 +25,85 @@ import Auth_Token
 
 
 class RedditCrawler(Crawler):
-    """! The reddit crawler sub class
-    Defines a Reddit Crawler subclass to crawl reddit dataset.
-
-    Inherits from crawler based class test
+    """! The reddit crawler sub class.
+    @brief Defines a Reddit Crawler subclass to crawl reddit dataset.
+    @brief Inherits from crawler based class.
     """
-
     def __init__(self):
-        """! The reddit crawler class initializer
+        """! The reddit crawler class initializer.
         @param limit The amount of posts that can be crawled (optional)
         @return An instance of reddit crawler class initialized with specified limit and authenticates
         """
+        #initialize super class
         super().__init__()
-        # store a list of objects
+
+        #store a list of objects
         self.posts = []
-        self.authenticate(Auth_Token.REDDIT_CLIENT,
-                          Auth_Token.REDDIT_SECRET, Auth_Token.REDDIT_AGENT)
+        self.subreddit1 = None
+        self.submission = None
+
+        #authenticates and creates an instance of reddit so that we can start to scrape data 
+        self.authenticate(Auth_Token.REDDIT_CLIENT,Auth_Token.REDDIT_SECRET, Auth_Token.REDDIT_AGENT)
 
     def authenticate(self, clientid, clientsecret, user):
-        """! authenticates the usage of scraping data from reddit and creates an instance of reddit
+        """! Authenticates the usage of scraping data from reddit and creates an instance of reddit.
         @param clientid     input client_id from reddit
         @param clientsecret input secret key from reddit
         @param user         input user_agent(name) from reddit
         """
-        self.reddit = praw.Reddit(
-            client_id=clientid, client_secret=clientsecret, user_agent=user)
-
-    def set_Settings(self, searchString, limit):
-        """! sets the search string and limit
+        #creates an instance of reddit with the specific information 
+        self.reddit = praw.Reddit(client_id=clientid, client_secret=clientsecret, user_agent=user)
+ 
+    def setSettings(self, searchString, limit):
+        """! Sets the search string and limit.
         @param searchString  the search string data we want to crawl 
         @param limit         the amount of posts that can be crawled
         """
-        super().set_searchString(searchString)
-        super().set_searchLimit(limit)
-
+        #sets the searchString and searchLimit values in the super class
+        super().set_Settings(searchString, limit)
+        
     def crawl(self):
-        """! main function to start crawling data and export it to .csv file
+        """! Main function to start crawling data and export it to .csv file.
         """
-        subreddit = self.reddit.subreddit("singapore")
-        submission = subreddit.search(
-            super().get_searchString(), limit=self.get_searchLimit())
-
-        for post in submission:
-            title = post.title
-            url = post.permalink
-            commentCount = post.num_comments
-            try:
+        #raise an Value error exception if the search limit is not a positive number
+        if super().get_searchLimit() <= 0: 
+            raise ValueError("Error, that is not a positive number!") 
+        try:
+            #navigates to subreddit "singapore", sets the search string and limits the posts
+            self.subreddit1 = self.reddit.subreddit("singapore")
+            self.submission = self.subreddit1.search(super().get_searchString(), limit=super().get_searchLimit())
+           
+            #in every submission, scrape the data we needed (comments, time, date)
+            for post in self.submission:
+                title = post.title
+                url = post.permalink
+                commentCount = post.num_comments
+                upvotes = post.score
+                
+                post.comments.replace_more(limit=None)
                 for comment in post.comments.list():
                     date = str(datetime.fromtimestamp(comment.created_utc))
-                    # datesplit = date.split(" ")
-                    p = (comment.body, date)
-                    # p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
+                    datesplit = date.split(" ")
+                    #p = (comment.body, date)
+                    p = (comment.body, comment.score, datesplit[0], datesplit[1])
+                    #p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
                     self.posts.append(p)
-            except:
-                pass
+        except Exception as err:
+           print(err)
+        
+        #output data to a .csv file
         self.outputToFile()
 
-    def outputToFile(self, filename="_Reddit"):
-        """! export data to .csv file
-        @param filename amend the export filename (optional)
-        """ 
+    def outputToFile(self,filename="reddit"):
+        """! Export data to .csv file.
+        @param filename Amend the export filename (optional)
+        """
         try:
             with open("./CSV/"+self.get_searchString()+filename + '.csv', 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
-                writer.writerow(['Comment', 'Datetime'])
-                # writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
+                writer.writerow(['Comment', 'Upvotes', 'Date', 'Time'])
+                #writer.writerow(['Comment', 'Datetime',])
+                #writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
                 writer.writerows(self.posts)
-        except:
-            raise FileNotFoundError('File cannot be opened!')
-
+        except Exception as e:
+            print(e)
