@@ -6,6 +6,5 @@ var searchData=
   ['crawler_9',['Crawler',['../namespace_crawler.html',1,'Crawler'],['../class_crawler_1_1_crawler.html',1,'Crawler.Crawler']]],
   ['crawler_2epy_10',['Crawler.py',['../_crawler_8py.html',1,'']]],
   ['crawlermain_11',['CrawlerMain',['../class_crawler_program_1_1_crawler_main.html',1,'CrawlerProgram']]],
-  ['crawltwitter_12',['crawlTwitter',['../class_telegram_bot_1_1_telegram_bot.html#a1770ba41812aa92b9912f9c1c82a6816',1,'TelegramBot::TelegramBot']]],
-  ['csc1009_20project_13',['CSC1009 Project',['../index.html',1,'']]]
+  ['csc1009_20project_12',['CSC1009 Project',['../index.html',1,'']]]
 ];
