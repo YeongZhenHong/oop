@@ -65,15 +65,14 @@ class BotAPI:
         dataList = []
         try:
             dataList += self.selectLikeDB("Twitter", platform)
-            dataList+=self.selectLikeDB("Instagram",platform)
-            dataList+=self.selectLikeDB("Yahoo",platform)
-            dataList+=self.selectLikeDB("Reddit",platform)
+            # dataList+=self.selectLikeDB("Instagram",platform)
+            # dataList+=self.selectLikeDB("Yahoo",platform)
+            # dataList+=self.selectLikeDB("Reddit",platform)
 
             return dataList, len(dataList)
         except:
             print("No data selected!")
             return []
-
 
     def selectLikeDB(self, socialMedia, platform):
         """! Select all comments that is stored in the database
@@ -86,11 +85,10 @@ class BotAPI:
                 " WHERE content LIKE '%"+platform+"%'"
             self.cursor.execute(query)
             dataList = [item for item in self.cursor]
-            return dataList, len(dataList)
+            return dataList
         except:
             print("No data selected!")
             return []
-
 
     def insertDB(self, author, content, date, likes, retweets, url, socialMedia):
         """! insert tweets
@@ -113,7 +111,7 @@ class BotAPI:
         except:
             return False
             print("Fail to insert into database!")
-    
+
     def readCsv(self, platform, socialMedia):
         """! Inserts generated csv files from crawlers into database
         @param fileType A String value of either Twitter,Reddit or Yahoo to insert into different db

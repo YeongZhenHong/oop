@@ -12,10 +12,9 @@ class generateWeb:
 
     def makeHTML(self):
         positive_score = Sentimental_Analysis.get_positive(self)
-        grabFood = self.initDB.selectDB("Twitter", "GrabFood")
-        foodPanda = self.initDB.selectDB("Twitter", "FoodPanda")
-        deliveroo = self.initDB.selectDB("Instagram", "Deliveroo")
-        yahoo = self.initDB.selectDB("Yahoo")
+        grabFood = self.initDB.selectDB("GrabFood")
+        foodPanda = self.initDB.selectDB("FoodPanda")
+        deliveroo = self.initDB.selectDB("Deliveroo")
         message = """
        <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +68,7 @@ class generateWeb:
       <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
           class="fa fa-bars"></i>Menu</button>
       <span class="w3-bar-item w3-left">Hong's Holiday</span>
-    </div>  
+    </div>
 
     <!-- Sidebar/menu -->
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -210,7 +209,7 @@ class generateWeb:
           </thead>
           <tbody>
                   """
-        for item in grabFood[0]:
+        for item in foodPanda[0]:
             message += "<tr>"
             message += "<td>"+str(item[0])+"</td>"
             message += "<td>"+str(item[1])+"</td>"
@@ -221,7 +220,7 @@ class generateWeb:
             message += "</tr>"
         message += """
           </tbody>
-        </table> 
+        </table>
         <h1 id="deliveroopost" style="color:#02CCC0"><strong>Deliveroo Posts</strong></h1>
         <table id="dtdeliveroo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
@@ -248,7 +247,7 @@ class generateWeb:
           </thead>
           <tbody>
 """
-        for item in foodPanda[0]:
+        for item in deliveroo[0]:
             message += "<tr>"
             message += "<td>"+str(item[0])+"</td>"
             message += "<td>"+str(item[1])+"</td>"
@@ -259,7 +258,7 @@ class generateWeb:
             message += "</tr>"
         message += """
           </tbody>
-        </table>  
+        </table>
         <h1 id="grabfoodpost" style="color:#029837"><strong>Grab Food Posts</strong></h1>
         <table id="dtgrabfood" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
@@ -288,7 +287,7 @@ class generateWeb:
           </thead>
           <tbody>
 """
-        for item in deliveroo[0]:
+        for item in grabFood[0]:
             message += "<tr>"
             message += "<td>"+str(item[0])+"</td>"
             message += "<td>"+str(item[1])+"</td>"
@@ -299,13 +298,13 @@ class generateWeb:
             message += "</tr>"
         message += """
           </tbody>
-          
+
         </table>
-      
+
 
         <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-light-grey">
-          
+
         </footer>
 
 
@@ -343,7 +342,7 @@ class generateWeb:
 
   </html>
   <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
@@ -365,7 +364,6 @@ class generateWeb:
 </body>
 
 </html>
-
 
 
         """

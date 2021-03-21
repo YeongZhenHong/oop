@@ -5,9 +5,10 @@ from BotAPI import BotAPI
 from Sentimental_Analysis import Sentimental_Analysis
 from Web import generateWeb
 
+
 class CrawlerMain:
-    
-    def main_crawl(self,searchString, limit):
+
+    def main_crawl(self, searchString, limit):
         t = Twitter()
         t.set_Settings(searchString, limit)
         t.crawl()
@@ -24,7 +25,7 @@ class CrawlerMain:
         print("Reddit crawl complete -  reddit.csv created!")
         return None
 
-    def crawl_Twitter(self,limit):
+    def crawl_Twitter(self, limit):
         try:
 
             foodPanda = Twitter()
@@ -41,10 +42,11 @@ class CrawlerMain:
             deliveroo.set_Settings("Deliveroo", limit)
             deliveroo.crawl()
             print("deliveroo Twitter crawl complete - tweets.csv created!")
-            return True,"Twitter crawl for all 3 delivery platform complete!"
+            return True, "Twitter crawl for all 3 delivery platform complete!"
         except:
-            return False,"Twitter Crawling failed"
-    def crawl_Yahoo(self,limit):
+            return False, "Twitter Crawling failed"
+
+    def crawl_Yahoo(self, limit):
         try:
             foodPanda = Yahoo()
             foodPanda.set_Settings("FoodPanda", limit)
@@ -60,11 +62,11 @@ class CrawlerMain:
             deliveroo.set_Settings("Deliveroo", limit)
             deliveroo.crawl()
             print("deliveroo Yahoo news crawl complete -  yahoo.csv created!")
-            return True,"Yahoo crawl for all 3 delivery platform complete!"
+            return True, "Yahoo crawl for all 3 delivery platform complete!"
         except:
-            return False,"Yahoo Crawling Failed"
+            return False, "Yahoo Crawling Failed"
 
-    def crawl_Reddit(self,limit):
+    def crawl_Reddit(self, limit):
         try:
             foodPanda = RedditCrawler()
             foodPanda.set_Settings("FoodPanda", limit)
@@ -80,25 +82,48 @@ class CrawlerMain:
             deliveroo.set_Settings("Deliveroo", limit)
             deliveroo.crawl()
             print("foodPanda reddit crawl complete -  reddit.csv created!")
-            return True,"Reddit crawl for all 3 delivery platform complete!"
+            return True, "Reddit crawl for all 3 delivery platform complete!"
 
         except:
-            return False,"Reddit Crawling Failed"
+            return False, "Reddit Crawling Failed"
+
     def sent_anal(self):
         try:
             sent = Sentimental_Analysis()
             sent.plot_radar()
             sent.plot_line()
-            return True,"Sentimental Analysis Complete!"
+            return True, "Sentimental Analysis Complete!"
         except:
-            return False,"Failed to perform Aentimental Analysis"
+            return False, "Failed to perform Aentimental Analysis"
+
     def generateWebpage(self):
         try:
-                
+
             make = generateWeb()
             make.makeHTML()
             make.close()
-            return True,"Webpage generated"
+            return True, "Webpage generated"
         except:
-            return False,"Fail to generate webpage"
-    
+            return False, "Fail to generate webpage"
+
+    def readcsv(self):
+        read = BotAPI()
+        try:
+            read.readCsv('GrabFood', 'Twitter')
+            read.readCsv('FoodPanda', 'Twitter')
+            read.readCsv('Deliveroo', 'Twitter')
+
+            read.readCsv('GrabFood', 'Reddit')
+            read.readCsv('FoodPanda', 'Reddit')
+            read.readCsv('Deliveroo', 'Reddit')
+
+            read.readCsv('GrabFood', 'Instagram')
+            read.readCsv('FoodPanda', 'Instagram')
+            read.readCsv('Deliveroo', 'Instagram')
+
+            read.readCsv('GrabFood', 'Yahoo')
+            read.readCsv('FoodPanda', 'Yahoo')
+            read.readCsv('Deliveroo', 'Yahoo')
+            return('CSV read!')
+        except:
+            return('Unable to read CSV!')
