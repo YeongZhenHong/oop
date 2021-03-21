@@ -34,19 +34,17 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         @brief test_neg_img and test_pos_img are the expected .png created when the base cases are executed
         """
         print('Setting up')
-        self.everything = Sentimental_Analysis.clean(
-            './senti_test_files/test_clean_everything.csv')
+        self.everything = Sentimental_Analysis.clean(self,
+                                                     './senti_test_files/test_clean_everything.csv')
         self.everything_result = 'file used testing clean function contains symbols like new lines numbers also contains links words also included end function return string characters lowercase'
 
-        self.negative = Sentimental_Analysis.Analyse(
-            'I really hated CSC1009 because I did not get to meet professor Harry. The professor that conducted the module is not as handsome as Harry')
-        self.negative_result = (
-            {'neg': 0.253, 'neu': 0.747, 'pos': 0.0, 'compound': -0.7976}, 'Negative Sentiment')
+        self.negative = Sentimental_Analysis.Analyse(self,
+                                                     'I really hated CSC1009 because I did not get to meet professor Harry. The professor that conducted the module is not as handsome as Harry')
+        self.negative_result = 0.0
 
-        self.positive = Sentimental_Analysis.Analyse(
-            'I really enjoyed CSC1009 because professor Harry is conducting the module. Harry is a very handsome man')
-        self.positive_result = (
-            {'neg': 0.0, 'neu': 0.647, 'pos': 0.353, 'compound': 0.7956}, 'Positive Sentiment')
+        self.positive = Sentimental_Analysis.Analyse(self,
+                                                     'I really enjoyed CSC1009 because professor Harry is conducting the module. Harry is a very handsome man')
+        self.positive_result = 0.353
 
         self.test_pos = {'neg': 0.0, 'neu': 0.647,
                          'pos': 0.353, 'compound': 0.7956}
@@ -94,8 +92,8 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         # cleaned string == base cleanned string returns True
         self.assertEqual(self.everything, self.everything_result)
         # check if FileNotFoundError is raised when given a non-existenet file
-        self.assertRaises(FileNotFoundError,
-                          Sentimental_Analysis.clean, 'non-existent file.csv')
+        with self.assertRaises(FileNotFoundError):
+            Sentimental_Analysis.clean(self, 'non-existent file.csv')
 
     def test_Analyse(self):
         """! test_Analyse(self)

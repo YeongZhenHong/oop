@@ -17,7 +17,7 @@ class Sentimental_Analysis:
         """! __init__(self)
         @brief setup default data; inculding dataframes, read location
         @brief allows passing custom dataframes for analysis/ tesing purposes else the default scraped ones are used
-        @brief sentimental analysis done this way for easier unit testing development   
+        @brief sentimental analysis done this way for easier unit testing development
         """
         self.fp_tweets = pd.read_csv('./CSV/FoodPanda_Twitter.csv')
         self.d_tweets = pd.read_csv('./CSV/Deliveroo_Twitter.csv')
@@ -210,7 +210,7 @@ class Sentimental_Analysis:
 
     def plot_line(self, name="sent_anal_line", fp_df=None, d_df=None, g_df=None):
         """! plot_line(score)
-        @brief plots a line chart; frequency over datetime 
+        @brief plots a line chart; frequency over datetime
         @param optional name
         """
         if fp_df is None:
@@ -262,5 +262,5 @@ class Sentimental_Analysis:
 
 if __name__ == "__main__":
     fp = Sentimental_Analysis()
-    fp.plot_line()
-    fp.plot_radar()
+    text = 'I really hated CSC1009 because I did not get to meet professor Harry. The professor that conducted the module is not as handsome as Harry'
+    print(fp.Analyse(text))
