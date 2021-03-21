@@ -136,8 +136,6 @@ class TelegramBot:
         which would trigger function calls from within TelegramBot class
         """
         try:
-            self.dispatcher.add_handler(
-                CommandHandler('FetchTweets', self.fetchTweets))
             self.dispatcher.add_handler(CommandHandler('start', self.start))
             self.dispatcher.add_handler(CommandHandler('Crawl', self.crawl))
             return True
