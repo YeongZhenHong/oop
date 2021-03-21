@@ -94,7 +94,7 @@ class BotAPI:
         except:
             print("Fail to insert into database!")
 
-    def __insertReddit(self, comment, datetime):
+    def __insertReddit(self, comment, upvotes,date,time):
         """! Insert Reddit
         @brief Insert the crawled reddit comments from csv that is generated from RedditCrawler.py
         @param comment Crawled comments
@@ -102,8 +102,8 @@ class BotAPI:
         @exception self.cnx.commit() fail to commit the comments into database
         """
         try:
-            add_reddit = ("INSERT INTO crawler.Reddit" +
-                          "(comment,datetime) VALUES('" + comment+"','"+datetime+"')")
+            add_reddit = ("INSERT INTO crawler.Reddit_clone" +
+                          "(Comment,Upvotes,Date,Time) VALUES('" + comment+"','"+upvotes+"','"+date+"','"+time+"')")
             self.cursor.execute(add_reddit)
             self.cnx.commit()
             print("Insert Reddit comments successfully!")
@@ -149,10 +149,10 @@ class BotAPI:
         elif(socialMedia == "Reddit"):
             try:
                 df = pd.read_csv("./CSV/"+platform+"_Reddit.csv", usecols=[
-                    'Comment', 'Datetime'])
+                    'Comment', 'Upvotes','Date','Time'])
                 for index, row in df.iterrows():
                     self.__insertReddit(
-                        str(row['Comment']), str(row['Datetime']))
+                        str(row['Comment']), str(row['Upvotes']), str(row['Date']), str(row['Time']))
                 return True
             except:
                 print("Fail to read Reddit CSV")
@@ -169,7 +169,9 @@ class BotAPI:
 
 a = BotAPI()
 a.openCnx()
-a.readCsv("GrabFood","Twitter")
+# a.readCsv("GrabFood","Twitter")
 a.readCsv("GrabFood","Reddit")
-a.readCsv("GrabFood","Instagram")
+a.readCsv("Deliveroo","Reddit")
+a.readCsv("FoodPanda","Reddit")
+# a.readCsv("GrabFood","Instagram")
 a.closeCnx()

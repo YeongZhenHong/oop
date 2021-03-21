@@ -166,5 +166,5 @@ class InstagramCrawler(Crawler):
         }
 
         df = pd.DataFrame(data=data)
-        df.to_csv("./CSV/"+super().get_searchString() + '_' + filename + ".csv")
+        df.to_csv("./CSV/"+self.get_searchString() + '_' + filename + ".csv")
         #df.to_json('insta.json', orient='records', indent=1)
