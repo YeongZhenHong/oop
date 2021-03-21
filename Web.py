@@ -1,4 +1,3 @@
-
 import sys
 from BotAPI import BotAPI
 from Sentimental_Analysis import Sentimental_Analysis
@@ -83,11 +82,14 @@ class generateWeb:
           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
         <a href="#overview" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>
           Overview</a>
-        <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Food
+        <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><img class="panda"
+            src=".\img\koodpanda_menu_icon.png" width="40px" height="40px"></i>Food
           Panda</a>
-        <a href="#deliveroopost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>
+        <a href="#deliveroopost" class="w3-bar-item w3-button w3-padding"><img class="roo"
+            src=".\img\deliveroo_menu_icon.png" width="40px" height="40px"></i>
           Deliveroo</a>
-        <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Grab
+        <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\grab_menu_icon.png"
+            width="40px" height="40px"></i>Grab
           Food</a>
 
       </div>
