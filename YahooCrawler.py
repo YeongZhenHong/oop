@@ -106,7 +106,7 @@ class Yahoo(Crawler):
                 print(err)
                 break
 
-        with open('./CSV/'+super.get_searchString()+'Yahoo.csv', 'w', newline='', encoding='utf-8') as f:
+        with open('./CSV/'+super.get_searchString()+'_Yahoo.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['Title', 'Source', 'Date', 'Description', 'Link'])
             writer.writerows(self.news_articles)
