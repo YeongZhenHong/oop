@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['readcsv_31',['readCsv',['../class_bot_a_p_i_1_1_bot_a_p_i.html#a1add8bd0319a2b1816cb7e48a1f6fbfa',1,'BotAPI::BotAPI']]],
-  ['redditcrawler_32',['RedditCrawler',['../namespace_reddit_crawler.html',1,'RedditCrawler'],['../class_reddit_crawler_1_1_reddit_crawler.html',1,'RedditCrawler.RedditCrawler']]],
-  ['redditcrawler_2epy_33',['RedditCrawler.py',['../_reddit_crawler_8py.html',1,'']]]
+  ['ping_30',['ping',['../class_telegram_bot_1_1_telegram_bot.html#a0d8782f44ccdd286b4a8b98a04f589d5',1,'TelegramBot::TelegramBot']]],
+  ['plot_5fpie_31',['plot_pie',['../class_sentimental___analysis_1_1_sentimental___analysis.html#a3b8f437c7568f4f106672d557c029497',1,'Sentimental_Analysis::Sentimental_Analysis']]],
+  ['plot_5fradar_32',['plot_radar',['../class_sentimental___analysis_1_1_sentimental___analysis.html#a924928d0f87547db4e595f868e6de0ad',1,'Sentimental_Analysis::Sentimental_Analysis']]]
 ];
