@@ -39,10 +39,12 @@ class TestYahoo(unittest.TestCase):
     @patch.object(Yahoo, 'get_article', return_value=None)
     def test_get_article(self, mock_method):
         """! Test case for get article function.
+        @brief using patch.object to patch it as a mock method. 
         @brief Checks if get article function is called with the correct parameter.
         """
         self.yahoo.get_article("random")
         mock_method.assert_called_with("random")
+        print("test_get_article done")
 
     @patch('builtins.open')
     def test_crawl(self,mock_open):
@@ -57,7 +59,6 @@ class TestYahoo(unittest.TestCase):
 
         #check if it indeed raise an exception error message when input a negative/zero number
         self.assertTrue("Error, that is not a positive number!" in str(context.exception))
-        
         self.yahoo.set_Settings("foodpanda", 1)
         self.yahoo.crawl()
 
