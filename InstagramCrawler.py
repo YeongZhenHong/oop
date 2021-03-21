@@ -22,10 +22,9 @@ import re
 from Crawler import Crawler
 
 class InstagramCrawler(Crawler):
-    """! The instagram crawler sub class
-    Defines a instagram Crawler subclass to crawl instagram dataset.
-    
-    Inherits from Crawler based class.
+    """! The instagram crawler sub class.
+    @brief Defines a instagram Crawler subclass to crawl instagram dataset.
+    @brief Inherits from Crawler based class.
     """
 
     #user & post list to store their respective data

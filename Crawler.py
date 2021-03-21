@@ -11,7 +11,6 @@ from abc import ABC, abstractmethod
 
 class Crawler(ABC):
     """! The Abstract Based Class for crawlers.
-
     @brief Defines the base class utilized by all crawlers.
     """
     def __init__(self):

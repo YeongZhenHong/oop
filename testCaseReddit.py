@@ -18,12 +18,12 @@ from RedditCrawler import RedditCrawler
 from csv import reader
 
 class TestReddit(unittest.TestCase):
-    """! The test reddit class
-    Defines a test reddit class to test redditCrawler functions
+    """! The test reddit class.
+    @brief Defines a test reddit class to test redditCrawler functions.
     """
 
     def setUp(self):
-        """! Setup class to initialise an instance of RedditCrawler class to start testing
+        """! Setup class to initialise an instance of RedditCrawler class to start testing.
         """
         #this code will run before every single test
         self.reddit = RedditCrawler()
@@ -31,14 +31,14 @@ class TestReddit(unittest.TestCase):
         print("setting up Reddit Crawler...")
 
     def tearDown(self):
-        """! Indicates that TestReddit is completed
+        """! Indicates that TestReddit is completed.
         """
         #this code will run after every single test
         print("tearing down Reddit Crawler...")
 
     def test_setSettings(self):
-        """! Test case for set settings.
-        Checks if the respective variable is assigned accordingly when passed in the function.
+        """! Test case for set settings function.
+        @brief Checks if the respective variable is assigned accordingly when passed in the function.
         """
         self.reddit.setSettings("testCase", 6)
         self.assertEqual(self.reddit.get_searchString(), "testCase")
@@ -47,8 +47,8 @@ class TestReddit(unittest.TestCase):
         self.assertNotEqual(self.reddit.get_searchLimit(), 9)
    
     def test_authenticate(self):
-        """! Test case to check authentication
-        Checks if the reddit creates an instance of praw.Reddit class.
+        """! Test case to check authentication function.
+        @brief Checks if the reddit creates an instance of praw.Reddit class.
         Also check if the passed in values for the praw.Reddit class are assigned accordingly.
         """
         #input Dummy data in the authenticate method
@@ -64,9 +64,9 @@ class TestReddit(unittest.TestCase):
 
     @patch.object(RedditCrawler, 'outputToFile', return_value=None)
     def test_crawl(self, mock_output):
-        """! Test case for crawl function
-        Invalid the outputToFile function by patching it as a mock object
-        as we do not want to export data to a file
+        """! Test case for crawl function.
+        @brief Invalid the outputToFile function by patching it as a mock object
+        as we do not want to export data to a file.
         """
         #check if ValueError is raised when passed in a negative/zero number
         with self.assertRaises(Exception) as context:
@@ -80,7 +80,7 @@ class TestReddit(unittest.TestCase):
 
     def test_outputToFile(self):
         """! Test case to check output of data to .csv file.
-        Compares the dummy data to the .csv file 
+        @brief Compares the dummy data to the .csv file 
         """
         #create fake dummy data
         self.reddit.posts = [("test1", "test2","test3","test4")]
