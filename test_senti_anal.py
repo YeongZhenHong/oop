@@ -35,7 +35,7 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         """
         print('Setting up')
         self.everything = Sentimental_Analysis.clean(
-            'test_clean_everything.csv')
+            './senti_test_files/test_clean_everything.csv')
         self.everything_result = 'file used testing clean function contains symbols like new lines numbers also contains links words also included end function return string characters lowercase'
 
         self.negative = Sentimental_Analysis.Analyse(
@@ -52,14 +52,31 @@ class Test_Sentimental_Analysis(unittest.TestCase):
                          'pos': 0.353, 'compound': 0.7956}
         self.test_neg = {'neg': 0.253, 'neu': 0.747,
                          'pos': 0.0, 'compound': -0.7976}
-        self.test_pos_img = cv2.imread('./test_pos.png')
-        self.test_neg_img = cv2.imread('./test_neg.png')
+        self.test_pos_img = cv2.imread('./senti_test_files/test_pos.png')
+        self.test_neg_img = cv2.imread('./senti_test_files/test_neg.png')
 
         self.test_spider_dat = pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
                                              'var1': [5000, 1000, 2000],
                                              'var2': [3500, 1500, 500],
-                                             'var3': [90, 9000, 6900]})
-        self.test_spider_img = cv2.imread('./sent_anal_spider.png')
+                                             'var3': [90, 9000, 6900],
+                                             'var4': [777, 777, 777]})
+        self.test_spider_img = cv2.imread(
+            './senti_test_files/test_sent_anal_spider.png')
+        self.test_line_img = cv2.imread(
+            './senti_test_files/test_sent_anal_line.png')
+
+        self.test_fp_freq_time = pd.DataFrame({'Date': [20150101, 20150115, 20150203, 20150204],
+                                               'Freq': [200, 600, 900, 150]})
+        self.test_d_freq_time = pd.DataFrame({'Date': [20170506, 20170805, 20182311, 20182311],
+                                              'Freq': [420, 420, 420, 420]})
+        self.test_g_freq_time = pd.DataFrame({'Date': [20190506, 20190805, 20132311, 20162311],
+                                              'Freq': [7777, 777, 77, 7]})
+        self.test_fp_freq_time['Date'] = pd.to_datetime(
+            self.test_fp_freq_time['Date'])
+        self.test_d_freq_time['Date'] = pd.to_datetime(
+            self.test_d_freq_time['Date'])
+        self.test_g_freq_time['Date'] = pd.to_datetime(
+            self.test_g_freq_time['Date'])
 
     def tearDown(self):
         """! tearDown(self)
@@ -149,9 +166,29 @@ class Test_Sentimental_Analysis(unittest.TestCase):
         """
         print('test_plotradar')
         Sentimental_Analysis.plot_radar(self, dat=self.test_spider_dat)
-        if self.test_spider_img.shape == cv2.imread('./test_sent_anal_spider.png').shape:
+        if self.test_spider_img.shape == cv2.imread('./docs/sent_anal_spider.png').shape:
             difference = cv2.subtract(
-                self.test_spider_img, cv2.imread('./test_sent_anal_spider.png'))
+                self.test_spider_img, cv2.imread('./docs/sent_anal_spider.png'))
+            r, g, b = cv2.split(difference)
+            if cv2.countNonZero(r) == 0 and cv2.countNonZero(g) == 0 and cv2.countNonZero(b) == 0:
+                self.assertTrue(True)
+            else:
+                self.assertFalse(True)
+        else:
+            self.assertFalse(True)
+
+    def test_plotline(self):
+        """! test_plotline(self)
+        @brief tests plot_line(fp_df, d_df,g_df) function against base cases
+        @brief checks if generated images are identical with base images
+        @brief test code is similar to test_plotpie
+        """
+        print('test_plotline')
+        Sentimental_Analysis.plot_line(
+            self, fp_df=self.test_fp_freq_time, d_df=self.test_d_freq_time, g_df=self.test_g_freq_time)
+        if self.test_line_img.shape == cv2.imread('./docs/sent_anal_line.png').shape:
+            difference = cv2.subtract(
+                self.test_line_img, cv2.imread('./docs/sent_anal_line.png'))
             r, g, b = cv2.split(difference)
             if cv2.countNonZero(r) == 0 and cv2.countNonZero(g) == 0 and cv2.countNonZero(b) == 0:
                 self.assertTrue(True)

@@ -6,7 +6,7 @@ from BotAPI import BotAPI
 class generateWeb:
     def __init__(self):
         super().__init__()
-        self.f = open("./docs/index.html", "w")
+        self.f = open("./docs/index.html", "w", encoding="utf8")
         self.initDB = BotAPI()
         self.initDB.openCnx()
 
@@ -67,8 +67,8 @@ class generateWeb:
     <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
       <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
           class="fa fa-bars"></i>Menu</button>
-      <span class="w3-bar-item w3-right">Logo</span>
-    </div>
+      <span class="w3-bar-item w3-left">Hong's Holiday</span>
+    </div>  
 
     <!-- Sidebar/menu -->
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -148,29 +148,17 @@ class generateWeb:
         </div>
         <div class="w3-panel">
           <div class="w3-row-padding" style="margin:0 -16px">
-            <div class="w3-third">
+          <div class="w3-third">
+            <center>
               <h5>Post Count Spider Chart</h5>
-              <img src=".\sent_anal_spider.png" style="width:100%" alt="spider chart">
-            </div>
-            <div class="w3-twothird">
-              <h5>Feeds</h5>
-              <table class="w3-table w3-striped w3-white">
-                <tr>
-                  <td><img class="reddit" src=".\img\eddit_icon.png" width="30" height="30"></i></td>
-                  <td>Reddit</td>
-                  <td><i>insert reddit post crawl count</i></td>
-                </tr>
-                <tr>
-                  <td><img class="twitter" src=".\img\witter_icon.png" width="30" height="30"></i></td>
-                  <td>Twitter.</td>
-                  <td><i>insert reddit post crawl count</i></td>
-                </tr>
-                <tr>
-                  <td><img class="instagram" src=".\img\insta_icon.png" width="30" height="30"></i></td>
-                  <td>Instagram</td>
-                  <td><i>insert yahoo post crawl count</i></td>
-                </tr>
-              </table>
+            </center>
+            <img src=".\sent_anal_spider.png" style="width:400px" alt="spider chart">
+          </div>
+          <div class="w3-third" style="padding-left:15px">
+            <center>
+              <h5>Frequency Over Datetime Chart</h5>
+            </center>
+            <img src=".\sent_anal_line.png" style="width:400px" alt="line chart">
             </div>
           </div>
         </div>
