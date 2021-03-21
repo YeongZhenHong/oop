@@ -96,17 +96,23 @@ class TelegramBot:
         """
         limit = 10
         # limit = int(context.args[0])
-
+        
+        
         try:
             
-            context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Twitter(limit)[1])
-            context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Yahoo(limit)[1])
-            context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Reddit(limit)[1])
+            # context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Twitter(limit)[1])
+            # context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Yahoo(limit)[1])
+            # context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.crawl_Reddit(limit)[1])
+            # context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.sent_anal())
+            context.bot.send_message(chat_id=update.effective_chat.id, text=self.crawlerMain.generateWebpage()[1])
             time.sleep(15)
+
+
             # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/FoodPanda_Twitter.csv", "rb"))
             # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/Deliveroo_Twitter.csv", "rb"))
             # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/GrabFood_Twitter.csv", "rb"))
             # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./sent_anal_spider.png", "rb"))
+            context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./docs/index.html", "rb"))
         except:
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text="Failed to crawl twitter!!")
