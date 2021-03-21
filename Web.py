@@ -1,6 +1,6 @@
 import sys
 from BotAPI import BotAPI
-from Sentimental_Analysis import Sentimental_Analysis
+# from Sentimental_Analysis import Sentimental_Analysis
 
 
 class generateWeb:
@@ -11,11 +11,11 @@ class generateWeb:
         self.initDB.openCnx()
 
     def makeHTML(self):
-        positive_score = Sentimental_Analysis.get_positive(self)
-        grabFood = self.initDB.selectDB("Twitter", "GrabFood")
-        foodPanda = self.initDB.selectDB("Twitter", "FoodPanda")
-        deliveroo = self.initDB.selectDB("Instagram", "Deliveroo")
-        yahoo = self.initDB.selectDB("Yahoo")
+        # positive_score = Sentimental_Analysis().get_positive()
+        grabFood = self.initDB.selectDB("GrabFood")
+        foodPanda = self.initDB.selectDB("FoodPanda")
+        deliveroo = self.initDB.selectDB("Deliveroo")
+
         message = """
        <!DOCTYPE html>
 <html lang="en">
@@ -171,29 +171,20 @@ class generateWeb:
           <h5>Positive Sentiment Percentage</h5>
           <p>Grab</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style='width:
-                    """
-        message += str(positive_score[1]*100)+"%'>"
-        message += str(positive_score[1]*100) + "% </div>"
-        message += """
+            
+<div class="w3-container w3-center w3-padding w3-flat-nephritis" style="width:25%">insert number</div>
           </div>
 
           <p>Deliveroo</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style='width:
-            """
-        message += str(positive_score[2]*100)+"%'>"
-        message += str(positive_score[2]*100) + "% </div>"
-        message += """
+                  <div class="w3-container w3-center w3-padding w3-flat-turquoise" style="width:50%">insert number</div>
+
           </div>
 
           <p>Food Panda</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-pink" style='width:
-            """
-        message += str(positive_score[0]*100)+"%'>"
-        message += str(positive_score[0]*100) + "% </div>"
-        message += """
+            
+     <div class="w3-container w3-center w3-padding w3-pink" style="width:75%">insert number</div>
         </div>
               <hr>
         <h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>

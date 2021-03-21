@@ -94,9 +94,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a446c977060a9521b393568a40b371b66"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reddit_crawler_1_1_reddit_crawler.html#a446c977060a9521b393568a40b371b66">authenticate</a> (self, clientid, clientsecret, user)</td></tr>
 <tr class="memdesc:a446c977060a9521b393568a40b371b66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authenticates the usage of scraping data from reddit and creates an instance of reddit.  <a href="class_reddit_crawler_1_1_reddit_crawler.html#a446c977060a9521b393568a40b371b66">More...</a><br /></td></tr>
 <tr class="separator:a446c977060a9521b393568a40b371b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ae8ff372fb15adf41512d0cebbb94e3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reddit_crawler_1_1_reddit_crawler.html#a3ae8ff372fb15adf41512d0cebbb94e3">setSettings</a> (self, searchString, limit)</td></tr>
-<tr class="memdesc:a3ae8ff372fb15adf41512d0cebbb94e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the search string and limit.  <a href="class_reddit_crawler_1_1_reddit_crawler.html#a3ae8ff372fb15adf41512d0cebbb94e3">More...</a><br /></td></tr>
-<tr class="separator:a3ae8ff372fb15adf41512d0cebbb94e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12b95c2d583a514a98e8bf3782e689a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reddit_crawler_1_1_reddit_crawler.html#ad12b95c2d583a514a98e8bf3782e689a">setSettings</a> (self, searchString, searchLimit)</td></tr>
+<tr class="memdesc:ad12b95c2d583a514a98e8bf3782e689a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the search string and limit.  <a href="class_reddit_crawler_1_1_reddit_crawler.html#ad12b95c2d583a514a98e8bf3782e689a">More...</a><br /></td></tr>
+<tr class="separator:ad12b95c2d583a514a98e8bf3782e689a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9302228bbd5ef8772d606adef8e7907"><td class="memItemLeft" align="right" valign="top"><a id="ab9302228bbd5ef8772d606adef8e7907"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reddit_crawler_1_1_reddit_crawler.html#ab9302228bbd5ef8772d606adef8e7907">crawl</a> (self)</td></tr>
 <tr class="memdesc:ab9302228bbd5ef8772d606adef8e7907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function to start crawling data and export it to .csv file. <br /></td></tr>
@@ -215,9 +215,9 @@ Public Attributes</h2></td></tr>
 <p>Authenticates the usage of scraping data from reddit and creates an instance of reddit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">clientid</td><td>input client_id from reddit </td></tr>
-    <tr><td class="paramname">clientsecret</td><td>input secret key from reddit </td></tr>
-    <tr><td class="paramname">user</td><td>input user_agent(name) from reddit </td></tr>
+    <tr><td class="paramname">clientid</td><td>Input client_id from reddit </td></tr>
+    <tr><td class="paramname">clientsecret</td><td>Input secret key from reddit </td></tr>
+    <tr><td class="paramname">user</td><td>Input user_agent(name) from reddit </td></tr>
   </table>
   </dd>
 </dl>
@@ -260,8 +260,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3ae8ff372fb15adf41512d0cebbb94e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ae8ff372fb15adf41512d0cebbb94e3">&#9670;&nbsp;</a></span>setSettings()</h2>
+<a id="ad12b95c2d583a514a98e8bf3782e689a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12b95c2d583a514a98e8bf3782e689a">&#9670;&nbsp;</a></span>setSettings()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +282,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>limit</em>&#160;</td>
+          <td class="paramname"><em>searchLimit</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -295,8 +295,8 @@ Public Attributes</h2></td></tr>
 <p>Sets the search string and limit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">searchString</td><td>the search string data we want to crawl </td></tr>
-    <tr><td class="paramname">limit</td><td>the amount of posts that can be crawled </td></tr>
+    <tr><td class="paramname">searchString</td><td>The search string data we want to crawl </td></tr>
+    <tr><td class="paramname">searchLimit</td><td>The amount of posts that can be crawled </td></tr>
   </table>
   </dd>
 </dl>

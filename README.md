@@ -9,7 +9,6 @@
 * [Tools used](#tools-used)
 * [Status](#status)
 * [Demo](#demo)
-
 ## 📂 Files
 Executable files:
 `BotAPI.py`

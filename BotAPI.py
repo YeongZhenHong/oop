@@ -86,7 +86,7 @@ class BotAPI:
                 " WHERE content LIKE '%"+platform+"%'"
             self.cursor.execute(query)
             dataList = [item for item in self.cursor]
-            return dataList, len(dataList)
+            return dataList
         except:
             print("No data selected!")
             return []
@@ -129,3 +129,8 @@ class BotAPI:
         except:
             print("Fail to read Twitter csv")
             return False
+
+a=BotAPI()
+a.openCnx()
+a.selectDB("GrabFood")
+a.closeCnx()
