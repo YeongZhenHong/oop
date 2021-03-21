@@ -41,7 +41,7 @@ class Sentimental_Analysis:
         # combine csv
         self.fp_combined = pd.concat(fp_timestamp)
         # extract dates and count freq of date occurance
-        fp_df = self.fp_combined['date' and 'Date'].str.split(
+        fp_df = self.fp_combined['date' or 'Date'].str.split(
         ).str[0].value_counts().sort_index().reset_index()
         # formatting
         fp_df.columns = ['Date', 'Freq']
@@ -53,7 +53,7 @@ class Sentimental_Analysis:
         d_timestamp = [self.d_tweets,
                        self.d_reddit]
         self.d_combined = pd.concat(d_timestamp)
-        d_df = self.d_combined['date' and 'Date'].str.split(
+        d_df = self.d_combined['date' or 'Date'].str.split(
         ).str[0].value_counts().sort_index().reset_index()
         d_df.columns = ['Date', 'Freq']
         d_df['Date'] = pd.to_datetime(d_df['Date'])
@@ -63,7 +63,7 @@ class Sentimental_Analysis:
         g_timestamp = [self.g_tweets,
                        self.g_reddit]
         self.g_combined = pd.concat(g_timestamp)
-        g_df = self.g_combined['date' and 'Date'].str.split(
+        g_df = self.g_combined['date' or 'Date'].str.split(
         ).str[0].value_counts().sort_index().reset_index()
         g_df.columns = ['Date', 'Freq']
         g_df['Date'] = pd.to_datetime(g_df['Date'])
@@ -259,23 +259,8 @@ class Sentimental_Analysis:
         score.append(fp.Analyse(d_positive))
         return score
 
-# if __name__ == "__main__":
-#     fp = Sentimental_Analysis()
-#     print(fp.get_positive())
-    # hi = pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
-    #                    'var1': [5000, 1000, 2000],
-    #                    'var2': [3500, 1500, 500],
-    #                    'var3': [90, 9000, 6900],
-    #                    'var4': [777, 777, 777]})
-    # fp.plot_radar(name='hi', dat=hi)
-    # test_fp_freq_time = pd.DataFrame({'Date': [20150101, 20150115, 20150203, 20150204],
-    #                                   'Freq': [200, 600, 900, 150]})
-    # test_d_freq_time = pd.DataFrame({'Date': [20170506, 20170805, 20182311, 20182311],
-    #                                  'Freq': [420, 420, 420, 420]})
-    # test_g_freq_time = pd.DataFrame({'Date': [20190506, 20190805, 20132311, 20162311],
-    #                                  'Freq': [7777, 777, 77, 7]})
-    # test_fp_freq_time['Date'] = pd.to_datetime(test_fp_freq_time['Date'])
-    # test_d_freq_time['Date'] = pd.to_datetime(test_d_freq_time['Date'])
-    # test_g_freq_time['Date'] = pd.to_datetime(test_g_freq_time['Date'])
-    # fp.plot_line(name='hihi',
-    #              fp_df=test_fp_freq_time, d_df=test_d_freq_time, g_df=test_g_freq_time)
+
+if __name__ == "__main__":
+    fp = Sentimental_Analysis()
+    fp.plot_line()
+    fp.plot_radar()
