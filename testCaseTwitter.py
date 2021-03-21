@@ -28,6 +28,9 @@ class TestTwitter(unittest.TestCase):
             print("Tearing down Twitter Crawler...")
         
         def test_set_Settings(self):
+            """! Test case for set settings function.
+            @brief Checks if the respective variable is assigned accordingly when passed in the function.
+            """
             print("Testing set_Settings")
             self.twitter.set_Settings("testCase", 10)
             print("set_Settings called!")
