@@ -4,7 +4,7 @@
 @brief This file contains the Reddit test case class
 @version 1.0
 @section DESCRIPTION
-Runs Reddit Crawler testcase
+Runs Reddit Crawler test cases
 """
 
 import csv
@@ -26,12 +26,12 @@ class TestReddit(unittest.TestCase):
         """! Setup class to initialise an instance of RedditCrawler class to start testing
         """
         #this code will run before every single test
-        self.reddit = RedditCrawler(1)
+        self.reddit = RedditCrawler()
         self.message = "error"
         print("setting up Reddit Crawler...")
 
     def tearDown(self):
-        """! Indicates that the test is completed
+        """! Indicates that TestReddit is completed
         """
         #this code will run after every single test
         print("tearing down Reddit Crawler...")
@@ -64,11 +64,11 @@ class TestReddit(unittest.TestCase):
 
     @patch.object(RedditCrawler, 'outputToFile', return_value=None)
     def test_crawl(self, mock_output):
-        """! 
+        """! Test case for crawl function
         Invalid the outputToFile function by patching it as a mock object
         as we do not want to export data to a file
         """
-        #check if ValueError is raised when given negative number
+        #check if ValueError is raised when passed in a negative/zero number
         with self.assertRaises(Exception) as context:
             self.reddit.setSettings("test", -1)
             self.reddit.crawl()
@@ -88,6 +88,7 @@ class TestReddit(unittest.TestCase):
         testArr = ["test1", "test2","test3","test4"]
 
         try:
+            #create a dummy file and make comparisons with the dummy data
             with open('_test.csv', 'r') as r:
                 csv_reader = csv.reader(r)
                 for row in csv_reader:
