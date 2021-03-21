@@ -85,7 +85,7 @@ class BotAPI:
         @exception self.cnx.commit() failure to commit tweets into database
         """
         try:
-            add_tweets = ("INSERT INTO crawler.tweets " +
+            add_tweets = ("INSERT INTO crawler.Twitter " +
                           "(author, content, date, likes, retweets, url)" +
                           "VALUES ('"+author+"', '"+content+"', '"+date+"', '"+likes+"', '"+retweets+"', '"+url+"')")
             self.cursor.execute(add_tweets)
@@ -94,11 +94,13 @@ class BotAPI:
         except:
             print("Fail to insert into database!")
 
-    def __insertReddit(self, comment, upvotes,date,time):
+    def __insertReddit(self, comment, upvotes, date, time):
         """! Insert Reddit
         @brief Insert the crawled reddit comments from csv that is generated from RedditCrawler.py
         @param comment Crawled comments
-        @param datetime The date and time of crawled comments
+        @param upvotes Number of upvotes the post receives comments
+        @param date The date the of crawled comments
+        @param time The time the of crawled comments
         @exception self.cnx.commit() fail to commit the comments into database
         """
         try:
@@ -129,6 +131,26 @@ class BotAPI:
             print("Fail to insert Instagram posts!")
             return False
 
+    def __insertYahoo(self, title, source, date, description, link):
+        """! Insert Yahoo
+        @brief Insert the crawled yahoo posts from csv that is generated from YahooCrawler.py
+        @param title The title of the news article
+        @param source The source of the news article
+        @param date The date of the news article
+        @param description The description of the news article
+        @param link The link to the news article
+        """
+        try:
+            add_yahoo = ("INSERT INTO crawler.Yahoo" +
+                         "(Title,Source,Date,Description,Link) VALUES('"+title+"','"+source+"','"+date+"','"+description+"','"+link+"')")
+            self.cursor.execute(add_yahoo)
+            self.cnx.commit()
+            print("Insert Yahoo posts successfully!")
+            return True
+        except:
+            print("Fail to insert Yahoo posts!")
+            return False
+
     def readCsv(self, platform, socialMedia):
         """! Inserts generated csv files from crawlers into database
         @param fileType A String value of either Twitter,Reddit or Yahoo to insert into different db
@@ -149,7 +171,7 @@ class BotAPI:
         elif(socialMedia == "Reddit"):
             try:
                 df = pd.read_csv("./CSV/"+platform+"_Reddit.csv", usecols=[
-                    'Comment', 'Upvotes','Date','Time'])
+                    'Comment', 'Upvotes', 'Date', 'Time'])
                 for index, row in df.iterrows():
                     self.__insertReddit(
                         str(row['Comment']), str(row['Upvotes']), str(row['Date']), str(row['Time']))
@@ -159,17 +181,34 @@ class BotAPI:
                 return False
         elif(socialMedia == "Instagram"):
             try:
-                df = pd.read_csv("./CSV/"+platform+"_Instagram.csv", usecols=['user', 'posts'])
+                df = pd.read_csv("./CSV/"+platform +
+                                 "_Instagram.csv", usecols=['user', 'posts'])
                 for index, row in df.iterrows():
                     self.__insertInstagram(str(row['user']), str(row['posts']))
                 return True
             except:
                 print("Fail to read Instagram csv")
                 return False
+        elif(socialMedia == "Yahoo"):
+            try:
+                df = pd.read_csv("./CSV/"+platform+"_Yahoo.csv",
+                                 usecols=['Title', 'Source', 'Date', 'Description', 'Link'])
+                for index, row in df.iterrows():
+                    self.__insertYahoo(str(row['Title']), str(row['Source']), str(
+                        row['Date']), str(row['Description']), str(row['Link']))
+                return True
+            except:
+                print("Fail to read Yahoo csv")
+                return False
+
 
 # a = BotAPI()
 # a.openCnx()
-# a.readCsv("GrabFood","Twitter")
+# a.readCsv("GrabFood","Yahoo")
+# a.readCsv("FoodPanda","Yahoo")
+# a.readCsv("Deliveroo","Yahoo")
+# a.readCsv("Deliveroo","Twitter")
+# a.readCsv("FoodPanda","Twitter")
 # a.readCsv("GrabFood","Reddit")
 # a.readCsv("Deliveroo","Reddit")
 # a.readCsv("FoodPanda","Reddit")
