@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['killbot_22',['killBot',['../class_telegram_bot_1_1_telegram_bot.html#a6f49373fa9ecd48bd62bc64ef210c5f1',1,'TelegramBot::TelegramBot']]]
+  ['killbot_23',['killBot',['../class_telegram_bot_1_1_telegram_bot.html#a6f49373fa9ecd48bd62bc64ef210c5f1',1,'TelegramBot::TelegramBot']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ping_119',['ping',['../class_telegram_bot_1_1_telegram_bot.html#a0d8782f44ccdd286b4a8b98a04f589d5',1,'TelegramBot::TelegramBot']]],
-  ['plot_5fpie_120',['plot_pie',['../class_sentimental___analysis_1_1_sentimental___analysis.html#a3b8f437c7568f4f106672d557c029497',1,'Sentimental_Analysis::Sentimental_Analysis']]],
-  ['plot_5fradar_121',['plot_radar',['../class_sentimental___analysis_1_1_sentimental___analysis.html#a924928d0f87547db4e595f868e6de0ad',1,'Sentimental_Analysis::Sentimental_Analysis']]]
+  ['opencnx_132',['openCnx',['../class_bot_a_p_i_1_1_bot_a_p_i.html#a425133565c3cd57cf68ca393cb536ce5',1,'BotAPI::BotAPI']]],
+  ['outputtofile_133',['outputToFile',['../class_instagram_crawler_1_1_instagram_crawler.html#aef24822a2e3c29fda3a77b6dcc900d85',1,'InstagramCrawler.InstagramCrawler.outputToFile()'],['../class_reddit_crawler_1_1_reddit_crawler.html#a3a4fbbe9a683a5a57ed8f1f47b48b2db',1,'RedditCrawler.RedditCrawler.outputToFile()']]]
 ];
