@@ -6,7 +6,7 @@ from BotAPI import BotAPI
 class generateWeb:
     def __init__(self):
         super().__init__()
-        self.f = open("test2.html", "w")
+        self.f = open("./Output/test2.html", "w")
         self.initDB = BotAPI()
         self.initDB.openCnx()
 
