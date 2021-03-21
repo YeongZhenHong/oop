@@ -5,12 +5,20 @@ from Sentimental_Analysis import Sentimental_Analysis
 
 class generateWeb:
     def __init__(self):
+        """! __init__(self)
+        @brief opens the html and connections to the sql database
+        """
         super().__init__()
         self.f = open("./docs/index.html", "w", encoding="utf8")
         self.initDB = BotAPI()
         self.initDB.openCnx()
 
     def makeHTML(self):
+        """! makeHTML(self)
+        @brief calls sentimental anaylsis to get the postive scores
+        @brief fetches the post of the platforms form databse
+        @brief prints the hmtl source and generates the html file
+        """
         positive_score = Sentimental_Analysis.get_positive(self)
         grabFood = self.initDB.selectDB("GrabFood")
         foodPanda = self.initDB.selectDB("FoodPanda")
