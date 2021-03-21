@@ -144,7 +144,7 @@ class InstagramCrawler(Crawler):
         self.outputToFile()
 
     def extractData(self):
-        """! Extract data from the posts (e.g username and posts)
+        """! Extract data from the posts (e.g username, comments, date & time)
         """
         #find the list of users and post
         users = self.driver.find_elements_by_class_name('_6lAjh')
