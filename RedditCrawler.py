@@ -49,13 +49,13 @@ class RedditCrawler(Crawler):
         #creates an instance of reddit with the specific information 
         self.reddit = praw.Reddit(client_id=clientid, client_secret=clientsecret, user_agent=user)
  
-    def setSettings(self, searchString, limit):
+    def setSettings(self, searchString, searchLimit):
         """! Sets the search string and limit.
         @param searchString  the search string data we want to crawl 
         @param limit         the amount of posts that can be crawled
         """
         #sets the searchString and searchLimit values in the super class
-        super().set_Settings(searchString, limit)
+        super().set_Settings(searchString, searchLimit)
         
     def crawl(self):
         """! Main function to start crawling data and export it to .csv file.
