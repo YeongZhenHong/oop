@@ -260,6 +260,6 @@ class Sentimental_Analysis:
         return score
 
 
-if __name__ == "__main__":
-    fp = Sentimental_Analysis()
-    fp.plot_line()
+# if __name__ == "__main__":
+#     fp = Sentimental_Analysis()
+#     fp.plot_line()
