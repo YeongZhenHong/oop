@@ -8,27 +8,30 @@ Runs Yahoo Crawler test cases
 """
 
 import unittest
+from unittest import mock
 from unittest.mock import Mock, patch
 from YahooCrawler import Yahoo
 
+
 class TestYahoo(unittest.TestCase):
-    """! The Yahoo test case cclass.
+    """! The test Yahoo class.
     @brief Defines a test Yahoo class to test yahooCrawler functions.
     """
+
     def setUp(self):
-        """! Setup function to initialise an instance of Yahoo class to start testing.
+        """! Setup class to initialise an instance of Yahoo class to start testing.
         """
         self.yahoo = Yahoo()
-        print("Setting up Yahoo Crawler...")
+        print("setting up Yahoo Crawler...")
 
     def tearDown(self):
         """! Indicates that the test is completed.
         """
-        print("Tearing down Yahoo Crawler...")
+        print("tearing down Yahoo Crawler...")
 
     def test_set_Settings(self):
         """! Test case for set settings.
-        @brief Checks if the respective variables are assigned accordingly when passing it into the function.
+        @brief Checks if the respective variable is assigned accordingly when passed in the function.
         """
         print("Testing set_Settings")
         self.yahoo.set_Settings("food", 5)
@@ -39,7 +42,7 @@ class TestYahoo(unittest.TestCase):
         self.assertEqual(self.yahoo.get_searchLimit(), 5)
         self.assertNotEqual(self.yahoo.get_searchLimit(), 1)
         print("get_searchLimit valid!")
-    
+
     @patch.object(Yahoo, 'get_article', return_value=None)
     def test_get_article(self, mock_method):
         """! Test case for get article function.
@@ -51,23 +54,24 @@ class TestYahoo(unittest.TestCase):
         print("test_get_article valid!")
 
     @patch('builtins.open')
-    def test_crawl(self,mock_open):
+    def test_crawl(self, mock_open):
         """! Test case for crawl function.
         @brief Invalid the open module by patching it as a mock object
         as we do not want to export data to a file for the test.
         """
-        #check if Exception is raised when passed in a negative/zero number or empty string
+        # check if Exception is raised when passed in a negative/zero number or empty string
         with self.assertRaises(Exception) as context:
             self.yahoo.set_Settings("", 1)
             self.yahoo.crawl()
 
-         #check if it indeed raise an exception error message when input a negative/zero number or an empty string
-        self.assertTrue("Error, not a postive number or empty string" in str(context.exception))
-        
+         # check if it indeed raise an exception error message when input a negative/zero number or an empty string
+        self.assertTrue(
+            "Error, not a postive number or empty string" in str(context.exception))
+
         self.yahoo.set_Settings("foodpanda", 1)
         self.yahoo.crawl()
         print("Yahoo test_crawl valid!")
 
+
 if __name__ == '__main__':
     unittest.main()
-    
