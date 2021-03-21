@@ -79,8 +79,9 @@ class Yahoo(Crawler):
         links = set()
         limit = self.get_searchLimit()
  
-        if limit <= 0: 
-            raise ValueError("Error, that is not a positive number!") 
+        #raise an exception if the searchLimit is not a positive number or the searchString is empty
+        if limit < 0 or super().get_searchString() == "": 
+            raise Exception("Error, not a postive number or empty string") 
         while True:
             try:
                 response = requests.get(url, headers=headers)

@@ -68,15 +68,15 @@ class TestReddit(unittest.TestCase):
         @brief Invalid the outputToFile function by patching it as a mock object
         as we do not want to export data to a file.
         """
-        #check if ValueError is raised when passed in a negative/zero number
+        #check if Exception is raised when passed in a negative/zero number or empty string
         with self.assertRaises(Exception) as context:
             self.reddit.setSettings("test", -1)
             self.reddit.crawl()
              #compares if the subreddit instance is called and created
             self.assertIsInstance(self.reddit.subreddit1, type(self.reddit.reddit.subreddit("singapore")), self.message)
         
-        #check if it indeed raise an exception error message when input a negative/zero number
-        self.assertTrue("Error, that is not a positive number!" in str(context.exception))
+        #check if it indeed raise an exception error message when input a negative/zero number or an empty string
+        self.assertTrue("Error, not a postive number or empty string" in str(context.exception))
 
     def test_outputToFile(self):
         """! Test case to check output of data to .csv file.
