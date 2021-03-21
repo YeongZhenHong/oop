@@ -79,7 +79,7 @@ class generateWeb:
       <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-        <a href="#overview" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>
+        <a href="#overview" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>
           Overview</a>
         <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><img class="panda"
             src=".\img\koodpanda_menu_icon.png" width="40px" height="40px"></i>Food
@@ -90,8 +90,7 @@ class generateWeb:
         <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\grab_menu_icon.png"
             width="40px" height="40px"></i>Grab
           Food</a>
-        <a href="./doxygen//index.html" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\doxygen.png"
-            width="40px" height="40px"></i>Documentation</a>
+
       </div>
     </nav>
 
@@ -171,30 +170,39 @@ class generateWeb:
           <h5>Positive Sentiment Percentage</h5>
           <p>Grab</p>
           <div class="w3-grey">
-            
-<div class="w3-container w3-center w3-padding w3-flat-nephritis" style="width:25%">insert number</div>
+            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style='width:
+                    """
+        message += str(positive_score[1]*100)+"%'>"
+        message += str(positive_score[1]*100) + "% </div>"
+        message += """
           </div>
 
           <p>Deliveroo</p>
           <div class="w3-grey">
-                  <div class="w3-container w3-center w3-padding w3-flat-turquoise" style="width:50%">insert number</div>
-
+            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style='width:
+            """
+        message += str(positive_score[2]*100)+"%'>"
+        message += str(positive_score[2]*100) + "% </div>"
+        message += """
           </div>
 
           <p>Food Panda</p>
           <div class="w3-grey">
-            
-     <div class="w3-container w3-center w3-padding w3-pink" style="width:75%">insert number</div>
+            <div class="w3-container w3-center w3-padding w3-pink" style='width:
+            """
+        message += str(positive_score[0]*100)+"%'>"
+        message += str(positive_score[0]*100) + "% </div>"
+        message += """
         </div>
               <hr>
         <h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>
         <table id="dtfoodpanda" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th class="th-sm"></th>
               <th class="th-sm">Content</th>
               <th class="th-sm">Author</th>
               <th class="th-sm">Date</th>
+              <th class="th-sm">Retweets</th>
               <th class="th-sm">Likes</th>
               <th class="th-sm">Url</th>
             </tr>
@@ -217,12 +225,24 @@ class generateWeb:
         <table id="dtdeliveroo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th class="th-sm"></th>
-              <th class="th-sm">Content</th>
-              <th class="th-sm">Author</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">Likes</th>
-              <th class="th-sm">Url</th>
+              <th class="th-sm">Social Media
+
+              </th>
+              <th class="th-sm">Content
+
+              </th>
+              <th class="th-sm">Author
+
+              </th>
+              <th class="th-sm">Date posted
+
+              </th>
+              <th class="th-sm">Likes/Shares
+
+              </th>
+              <th class="th-sm">Link
+
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -244,12 +264,24 @@ class generateWeb:
           <thead>
 
             <tr>
-              <th class="th-sm"></th>
-              <th class="th-sm">Content</th>
-              <th class="th-sm">Author</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">Likes</th>
-              <th class="th-sm">Url</th>
+              <th class="th-sm">Social Media
+
+              </th>
+              <th class="th-sm">Content
+
+              </th>
+              <th class="th-sm">Author
+
+              </th>
+              <th class="th-sm">Date posted
+
+              </th>
+              <th class="th-sm">Likes/Shares
+
+              </th>
+              <th class="th-sm">Link
+
+              </th>
             </tr>
 
           </thead>
