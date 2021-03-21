@@ -1,10 +1,6 @@
 """! 
 @file RedditCrawler.py
-<<<<<<< HEAD
 @author Kendrick Ang 2609737A / Sim Wei Jun Austin  2609730S
-=======
-@author Kendrick Ang 2609737A / Sim Wei Jun Austin 2609730S
->>>>>>> 0ee61202d83359f436c38dc7a8e35fe478f6d96d
 @brief This file contains the Reddit Crawler sub class
 @version 1.0
 @section DESCRIPTION
@@ -47,27 +43,27 @@ class RedditCrawler(Crawler):
 
     def authenticate(self, clientid, clientsecret, user):
         """! Authenticates the usage of scraping data from reddit and creates an instance of reddit.
-        @param clientid     input client_id from reddit
-        @param clientsecret input secret key from reddit
-        @param user         input user_agent(name) from reddit
+        @param clientid     Input client_id from reddit
+        @param clientsecret Input secret key from reddit
+        @param user         Input user_agent(name) from reddit
         """
         #creates an instance of reddit with the specific information 
         self.reddit = praw.Reddit(client_id=clientid, client_secret=clientsecret, user_agent=user)
  
-    def setSettings(self, searchString, limit):
+    def setSettings(self, searchString, searchLimit):
         """! Sets the search string and limit.
-        @param searchString  the search string data we want to crawl 
-        @param limit         the amount of posts that can be crawled
+        @param searchString  The search string data we want to crawl 
+        @param searchLimit   The amount of posts that can be crawled
         """
         #sets the searchString and searchLimit values in the super class
-        super().set_Settings(searchString, limit)
+        super().set_Settings(searchString, searchLimit)
         
     def crawl(self):
         """! Main function to start crawling data and export it to .csv file.
         """
-        #raise an Value error exception if the search limit is not a positive number
-        if super().get_searchLimit() <= 0: 
-            raise ValueError("Error, that is not a positive number!") 
+        #raise an exception if the searchLimit is not a positive number or the searchString is empty
+        if super().get_searchLimit() < 0 or super().get_searchString() == "": 
+            raise Exception("Error, not a postive number or empty string") 
         try:
             #navigates to subreddit "singapore", sets the search string and limits the posts
             self.subreddit1 = self.reddit.subreddit("singapore")
@@ -84,8 +80,7 @@ class RedditCrawler(Crawler):
                 for comment in post.comments.list():
                     date = str(datetime.fromtimestamp(comment.created_utc))
                     datesplit = date.split(" ")
-                    #p = (comment.body, date)
-                    p = (comment.body, comment.score, datesplit[0], datesplit[1])
+                    p = (comment.body, comment.author,datesplit[0], datesplit[1], comment.score)
                     #p = (title, comment.body, url, commentCount, datesplit[0], datesplit[1])
                     self.posts.append(p)
         except Exception as err:
@@ -101,8 +96,7 @@ class RedditCrawler(Crawler):
         try:
             with open("./CSV/"+self.get_searchString()+filename + '.csv', 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
-                writer.writerow(['Comment', 'Upvotes', 'Date', 'Time'])
-                #writer.writerow(['Comment', 'Datetime',])
+                writer.writerow(['Comment', 'Author', 'Date', 'Time', 'Upvotes'])
                 #writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
                 writer.writerows(self.posts)
         except Exception as e:

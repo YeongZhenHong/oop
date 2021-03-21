@@ -26,22 +26,27 @@ headers = {
 
 
 class Yahoo(Crawler):
-
-    """! Yahoo initializer
-    @brief Creates an instance of class Yahoo to conduct crawling of news articles.
+    """! Yahoo class inheriting Crawler class.
+    @brief Allows an instance of the Yahoo class to be created, taking in user-input for search objective.
+    @brief Contains get_article function, to retrieve required informational fields from an article.
+    @brief Contains crawl, to conduct searching of keyword and output of a csv file of all the articles.
     """
 
     def __init__(self):
+        """! Yahoo initializer
+        @brief Creates an instance of class Yahoo to conduct crawling of news articles.
+        """
         super().__init__()
         self.news_articles = []
 
-    """! set_Settings function
-    @brief Sets a keyword to search for.
-    """
-
-    def set_Settings(self, searchString):
+    def set_Settings(self, searchString, searchLimit):
+        """! set_Settings function
+        @brief Sets a keyword to search for.
+        @param searchString  The search string data we want to crawl 
+        @param searchLimit   The amount of posts that can be crawled
+        """
         super().set_searchString(searchString)
-        super().set_searchLimit(limit)
+        super().set_searchLimit(searchLimit)
 
     def get_article(self, thing):
         """! Get article function
@@ -77,9 +82,10 @@ class Yahoo(Crawler):
         url = template.format(self.get_searchString())
         links = set()
         limit = self.get_searchLimit()
-
-        if limit <= 0:
-            raise ValueError("Error, that is not a positive number!")
+ 
+        #raise an exception if the searchLimit is not a positive number or the searchString is empty
+        if limit < 0 or super().get_searchString() == "": 
+            raise Exception("Error, not a postive number or empty string") 
         while True:
             try:
                 response = requests.get(url, headers=headers)
