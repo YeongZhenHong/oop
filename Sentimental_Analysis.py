@@ -9,7 +9,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import pandas as pd
 from math import pi
 import numpy as np
-import scipy
+
 
 
 class Sentimental_Analysis:
@@ -24,7 +24,7 @@ class Sentimental_Analysis:
         self.d_tweets = pd.read_csv('./CSV/Deliveroo_Twitter.csv')
         self.g_tweets = pd.read_csv('./CSV/GrabFood_Twitter.csv')
 
-        self.fp_reddit = pd.read_csv('./CSV/Foodpanda_Reddit.csv')
+        self.fp_reddit = pd.read_csv('./CSV/FoodPanda_Reddit.csv')
         self.d_reddit = pd.read_csv('./CSV/Deliveroo_Reddit.csv')
         self.g_reddit = pd.read_csv('./CSV/GrabFood_Reddit.csv')
 
@@ -32,7 +32,7 @@ class Sentimental_Analysis:
         self.d_insta = pd.read_csv('./CSV/Deliveroo_Instagram.csv')
         self.g_insta = pd.read_csv('./CSV/GrabFood_Instagram.csv')
 
-        self.fp_yahoo = pd.read_csv('./CSV/Foodpanda_Yahoo.csv')
+        self.fp_yahoo = pd.read_csv('./CSV/FoodPanda_Yahoo.csv')
         self.d_yahoo = pd.read_csv('./CSV/Deliveroo_Yahoo.csv')
         self.g_yahoo = pd.read_csv('./CSV/GrabFood_Yahoo.csv')
 
@@ -79,7 +79,7 @@ class Sentimental_Analysis:
 
     # removes all punctuations, special symbols, urls and converts to lowercase
 
-    def clean(file):
+    def clean(self,file):
         """! clean(file)
         @brief cleans text for accurate analysis
         @param name of the file
@@ -117,7 +117,7 @@ class Sentimental_Analysis:
         # convert filtered_words into string(VADER cannot take in a List)
         return " ".join(filtered_words)
 
-    def Analyse(text):
+    def Analyse(self,text):
         """! sentiment analyse(text)
         @brief takes in string and passes it through nltk VADER analyser
         @param string
@@ -134,7 +134,7 @@ class Sentimental_Analysis:
             sentiment = 'Neutral Sentiment'
         return value, sentiment
 
-    def plot_pie(score, name='sent_anal'):
+    def plot_pie(self,score, name='sent_anal'):
         """! plot_pie(score)
         @brief plots a pie chart with a given set of scores
         @param score of float type
@@ -250,15 +250,15 @@ class Sentimental_Analysis:
 #                        'var2': [3500, 1500, 500],
 #                        'var3': [90, 9000, 6900],
 #                        'var4': [777, 777, 777]})
-    # fp.plot_radar(name='test_sent_anal_spider.png', dat=hi)
-    # test_fp_freq_time = pd.DataFrame({'Date': [20150101, 20150115, 20150203, 20150204],
-    #                                   'Freq': [200, 600, 900, 150]})
-    # test_d_freq_time = pd.DataFrame({'Date': [20170506, 20170805, 20182311, 20182311],
-    #                                  'Freq': [420, 420, 420, 420]})
-    # test_g_freq_time = pd.DataFrame({'Date': [20190506, 20190805, 20132311, 20162311],
-    #                                  'Freq': [7777, 777, 77, 7]})
-    # test_fp_freq_time['Date'] = pd.to_datetime(test_fp_freq_time['Date'])
-    # test_d_freq_time['Date'] = pd.to_datetime(test_d_freq_time['Date'])
-    # test_g_freq_time['Date'] = pd.to_datetime(test_g_freq_time['Date'])
-    # fp.plot_line(name='./senti_test_files/test_sent_anal_line.png',
-    #              fp_df=test_fp_freq_time, d_df=test_d_freq_time, g_df=test_g_freq_time)
+#     fp.plot_radar(name='test_sent_anal_spider.png', dat=hi)
+#     test_fp_freq_time = pd.DataFrame({'Date': [20150101, 20150115, 20150203, 20150204],
+#                                       'Freq': [200, 600, 900, 150]})
+#     test_d_freq_time = pd.DataFrame({'Date': [20170506, 20170805, 20182311, 20182311],
+#                                      'Freq': [420, 420, 420, 420]})
+#     test_g_freq_time = pd.DataFrame({'Date': [20190506, 20190805, 20132311, 20162311],
+#                                      'Freq': [7777, 777, 77, 7]})
+#     test_fp_freq_time['Date'] = pd.to_datetime(test_fp_freq_time['Date'])
+#     test_d_freq_time['Date'] = pd.to_datetime(test_d_freq_time['Date'])
+#     test_g_freq_time['Date'] = pd.to_datetime(test_g_freq_time['Date'])
+#     fp.plot_line(name='test_sent_anal_line.png',
+#                  fp_df=test_fp_freq_time, d_df=test_d_freq_time, g_df=test_g_freq_time)

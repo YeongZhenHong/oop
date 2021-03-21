@@ -2,6 +2,8 @@ from TwitterCrawler import Twitter
 from RedditCrawler import RedditCrawler
 from YahooCrawler import Yahoo
 from BotAPI import BotAPI
+from Sentimental_Analysis import Sentimental_Analysis
+from Web import generateWeb
 
 class CrawlerMain:
     
@@ -82,3 +84,21 @@ class CrawlerMain:
 
         except:
             return False,"Reddit Crawling Failed"
+    def sent_anal(self):
+        try:
+            sent = Sentimental_Analysis()
+            sent.plot_radar()
+            sent.plot_line()
+            return True,"Sentimental Analysis Complete!"
+        except:
+            return False,"Failed to perform Aentimental Analysis"
+    def generateWebpage(self):
+        try:
+                
+            make = generateWeb()
+            make.makeHTML()
+            make.close()
+            return True,"Webpage generated"
+        except:
+            return False,"Fail to generate webpage"
+    
