@@ -1,6 +1,7 @@
 
 import sys
 from BotAPI import BotAPI
+from Sentimental_Analysis import Sentimental_Analysis
 
 
 class generateWeb:
@@ -11,6 +12,7 @@ class generateWeb:
         self.initDB.openCnx()
 
     def makeHTML(self):
+        positive_score = Sentimental_Analysis.get_positive(self)
         tweets = self.initDB.selectDB("Twitter")
         reddit = self.initDB.selectDB("Reddit")
         instagram = self.initDB.selectDB("Instagram")
@@ -167,18 +169,29 @@ class generateWeb:
           <h5>Positive Sentiment Percentage</h5>
           <p>Grab</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style="width:25%">insert number</div>
+            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style='width:
+                    """
+        message += str(positive_score[1]*100)+"%'>"
+        message += str(positive_score[1]*100) + "% </div>"
+        message += """
           </div>
 
           <p>Deliveroo</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style="width:50%">insert number</div>
+            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style='width:
+            """
+        message += str(positive_score[2]*100)+"%'>"
+        message += str(positive_score[2]*100) + "% </div>"
+        message += """
           </div>
 
           <p>Food Panda</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-pink" style="width:75%">insert number</div>
-          </div>
+            <div class="w3-container w3-center w3-padding w3-pink" style='width:
+            """
+        message += str(positive_score[0]*100)+"%'>"
+        message += str(positive_score[0]*100) + "% </div>"
+        message += """
         </div>
               <hr>
         <h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>

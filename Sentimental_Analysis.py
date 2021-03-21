@@ -11,7 +11,6 @@ from math import pi
 import numpy as np
 
 
-
 class Sentimental_Analysis:
 
     def __init__(self):
@@ -40,9 +39,9 @@ class Sentimental_Analysis:
         fp_timestamp = [self.fp_tweets,
                         self.fp_reddit]
         # combine csv
-        fp_combined = pd.concat(fp_timestamp)
+        self.fp_combined = pd.concat(fp_timestamp)
         # extract dates and count freq of date occurance
-        fp_df = fp_combined['date' and 'Date'].str.split(
+        fp_df = self.fp_combined['date' and 'Date'].str.split(
         ).str[0].value_counts().sort_index().reset_index()
         # formatting
         fp_df.columns = ['Date', 'Freq']
@@ -53,8 +52,8 @@ class Sentimental_Analysis:
         # deliveroo freq date df
         d_timestamp = [self.d_tweets,
                        self.d_reddit]
-        d_combined = pd.concat(d_timestamp)
-        d_df = d_combined['date' and 'Date'].str.split(
+        self.d_combined = pd.concat(d_timestamp)
+        d_df = self.d_combined['date' and 'Date'].str.split(
         ).str[0].value_counts().sort_index().reset_index()
         d_df.columns = ['Date', 'Freq']
         d_df['Date'] = pd.to_datetime(d_df['Date'])
@@ -63,8 +62,8 @@ class Sentimental_Analysis:
         # grab freq date df
         g_timestamp = [self.g_tweets,
                        self.g_reddit]
-        g_combined = pd.concat(g_timestamp)
-        g_df = g_combined['date' and 'Date'].str.split(
+        self.g_combined = pd.concat(g_timestamp)
+        g_df = self.g_combined['date' and 'Date'].str.split(
         ).str[0].value_counts().sort_index().reset_index()
         g_df.columns = ['Date', 'Freq']
         g_df['Date'] = pd.to_datetime(g_df['Date'])
@@ -78,8 +77,7 @@ class Sentimental_Analysis:
                                 })
 
     # removes all punctuations, special symbols, urls and converts to lowercase
-
-    def clean(self,file):
+    def clean(self, file):
         """! clean(file)
         @brief cleans text for accurate analysis
         @param name of the file
@@ -117,7 +115,7 @@ class Sentimental_Analysis:
         # convert filtered_words into string(VADER cannot take in a List)
         return " ".join(filtered_words)
 
-    def Analyse(self,text):
+    def Analyse(self, text):
         """! sentiment analyse(text)
         @brief takes in string and passes it through nltk VADER analyser
         @param string
@@ -132,9 +130,9 @@ class Sentimental_Analysis:
             sentiment = 'Positive Sentiment'
         else:
             sentiment = 'Neutral Sentiment'
-        return value, sentiment
+        return pos
 
-    def plot_pie(self,score, name='sent_anal'):
+    def plot_pie(score, name='sent_anal'):
         """! plot_pie(score)
         @brief plots a pie chart with a given set of scores
         @param score of float type
@@ -213,7 +211,7 @@ class Sentimental_Analysis:
     def plot_line(self, name="sent_anal_line", fp_df=None, d_df=None, g_df=None):
         """! plot_line(score)
         @brief plots a line chart; frequency over datetime 
-        @param optional nam
+        @param optional name
         """
         if fp_df is None:
             fp_df = self.fp_freq_time
@@ -242,23 +240,42 @@ class Sentimental_Analysis:
         plt.savefig("./docs/"+name)
         # plt.show()
 
+    def get_positive(self):
+        """! get_positive(self)
+        @brief generates positive score based on scraped content
+        """
+        score = []
+        fp = Sentimental_Analysis()
+        fp_positive = fp.clean('./CSV/FoodPanda_Instagram.csv') + fp.clean(
+            './CSV/FoodPanda_Reddit.csv') + fp.clean('./CSV/Foodpanda_Twitter.csv') + fp.clean('./CSV/FoodPanda_Yahoo.csv')
+        score.append(fp.Analyse(fp_positive))
+        g_positive = fp.clean('./CSV/GrabFood_Instagram.csv') + fp.clean('./CSV/GrabFood_Reddit.csv') + \
+            fp.clean('./CSV/GrabFood_Twitter.csv') + \
+            fp.clean('./CSV/GrabFood_Yahoo.csv')
+        score.append(fp.Analyse(g_positive))
+        d_positive = fp.clean('./CSV/Deliveroo_Instagram.csv') + fp.clean('./CSV/Deliveroo_Reddit.csv') + \
+            fp.clean('./CSV/Deliveroo_Twitter.csv') + \
+            fp.clean('./CSV/Deliveroo_Yahoo.csv')
+        score.append(fp.Analyse(d_positive))
+        return score
 
 # if __name__ == "__main__":
 #     fp = Sentimental_Analysis()
-#     hi = pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
-#                        'var1': [5000, 1000, 2000],
-#                        'var2': [3500, 1500, 500],
-#                        'var3': [90, 9000, 6900],
-#                        'var4': [777, 777, 777]})
-#     fp.plot_radar(name='test_sent_anal_spider.png', dat=hi)
-#     test_fp_freq_time = pd.DataFrame({'Date': [20150101, 20150115, 20150203, 20150204],
-#                                       'Freq': [200, 600, 900, 150]})
-#     test_d_freq_time = pd.DataFrame({'Date': [20170506, 20170805, 20182311, 20182311],
-#                                      'Freq': [420, 420, 420, 420]})
-#     test_g_freq_time = pd.DataFrame({'Date': [20190506, 20190805, 20132311, 20162311],
-#                                      'Freq': [7777, 777, 77, 7]})
-#     test_fp_freq_time['Date'] = pd.to_datetime(test_fp_freq_time['Date'])
-#     test_d_freq_time['Date'] = pd.to_datetime(test_d_freq_time['Date'])
-#     test_g_freq_time['Date'] = pd.to_datetime(test_g_freq_time['Date'])
-#     fp.plot_line(name='test_sent_anal_line.png',
-#                  fp_df=test_fp_freq_time, d_df=test_d_freq_time, g_df=test_g_freq_time)
+#     print(fp.get_positive())
+    # hi = pd.DataFrame({'Food': ['encapsulation', 'inheritence', 'polymorphism'],
+    #                    'var1': [5000, 1000, 2000],
+    #                    'var2': [3500, 1500, 500],
+    #                    'var3': [90, 9000, 6900],
+    #                    'var4': [777, 777, 777]})
+    # fp.plot_radar(name='hi', dat=hi)
+    # test_fp_freq_time = pd.DataFrame({'Date': [20150101, 20150115, 20150203, 20150204],
+    #                                   'Freq': [200, 600, 900, 150]})
+    # test_d_freq_time = pd.DataFrame({'Date': [20170506, 20170805, 20182311, 20182311],
+    #                                  'Freq': [420, 420, 420, 420]})
+    # test_g_freq_time = pd.DataFrame({'Date': [20190506, 20190805, 20132311, 20162311],
+    #                                  'Freq': [7777, 777, 77, 7]})
+    # test_fp_freq_time['Date'] = pd.to_datetime(test_fp_freq_time['Date'])
+    # test_d_freq_time['Date'] = pd.to_datetime(test_d_freq_time['Date'])
+    # test_g_freq_time['Date'] = pd.to_datetime(test_g_freq_time['Date'])
+    # fp.plot_line(name='hihi',
+    #              fp_df=test_fp_freq_time, d_df=test_d_freq_time, g_df=test_g_freq_time)
