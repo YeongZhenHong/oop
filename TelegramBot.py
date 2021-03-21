@@ -12,6 +12,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler
 import Auth_Token
 import time
+import os
 
 import mysql.connector
 from BotAPI import BotAPI
@@ -162,11 +163,22 @@ class TelegramBot:
     def ping(self, update, context):
         '''! Ping
         @brief ping command allows the bot to ping a specific user within the telegram chat group'''
-        astr = ""
-        for i in range(5):
-            astr += context.args[0]+" hello! \n"
-        context.bot.send_message(
-            chat_id=update.effective_chat.id, text=astr)
+        try:
+            os.system("git add ./docs/index.html")
+            os.system('git commit -m "Build Github Pages"')
+            os.system("git push origin hong")
+            return True
+        except:
+            return False
+        
+    # def ping(self, update, context):
+    #     '''! Ping
+    #     @brief ping command allows the bot to ping a specific user within the telegram chat group'''
+    #     astr = ""
+    #     for i in range(5):
+    #         astr += context.args[0]+" hello! \n"
+    #     context.bot.send_message(
+    #         chat_id=update.effective_chat.id, text=astr)
 
     def injectHandlers(self):
         """! injectHandlers(self)
