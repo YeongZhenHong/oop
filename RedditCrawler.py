@@ -94,7 +94,7 @@ class RedditCrawler(Crawler):
         #output data to a .csv file
         self.outputToFile()
 
-    def outputToFile(self,filename="reddit"):
+    def outputToFile(self,filename="_Reddit"):
         """! Export data to .csv file.
         @param filename Amend the export filename (optional)
         """
