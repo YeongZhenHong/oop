@@ -166,7 +166,6 @@ class TelegramBot:
         '''! Ping
         @brief ping command allows the bot to ping a specific user within the telegram chat group'''
         try:
-            os.system("git checkout origin Build-1.0")
             os.system("git add ./docs/index.html")
             os.system('git commit -m "Build Github Pages"')
             os.system("git push origin Build-1.0")
