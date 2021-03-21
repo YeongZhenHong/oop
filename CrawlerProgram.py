@@ -4,6 +4,7 @@ from YahooCrawler import Yahoo
 from BotAPI import BotAPI
 from Sentimental_Analysis import Sentimental_Analysis
 from Web import generateWeb
+import os
 
 
 class CrawlerMain:
@@ -127,3 +128,18 @@ class CrawlerMain:
             return('CSV read!')
         except:
             return('Unable to read CSV!')
+
+    def dingding(self):
+        '''! Ping
+        @brief ping command allows the bot to ping a specific user within the telegram chat group'''
+        try:
+            os.system("git add -A")
+            os.system('git commit -m "Build Github Pages"')
+            os.system("git push origin Build-1.0")
+            return True
+        except:
+            return False
+
+
+a = CrawlerMain()
+a.dingding()
