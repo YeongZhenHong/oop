@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['generateweb_70',['generateWeb',['../class_web_1_1generate_web.html',1,'Web']]]
+  ['crawler_82',['Crawler',['../class_crawler_1_1_crawler.html',1,'Crawler']]]
 ];

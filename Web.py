@@ -6,7 +6,7 @@ from BotAPI import BotAPI
 class generateWeb:
     def __init__(self):
         super().__init__()
-        self.f = open("./Output/test2.html", "w")
+        self.f = open("./docs/index.html", "w")
         self.initDB = BotAPI()
         self.initDB.openCnx()
 
@@ -14,6 +14,7 @@ class generateWeb:
         tweets = self.initDB.selectDB("Twitter")
         reddit = self.initDB.selectDB("Reddit")
         instagram = self.initDB.selectDB("Instagram")
+        yahoo = self.initDB.selectDB("Yahoo")
         message = """
        <!DOCTYPE html>
 <html lang="en">
@@ -28,12 +29,11 @@ class generateWeb:
   <!-- Google Fonts Roboto -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <!-- Bootstrap core CSS -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css">
+  <link rel="stylesheet" href="css/mdb.min.css">
   <!-- MDBootstrap Datatables  -->
-    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="css/addons/datatables.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -340,21 +340,15 @@ class generateWeb:
 
   </html>
   <!-- jQuery -->
-   
+  <script type="text/javascript" src="js/jquery.min.js"></script> 
   <!-- Bootstrap tooltips -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- MDBootstrap Datatables  -->
-   <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-   <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-  <!-- Your custom scripts (optional) -->
+  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
 
 
   <script>
