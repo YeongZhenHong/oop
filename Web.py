@@ -12,9 +12,9 @@ class generateWeb:
 
     def makeHTML(self):
         positive_score = Sentimental_Analysis.get_positive(self)
-        tweets = self.initDB.selectDB("Twitter")
-        reddit = self.initDB.selectDB("Reddit")
-        instagram = self.initDB.selectDB("Instagram")
+        grabFood = self.initDB.selectDB("Twitter", "GrabFood")
+        foodPanda = self.initDB.selectDB("Twitter", "FoodPanda")
+        deliveroo = self.initDB.selectDB("Instagram", "Deliveroo")
         yahoo = self.initDB.selectDB("Yahoo")
         message = """
        <!DOCTYPE html>
@@ -116,7 +116,7 @@ class generateWeb:
             <div class="w3-right">
               <h3>
                        """
-        message += str(tweets[1])
+        message += str(grabFood[1])
         message += """ Tweets Crawled</h3>
             </div>
             <div class="w3-clear"></div>
@@ -130,7 +130,7 @@ class generateWeb:
             <div class="w3-right">
               <h3>
                        """
-        message += str(reddit[1])
+        message += str(foodPanda[1])
         message += """ Reddit Crawled</h3>
             </div>
             <div class="w3-clear"></div>
@@ -143,7 +143,7 @@ class generateWeb:
             <div class="w3-right">
               <h3>
                        """
-        message += str(instagram[1])
+        message += str(deliveroo[1])
         message += """ Instagram Crawled</h3>
             </div>
             <div class="w3-clear"></div>
@@ -210,14 +210,14 @@ class generateWeb:
           </thead>
           <tbody>
                   """
-        for item in tweets[0]:
+        for item in grabFood[0]:
             message += "<tr>"
-            message += "<td></td>"
-            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[0])+"</td>"
             message += "<td>"+str(item[1])+"</td>"
+            message += "<td>"+str(item[2])+"</td>"
             message += "<td>"+str(item[3])+"</td>"
             message += "<td>"+str(item[4])+"</td>"
-            message += "<td></td>"
+            message += "<td>"+str(item[5])+"</td>"
             message += "</tr>"
         message += """
           </tbody>
@@ -248,14 +248,14 @@ class generateWeb:
           </thead>
           <tbody>
 """
-        for item in reddit[0]:
+        for item in foodPanda[0]:
             message += "<tr>"
-            message += "<td></td>"
-            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[0])+"</td>"
             message += "<td>"+str(item[1])+"</td>"
-            message += "<td></td>"
-            message += "<td></td>"
-            message += "<td></td>"
+            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[3])+"</td>"
+            message += "<td>"+str(item[4])+"</td>"
+            message += "<td>"+str(item[5])+"</td>"
             message += "</tr>"
         message += """
           </tbody>
@@ -288,14 +288,14 @@ class generateWeb:
           </thead>
           <tbody>
 """
-        for item in instagram[0]:
+        for item in deliveroo[0]:
             message += "<tr>"
-            message += "<td></td>"
-            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[0])+"</td>"
             message += "<td>"+str(item[1])+"</td>"
-            message += "<td></td>"
-            message += "<td></td>"
-            message += "<td></td>"
+            message += "<td>"+str(item[2])+"</td>"
+            message += "<td>"+str(item[3])+"</td>"
+            message += "<td>"+str(item[4])+"</td>"
+            message += "<td>"+str(item[5])+"</td>"
             message += "</tr>"
         message += """
           </tbody>

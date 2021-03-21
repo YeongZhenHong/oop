@@ -40,11 +40,15 @@ class TestReddit(unittest.TestCase):
         """! Test case for set settings function.
         @brief Checks if the respective variable is assigned accordingly when passed in the function.
         """
+        print("Testing set_Settings")
         self.reddit.setSettings("testCase", 6)
+        print("set_Settings called!")
         self.assertEqual(self.reddit.get_searchString(), "testCase")
-        self.assertEqual(self.reddit.get_searchLimit(), 6)
         self.assertNotEqual(self.reddit.get_searchString(), "food")
+        print("get_searchString is valid!")
+        self.assertEqual(self.reddit.get_searchLimit(), 6)
         self.assertNotEqual(self.reddit.get_searchLimit(), 9)
+        print("get_searchLimit is valid!")
    
     def test_authenticate(self):
         """! Test case to check authentication function.
@@ -53,14 +57,22 @@ class TestReddit(unittest.TestCase):
         """
         #input Dummy data in the authenticate method
         self.reddit.authenticate("Dummy1", "Dummy2", "Dummy3")
-
+<<<<<<< HEAD
+=======
+        print("Dummy data in!")
+>>>>>>> 762390d179c7d4531bf1e214586da3e67430287c
         #checks whether the respective value are equal when passed-in
         self.assertEqual(self.reddit.reddit.config.client_id, "Dummy1")
         self.assertEqual(self.reddit.reddit.config.client_secret, "Dummy2")
         self.assertEqual(self.reddit.reddit.config.user_agent, "Dummy3")
+<<<<<<< HEAD
         
+=======
+>>>>>>> 762390d179c7d4531bf1e214586da3e67430287c
+        print("Authentication parameters valid!")
         #check if reddit instance is called and created
         self.assertIsInstance(self.reddit.reddit, praw.Reddit, self.message)
+        print("Instance is created!")
 
     @patch.object(RedditCrawler, 'outputToFile', return_value=None)
     def test_crawl(self, mock_output):
@@ -68,20 +80,26 @@ class TestReddit(unittest.TestCase):
         @brief Invalid the outputToFile function by patching it as a mock object
         as we do not want to export data to a file.
         """
-        #check if ValueError is raised when passed in a negative/zero number
+        #check if Exception is raised when passed in a negative/zero number or empty string
         with self.assertRaises(Exception) as context:
             self.reddit.setSettings("test", -1)
             self.reddit.crawl()
              #compares if the subreddit instance is called and created
             self.assertIsInstance(self.reddit.subreddit1, type(self.reddit.reddit.subreddit("singapore")), self.message)
         
-        #check if it indeed raise an exception error message when input a negative/zero number
-        self.assertTrue("Error, that is not a positive number!" in str(context.exception))
+        #check if it indeed raise an exception error message when input a negative/zero number or an empty string
+        self.assertTrue("Error, not a postive number or empty string" in str(context.exception))
+
+        print("Reddit test_crawl completed!")
+
+        print("Reddit test_crawl completed!")
 
     def test_outputToFile(self):
         """! Test case to check output of data to .csv file.
         @brief Compares the dummy data to the .csv file 
         """
+        print("testing outputToFile function!")
+        
         #create fake dummy data
         self.reddit.posts = [("test1", "test2","test3","test4")]
         self.reddit.outputToFile("test")
