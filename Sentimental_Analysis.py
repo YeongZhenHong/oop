@@ -260,7 +260,6 @@ class Sentimental_Analysis:
         return score
 
 
-if __name__ == "__main__":
-    fp = Sentimental_Analysis()
-    text = 'I really hated CSC1009 because I did not get to meet professor Harry. The professor that conducted the module is not as handsome as Harry'
-    print(fp.Analyse(text))
+# if __name__ == "__main__":
+#     fp = Sentimental_Analysis()
+#     fp.plot_radar()
