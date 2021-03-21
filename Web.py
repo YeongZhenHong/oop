@@ -1,6 +1,6 @@
 import sys
 from BotAPI import BotAPI
-# from Sentimental_Analysis import Sentimental_Analysis
+from Sentimental_Analysis import Sentimental_Analysis
 
 
 class generateWeb:
@@ -11,11 +11,10 @@ class generateWeb:
         self.initDB.openCnx()
 
     def makeHTML(self):
-        # positive_score = Sentimental_Analysis().get_positive()
+        positive_score = Sentimental_Analysis.get_positive(self)
         grabFood = self.initDB.selectDB("GrabFood")
         foodPanda = self.initDB.selectDB("FoodPanda")
         deliveroo = self.initDB.selectDB("Deliveroo")
-
         message = """
        <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +68,7 @@ class generateWeb:
       <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
           class="fa fa-bars"></i>Menu</button>
       <span class="w3-bar-item w3-left">Hong's Holiday</span>
-    </div>  
+    </div>
 
     <!-- Sidebar/menu -->
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -80,7 +79,7 @@ class generateWeb:
       <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
-        <a href="#overview" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>
+        <a href="#overview" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>
           Overview</a>
         <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><img class="panda"
             src=".\img\koodpanda_menu_icon.png" width="40px" height="40px"></i>Food
@@ -91,8 +90,8 @@ class generateWeb:
         <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\grab_menu_icon.png"
             width="40px" height="40px"></i>Grab
           Food</a>
-        <a href="./doxygen//index.html" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\doxygen.png"
-            width="40px" height="40px"></i>Documentation</a>
+        <a href="./doxygen//index.html" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\doxygen.png"width="40px" height="40px"></i>Documentation</a>
+
       </div>
     </nav>
 
@@ -172,20 +171,29 @@ class generateWeb:
           <h5>Positive Sentiment Percentage</h5>
           <p>Grab</p>
           <div class="w3-grey">
-            
-<div class="w3-container w3-center w3-padding w3-flat-nephritis" style="width:25%">insert number</div>
+            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style='width:
+                    """
+        message += str(positive_score[1]*100)+"%'>"
+        message += str(positive_score[1]*100) + "% </div>"
+        message += """
           </div>
 
           <p>Deliveroo</p>
           <div class="w3-grey">
-                  <div class="w3-container w3-center w3-padding w3-flat-turquoise" style="width:50%">insert number</div>
-
+            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style='width:
+            """
+        message += str(positive_score[2]*100)+"%'>"
+        message += str(positive_score[2]*100) + "% </div>"
+        message += """
           </div>
 
           <p>Food Panda</p>
           <div class="w3-grey">
-            
-     <div class="w3-container w3-center w3-padding w3-pink" style="width:75%">insert number</div>
+            <div class="w3-container w3-center w3-padding w3-pink" style='width:
+            """
+        message += str(positive_score[0]*100)+"%'>"
+        message += str(positive_score[0]*100) + "% </div>"
+        message += """
         </div>
               <hr>
         <h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>
@@ -193,18 +201,28 @@ class generateWeb:
           <thead>
             <tr>
               <th class="th-sm"></th>
-              <th class="th-sm">Content</th>
-              <th class="th-sm">Author</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">Likes</th>
-              <th class="th-sm">Url</th>
+              <th class="th-sm">Content
+
+              </th>
+              <th class="th-sm">Author
+
+              </th>
+              <th class="th-sm">Date posted
+
+              </th>
+              <th class="th-sm">Likes/Shares
+
+              </th>
+              <th class="th-sm">Link
+
+              </th>
             </tr>
           </thead>
           <tbody>
                   """
-        for item in grabFood[0]:
+        for item in foodPanda[0]:
             message += "<tr>"
-            message += "<td>"+str(item[0])+"</td>"
+            message += "<td></td>"
             message += "<td>"+str(item[1])+"</td>"
             message += "<td>"+str(item[2])+"</td>"
             message += "<td>"+str(item[3])+"</td>"
@@ -213,24 +231,34 @@ class generateWeb:
             message += "</tr>"
         message += """
           </tbody>
-        </table> 
+        </table>
         <h1 id="deliveroopost" style="color:#02CCC0"><strong>Deliveroo Posts</strong></h1>
         <table id="dtdeliveroo" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
             <tr>
               <th class="th-sm"></th>
-              <th class="th-sm">Content</th>
-              <th class="th-sm">Author</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">Likes</th>
-              <th class="th-sm">Url</th>
+              <th class="th-sm">Content
+
+              </th>
+              <th class="th-sm">Author
+
+              </th>
+              <th class="th-sm">Date posted
+
+              </th>
+              <th class="th-sm">Likes/Shares
+
+              </th>
+              <th class="th-sm">Link
+
+              </th>
             </tr>
           </thead>
           <tbody>
 """
-        for item in foodPanda[0]:
+        for item in deliveroo[0]:
             message += "<tr>"
-            message += "<td>"+str(item[0])+"</td>"
+            message += "<td></td>"
             message += "<td>"+str(item[1])+"</td>"
             message += "<td>"+str(item[2])+"</td>"
             message += "<td>"+str(item[3])+"</td>"
@@ -239,26 +267,36 @@ class generateWeb:
             message += "</tr>"
         message += """
           </tbody>
-        </table>  
+        </table>
         <h1 id="grabfoodpost" style="color:#029837"><strong>Grab Food Posts</strong></h1>
         <table id="dtgrabfood" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
           <thead>
 
             <tr>
               <th class="th-sm"></th>
-              <th class="th-sm">Content</th>
-              <th class="th-sm">Author</th>
-              <th class="th-sm">Date</th>
-              <th class="th-sm">Likes</th>
-              <th class="th-sm">Url</th>
+              <th class="th-sm">Content
+
+              </th>
+              <th class="th-sm">Author
+
+              </th>
+              <th class="th-sm">Date posted
+
+              </th>
+              <th class="th-sm">Likes/Shares
+
+              </th>
+              <th class="th-sm">Link
+
+              </th>
             </tr>
 
           </thead>
           <tbody>
 """
-        for item in deliveroo[0]:
+        for item in grabFood[0]:
             message += "<tr>"
-            message += "<td>"+str(item[0])+"</td>"
+            message += "<td></td>"
             message += "<td>"+str(item[1])+"</td>"
             message += "<td>"+str(item[2])+"</td>"
             message += "<td>"+str(item[3])+"</td>"
@@ -267,13 +305,13 @@ class generateWeb:
             message += "</tr>"
         message += """
           </tbody>
-          
+
         </table>
-      
+
 
         <!-- Footer -->
         <footer class="w3-container w3-padding-16 w3-light-grey">
-          
+
         </footer>
 
 
@@ -311,7 +349,7 @@ class generateWeb:
 
   </html>
   <!-- jQuery -->
-  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/jquery.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
@@ -333,7 +371,6 @@ class generateWeb:
 </body>
 
 </html>
-
 
 
         """
