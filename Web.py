@@ -6,7 +6,7 @@ from BotAPI import BotAPI
 class generateWeb:
     def __init__(self):
         super().__init__()
-        self.f = open("./docs/index.html", "w")
+        self.f = open("./docs/index.html", "w", encoding="utf8")
         self.initDB = BotAPI()
         self.initDB.openCnx()
 
@@ -67,8 +67,8 @@ class generateWeb:
     <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
       <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i
           class="fa fa-bars"></i>Menu</button>
-      <span class="w3-bar-item w3-right">Logo</span>
-    </div>
+      <span class="w3-bar-item w3-left">Hong's Holiday</span>
+    </div>  
 
     <!-- Sidebar/menu -->
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
