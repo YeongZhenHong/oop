@@ -93,14 +93,10 @@ class RedditCrawler(Crawler):
         @param filename Amend the export filename (optional)
         """
         try:
-            with open(super().get_searchString() + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
+            with open('./CSV/'+super().get_searchString() + filename + '.csv', 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
                 writer.writerow(['Comment', 'Author', 'Date', 'Time', 'Upvotes'])
                 #writer.writerow(['Title', 'Comment', 'Link', 'Comment Count', 'Date', 'Time'])
                 writer.writerows(self.posts)
         except Exception as e:
             print(e)
-
-redditC = RedditCrawler()
-redditC.setSettings("foodpanda", 2)
-redditC.crawl()
