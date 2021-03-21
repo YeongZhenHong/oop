@@ -40,15 +40,11 @@ class TestReddit(unittest.TestCase):
         """! Test case for set settings function.
         @brief Checks if the respective variable is assigned accordingly when passed in the function.
         """
-        print("Testing set_Settings")
         self.reddit.setSettings("testCase", 6)
-        print("set_Settings called!")
         self.assertEqual(self.reddit.get_searchString(), "testCase")
-        self.assertNotEqual(self.reddit.get_searchString(), "food")
-        print("get_searchString is valid!")
         self.assertEqual(self.reddit.get_searchLimit(), 6)
+        self.assertNotEqual(self.reddit.get_searchString(), "food")
         self.assertNotEqual(self.reddit.get_searchLimit(), 9)
-        print("get_searchLimit is valid!")
    
     def test_authenticate(self):
         """! Test case to check authentication function.
@@ -57,15 +53,13 @@ class TestReddit(unittest.TestCase):
         """
         #input Dummy data in the authenticate method
         self.reddit.authenticate("Dummy1", "Dummy2", "Dummy3")
-        print("Dummy data in!")
         #checks whether the respective value are equal when passed-in
         self.assertEqual(self.reddit.reddit.config.client_id, "Dummy1")
         self.assertEqual(self.reddit.reddit.config.client_secret, "Dummy2")
         self.assertEqual(self.reddit.reddit.config.user_agent, "Dummy3")
-        print("Authentication parameters valid!")
+        
         #check if reddit instance is called and created
         self.assertIsInstance(self.reddit.reddit, praw.Reddit, self.message)
-        print("Instance is created!")
 
     @patch.object(RedditCrawler, 'outputToFile', return_value=None)
     def test_crawl(self, mock_output):
@@ -83,14 +77,10 @@ class TestReddit(unittest.TestCase):
         #check if it indeed raise an exception error message when input a negative/zero number
         self.assertTrue("Error, that is not a positive number!" in str(context.exception))
 
-        print("Reddit test_crawl completed!")
-
     def test_outputToFile(self):
         """! Test case to check output of data to .csv file.
         @brief Compares the dummy data to the .csv file 
         """
-        print("testing outputToFile function!")
-        
         #create fake dummy data
         self.reddit.posts = [("test1", "test2","test3","test4")]
         self.reddit.outputToFile("test")

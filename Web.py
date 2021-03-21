@@ -1,6 +1,6 @@
-
 import sys
 from BotAPI import BotAPI
+from Sentimental_Analysis import Sentimental_Analysis
 
 
 class generateWeb:
@@ -11,6 +11,7 @@ class generateWeb:
         self.initDB.openCnx()
 
     def makeHTML(self):
+        positive_score = Sentimental_Analysis.get_positive(self)
         tweets = self.initDB.selectDB("Twitter")
         reddit = self.initDB.selectDB("Reddit")
         instagram = self.initDB.selectDB("Instagram")
@@ -81,11 +82,14 @@ class generateWeb:
           onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>Close Menu</a>
         <a href="#overview" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>
           Overview</a>
-        <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>Food
+        <a href="#foodpandapost" class="w3-bar-item w3-button w3-padding"><img class="panda"
+            src=".\img\koodpanda_menu_icon.png" width="40px" height="40px"></i>Food
           Panda</a>
-        <a href="#deliveroopost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>
+        <a href="#deliveroopost" class="w3-bar-item w3-button w3-padding"><img class="roo"
+            src=".\img\deliveroo_menu_icon.png" width="40px" height="40px"></i>
           Deliveroo</a>
-        <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>Grab
+        <a href="#grabfoodpost" class="w3-bar-item w3-button w3-padding"><img class="G" src=".\img\grab_menu_icon.png"
+            width="40px" height="40px"></i>Grab
           Food</a>
 
       </div>
@@ -167,18 +171,29 @@ class generateWeb:
           <h5>Positive Sentiment Percentage</h5>
           <p>Grab</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style="width:25%">insert number</div>
+            <div class="w3-container w3-center w3-padding w3-flat-nephritis" style='width:
+                    """
+        message += str(positive_score[1]*100)+"%'>"
+        message += str(positive_score[1]*100) + "% </div>"
+        message += """
           </div>
 
           <p>Deliveroo</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style="width:50%">insert number</div>
+            <div class="w3-container w3-center w3-padding w3-flat-turquoise" style='width:
+            """
+        message += str(positive_score[2]*100)+"%'>"
+        message += str(positive_score[2]*100) + "% </div>"
+        message += """
           </div>
 
           <p>Food Panda</p>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-pink" style="width:75%">insert number</div>
-          </div>
+            <div class="w3-container w3-center w3-padding w3-pink" style='width:
+            """
+        message += str(positive_score[0]*100)+"%'>"
+        message += str(positive_score[0]*100) + "% </div>"
+        message += """
         </div>
               <hr>
         <h1 id="foodpandapost" style="color:#D80765"><strong>Food Panda Posts</strong></h1>

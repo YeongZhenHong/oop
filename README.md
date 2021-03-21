@@ -4,7 +4,6 @@
 > 
 > Our main topic to scrape will be regarding food delivery reviews 🍔🍕🍝🍵
 > 
-
 ## ✏️ Table of contents
 * [Files](#files)
 * [Tools used](#tools-used)
