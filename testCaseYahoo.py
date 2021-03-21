@@ -8,28 +8,27 @@ Runs Yahoo Crawler test cases
 """
 
 import unittest
-from unittest import mock
 from unittest.mock import Mock, patch
 from YahooCrawler import Yahoo
 
 class TestYahoo(unittest.TestCase):
-    """! The test Yahoo class.
+    """! The Yahoo test case cclass.
     @brief Defines a test Yahoo class to test yahooCrawler functions.
     """
     def setUp(self):
-        """! Setup class to initialise an instance of Yahoo class to start testing.
+        """! Setup function to initialise an instance of Yahoo class to start testing.
         """
         self.yahoo = Yahoo()
-        print("setting up Yahoo Crawler...")
+        print("Setting up Yahoo Crawler...")
 
     def tearDown(self):
         """! Indicates that the test is completed.
         """
-        print("tearing down Yahoo Crawler...")
+        print("Tearing down Yahoo Crawler...")
 
     def test_set_Settings(self):
         """! Test case for set settings.
-        @brief Checks if the respective variable is assigned accordingly when passed in the function.
+        @brief Checks if the respective variables are assigned accordingly when passing it into the function.
         """
         print("Testing set_Settings")
         self.yahoo.set_Settings("food", 5)
@@ -40,7 +39,7 @@ class TestYahoo(unittest.TestCase):
         self.assertEqual(self.yahoo.get_searchLimit(), 5)
         self.assertNotEqual(self.yahoo.get_searchLimit(), 1)
         print("get_searchLimit valid!")
-
+    
     @patch.object(Yahoo, 'get_article', return_value=None)
     def test_get_article(self, mock_method):
         """! Test case for get article function.

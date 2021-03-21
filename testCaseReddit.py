@@ -57,11 +57,18 @@ class TestReddit(unittest.TestCase):
         """
         #input Dummy data in the authenticate method
         self.reddit.authenticate("Dummy1", "Dummy2", "Dummy3")
+<<<<<<< HEAD
+=======
+        print("Dummy data in!")
+>>>>>>> 762390d179c7d4531bf1e214586da3e67430287c
         #checks whether the respective value are equal when passed-in
         self.assertEqual(self.reddit.reddit.config.client_id, "Dummy1")
         self.assertEqual(self.reddit.reddit.config.client_secret, "Dummy2")
         self.assertEqual(self.reddit.reddit.config.user_agent, "Dummy3")
+<<<<<<< HEAD
         
+=======
+>>>>>>> 762390d179c7d4531bf1e214586da3e67430287c
         print("Authentication parameters valid!")
         #check if reddit instance is called and created
         self.assertIsInstance(self.reddit.reddit, praw.Reddit, self.message)
@@ -85,11 +92,12 @@ class TestReddit(unittest.TestCase):
 
         print("Reddit test_crawl completed!")
 
+        print("Reddit test_crawl completed!")
+
     def test_outputToFile(self):
         """! Test case to check output of data to .csv file.
         @brief Compares the dummy data to the .csv file 
         """
-
         print("testing outputToFile function!")
         
         #create fake dummy data
