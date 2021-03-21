@@ -64,28 +64,6 @@ class TelegramBot:
             chat_id=update.effective_chat.id, text=message)
         # update.message.reply_text('Please choose:', reply_markup=reply_markup)
 
-    def crawlTwitter(self, update, context):
-        """! Function
-        @brief getTweets gets an instance of Twitter Crawler to fetch tweets from Twitter's API
-        @exception context.bot.send_message Fail to reply user with output
-        """
-        try:
-            getTweets = Twitter().set_Settings(
-                context.args[0], context.args[1])
-            # getTweets = Twitter(context.args[0]).crawl()
-            time.sleep(10)
-            context.bot.send_message(
-                chat_id=update.effective_chat.id, text="tweet output for " +
-                context.args[0]
-            )
-            context.bot.sendDocument(
-                chat_id=update.effective_chat.id, document=open("./pagination/testhome.html", "rb"))
-            context.bot.sendDocument(
-                chat_id=update.effective_chat.id, document=open("./sent_anal.png", "rb"))
-        except:
-            context.bot.send_message(
-                chat_id=update.effective_chat.id, text="Failed to crawl twitter!!")
-
     def crawl(self, update, context):
         """! Function
         @brief getTweets gets an instance of Twitter Crawler to fetch tweets from Twitter's API
@@ -120,28 +98,6 @@ class TelegramBot:
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text="Failed to crawl twitter!!")
 
-    def fetchTweets(self, update, context):
-        """! fetchTweets(self,update,context)
-        @brief fetches tweets from TwitterBot.py 
-        @param self
-        @param update
-        @param context Fetches all the tweets from the database
-        @param tweetsArray contains all the tweets that is called from the database
-        """
-        try:
-            self.initDB.openCnx()
-            tweetsArray = self.initDB.selectTweets()
-            for item in tweetsArray:
-
-                context.bot.send_message(
-                    chat_id=update.effective_chat.id, text=str(item))
-            self.initDB.closeCnx()
-            return True
-        except:
-            context.bot.send_message(
-                chat_id=update.effective_chat.id, text="Failed to fetch tweets from database!")
-            return False
-
     def startBot(self):
         """! Function
         @brief startsBot() start the bot by injecting handler and begin polling"""
@@ -162,26 +118,6 @@ class TelegramBot:
         except:
             return False
 
-    def ping(self, update, context):
-        '''! Ping
-        @brief ping command allows the bot to ping a specific user within the telegram chat group'''
-        try:
-            os.system("git add ./docs/index.html")
-            os.system('git commit -m "Build Github Pages"')
-            os.system("git push origin Build-1.0")
-            return True
-        except:
-            return False
-        
-    # def ping(self, update, context):
-    #     '''! Ping
-    #     @brief ping command allows the bot to ping a specific user within the telegram chat group'''
-    #     astr = ""
-    #     for i in range(5):
-    #         astr += context.args[0]+" hello! \n"
-    #     context.bot.send_message(
-    #         chat_id=update.effective_chat.id, text=astr)
-
     def injectHandlers(self):
         """! injectHandlers(self)
         @brief Inject Command handlers
@@ -192,10 +128,7 @@ class TelegramBot:
             self.dispatcher.add_handler(
                 CommandHandler('FetchTweets', self.fetchTweets))
             self.dispatcher.add_handler(CommandHandler('start', self.start))
-            self.dispatcher.add_handler(CommandHandler('ping', self.ping))
             self.dispatcher.add_handler(CommandHandler('Crawl', self.crawl))
-            self.dispatcher.add_handler(CommandHandler(
-                'CrawlTwitter', self.crawlTwitter))
             return True
         except:
             print("Failed to inject handlers!")
