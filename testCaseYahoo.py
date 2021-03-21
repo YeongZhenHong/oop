@@ -8,7 +8,6 @@ Runs Yahoo Crawler test cases
 """
 
 import unittest
-from unittest import mock
 from unittest.mock import Mock, patch
 from YahooCrawler import Yahoo
 
