@@ -10,6 +10,11 @@ import os
 class CrawlerMain:
 
     def main_crawl(self, searchString, limit):
+        """! main_crawl(self, searchString, limit)
+        @brief sets the string to be queried and creates the respective social media objects
+        @param searchString- string to be Queried
+        @param limit- sets the limit to the number of posts to fetch
+        """
         t = Twitter()
         t.set_Settings(searchString, limit)
         t.crawl()
@@ -27,6 +32,10 @@ class CrawlerMain:
         return None
 
     def crawl_Twitter(self, limit):
+        """! crawl_Twitter(self,limit)
+        @brief create Twitter objects for the respective social media platforms
+        @param limit- sets the limit for number of tweets fetched
+        """
         try:
 
             foodPanda = Twitter()
@@ -48,6 +57,10 @@ class CrawlerMain:
             return False, "Twitter Crawling failed"
 
     def crawl_Yahoo(self, limit):
+        """! crawl_Yahoo(self,limit)
+        @brief create Yahoo objects for the respective social media platforms
+        @param limit- sets the limit for number of articles fetched
+        """
         try:
             foodPanda = Yahoo()
             foodPanda.set_Settings("FoodPanda", limit)
@@ -68,6 +81,10 @@ class CrawlerMain:
             return False, "Yahoo Crawling Failed"
 
     def crawl_Reddit(self, limit):
+        """! crawl_Reddit(self,limit)
+        @brief create Reddit objects for the respective social media platforms
+        @param limit- sets the limit for number of posts fetched
+        """
         try:
             foodPanda = RedditCrawler()
             foodPanda.set_Settings("FoodPanda", limit)
@@ -89,17 +106,22 @@ class CrawlerMain:
             return False, "Reddit Crawling Failed"
 
     def sent_anal(self):
+        """! sent_anal(self)
+        @brief calls the Sentimental_Analysis class and the plot functions to generate graph based on newly crawled data
+        """
         try:
             sent = Sentimental_Analysis()
             sent.plot_radar()
             sent.plot_line()
             return True, "Sentimental Analysis Complete!"
         except:
-            return False, "Failed to perform Aentimental Analysis"
+            return False, "Failed to perform Sentimental Analysis"
 
     def generateWebpage(self):
+        """! generateWebpage(self)
+        @brief Generate Webpage by calling web.py makeHTML()
+        """
         try:
-
             make = generateWeb()
             make.makeHTML()
             make.close()
@@ -108,6 +130,9 @@ class CrawlerMain:
             return False, "Fail to generate webpage"
 
     def readcsv(self):
+        """! readcsv(self)
+        @brief Read the respective csv files
+        """
         read = BotAPI()
         try:
             read.readCsv('GrabFood', 'Twitter')
