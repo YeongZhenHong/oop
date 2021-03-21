@@ -17,6 +17,7 @@ from time import sleep
 from bs4 import BeautifulSoup
 import requests
 from Crawler import Crawler
+import datetime
 
 
 headers = {
@@ -57,15 +58,18 @@ class Yahoo(Crawler):
         @param An article
         @brief Pulls out required information from the article and returns a tuple with the fields.
         """
+        currentDate = datetime.datetime.now()
+
         title = thing.find('h4', 's-title').text
         source = thing.find('span', 's-source').text
-        date = thing.find('span', 's-time').text.replace('-','').strip()
+        daysAgo = thing.find('span', 's-time').text.replace('·',' ').strip("days ago") #Get the number of days ago from post date
+        minusDays = datetime.timedelta(int(daysAgo)) # Check for the number of days to minus off
         desc = thing.find('p', 's-desc').text.strip()
         raw_link = thing.find('a').get('href')
         unquote_link = requests.utils.unquote(raw_link)
         regex_pattern = re.compile(r'RU=(.+)\/RK')
         cleaned_link = re.search(regex_pattern, unquote_link).group(1)
-
+        date=(currentDate-minusDays).date() #Minus off the number of days from current date 
         article = (title, source, date, desc, cleaned_link)
         return article
 
