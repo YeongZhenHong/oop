@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sentimental_5fanalysis_75',['Sentimental_Analysis',['../class_sentimental___analysis_1_1_sentimental___analysis.html',1,'Sentimental_Analysis']]]
+  ['redditcrawler_86',['RedditCrawler',['../class_reddit_crawler_1_1_reddit_crawler.html',1,'RedditCrawler']]]
 ];
