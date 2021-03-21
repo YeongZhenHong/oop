@@ -94,11 +94,6 @@ class TelegramBot:
             context.bot.send_message(
                 chat_id=update.effective_chat.id, text=self.crawlerMain.generateWebpage()[1])
             time.sleep(15)
-
-            # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/FoodPanda_Twitter.csv", "rb"))
-            # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/Deliveroo_Twitter.csv", "rb"))
-            # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./CSV/GrabFood_Twitter.csv", "rb"))
-            # context.bot.sendDocument(chat_id=update.effective_chat.id, document=open("./sent_anal_spider.png", "rb"))
             context.bot.send_message(chat_id=update.effective_chat.id,
                                      text='Publishing WebPage.... Please wait for 2 mins for WebPage to fully Generate!')
             context.bot.send_message(

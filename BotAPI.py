@@ -128,7 +128,7 @@ class BotAPI:
             print("Fail to read Twitter csv")
             return False
 
-a=BotAPI()
-a.openCnx()
-a.selectDB("GrabFood")
-a.closeCnx()
+# a=BotAPI()
+# a.openCnx()
+# a.selectDB("GrabFood")
+# a.closeCnx()
