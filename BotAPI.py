@@ -102,7 +102,7 @@ class BotAPI:
         @exception self.cnx.commit() fail to commit the comments into database
         """
         try:
-            add_reddit = ("INSERT INTO crawler.Reddit_clone" +
+            add_reddit = ("INSERT INTO crawler.Reddit" +
                           "(Comment,Upvotes,Date,Time) VALUES('" + comment+"','"+upvotes+"','"+date+"','"+time+"')")
             self.cursor.execute(add_reddit)
             self.cnx.commit()
@@ -167,11 +167,11 @@ class BotAPI:
                 print("Fail to read Instagram csv")
                 return False
 
-a = BotAPI()
-a.openCnx()
+# a = BotAPI()
+# a.openCnx()
 # a.readCsv("GrabFood","Twitter")
-a.readCsv("GrabFood","Reddit")
-a.readCsv("Deliveroo","Reddit")
-a.readCsv("FoodPanda","Reddit")
+# a.readCsv("GrabFood","Reddit")
+# a.readCsv("Deliveroo","Reddit")
+# a.readCsv("FoodPanda","Reddit")
 # a.readCsv("GrabFood","Instagram")
-a.closeCnx()
+# a.closeCnx()
