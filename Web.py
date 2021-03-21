@@ -14,6 +14,7 @@ class generateWeb:
         tweets = self.initDB.selectDB("Twitter")
         reddit = self.initDB.selectDB("Reddit")
         instagram = self.initDB.selectDB("Instagram")
+        yahoo = self.initDB.selectDB("Yahoo")
         message = """
        <!DOCTYPE html>
 <html lang="en">
