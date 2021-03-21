@@ -57,20 +57,36 @@ class BotAPI:
         self.cnx.close()  # closes the database connection
         self.cursor.close()  # closes the database connection
 
-    def selectDB(self, socialMedia):
+    def selectDB(self, platform):
         """! Select all comments that is stored in the database
         @brief Select statement to select all tweets 
         @return tuple(dataList,len(datalist)) returns tuple with an array and an integer count
         """
         dataList = []
         try:
-            query = "SELECT* FROM crawler."+socialMedia
-            self.cursor.execute(query)
-            dataList = [item for item in self.cursor]
+            dataList+=self.selectLikeDB("Twitter","content",platform)
+            # dataList+=self.selectLikeDB("Instagram","posts",platform)
+            # dataList+=self.selectLikeDB("Yahoo","Description",platform)
+            # dataList+=self.selectLikeDB("Reddit","Comment",platform)
+            
             return dataList, len(dataList)
         except:
             print("No data selected!")
             return []
+    # def selectDB(self, socialMedia):
+    #     """! Select all comments that is stored in the database
+    #     @brief Select statement to select all tweets
+    #     @return tuple(dataList,len(datalist)) returns tuple with an array and an integer count
+    #     """
+    #     dataList = []
+    #     try:
+    #         query = "SELECT* FROM crawler."+socialMedia
+    #         self.cursor.execute(query)
+    #         dataList = [item for item in self.cursor]
+    #         return dataList, len(dataList)
+    #     except:
+    #         print("No data selected!")
+    #         return []
 
     def selectLikeDB(self, socialMedia, columnName, platform):
         """! Select all comments that is stored in the database
@@ -79,7 +95,7 @@ class BotAPI:
         """
         dataList = []
         try:
-            query = "SELECT* FROM crawler."+socialMedia + \
+            query = "SELECT"+columnName+" FROM crawler."+socialMedia + \
                 " WHERE "+columnName+" LIKE '%"+platform+"%'"
             self.cursor.execute(query)
             dataList = [item for item in self.cursor]
@@ -219,3 +235,12 @@ class BotAPI:
                 return False
 
 
+a =BotAPI()
+a.openCnx()
+print(a.selectDB("FoodPanda"))
+a.closeCnx()
+# print(a.selectLikeDB("Twitter","content","FoodPanda"))
+# print(a.selectLikeDB("Instagram","posts","FoodPanda"))
+# print(a.selectLikeDB("Yahoo","Description","FoodPanda"))
+# print(a.selectLikeDB("Reddit","Comment","FoodPanda"))
+# a.closeCnx()
