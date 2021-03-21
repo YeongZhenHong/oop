@@ -72,7 +72,8 @@ class InstagramCrawler(Crawler):
         time.sleep(4)
 
     def scroll_down(self, timer=5):
-        """! scrolls instagram page down indefinitely as it loads dynamically
+        """! scrolls instagram page down indefinitely as it loads dynamically, 
+        not used in here as we keep clicking right
         """
         prev_height = self.driver.execute_script("return document.body.scrollHeight")
         html = self.driver.find_element_by_tag_name('html')
@@ -163,7 +164,3 @@ class InstagramCrawler(Crawler):
         df = pd.DataFrame(data=data)
         df.to_csv(super().get_searchString() + '_' + filename + ".csv")
         #df.to_json('insta.json', orient='records', indent=1)
-
-
-instagram = InstagramCrawler('grabfoodsg',50)
-instagram.crawl()
