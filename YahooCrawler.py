@@ -69,7 +69,8 @@ class Yahoo(Crawler):
         cleaned_link = re.search(regex_pattern, unquote_link).group(1)
         # Minus off the number of days from current date
         date = (currentDate-minusDays).date()
-        article = (title, source, date, desc, cleaned_link)
+        blank = ''
+        article = (title+desc, source, date, blank, blank, cleaned_link)
         return article
 
     """! crawl function
@@ -82,10 +83,10 @@ class Yahoo(Crawler):
         url = template.format(self.get_searchString())
         links = set()
         limit = self.get_searchLimit()
- 
-        #raise an exception if the searchLimit is not a positive number or the searchString is empty
-        if limit < 0 or super().get_searchString() == "": 
-            raise Exception("Error, not a postive number or empty string") 
+
+        # raise an exception if the searchLimit is not a positive number or the searchString is empty
+        if limit < 0 or super().get_searchString() == "":
+            raise Exception("Error, not a postive number or empty string")
         while True:
             try:
                 response = requests.get(url, headers=headers)
@@ -113,6 +114,7 @@ class Yahoo(Crawler):
 
         with open('./CSV/'+self.get_searchString()+'_Yahoo.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow(['Title', 'Source', 'Date', 'Description', 'Link'])
+            writer.writerow(['content', 'author', 'date',
+                             'retweets', 'likes', 'url'])
             writer.writerows(self.news_articles)
         return self.news_articles
