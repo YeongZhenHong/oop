@@ -53,11 +53,11 @@ class TestYahoo(unittest.TestCase):
         """
         #check if ValueError is raised when passed in a negative/zero number
         with self.assertRaises(Exception) as context:
-            self.yahoo.set_Settings("test", -1)
+            self.yahoo.set_Settings("", 1)
             self.yahoo.crawl()
 
-        #check if it indeed raise an exception error message when input a negative/zero number
-        self.assertTrue("Error, that is not a positive number!" in str(context.exception))
+         #check if it indeed raise an exception error message when input a negative/zero number or an empty string
+        self.assertTrue("Error, not a postive number or empty string" in str(context.exception))
         
         self.yahoo.set_Settings("foodpanda", 1)
         self.yahoo.crawl()

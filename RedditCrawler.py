@@ -60,9 +60,9 @@ class RedditCrawler(Crawler):
     def crawl(self):
         """! Main function to start crawling data and export it to .csv file.
         """
-        #raise an Value error exception if the search limit is not a positive number
-        if super().get_searchLimit() <= 0: 
-            raise ValueError("Error, that is not a positive number!") 
+        #raise an exception if the searchLimit is not a positive number or the searchString is empty
+        if super().get_searchLimit() < 0 or super().get_searchString() == "": 
+            raise Exception("Error, not a postive number or empty string") 
         try:
             #navigates to subreddit "singapore", sets the search string and limits the posts
             self.subreddit1 = self.reddit.subreddit("singapore")
