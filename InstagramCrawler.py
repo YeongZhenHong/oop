@@ -30,6 +30,8 @@ class InstagramCrawler(Crawler):
     #user & post list to store their respective data
     users_list = []
     posts_list = []
+    date_list = []
+    time_list = []
     
     def __init__(self, hashtag, post=10):
         """! The Instragram Crawler class initializer.
@@ -147,12 +149,20 @@ class InstagramCrawler(Crawler):
         #find the list of users and post
         users = self.driver.find_elements_by_class_name('_6lAjh')
         post = self.driver.find_elements_by_xpath("//div[@class='C4VMK']/span")
+        datetime = self.driver.find_elements_by_xpath("//div[@class='C4VMK']/div/div//time[@class='FH9sR Nzb55']")
 
-        #loop through the user list and extact the text
+        #loop through the user list and extract the text
         for user in users: 
             self.users_list.append(user.text)
+        
+        #loop through the date and time list and extract the text
+        for dt in datetime:
+            date = dt.get_attribute("datetime").split("T")[0]
+            time = dt.get_attribute("datetime").split("T")[1].split(".")[0]
+            self.date_list.append(date)
+            self.time_list.append(time)
 
-        #loop through the post list and extact the text
+        #loop through the post list and extract the text
         for p in post:
              self.posts_list.append(p.text.replace('\r', '').replace('\n',''))
 
@@ -162,7 +172,9 @@ class InstagramCrawler(Crawler):
         """
         data = {
             "user" : self.users_list,
-            "posts": self.posts_list 
+            "posts": self.posts_list,
+            "date" : self.date_list,
+            "time" : self.time_list
         }
 
         df = pd.DataFrame(data=data)
