@@ -1,2 +1,36 @@
+# CSC1009 Project
+### Hello! 👋 We are Team Hong's Holiday
+> The aim of this project is to allow users to crawl data from various social media platforms 📱
+> 
+> Our main topic to scrape will be regarding food delivery reviews 🍔🍕🍝🍵
+> 
+## ✏️ Table of contents
+* [Files](#files)
+* [Tools used](#tools-used)
+* [Status](#status)
+* [Demo](#demo)
 
-![picture](https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Dino_non-birthday_version.gif)
+## 📂 Files
+Executable files:
+`BotAPI.py`
+`TelegramBot.py`
+`TwitterCrawler.py`
+`RedditCrawler.py`
+`YahooCrawler.py`
+`InstagramCrawler.py`
+`Sentimental_Analysis.py`
+
+## 💻 Tools used
+* Visual Studio Code
+* PyCharm
+* MySQL
+* Doxygen
+
+## ❔ Status
+Project is:  _completed_
+
+## 📹 Demo
+A demo on how this project is executed can be found [here](insertlink)
+
+
+![gif](https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Dino_non-birthday_version.gif)
