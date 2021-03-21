@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['instagramcrawler_2epy_91',['InstagramCrawler.py',['../_instagram_crawler_8py.html',1,'']]]
+  ['instagramcrawler_2epy_92',['InstagramCrawler.py',['../_instagram_crawler_8py.html',1,'']]]
 ];
