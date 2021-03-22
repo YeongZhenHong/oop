@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['navigateviahashtag_28',['navigateViaHashTag',['../class_instagram_crawler_1_1_instagram_crawler.html#ad65a12aeb2f41775795677248ad1130b',1,'InstagramCrawler::InstagramCrawler']]]
+  ['main_5fcrawl_32',['main_crawl',['../class_crawler_program_1_1_crawler_main.html#a4d8c96d4313a85d547cadfcb0fee5f05',1,'CrawlerProgram::CrawlerMain']]],
+  ['makehtml_33',['makeHTML',['../class_web_1_1generate_web.html#a412d1015430ceaa43bbe1c1946050f0a',1,'Web::generateWeb']]]
 ];

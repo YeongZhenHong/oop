@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['readcsv_144',['readCsv',['../class_bot_a_p_i_1_1_bot_a_p_i.html#a8def487200bbb9579845bb3e7d5d025c',1,'BotAPI::BotAPI']]]
+  ['plot_5fline_155',['plot_line',['../class_sentimental___analysis_1_1_sentimental___analysis.html#a281af243fa2f34cbe2a460c0fa68d9c8',1,'Sentimental_Analysis::Sentimental_Analysis']]],
+  ['plot_5fpie_156',['plot_pie',['../class_sentimental___analysis_1_1_sentimental___analysis.html#a3b8f437c7568f4f106672d557c029497',1,'Sentimental_Analysis::Sentimental_Analysis']]],
+  ['plot_5fradar_157',['plot_radar',['../class_sentimental___analysis_1_1_sentimental___analysis.html#a924928d0f87547db4e595f868e6de0ad',1,'Sentimental_Analysis::Sentimental_Analysis']]]
 ];
