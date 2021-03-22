@@ -65,9 +65,9 @@ class BotAPI:
         dataList = []
         try:
             dataList += self.selectLikeDB("Twitter", platform)
-            # dataList+=self.selectLikeDB("Instagram",platform)
-            # dataList+=self.selectLikeDB("Yahoo",platform)
-            # dataList+=self.selectLikeDB("Reddit",platform)
+            dataList+=self.selectLikeDB("Instagram",platform)
+            dataList+=self.selectLikeDB("Yahoo",platform)
+            dataList+=self.selectLikeDB("Reddit",platform)
 
             return dataList, len(dataList)
         except:
