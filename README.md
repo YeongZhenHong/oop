@@ -32,8 +32,10 @@ Executable files:
 Project is:  _completed_
 
 ## 📹 Demo
-A demo on how this project is executed can be found [here](https://www.youtube.com/watch?v=0Cn726BIux0)
-[Doxygen](https://yeongzhenhong.github.io/oop/doxygen//index.html)
-[Github_Pages](https://yeongzhenhong.github.io/oop/)
+* [Github_Pages](https://yeongzhenhong.github.io/oop/)
+* [Doxygen](https://yeongzhenhong.github.io/oop/doxygen//index.html)
+* [Youtube](https://www.youtube.com/watch?v=0Cn726BIux0)
+
+
 
 ![gif](https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Dino_non-birthday_version.gif)
