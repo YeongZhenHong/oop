@@ -51,15 +51,9 @@ class TelegramBot:
         I can perform data crawling from Twitter,Reddit,Yahoo and Instagram\n
         /Crawl- Crawl data from a all platforms\n
         """
-        # keyboard = [[
-        #     InlineKeyboardButton("Crawl data", callback_data=self.crawl),
-        #     InlineKeyboardButton("Ping someone", callback_data=self.ping),
-        # ],
-        #     [InlineKeyboardButton("Kill Bot", callback_data=self.killBot())], ]
-        # reply_markup = InlineKeyboardMarkup(keyboard)
+
         context.bot.send_message(
             chat_id=update.effective_chat.id, text=message)
-        # update.message.reply_text('Please choose:', reply_markup=reply_markup)
 
     def crawl(self, update, context):
         """! Function
@@ -69,7 +63,7 @@ class TelegramBot:
         @param context aaaaa
         @exception context.bot.send_message Fail to reply user with output
         """
-        limit = 10
+        limit = 1000
         # limit = int(context.args[0])
 
         try:
