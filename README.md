@@ -37,5 +37,21 @@ Project is:  _completed_
 * [Youtube](https://www.youtube.com/watch?v=0Cn726BIux0)
 
 
+Installing Dependencies
+```
+python -m pip install -U pip
+python -m pip install -U matplotlib
+pip install tweepy
+pip install bs4
+pip install praw
+pip install selenium
+pip install requests
+pip install pandas
+pip install python-mysql-connector
+pip install csv
+pip install python-telegram-bot
+```
+
+
 
 ![gif](https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Dino_non-birthday_version.gif)
